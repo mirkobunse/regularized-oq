@@ -1,4 +1,4 @@
-module Conf
+module Configuration
 
 using CherenkovDeconvolution, MetaConfigurations, Random
 using ..Util, ..Data, ..MoreMethods

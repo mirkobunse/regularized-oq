@@ -11,7 +11,7 @@ function __init__()
     end # fix the scikit-learn version for reproducibility
 end
 
-export Util, Data, MoreMethods, Conf, Job, Res
+export Util, Data, MoreMethods, Configuration, Experiments, Results
 
 include("Util.jl")
 using .Util
@@ -22,13 +22,13 @@ using .Data
 include("MoreMethods.jl")
 using .MoreMethods
 
-include("Conf.jl")
-using .Conf
+include("Configuration.jl")
+using .Configuration
 
-include("Job.jl")
-using .Job
+include("Experiments.jl")
+using .Experiments
 
-include("Res.jl")
-using .Res
+include("Results.jl")
+using .Results
 
 end # module

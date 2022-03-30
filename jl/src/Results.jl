@@ -1,4 +1,4 @@
-module Res
+module Results
 
 using CherenkovDeconvolution, CSV, DataFrames, HypothesisTests, Printf, Statistics
 

@@ -1,7 +1,6 @@
 module Data
 
 using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase
-using CherenkovDeconvolution.DeconvUtil: normalizepdf
 using MetaConfigurations: parsefile
 using ..Util
 
