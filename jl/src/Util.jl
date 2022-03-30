@@ -1,10 +1,6 @@
 module Util
 
-using CSV, DataFrames, Discretizers, Distances, Interpolations, MLDataUtils, Printf, PyCall, Random, ScikitLearn
-using CherenkovDeconvolution, MetaConfigurations
-import LinearAlgebra
-
-DISTANCE_EPSILON = 1e-9 # min value of pdfs assumed for distance computations
+using CSV, CherenkovDeconvolution, DataFrames, PyCall, ScikitLearn
 
 """
     SkObject(class_name, args...; kwargs...)
@@ -31,67 +27,6 @@ KFold(args...; kwargs...) = SkObject("sklearn.model_selection.KFold", args...; k
 label_binarize(args...; kwargs...) = SkObject("sklearn.preprocessing.label_binarize", args...; kwargs...)
 IsotonicRegression(args...; kwargs...) = SkObject("sklearn.isotonic.IsotonicRegression", args...; kwargs...)
 CountVectorizer(args...; kwargs...) = SkObject("sklearn.feature_extraction.text.CountVectorizer", args...; kwargs...)
-
-"""
-    read_csv(path; nrows=nothing) = DataFrames.disallowmissing!(CSV.read(path; limit=nrows))
-
-Read the CSV file, not allowing missing values. `nrows` specifies the number of rows to be read.
-"""
-read_csv(path::AbstractString; nrows::Union{Integer, Nothing}=nothing) =
-    DataFrames.disallowmissing!(CSV.read(path, DataFrame; limit=nrows))
-
-"""
-    classifier_from_config(config)
-
-Configure a classifier from a YAML file path or from a configuration Dict `config`.
-"""
-classifier_from_config(config::AbstractString) =
-    classifier_from_config(parsefile(config; dicttype=Dict{Symbol,Any}))
-function classifier_from_config(config::Dict{Symbol,Any})
-    classname = config[:classifier]
-    parameters = haskey(config, :parameters) ? config[:parameters] : Dict{Symbol,Any}()
-    preprocessing = get(config, :preprocessing, "")
-    calibration = Symbol(get(config, :calibration, "none"))
-    return classifier(classname, preprocessing, calibration;
-                      zip(Symbol.(keys(parameters)), values(parameters))...)
-end
-
-"""
-    classifier(classname, preprocessing = "", calibration = :none; kwargs...)
-
-Configure a classifier to be used in `train_and_predict_proba`. The `preprocessing`
-can be empty (default), or the name of a scikit-learn transformer like `"StandardScaler"`.
-
-The `calibration` can be `:none` (default), or `:isotonic`.
-
-The keyword arguments configure the corresponding class (see official scikit-learn doc).
-"""
-function classifier(classname::AbstractString,
-                    preprocessing::AbstractString = "",
-                    calibration::Symbol = :none;
-                    kwargs...)
-    # instantiate classifier object
-    Classifier = eval(Meta.parse(classname)) # constructor method
-    classifier = Classifier(; kwargs...)
-
-    # add calibration
-    if calibration == :isotonic
-        classifier = CalibratedClassifierCV(
-            classifier,
-            method=string(calibration),
-            cv=KFold(n_splits=3) # do not stratify CV
-        )
-    elseif calibration != :none
-        throw(ArgumentError("calibration has to be :none, or :isotonic"))
-    end
-
-    # add pre-processing
-    if preprocessing != ""
-        transformer = eval(Meta.parse(preprocessing))() # call the constructor method
-        classifier  = Pipeline([ ("preprocessing", transformer), ("classifier", classifier) ])
-    end
-    return classifier
-end
 
 """
     rnod(a, b)

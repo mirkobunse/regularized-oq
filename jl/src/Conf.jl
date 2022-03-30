@@ -1,11 +1,7 @@
 module Conf
 
-using MetaConfigurations, Random
+using CherenkovDeconvolution, MetaConfigurations, Random
 using ..Util, ..Data, ..MoreMethods
-using CherenkovDeconvolution: DSEA, IBU, RUN, PRUN, SVD
-using CherenkovDeconvolution: ConstantStepsize, ExpDecayStepsize, MulDecayStepsize, DEFAULT_STEPSIZE, RunStepsize, OptimizedStepsize
-using CherenkovDeconvolution: TreeBinning, KMeansBinning
-using CherenkovDeconvolution: NoSmoothing, PolynomialSmoothing
 
 DISCRETE_CONSTRUCTORS = Dict(
     "run" => RUN,
@@ -13,7 +9,6 @@ DISCRETE_CONSTRUCTORS = Dict(
     "ibu" => IBU,
     "svd" => SVD
 )
-
 QUAPY_CONSTRUCTORS = Dict(
     "cc" => MoreMethods.ClassifyAndCount,
     "pcc" => MoreMethods.ProbabilisticClassifyAndCount,
@@ -110,8 +105,34 @@ function _method_arguments(c::Dict{Symbol,Any})
     return arg
 end
 
-_configure_classifier(c) =
-    Util.classifier_from_config(haskey(c, :skconfig) ? c[:skconfig] : c)
+function _configure_classifier(config::Dict{Symbol,Any})
+    classname = config[:classifier] # read the configuration
+    parameters = haskey(config, :parameters) ? config[:parameters] : Dict{Symbol,Any}()
+    preprocessing = get(config, :preprocessing, "")
+    calibration = Symbol(get(config, :calibration, "none"))
+
+    # instantiate classifier object
+    Classifier = eval(Meta.parse(classname)) # constructor method
+    classifier = Classifier(; parameters...) # zip(Symbol.(keys(parameters)), values(parameters))...
+
+    # add calibration
+    if calibration == :isotonic
+        classifier = CalibratedClassifierCV(
+            classifier,
+            method=string(calibration),
+            cv=KFold(n_splits=3) # do not stratify CV
+        )
+    elseif calibration != :none
+        throw(ArgumentError("calibration has to be :none or :isotonic"))
+    end
+
+    # add pre-processing
+    if preprocessing != ""
+        transformer = eval(Meta.parse(preprocessing))() # call the constructor method
+        classifier  = Pipeline([ ("preprocessing", transformer), ("classifier", classifier) ])
+    end
+    return classifier
+end
 
 _configure_binning(c::Dict{Symbol, Any}) =
     if c[:method_id] == "tree"
@@ -129,32 +150,27 @@ _configure_binning(c::Dict{Symbol, Any}) =
         throw(ArgumentError("Unknown binning $(c[:method_id])"))
     end
 
-function _configure_stepsize(c::Dict{Symbol, Any})
-    method = c[:method_id]
-    if method == "constant"
+_configure_stepsize(c::Dict{Symbol, Any}) =
+    if c[:method_id] == "constant"
         alpha = get(c, :alpha, 1.0)
         ConstantStepsize(alpha)
-    elseif method == "decay_mul"
+    elseif c[:method_id] == "decay_mul"
         eta = c[:eta]
         a   = get(c, :a, 1.0)
         MulDecayStepsize(eta, a)   
-    elseif method == "decay_exp"
+    elseif c[:method_id] == "decay_exp"
         eta = c[:eta]
         a   = get(c, :a, 1.0)
         ExpDecayStepsize(eta, a)
-    elseif method == "run"
+    elseif c[:method_id] == "run"
         binning = _configure_binning(c[:binning])
         decay   = get(c, :decay, false)
         tau     = get(c, :tau, 0.0)
         warn    = get(c, :warn, false)
         RunStepsize(binning; decay = decay, tau = tau, warn = warn)
-    elseif method == "optimal"
-        # must set dynamically 
-        return c[:optimal_stepsize]
     else
         throw(ArgumentError("Unknown stepsize method_id=$(method_id)"))
     end
-end
 
 function _configure_smoothing(c::Dict{Symbol, Any})
     c = copy(c) # keep the original configuration intact

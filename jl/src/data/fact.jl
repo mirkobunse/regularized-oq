@@ -33,18 +33,6 @@ X_data(d::Fact) = d.X_data
 y_data(d::Fact) = d.y_data
 discretizer(d::Fact) = d.discretizer
 
-function acceptance_correction(d::Fact; fallback=false)
-    conf = parsefile(d.configfile)["acceptance_correction"]
-    df = Util.read_csv(conf["acfile"])
-    df = df[(df.threshold.==conf["threshold"]) .& (df.theta2_cut.==conf["theta2_cut"]), :]
-    x_itp, y_itp = Util.interpolate_b_splines(
-        log10.(df.bin_centers), df.area, length(df.area)*100
-    ) # interpolate bin_centers (in log space) and areas
-    s_itp = (x_itp .>= minimum(d.discretizer.binedges)) .& (x_itp .<= maximum(d.discretizer.binedges))
-    y_mean = combine(groupby(DataFrame(x=encode(d.discretizer, x_itp[s_itp]), y=y_itp[s_itp]), :x), :y => DataFrames.mean).y_mean
-    return f->normalizepdf(f./y_mean), f->normalizepdf(f.*y_mean)
-end
-
 # read FACT data
 function _Xy_fact(configfile::String, nobs::Union{Integer, Nothing}, readdata::Bool, mode::Symbol)
     X = zeros(Float32, 0, 20)
@@ -62,7 +50,7 @@ function _Xy_fact(configfile::String, nobs::Union{Integer, Nothing}, readdata::B
             push!(files, c[:diffuse])
         end
         for datafile in files
-            df = Util.read_csv(datafile, nrows = nobs)
+            df = DataFrames.disallowmissing!(CSV.read(datafile, DataFrame; limit=nobs))
             y = vcat(y, Vector{Float32}(df[:, FACT_TARGET]))
             X = vcat(X, Matrix{Float32}(df[:, setdiff(propertynames(df), [FACT_TARGET])]))
         end
