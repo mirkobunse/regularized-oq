@@ -34,5 +34,5 @@ RUN chown --recursive $user:$gid /home/$user/
 USER $uid
 RUN julia --optimize=3 --startup-file=no /home/$user/.julia/config/setup.jl
 
-WORKDIR /mnt/home/deconv-exp
+WORKDIR /mnt/home
 CMD ["bash"]

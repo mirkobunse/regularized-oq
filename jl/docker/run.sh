@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
-USER=`id --user --name`  # cluster user
-NAME="deconv"            # default container name
-RESOURCES="-c 1 -m 64g"  # default resources allocated by each container
+USER=`id --user --name`  # Docker user
+NAME="ecml22"            # default container name
+RESOURCES="-c 8 -m 128g" # default resources allocated by each container
 
 # find the name of the image (with or without prefix)
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -31,28 +31,11 @@ case "$1" in
         NAME="$2"
         shift 2
         ;;
-    enqueue) # add a container to the queue
-        args="${@:2}"
-        echo "| Resources: '$RESOURCES'"
-        echo "| Name: ${USER}-${NAME}-<autohash>"
-        echo "| Args: $args"
-        docker create \
-            --label queue \
-            --label autohash \
-            $RESOURCES \
-            -e constraint:nodetype!=phi \
-            -v /home/$USER:/mnt/home \
-            -v /rdata/s01f_c3_004:/mnt/data \
-            --name "${USER}-${NAME}-" \
-            $IMAGE \
-            $args  # pass additional arguments to the container entrypoint
-        exit 0 # done
-        ;;
     *) break ;;
 esac
 done
 
-# start a single container (only available from gateway machine)
+# start the container
 args="${@:1}"
 echo "| Resources: '$RESOURCES'"
 echo "| Name: ${USER}-${NAME}"

@@ -1,4 +1,4 @@
-TAG_NAME=$(USER)/deconv
+TAG_NAME=$(USER)/ecml22
 USER=$(shell id --user --name)
 UID=$(shell id --user)
 GROUP=$(shell id --group --name)
