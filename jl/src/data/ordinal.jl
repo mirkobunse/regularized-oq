@@ -1,6 +1,3 @@
-using SparseArrays
-using PyCallUtils
-
 """
     struct OrdinalDataSet <: DataSet
 

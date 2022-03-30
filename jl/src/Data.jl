@@ -1,10 +1,12 @@
-__precompile__(false)
 module Data
 
-using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase, UCIData
+using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase
 using CherenkovDeconvolution.DeconvUtil: normalizepdf
 using MetaConfigurations: parsefile
 using ..Util
+
+# import UCIData without precompiling because its precompilation is broken
+__init__() = @eval using UCIData
 
 DISCRETIZATION_Y = "discretization_y" # property in config files
 
