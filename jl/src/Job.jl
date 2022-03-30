@@ -16,13 +16,11 @@ using
     ScikitLearnBase
 import LinearAlgebra, Statistics, StatsBase # import with qualified access, e.g. LinearAlgebra.eigen
 
-using ComfyCommons: ComfyLogging, ComfyGit
 using CherenkovDeconvolution
 using CherenkovDeconvolution.OptimizedStepsizes: OptimizedStepsize
 using CherenkovDeconvolution.DeconvUtil: expansion_discretizer, fit_pdf, fit_R, inspect_expansion, inspect_reduction, normalizepdf, train_and_predict_proba
 using MetaConfigurations
 using ..Util, ..Data
-using ..Util: CalibratedRandomForestClassifier
 using ..Conf: configure_method
 
 """

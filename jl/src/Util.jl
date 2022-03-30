@@ -1,7 +1,7 @@
 module Util
 
 using CSV, DataFrames, Discretizers, Distances, Interpolations, MLDataUtils, Printf, PyCall, Random, ScikitLearn
-using CherenkovDeconvolution, ComfyCommons, MetaConfigurations
+using CherenkovDeconvolution, MetaConfigurations
 import LinearAlgebra
 
 DISTANCE_EPSILON = 1e-9 # min value of pdfs assumed for distance computations

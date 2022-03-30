@@ -1,6 +1,5 @@
 module Conf
 
-using ComfyCommons: ComfyLogging, ComfyGit
 using MetaConfigurations, Random
 using ..Util, ..Data, ..MoreMethods
 using CherenkovDeconvolution: DSEA, IBU, RUN, PRUN, SVD
@@ -176,11 +175,7 @@ end
 Generate a set of job configurations from the given meta-configuration file.
 """
 function dirichlet(metaconfig::String="conf/job/meta/dirichlet.yml")
-
-    # read config and check for recent changes
     meta = parsefile(metaconfig; dicttype=Dict{Symbol,Any})
-    githaschanges = ComfyGit.haschanges("src", metaconfig)
-    if (githaschanges) @warn "Uncommited changes may affect configurations" end
 
     # expand configuration
     for job in expand(meta, :dataset)
@@ -342,11 +337,7 @@ end
 Generate a set of job configurations from the given meta-configuration file.
 """
 function amazon(metaconfig::String="conf/job/meta/amazon.yml")
-
-    # read config and check for recent changes
     meta = parsefile(metaconfig; dicttype=Dict{Symbol,Any})
-    githaschanges = ComfyGit.haschanges("src", metaconfig)
-    if (githaschanges) @warn "Uncommited changes may affect configurations" end
 
     # expand configuration
     for job in expand(meta, :data)

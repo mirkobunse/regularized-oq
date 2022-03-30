@@ -3,7 +3,6 @@ using OrdinalQuantification
 
 @info "using @everywhere"
 using Distributed: @everywhere
-@everywhere using ComfyCommons.ComfyLogging; set_global_logger()
 @everywhere using OrdinalQuantification
 
 @info "Received $(length(ARGS)) job(s):\n\t" * join(ARGS, "\n\t")

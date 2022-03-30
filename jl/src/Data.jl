@@ -1,7 +1,7 @@
+__precompile__(false)
 module Data
 
 using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase, UCIData
-using ComfyCommons.ComfyLogging
 using CherenkovDeconvolution.DeconvUtil: normalizepdf
 using MetaConfigurations: parsefile
 using ..Util
@@ -26,8 +26,10 @@ Example configuration file
       max: 0.8
       num_bins: 3
 """
-function Discretizers.LinearDiscretizer(configfile::String, key::String = DISCRETIZATION_Y;
-                                        kwargs...)
+function Discretizers.LinearDiscretizer(
+        configfile::String,
+        key::String = DISCRETIZATION_Y;
+        kwargs...)
     # load config
     c = parsefile(configfile)
     if length(key) > 0

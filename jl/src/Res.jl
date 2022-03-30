@@ -15,12 +15,11 @@ using
     Random,
     Statistics
 
-using ComfyCommons: ComfyLogging, ComfyGit
 using CherenkovDeconvolution
 using CherenkovDeconvolution.DeconvUtil: fit_pdf, fit_R, normalizepdf
 
 using ..Util, ..Data, ..Job
-using ..Util: kl, chi2p, chi2s, mdpa, nmd, rnod, rsnod
+using ..Util: mdpa, nmd, rnod, rsnod
 
 """
     initialize(job, files...[; warn_changed=true])
@@ -32,7 +31,6 @@ function initialize(job::String, files::String...; warn_changed=true)
 end
 
 include("res/amazon.jl")
-include("res/dirichlet.jl")
 include("res/main.jl")
 
 end
