@@ -1,8 +1,5 @@
 using SparseArrays
 using PyCallUtils
-using ScikitLearn: @sk_import
-@sk_import datasets: fetch_openml
-@sk_import feature_extraction.text: CountVectorizer
 
 """
     struct OrdinalDataSet <: DataSet
@@ -40,7 +37,11 @@ function OpenmlDataSet(
         num_bins::Int=0,
         readdata::Bool=true)
     if readdata
-        bunch = fetch_openml(data_id=config["id"]; as_frame=true) # a Dict of pandas objects
+        bunch = Util.SkObject(
+            "sklearn.datasets.fetch_openml";
+            data_id=config["id"],
+            as_frame=true
+        ) # a Dict of pandas objects
         df = DataFrame(; map(
             c -> Symbol(c) => bunch["data"][c].to_numpy(),
             bunch["data"].columns

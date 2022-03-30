@@ -6,9 +6,7 @@ using CherenkovDeconvolution.DeconvUtil: normalizepdf
 using MetaConfigurations: parsefile
 using ..Util
 
-
 DISCRETIZATION_Y = "discretization_y" # property in config files
-
 
 """
     LinearDiscretizer(configfile, key=""; kwargs...)
@@ -55,9 +53,7 @@ bins(cd::CategoricalDiscretizer) = collect(1:nlabels(cd))
 
 # DataSet type implementations
 abstract type DataSet end   # abstract supertype
-include("data/gaussian.jl") # toy data
 include("data/fact.jl")     # FACT telescope data
-include("data/magic.jl")    # MAGIC telescope data
 include("data/ordinal.jl")  # ordinal data from UCI and OpenML
 
 """
@@ -98,31 +94,13 @@ discretizer(d::DataSet) = throw(ArgumentError("discretizer is not implemented fo
 bins(d::DataSet) = bins(discretizer(d))
 
 """
-    acceptance_correction(d; fallback=false)
-
-Return a tuple of functions, `(ac, inv_ac)`, where `ac(f)` produces acceptance-corrected
-values for a deconvolution result `f` and `inv_ac` is the inverse function. Namely,
-`inv_ac(ac(f)) .== normalizepdf(f)` is always true.
-
-If this method is not implemented for the DataSet `d`, an error is thrown by default.
-However, if `fallback=true` then the identity function (normalized to a pdf) is returned,
-instead, for both `ac` and `inv_ac`.
-"""
-acceptance_correction(d::DataSet; fallback=false) =
-    if fallback
-        return f->normalizepdf(f), f->normalizepdf(f) # twice the identiy
-    else
-        throw(ArgumentError("acceptance_correction is not implemented for $(typeof(d)); consider setting fallback=true."))
-    end
-
-"""
     dataset(id)
 
 Return the DataSet object with the given `id`.
 """
 dataset(id::AbstractString, args...; kwargs...) =
-    if id ∈ keys(DATASET_TYPES)
-        return DATASET_TYPES[id](args...; kwargs...)
+    if id == "fact"
+        return Fact(args...; kwargs...)
     elseif id ∈ keys(parsefile("conf/data/uci.yml")) 
         return UciDataSet(id; kwargs...)
     elseif id ∈ keys(parsefile("conf/data/openml.yml"))
@@ -130,11 +108,6 @@ dataset(id::AbstractString, args...; kwargs...) =
     else
         throw(KeyError(id))
     end
-
-DATASET_TYPES = Dict( "gaussian" => Gaussian,
-                      "fact"     => Fact,
-                      "magic"    => Magic )
-
 
 struct ExhaustedClassException <: Exception
     label::Int64 # the label that is exhausted
