@@ -98,7 +98,7 @@ _main_avg(x) = @sprintf("%.4f", x)[2:end] # ".nnnn"
 _main_std(x) = @sprintf("%.3f", x)[2:end] # ".nnn"
 _main_bold(x) = x >= 0.01 ? "\\mathbf" : ""
 
-function _main(df::DataFrame, selection_metric::String)
+function _main(df::DataFrame, selection_metric::AbstractString)
     df = df[df[!, :selection_metric].==selection_metric, :]
     @info "_main receives a subset of $(nrow(df)) results"
     agg = combine(

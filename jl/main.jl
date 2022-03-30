@@ -14,6 +14,6 @@ for arg in ARGS
     elseif !isfile(arg)
         @warn "Skipping $arg, which is not a file"
     else
-        OrdinalQuantification.Job.run(arg) # start the current configuration
+        Experiments.run(arg) # start the current configuration
     end
 end

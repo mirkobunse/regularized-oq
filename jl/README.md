@@ -29,6 +29,8 @@ make GID=1234 GROUP=foo UID=5678 USER=bar
 ./run.sh
 ```
 
+The `run.sh` script will mount two directories: your home folder `/home/<user>/` will be mounted at `/mnt/home/` and a data directory (which can be configured and is `/rdata/s01f_c3_004/` by default) will be mounted at `/mnt/data/`. The data directory should contain a sub-directory `amazon-oq-bk`, where the Amazon-OQ-BK data is stored.
+
 ## Setup inside the container / local setup without Docker
 
 Navigate to the place where you have stored our supplementary material. Start `julia` from the `jl/` directory. You get an interactive session with which you can generate the FACT-OQ data set.
