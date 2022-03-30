@@ -1,7 +1,7 @@
-name = "DeconvExp"
-uuid = "4006ddf5-3342-4a8e-96e9-cd0df3b68585"
-authors = ["Mirko Bunse <mirko.bunse@cs.tu-dortmund.de>"]
-version = "0.2.0"
+name = "OrdinalQuantification"
+uuid = "db81655c-0675-4b96-98de-d8246fe7af2c"
+authors = ["Anonymous"]
+version = "0.0.1"
 
 [deps]
 CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"

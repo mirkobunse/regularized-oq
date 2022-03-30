@@ -15,10 +15,10 @@ valfile: res/metrics/amazon_$(id)_val.csv
 
 data:
   - id: tfidf
-    path: /mnt/data/isti_confidential/Books
+    path: /mnt/data/amazon-oq-bk/tfidf
     type: raw_text # specify how to read this data
   - id: roberta
-    path: /mnt/data/isti_confidential/RoBERTa_Books
+    path: /mnt/data/amazon-oq-bk/roberta
     type: dense_vector
 
 # the sampling protocols with which to evaluate

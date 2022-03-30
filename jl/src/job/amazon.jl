@@ -251,46 +251,6 @@ function load_amazon_data(data_path::String)
     return X, y
 end
 
-function plot_amazon_smoothness(
-        data_path::String="/mnt/data/isti_confidential/Books/",
-        output_path::String="res/metrics/amazon_smoothness.csv"
-        )
-    f_trn = DeconvUtil.fit_pdf(load_amazon_data(data_path * "/training_data.txt")[2], 0:4)
-    C = LinearAlgebra.diagm(
-        -1 => fill(-1, 4),
-        0 => fill(2, 5),
-        1 => fill(-1, 4)
-    )[2:4, :] # matrix for curvature computation
-
-    # compute NMDs and curvatures for all validation samples
-    data_path *= "app"
-    nmd = zeros(1000)
-    curv = zeros(1000)
-    for i_val in 1:1000
-        f_val = DeconvUtil.fit_pdf(load_amazon_data(data_path * "/dev_samples/$(i_val-1).txt")[2], 0:4)
-        nmd[i_val] = Util.nmd(f_trn, f_val)
-        curv[i_val] = sum((C*f_val).^2)
-    end
-
-    # divide NMDs and curvatures into three buckets
-    nmd_split = Statistics.quantile(unique(nmd), 1/3 .* collect(1:(3-1)))
-    nmd_level = vec(sum(hcat([ nmd .> s for s in nmd_split ]...); dims=2)) .+ 1
-    curv_split = Statistics.quantile(unique(curv), 1/3 .* collect(1:(3-1)))
-    curv_level = vec(sum(hcat([ curv .> s for s in curv_split ]...); dims=2)) .+ 1
-
-    # inspect the similarity of the buckets
-    confusion = zeros(3, 3)
-    for i in 1:3, j in 1:3
-        confusion[i, j] = sum((nmd_level .== i) .& (curv_level .== j))
-    end
-    @info "Confusion between NMD-defined and curvature-defined levels" confusion
-
-    df = DataFrame(nmd=nmd, curvature=curv, nmd_level=nmd_level, curvature_level=curv_level)
-    CSV.write(output_path, df)
-    @info "NMD and curvature values written to $(output_path)"
-    return df
-end
-
 # split each line by spaces, parse into Float64s, and reshape into a matrix
 parse_dense_vector(X_txt::Vector{String}) =
     vcat(map(x -> parse.(Float64, split(x, r"\s+"))', X_txt)...)
