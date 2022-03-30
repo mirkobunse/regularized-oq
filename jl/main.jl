@@ -1,4 +1,6 @@
-@info "TODO move runjob.jl to src/Job.jl"
+#
+# julia -p <number of processes> main.jl conf/gen/<file 1>.yml conf/gen/<file 2>.yml ...
+#
 using OrdinalQuantification
 
 @info "using @everywhere"

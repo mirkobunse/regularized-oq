@@ -4,16 +4,6 @@ UID=$(shell id --user)
 GROUP=$(shell id --group --name)
 GID=$(shell id --group)
 
-push: .PUSH
-.PUSH: .IMAGE
-	@ echo "The image '${TAG_NAME}' is built for the Docker image repository '${DOCKER_REPOSITORY}'."
-	@ echo "You can set the name of this repository with the environment variable DOCKER_REPOSITORY.\n"
-	- docker rmi -f $(DOCKER_REPOSITORY)/$(TAG_NAME)
-	docker tag $(TAG_NAME) $(DOCKER_REPOSITORY)/$(TAG_NAME)
-	docker push $(DOCKER_REPOSITORY)/$(TAG_NAME)
-	docker pull $(DOCKER_REPOSITORY)/$(TAG_NAME)
-	echo "$(DOCKER_REPOSITORY)/$(TAG_NAME)" > $@
-
 image: .IMAGE
 .IMAGE: Dockerfile .Project.toml .Manifest.toml setup.jl startup.jl
 	- docker rmi -f $(TAG_NAME)
@@ -25,6 +15,17 @@ image: .IMAGE
 	    --tag $(TAG_NAME) \
 	    .
 	echo "$(TAG_NAME)" > $@
+
+# optionally push to a ${DOCKER_REPOSITORY}
+push: .PUSH
+.PUSH: .IMAGE
+	@ echo "The image '${TAG_NAME}' is built for the Docker image repository '${DOCKER_REPOSITORY}'."
+	@ echo "You can set the name of this repository with the environment variable DOCKER_REPOSITORY.\n"
+	- docker rmi -f $(DOCKER_REPOSITORY)/$(TAG_NAME)
+	docker tag $(TAG_NAME) $(DOCKER_REPOSITORY)/$(TAG_NAME)
+	docker push $(DOCKER_REPOSITORY)/$(TAG_NAME)
+	docker pull $(DOCKER_REPOSITORY)/$(TAG_NAME)
+	echo "$(DOCKER_REPOSITORY)/$(TAG_NAME)" > $@
 
 .Project.toml: ../Project.toml
 	grep -A10000 "\[deps\]" $< > $@

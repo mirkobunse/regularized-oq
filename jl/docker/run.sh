@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+# ./docker/run.sh [-r <resources>] [-n <name>] [args...]
+#
 set -e
 USER=`id --user --name`  # Docker user
 NAME="ecml22"            # default container name
@@ -17,7 +20,7 @@ fi
 
 # always print usage information
 echo "Found the Docker image ${IMAGE}"
-echo "| Usage: $0 [-r <resources>] [-n <name>] [enqueue] [args...]"
+echo "| Usage: $0 [-r <resources>] [-n <name>] [args...]"
 
 # runtime arguments
 ARGS=

@@ -11,12 +11,6 @@ discretization_y: # how to divide the continuous label into ordinal classes
   max: 4.2
   num_bins: 12
 
-# acceptance correction with parameters for row selection
-acceptance_correction:
-  acfile: data/ac/fact.csv
-  threshold: 0.70
-  theta2_cut: 0.10
-
 # where to download the data from and how to pre-process it
 download:
   wobble: https://factdata.app.tu-dortmund.de/dl2/FACT-Tools/v1.1.2/gamma_simulations_facttools_dl2.hdf5
