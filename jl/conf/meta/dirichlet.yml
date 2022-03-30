@@ -15,9 +15,9 @@ N_tst: 1000 # number of items in each testing sample
 
 
 # output of configuration expansion and of experiments
-configfile: conf/job/gen/dirichlet_$(dataset).yml
-outfile: res/metrics/dirichlet_$(dataset).csv
-valfile: res/metrics/dirichlet_val_$(dataset).csv
+configfile: conf/gen/dirichlet_$(dataset).yml
+outfile: res/csv/dirichlet_$(dataset).csv
+valfile: res/csv/dirichlet_val_$(dataset).csv
 
 
 # all data sets to be used

@@ -42,11 +42,11 @@ catch_during_trial(jobfunction, args...) =
     end
 
 """
-    amazon(configfile="conf/job/gen/amazon.yml")
+    amazon(configfile="conf/gen/amazon.yml")
 
 Experiments of different quantification methods on Amazon customer review text data.
 """
-function amazon(configfile::String="conf/job/gen/amazon.yml")
+function amazon(configfile::String="conf/gen/amazon.yml")
     c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
     Random.seed!(c[:seed])
     @info "Parsing $(c[:data][:type]) from $(c[:data][:path])/"
@@ -240,11 +240,11 @@ parse_dense_vector(X_txt::Vector{String}) =
     vcat(map(x -> parse.(Float64, split(x, r"\s+"))', X_txt)...)
 
 """
-    dirichlet(configfile="conf/job/gen/dirichlet_fact.yml")
+    dirichlet(configfile="conf/gen/dirichlet_fact.yml")
 
 Comparative evaluation over the unit simplex.
 """
-function dirichlet(configfile::String="conf/job/gen/dirichlet_fact.yml")
+function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml")
     c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
 
     # read and split the data

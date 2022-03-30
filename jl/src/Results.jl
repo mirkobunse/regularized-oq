@@ -3,15 +3,15 @@ module Results
 using CherenkovDeconvolution, CSV, DataFrames, HypothesisTests, Printf, Statistics
 
 METRICSFILES_MAIN = [
-    "Books-OQ" => "res/metrics/amazon_roberta.csv",
-    "FACT-OQ" => "res/metrics/dirichlet_fact.csv",
+    "Books-OQ" => "res/csv/amazon_roberta.csv",
+    "FACT-OQ" => "res/csv/dirichlet_fact.csv",
 ]
 METRICSFILES_OTHERS = [
-    "TFIDF" => "res/metrics/amazon_tfidf.csv",
-    "blg-fdbck" => "res/metrics/dirichlet_blog-feedback.csv",
-    "nln-nws" => "res/metrics/dirichlet_online-news-popularity.csv",
-    "Ylnd" => "res/metrics/dirichlet_Yolanda.csv",
-    "frd" => "res/metrics/dirichlet_fried.csv",
+    "TFIDF" => "res/csv/amazon_tfidf.csv",
+    "blg-fdbck" => "res/csv/dirichlet_blog-feedback.csv",
+    "nln-nws" => "res/csv/dirichlet_online-news-popularity.csv",
+    "Ylnd" => "res/csv/dirichlet_Yolanda.csv",
+    "frd" => "res/csv/dirichlet_fried.csv",
 ]
 METHODS_MAIN = [
     :cc => ("MQ", "CC"), # first group: non-ordinal baselines

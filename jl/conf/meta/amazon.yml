@@ -9,9 +9,9 @@ M_val: 1000 # number of validation samples
 M_tst: 5000 # number of testing samples
 
 # output of configuration expansion and of experiments
-configfile: conf/job/gen/amazon_$(id).yml # $(id) is replaced by the data ID
-outfile: res/metrics/amazon_$(id).csv
-valfile: res/metrics/amazon_$(id)_val.csv
+configfile: conf/gen/amazon_$(id).yml # $(id) is replaced by the data ID
+outfile: res/csv/amazon_$(id).csv
+valfile: res/csv/amazon_$(id)_val.csv
 
 data:
   - id: tfidf

@@ -170,11 +170,11 @@ function _configure_smoothing(c::Dict{Symbol, Any})
 end
 
 """
-    dirichlet([metaconfig = "conf/job/meta/dirichlet.yml"])
+    dirichlet([metaconfig = "conf/meta/dirichlet.yml"])
 
 Generate a set of job configurations from the given meta-configuration file.
 """
-function dirichlet(metaconfig::String="conf/job/meta/dirichlet.yml")
+function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
     meta = parsefile(metaconfig; dicttype=Dict{Symbol,Any})
 
     # expand configuration
@@ -332,11 +332,11 @@ function dirichlet(metaconfig::String="conf/job/meta/dirichlet.yml")
 end
 
 """
-    amazon([metaconfig = "conf/job/meta/amazon.yml"])
+    amazon([metaconfig = "conf/meta/amazon.yml"])
 
 Generate a set of job configurations from the given meta-configuration file.
 """
-function amazon(metaconfig::String="conf/job/meta/amazon.yml")
+function amazon(metaconfig::String="conf/meta/amazon.yml")
     meta = parsefile(metaconfig; dicttype=Dict{Symbol,Any})
 
     # expand configuration
