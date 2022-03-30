@@ -1,0 +1,86 @@
+# 
+# uci.yml
+# 
+# Configuration for reading ordinal data from UCI
+# 
+
+# https://archive.ics.uci.edu/ml/datasets/Car+Evaluation
+car-evaluation: 
+  labels: ["unacc", "acc", "good", "vgood"]
+
+# https://www.openml.org/d/296
+ailerons:
+  discretization_y:
+    min: -0.0023
+    max: -0.0002
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/Airfoil+Self-Noise
+airfoil-self-noise:
+  discretization_y:
+    min: 103.38
+    max: 140.987
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/BlogFeedback
+blog-feedback:
+  discretization_y:
+    min: 0.0
+    max: 81.0
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/Communities+and+Crime
+communities-and-crime:
+  discretization_y:
+    min: 0.0
+    max: 1.0
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/Geographical+Original+of+Music
+geographic-origin-music:
+  discretization_y:
+    min: -1.400707
+    max: 6.688693
+    num_bins: 10
+
+# https://www.openml.org/d/189
+insurance-company-benchmark:
+  discretization_y:
+    min: 0.040165378
+    max: 1.4585206
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/Online+News+Popularity
+online-news-popularity:
+  discretization_y:
+    min: 1
+    max: 27700
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/Parkinsons+Telemonitoring
+parkinsons-telemonitoring-motor:
+  discretization_y:
+    min: 5.0377
+    max: 39.511
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/Parkinsons+Telemonitoring
+parkinsons-telemonitoring-total:
+  discretization_y:
+    min: 7.0
+    max: 54.992
+    num_bins: 10
+
+# http://www.stat.ufl.edu/~winner/data/clinton1.txt
+vote-for-clinton:
+  discretization_y:
+    min: 21.83
+    max: 57.57
+    num_bins: 10
+
+# https://archive.ics.uci.edu/ml/datasets/wiki4HE
+wiki4he:
+  discretization_y:
+    min: 23
+    max: 69
+    num_bins: 4

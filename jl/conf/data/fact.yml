@@ -1,0 +1,23 @@
+#
+# fact.yml
+#
+# Configure file paths and ordinal classes of the FACT telescope data
+#
+wobble: data/fact_wobble.csv
+diffuse: data/fact_diffuse.csv
+mode: wobble # default mode ∈ {wobble, diffuse, all}
+discretization_y: # how to divide the continuous label into ordinal classes
+  min: 2.4
+  max: 4.2
+  num_bins: 12
+
+# acceptance correction with parameters for row selection
+acceptance_correction:
+  acfile: data/ac/fact.csv
+  threshold: 0.70
+  theta2_cut: 0.10
+
+# where to download the data from and how to pre-process it
+download:
+  wobble: https://factdata.app.tu-dortmund.de/dl2/FACT-Tools/v1.1.2/gamma_simulations_facttools_dl2.hdf5
+  diffuse: https://factdata.app.tu-dortmund.de/dl2/FACT-Tools/v1.1.2/gamma_simulations_diffuse_facttools_dl2.hdf5
