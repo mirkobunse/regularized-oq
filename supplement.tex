@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{underscore} % do not break on underscores
+\usepackage[a4paper,margin=1in,landscape]{geometry}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{multirow}
+
+\title{supplement.tex}
+\author{Anonymous}
+\date{\today}
+
+\begin{document}
+
+\begin{table}
+  \centering
+  \caption{NMD}
+  \input{jl/res/tex/main_nmd.tex}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{RNOD}
+  \input{jl/res/tex/main_rnod.tex}
+\end{table}
+
+\pagebreak
+
+\begin{table}
+  \centering
+  \caption{NMD (others)}
+  \input{jl/res/tex/main_others_nmd.tex}
+\end{table}
+
+\begin{table}
+  \centering
+  \caption{RNOD (others)}
+  \input{jl/res/tex/main_others_rnod.tex}
+\end{table}
+
+\end{document}

@@ -3,11 +3,11 @@ module Results
 using CherenkovDeconvolution, CSV, DataFrames, HypothesisTests, Printf, Statistics
 
 METRICSFILES_MAIN = [
-    "Books-OQ" => "res/csv/amazon_roberta.csv",
-    "FACT-OQ" => "res/csv/dirichlet_fact.csv",
+    "\\textsc{Amazon-OQ-BK}" => "res/csv/amazon_roberta.csv",
+    "\\textsc{Fact-OQ}" => "res/csv/dirichlet_fact.csv",
 ]
 METRICSFILES_OTHERS = [
-    "TFIDF" => "res/csv/amazon_tfidf.csv",
+    "\\textsc{Amazon-OQ-BK} (TFIDF)" => "res/csv/amazon_tfidf.csv",
     "blg-fdbck" => "res/csv/dirichlet_blog-feedback.csv",
     "nln-nws" => "res/csv/dirichlet_online-news-popularity.csv",
     "Ylnd" => "res/csv/dirichlet_Yolanda.csv",
@@ -23,9 +23,9 @@ METHODS_MAIN = [
     :arc => ("OQ", "ARC"),
     :ibu => ("OQ", "IBU"),
     :prun => ("OQ", "RUN"),
-    :osld => ("OQ+", "o-SLD"), # third group: new methods
-    :oacc => ("OQ+", "o-ACC"),
+    :oacc => ("OQ+", "o-ACC"), # third group: new methods
     :opacc => ("OQ+", "o-PACC"),
+    :osld => ("OQ+", "o-SLD"),
 ]
 
 """
@@ -80,7 +80,7 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
             println(io, "\\begin{tabular}{l$(repeat("cc", length(metricsfiles)))}")
             println(io, "  \\toprule") # table header
             println(io, "  \\multirow{2}{*}{method} & $(join(map(d -> "\\multicolumn{2}{c}{$(d)}", first.(metricsfiles)), " & ")) \\\\")
-            println(io, "  & $(join(map(d -> "APP & APP-20\\%", first.(metricsfiles)), " & ")) \\\\")
+            println(io, "  & $(join(map(d -> "APP & APP-OQ", first.(metricsfiles)), " & ")) \\\\")
             print(io, "  \\midrule")
             last_group = tab[1, :group]
             for r in eachrow(tab) # write the table body row by row
