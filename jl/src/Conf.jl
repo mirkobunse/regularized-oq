@@ -18,71 +18,55 @@ QUAPY_CONSTRUCTORS = Dict(
 ) # multi-class quantifiers from QuaPy
 
 """
-    configure_method(c::Dict{Symbol, Any}; inspect::Function=(args...)->nothing, kwargs...)
+    configure_method(c::Dict{Symbol, Any})
 
-Setting up an Deconvolution Method from CherenkovDeconvolution.jl based on a configuration file.
+Set up an OQ method from CherenkovDeconvolution.jl or from src/MoreMethods.jl.
 """
-function configure_method(c::Dict{Symbol, Any}; inspect::Function=(args...)->nothing, fit_learner::Bool=true, kwargs...)
+function configure_method(c::Dict{Symbol, Any})
     c = copy(c) # keep the input unchanged; CAUTION: this copy is only shallow
-    kwargs = Dict(kwargs)
-    c[:inspect] = inspect
 
-    # initialize the stepsize, if configured
-    if :stepsize in keys(c)
-        c[:stepsize] = _configure_stepsize(c[:stepsize]) # overwrite with Stepsize object
-    end 
-
-    # initialize smoothing, if configured
-    if :smoothing in keys(c)
+    # initialize smoothings and stepsizes, if configured
+    if :smoothing in keys(c) # overwrite configuration with a Smoothing object?
         c[:smoothing] = _configure_smoothing(c[:smoothing])
+    end
+    if :stepsize in keys(c) # overwrite configuration with a Stepsize object?
+        c[:stepsize] = _configure_stepsize(c[:stepsize])
     end
 
     # initialize classifiers, binnings, and methods
-    method_id = c[:method_id]
-    if method_id in ["dsea", "dsea+"]
-        clf = get(kwargs, :clf, _configure_classifier(c[:classifier]))
-        return DSEA(clf; _method_arguments(c)...)
-    elseif method_id in keys(DISCRETE_CONSTRUCTORS)
-        binning = _configure_binning(c[:binning])
-        return DISCRETE_CONSTRUCTORS[method_id](binning; _method_arguments(c)...)
-    elseif method_id == "oqt"
-        clf = get(kwargs, :clf, _configure_classifier(c[:classifier]))
-        return MoreMethods.OQT(clf; _method_arguments(c)...)
-    elseif method_id == "arc"
-        clf = get(kwargs, :clf, _configure_classifier(c[:classifier]))
-        return MoreMethods.ARC(clf; _method_arguments(c)...)
-    elseif method_id in keys(QUAPY_CONSTRUCTORS)
-        clf = get(kwargs, :clf, _configure_classifier(c[:classifier]))
-        return QUAPY_CONSTRUCTORS[method_id](clf; fit_learner=fit_learner, _method_arguments(c)...)
-    elseif method_id == "semq"
-        clf = get(kwargs, :clf, _configure_classifier(c[:classifier]))
-        return MoreMethods.SmoothEMQ(clf; fit_learner=fit_learner, _method_arguments(c)...)
-    elseif method_id ∈ ["nacc", "npacc"]
-        clf = get(kwargs, :clf, _configure_classifier(c[:classifier]))
-        if !fit_learner
-            throw(ArgumentError("fit_learner=false is not yet implemented for NACC/NPACC"))
-        end
-        if method_id == "nacc"
-            return MoreMethods.NACC(clf; _method_arguments(c)...)
-        else
-            return MoreMethods.NPACC(clf; _method_arguments(c)...)
-        end
+    kwargs = _method_arguments(c)
+    if c[:method_id] in ["dsea", "dsea+"]
+        return DSEA(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] in keys(DISCRETE_CONSTRUCTORS) # RUN, IBU, ...
+        return DISCRETE_CONSTRUCTORS[c[:method_id]](_configure_binning(c[:binning]); kwargs...)
+    elseif c[:method_id] == "oqt"
+        return MoreMethods.OQT(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "arc"
+        return MoreMethods.ARC(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
+        return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "semq"
+        return MoreMethods.SmoothEMQ(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "nacc"
+        return MoreMethods.NACC(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "npacc"
+        return MoreMethods.NPACC(_configure_classifier(c[:classifier]); kwargs...)
     else
-        throw(ArgumentError("Unknown method_id=$(method_id)"))
+        throw(ArgumentError("Unknown method_id=$(c[:method_id])"))
     end
 end
 
 function _method_arguments(c::Dict{Symbol,Any})
     method_keys = if c[:method_id] in ["dsea", "dsea+"]
-        [:epsilon, :f_0, :fixweighting, :inspect, :K, :n_bins_y, :return_contributions, :smoothing, :stepsize, :inspect]
+        [:epsilon, :f_0, :fixweighting, :K, :n_bins_y, :return_contributions, :smoothing, :stepsize]
     elseif c[:method_id] == "svd"
         [:B, :effective_rank, :epsilon_C, :fit_ratios, :n_bins_y, :N]
     elseif c[:method_id] == "ibu"
-        [:epsilon, :f_0, :fit_ratios, :inspect, :K, :n_bins_y, :smoothing, :stepsize]
+        [:epsilon, :f_0, :fit_ratios, :K, :n_bins_y, :smoothing, :stepsize]
     elseif c[:method_id] == "run"
-        [:acceptance_correction, :ac_regularisation, :epsilon, :fit_ratios, :inspect, :K, :log_constant, :n_bins_y, :n_df ]
+        [:acceptance_correction, :ac_regularisation, :epsilon, :fit_ratios, :K, :log_constant, :n_bins_y, :n_df ]
     elseif c[:method_id] == "prun"
-        [:acceptance_correction, :ac_regularisation, :epsilon, :f_0, :fit_ratios, :inspect, :K, :log_constant, :n_bins_y, :tau]
+        [:acceptance_correction, :ac_regularisation, :epsilon, :f_0, :fit_ratios, :K, :log_constant, :n_bins_y, :tau]
     elseif c[:method_id] == "oqt"
         [:epsilon, :val_split]
     elseif c[:method_id] == "arc"
@@ -96,7 +80,7 @@ function _method_arguments(c::Dict{Symbol,Any})
     else
         Symbol[] # other methods (cc, pcc, emq) have no additional arguments
     end
-    arg = Dict{Symbol,Any}()
+    arg = Dict{Symbol,Any}() # extract the parameters from the configuration c
     for k in keys(c)
         if k in method_keys
             push!(arg, k => c[k])
