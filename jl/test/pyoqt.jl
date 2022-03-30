@@ -1,6 +1,6 @@
 
-using PyCall, Random, StatsBase, CherenkovDeconvolution, DeconvExp.Util, ScikitLearn
-using DeconvExp.MoreMethods: fit_ordinal
+using PyCall, Random, StatsBase, CherenkovDeconvolution, OrdinalQuantification.Util, ScikitLearn
+using OrdinalQuantification.MoreMethods: fit_ordinal
 
 function _init_pyOQT()
 

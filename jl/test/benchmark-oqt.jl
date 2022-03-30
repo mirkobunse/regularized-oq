@@ -1,4 +1,4 @@
-using CherenkovDeconvolution, DeconvExp, PyCall, ScikitLearn
+using CherenkovDeconvolution, OrdinalQuantification, PyCall, ScikitLearn
 
 include("../pyoqt.jl")
 

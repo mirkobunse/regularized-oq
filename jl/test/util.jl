@@ -3,7 +3,7 @@
 #
 using Pkg
 Pkg.activate(".")
-using DeconvExp
+using OrdinalQuantification
 
 Pkg.activate("test") # activate test/Project.toml
 using EarthMoversDistance, Test

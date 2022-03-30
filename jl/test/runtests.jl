@@ -1,6 +1,6 @@
 using
     CherenkovDeconvolution,
-    DeconvExp,
+    OrdinalQuantification,
     Distributions,
     Random,
     Test

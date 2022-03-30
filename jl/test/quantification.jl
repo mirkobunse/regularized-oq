@@ -2,8 +2,8 @@
 # Run these tests by calling include("test/quantification.jl")
 # 
 using Test
-using DeconvExp
-using DeconvExp.MoreMethods: OQT, ARC
+using OrdinalQuantification
+using OrdinalQuantification.MoreMethods: OQT, ARC
 using CherenkovDeconvolution: deconvolve
 using Random, Distributions, Discretizers
 using ScikitLearn: @sk_import

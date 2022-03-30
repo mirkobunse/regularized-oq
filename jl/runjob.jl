@@ -1,10 +1,10 @@
-@info "using DeconvExp"
-using DeconvExp
+@info "TODO move runjob.jl to src/Job.jl"
+using OrdinalQuantification
 
 @info "using @everywhere"
 using Distributed: @everywhere
 @everywhere using ComfyCommons.ComfyLogging; set_global_logger()
-@everywhere using DeconvExp
+@everywhere using OrdinalQuantification
 
 @info "Received $(length(ARGS)) job(s):\n\t" * join(ARGS, "\n\t")
 for arg in ARGS
@@ -13,6 +13,6 @@ for arg in ARGS
     elseif !isfile(arg)
         @warn "Skipping $arg, which is not a file"
     else
-        DeconvExp.Job.run(arg) # start the current configuration
+        OrdinalQuantification.Job.run(arg) # start the current configuration
     end
 end

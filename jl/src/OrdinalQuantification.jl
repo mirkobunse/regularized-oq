@@ -1,5 +1,4 @@
-__precompile__(false)
-module DeconvExp
+module OrdinalQuantification
 
 import Conda, VersionParsing
 

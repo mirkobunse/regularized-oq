@@ -1,4 +1,4 @@
-using CherenkovDeconvolution, DeconvExp, Distributions, ScikitLearn, StatsBase
+using CherenkovDeconvolution, OrdinalQuantification, Distributions, ScikitLearn, StatsBase
 using ScikitLearn.CrossValidation: cross_val_score
 @sk_import tree: DecisionTreeClassifier
 
