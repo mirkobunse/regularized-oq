@@ -17,17 +17,6 @@ function SkObject(class_name::AbstractString, args...; kwargs...)
     return Constructor(args...; kwargs...)
 end
 
-# in-place substitutes of ScikitLearn.@sk_import
-DecisionTreeClassifier(args...; kwargs...) = SkObject("sklearn.tree.DecisionTreeClassifier", args...; kwargs...)
-LogisticRegression(args...; kwargs...) = SkObject("sklearn.linear_model.LogisticRegression", args...; kwargs...)
-Pipeline(args...; kwargs...) = SkObject("sklearn.pipeline.Pipeline", args...; kwargs...)
-StandardScaler(args...; kwargs...) = SkObject("sklearn.preprocessing.StandardScaler", args...; kwargs...)
-CalibratedClassifierCV(args...; kwargs...) = SkObject("sklearn.calibration.CalibratedClassifierCV", args...; kwargs...)
-KFold(args...; kwargs...) = SkObject("sklearn.model_selection.KFold", args...; kwargs...)
-label_binarize(args...; kwargs...) = SkObject("sklearn.preprocessing.label_binarize", args...; kwargs...)
-IsotonicRegression(args...; kwargs...) = SkObject("sklearn.isotonic.IsotonicRegression", args...; kwargs...)
-CountVectorizer(args...; kwargs...) = SkObject("sklearn.feature_extraction.text.CountVectorizer", args...; kwargs...)
-
 """
     rnod(a, b)
 

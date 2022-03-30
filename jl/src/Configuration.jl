@@ -14,7 +14,7 @@ QUAPY_CONSTRUCTORS = Dict(
     "pcc" => MoreMethods.ProbabilisticClassifyAndCount,
     "acc" => MoreMethods.AdjustedClassifyAndCount,
     "pacc" => MoreMethods.ProbabilisticAdjustedClassifyAndCount,
-    "emq" => MoreMethods.ExpectationMaximizationQuantifier
+    "sld" => MoreMethods.ExpectationMaximizationQuantifier
 ) # multi-class quantifiers from QuaPy
 
 """
@@ -45,12 +45,12 @@ function configure_method(c::Dict{Symbol, Any})
         return MoreMethods.ARC(_configure_classifier(c[:classifier]); kwargs...)
     elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
         return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
-    elseif c[:method_id] == "semq"
-        return MoreMethods.SmoothEMQ(_configure_classifier(c[:classifier]); kwargs...)
-    elseif c[:method_id] == "nacc"
-        return MoreMethods.NACC(_configure_classifier(c[:classifier]); kwargs...)
-    elseif c[:method_id] == "npacc"
-        return MoreMethods.NPACC(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "osld"
+        return MoreMethods.OrdinalEMQ(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "oacc"
+        return MoreMethods.OrdinalACC(_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] == "opacc"
+        return MoreMethods.OrdinalPACC(_configure_classifier(c[:classifier]); kwargs...)
     else
         throw(ArgumentError("Unknown method_id=$(c[:method_id])"))
     end
@@ -73,12 +73,12 @@ function _method_arguments(c::Dict{Symbol,Any})
         [:with_binary_tree_regressor]
     elseif c[:method_id] in ["acc", "pacc"]
         [:val_split]
-    elseif c[:method_id] in ["semq"]
+    elseif c[:method_id] in ["osld"]
         [:smoothing]
-    elseif c[:method_id] in ["nacc", "npacc"]
+    elseif c[:method_id] in ["oacc", "opacc"]
         [:val_split, :criterion, :regularization, :tau]
     else
-        Symbol[] # other methods (cc, pcc, emq) have no additional arguments
+        Symbol[] # other methods (cc, pcc, sld) have no additional arguments
     end
     arg = Dict{Symbol,Any}() # extract the parameters from the configuration c
     for k in keys(c)
@@ -117,6 +117,17 @@ function _configure_classifier(config::Dict{Symbol,Any})
     end
     return classifier
 end
+
+# in-place substitutes of ScikitLearn.@sk_import
+DecisionTreeClassifier(args...; kwargs...) = Util.SkObject("sklearn.tree.DecisionTreeClassifier", args...; kwargs...)
+LogisticRegression(args...; kwargs...) = Util.SkObject("sklearn.linear_model.LogisticRegression", args...; kwargs...)
+Pipeline(args...; kwargs...) = Util.SkObject("sklearn.pipeline.Pipeline", args...; kwargs...)
+StandardScaler(args...; kwargs...) = Util.SkObject("sklearn.preprocessing.StandardScaler", args...; kwargs...)
+CalibratedClassifierCV(args...; kwargs...) = Util.SkObject("sklearn.calibration.CalibratedClassifierCV", args...; kwargs...)
+KFold(args...; kwargs...) = Util.SkObject("sklearn.model_selection.KFold", args...; kwargs...)
+label_binarize(args...; kwargs...) = Util.SkObject("sklearn.preprocessing.label_binarize", args...; kwargs...)
+IsotonicRegression(args...; kwargs...) = Util.SkObject("sklearn.isotonic.IsotonicRegression", args...; kwargs...)
+CountVectorizer(args...; kwargs...) = Util.SkObject("sklearn.feature_extraction.text.CountVectorizer", args...; kwargs...)
 
 _configure_binning(c::Dict{Symbol, Any}) =
     if c[:method_id] == "tree"
@@ -236,7 +247,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 exp[:effective_rank] <= dim_f
             else true end
         end, vcat(map(exp -> begin # expansion
-            if exp[:method_id] in ["dsea", "dsea+", "cc", "pcc", "emq"]
+            if exp[:method_id] in ["dsea", "dsea+", "cc", "pcc", "sld"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
             elseif exp[:method_id] in ["oqt", "arc", "acc", "pacc"]
@@ -258,14 +269,14 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 expand(exp, :tau, [:binning, :J])
             elseif exp[:method_id] == "svd"
                 expand(exp, :effective_rank, [:binning, :J])
-            elseif exp[:method_id] == "semq"
+            elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
                 expand(exp,
                     :classifier,
                     [:smoothing, :order],
                     [:smoothing, :impact],
                 )
-            elseif exp[:method_id] ∈ ["nacc", "npacc"]
+            elseif exp[:method_id] ∈ ["oacc", "opacc"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, :val_split, :criterion, :regularization, :tau)
             else # other methods are not supported
@@ -297,17 +308,17 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 exp[:binning][:seed] = J_seed[exp[:binning][:J]]
                 name = replace(name, "\$(J)" => exp[:binning][:J])
                 name = replace(name, "\$(effective_rank)" => exp[:effective_rank])
-            elseif exp[:method_id] in ["dsea", "dsea+", "cc", "pcc", "emq", "oqt", "arc", "acc", "pacc", "semq", "nacc", "npacc"]
+            elseif exp[:method_id] in ["dsea", "dsea+", "cc", "pcc", "sld", "oqt", "arc", "acc", "pacc", "osld", "oacc", "opacc"]
                 name = replace(name, "\$(classifier)" => exp[:classifier][:name])
-                if exp[:method_id] in ["oqt", "arc", "acc", "pacc", "nacc", "npacc"]
+                if exp[:method_id] in ["oqt", "arc", "acc", "pacc", "oacc", "opacc"]
                     name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:val_split]))}")
-                    if exp[:method_id] ∈ ["nacc", "npacc"]
+                    if exp[:method_id] ∈ ["oacc", "opacc"]
                         name = replace(name, "\$(val_split)" => exp[:val_split])
                         name = replace(name, "\$(criterion)" => Dict("mse"=>"L_2", "mae"=>"L_1")[exp[:criterion]])
                         name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:regularization]])
                         name = replace(name, "\$(tau)" => exp[:tau])
                     end
-                elseif exp[:method_id] == "semq"
+                elseif exp[:method_id] == "osld"
                     name = replace(name, "\$(order)" => exp[:smoothing][:order])
                     name = replace(name, "\$(impact)" => exp[:smoothing][:impact])
                 end
@@ -395,7 +406,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             else true end
         end, vcat(map(exp -> begin # expansion
             exp = deepcopy(exp)
-            if exp[:method_id] in ["dsea", "dsea+", "cc", "pcc", "emq"]
+            if exp[:method_id] in ["dsea", "dsea+", "cc", "pcc", "sld"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
             elseif exp[:method_id] in ["oqt", "arc", "acc", "pacc"]
@@ -453,14 +464,14 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                 else
                     throw(ArgumentError("Binning method $(exp[:binning][:method_id]) is not known"))
                 end
-            elseif exp[:method_id] == "semq"
+            elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
                 expand(exp,
                     :classifier,
                     [:smoothing, :order],
                     [:smoothing, :impact]
                 )
-            elseif exp[:method_id] ∈ ["nacc", "npacc"]
+            elseif exp[:method_id] ∈ ["oacc", "opacc"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, :val_split, :criterion, :regularization, :tau)
             else # other methods are not supported
@@ -501,15 +512,15 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                     name = replace(name, "\$(J)" => exp[:binning][:J])
                 end
                 name = replace(name, "\$(effective_rank)" => exp[:effective_rank])
-            elseif exp[:method_id] in ["oqt", "arc", "acc", "pacc", "nacc", "npacc"]
+            elseif exp[:method_id] in ["oqt", "arc", "acc", "pacc", "oacc", "opacc"]
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:val_split]))}")
-                if exp[:method_id] ∈ ["nacc", "npacc"]
+                if exp[:method_id] ∈ ["oacc", "opacc"]
                     name = replace(name, "\$(val_split)" => exp[:val_split])
                     name = replace(name, "\$(criterion)" => Dict("mse"=>"L_2", "mae"=>"L_1")[exp[:criterion]])
                     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:regularization]])
                     name = replace(name, "\$(tau)" => exp[:tau])
                 end
-            elseif exp[:method_id] == "semq"
+            elseif exp[:method_id] == "osld"
                 name = replace(name, "\$(order)" => exp[:smoothing][:order])
                 name = replace(name, "\$(impact)" => exp[:smoothing][:impact])
             end

@@ -109,11 +109,13 @@ end
 # ============================================================
 # QuaPy extensions (might require the master branch of QuaPy!)
 # ============================================================
-SmoothEMQ(classifier::Any; fit_learner::Bool=true, smoothing::Smoothing=NoSmoothing()) =
+OrdinalEMQ(classifier::Any; fit_learner::Bool=true, smoothing::Smoothing=NoSmoothing()) =
     EMQ(classifier; fit_learner=fit_learner, transform_prior=f_est->apply(smoothing, f_est))
 
 # ===================================================================================
 # Numerically Adjusted Classify & Count (NACC) with proper losses and regularizations
+#
+# The numerical adjustment is used to implement o-ACC and o-PACC.
 # ===================================================================================
 struct ClassificationBinning <: Binning
     classifier::Any
@@ -146,7 +148,7 @@ struct _NACC <: CherenkovDeconvolution.DiscreteMethod
     n_bins_y::Int
     is_probabilistic::Bool
 end
-NACC(classifier::Any;
+OrdinalACC(classifier::Any;
         criterion::Union{Symbol,AbstractString}=:mse,
         regularization::Union{Symbol,AbstractString}=:curvature,
         tau::Float64=0.0,
@@ -155,7 +157,7 @@ NACC(classifier::Any;
         val_split::Float64=0.334,
         n_bins_y::Int=-1) =
     _NACC(classifier, Symbol(criterion), Symbol(regularization), tau, epsilon, K, val_split, n_bins_y, false)
-NPACC(classifier::Any;
+OrdinalPACC(classifier::Any;
         criterion::Union{Symbol,AbstractString}=:mse,
         regularization::Union{Symbol,AbstractString}=:curvature,
         tau::Float64=0.0,

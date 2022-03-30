@@ -18,14 +18,14 @@ METHODS_MAIN = [
     :pcc => ("MQ", "PCC"),
     :acc => ("MQ", "ACC"),
     :pacc => ("MQ", "PACC"),
-    :emq => ("MQ", "SLD"),
+    :sld => ("MQ", "SLD"),
     :oqt => ("OQ", "OQT"), # second group: ordinal baselines
     :arc => ("OQ", "ARC"),
     :ibu => ("OQ", "IBU"),
     :prun => ("OQ", "RUN"),
-    :semq => ("OQ+", "o-SLD"), # third group: new methods
-    :nacc => ("OQ+", "o-ACC"),
-    :npacc => ("OQ+", "o-PACC"),
+    :osld => ("OQ+", "o-SLD"), # third group: new methods
+    :oacc => ("OQ+", "o-ACC"),
+    :opacc => ("OQ+", "o-PACC"),
 ]
 
 """

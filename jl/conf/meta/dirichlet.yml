@@ -118,11 +118,11 @@ method:
     name: "PACC ($v=$(val_split)$) on $(classifier)"
     val_split: [ 0.25, 0.334, 0.5 ]
 
-  - method_id: emq # ExpectationMaximizationQuantifier
-    name: "EMQ on $(classifier)"
+  - method_id: sld # ExpectationMaximizationQuantifier
+    name: "SLD on $(classifier)"
 
-  - method_id: semq # our smooth version of EMQ
-    name: "s-EMQ ($o=$(order), i=$(impact)$) on $(classifier)"
+  - method_id: osld # our smooth version of SLD
+    name: "o-SLD ($o=$(order), i=$(impact)$) on $(classifier)"
     smoothing:
       method_id: "polynomial"
       order: [ 0, 1, 2 ]
@@ -130,15 +130,15 @@ method:
       avg_negative: false
       warn: false
 
-  - method_id: nacc # our smooth version of ACC
-    name: "NACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
+  - method_id: oacc # our smooth version of ACC
+    name: "o-ACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
     val_split: [ 0.334 ]
     criterion: [ "mse" ]
     regularization: [ "curvature", "norm" ]
     tau: [ 1e-1, 1e-3, 1e-5 ]
 
-  - method_id: npacc # our smooth version of PACC
-    name: "NPACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
+  - method_id: opacc # our smooth version of PACC
+    name: "o-PACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
     val_split: [ 0.334 ]
     criterion: [ "mse" ]
     regularization: [ "curvature", "norm" ]
