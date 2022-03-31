@@ -5,7 +5,7 @@ mbunse
 sfb876
 s876
 ls8
-isti
+\<isti\>
 cnr
 alejandro
 moreo
