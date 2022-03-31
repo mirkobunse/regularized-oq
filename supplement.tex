@@ -1,65 +1,84 @@
-\documentclass{article}
+%\documentclass{article}
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
 \usepackage{booktabs}
-\usepackage{underscore} % do not break on underscores
-\usepackage[a4paper,margin=1in,landscape]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage{multirow}
+\usepackage{graphicx}
+
+
+
+\begin{document}
 
 \title{supplement.tex}
 \author{Anonymous}
 \date{\today}
 
-\newcommand{\rankingtable}[1]{%
+\newcommand{\rankingtable}[2]{
   \begin{table}[!h]
     \centering
-    \caption{#1}
+    \caption{#2}
     \input{#1}
   \end{table}
 }
 
-\begin{document}
 
-\begin{table}
+
+\begin{table}[h]
   \centering
   \caption{NMD}
   \input{jl/res/tex/main_nmd.tex}
 \end{table}
 
-\begin{table}
+%\pagebreak
+
+\begin{table}[h]
   \centering
   \caption{RNOD}
   \input{jl/res/tex/main_rnod.tex}
 \end{table}
 
-\pagebreak
+%\pagebreak
 
-\begin{table}
+\begin{table}[h]
+
   \centering
-  \caption{NMD (others)}
+  \caption{NMD in additional datasets}
+  \resizebox{\textwidth}{!}{
   \input{jl/res/tex/main_others_nmd.tex}
+  }%
 \end{table}
 
-\begin{table}
+%\pagebreak
+
+\begin{table}[h]
   \centering
-  \caption{RNOD (others)}
+  \caption{RNOD in additional datasets}
+  \resizebox{\textwidth}{!}{
   \input{jl/res/tex/main_others_rnod.tex}
+  }%
 \end{table}
 
-\pagebreak
+%\pagebreak
 
-\rankingtable{jl/res/tex/amazon_roberta_nmd_all.tex}
-\rankingtable{jl/res/tex/amazon_roberta_nmd_1.tex}
-\rankingtable{jl/res/tex/amazon_roberta_nmd_2.tex}
-\rankingtable{jl/res/tex/amazon_roberta_nmd_3.tex}
-\rankingtable{jl/res/tex/amazon_roberta_nmd_4.tex}
-\rankingtable{jl/res/tex/amazon_roberta_nmd_5.tex}
+\def \captionamazon {NMD on \textsc{Amazon-OQ-BK}}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_all.tex}{\captionamazon, split ``all'' }
+\rankingtable{jl/res/tex/amazon_roberta_nmd_1.tex}{\captionamazon, smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_2.tex}{\captionamazon, smooth 2 out of 5}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_3.tex}{\captionamazon, smooth 3 out of 5}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_4.tex}{\captionamazon, smooth 4 out of 5}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_5.tex}{\captionamazon, smooth 5 out of 5 (the least smooth)}
 
-\pagebreak
+\def \captionfact{NMD on \textsc{Fact-OQ}}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_all.tex}{\captionfact, split ``all'' }
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_1.tex}{\captionfact, smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_2.tex}{\captionfact, smooth 2 out of 5}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_3.tex}{\captionfact, smooth 3 out of 5}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_4.tex}{\captionfact, smooth 4 out of 5}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_5.tex}{\captionfact, smooth 5 out of 5 (the least smooth)}
 
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_all.tex}
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_1.tex}
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_2.tex}
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_3.tex}
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_4.tex}
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_5.tex}
+%\newpage
 
 \end{document}
