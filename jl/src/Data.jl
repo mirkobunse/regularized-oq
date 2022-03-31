@@ -1,11 +1,15 @@
 module Data
 
-using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase
+using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase, PyCall
 using MetaConfigurations: parsefile
 using ..Util
 
 # import UCIData without precompiling because its precompilation is broken
-__init__() = @eval using UCIData
+function __init__()
+    @eval using UCIData
+    py"""import ssl
+ssl._create_default_https_context = ssl._create_unverified_context"""
+end
 
 DISCRETIZATION_Y = "discretization_y" # property in config files
 
