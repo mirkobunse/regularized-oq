@@ -2,13 +2,19 @@
 \usepackage{booktabs}
 \usepackage{underscore} % do not break on underscores
 \usepackage[a4paper,margin=1in,landscape]{geometry}
-\usepackage{tikz}
-\usepackage{pgfplots}
 \usepackage{multirow}
 
 \title{supplement.tex}
 \author{Anonymous}
 \date{\today}
+
+\newcommand{\rankingtable}[1]{%
+  \begin{table}[!h]
+    \centering
+    \caption{#1}
+    \input{#1}
+  \end{table}
+}
 
 \begin{document}
 
@@ -37,5 +43,23 @@
   \caption{RNOD (others)}
   \input{jl/res/tex/main_others_rnod.tex}
 \end{table}
+
+\pagebreak
+
+\rankingtable{jl/res/tex/amazon_roberta_nmd_all.tex}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_1.tex}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_2.tex}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_3.tex}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_4.tex}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_5.tex}
+
+\pagebreak
+
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_all.tex}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_1.tex}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_2.tex}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_3.tex}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_4.tex}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_5.tex}
 
 \end{document}

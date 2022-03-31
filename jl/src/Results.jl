@@ -134,7 +134,7 @@ Generate ranking tables from the results obtained with a single data set.
 """
 function ranking(metricsfile::String)
     df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
-    regex = r"(.+)/metrics/(.+)\.csv" # what to replace in the file name
+    regex = r"(.+)/csv/(.+)\.csv" # what to replace in the file name
 
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         metric = key.selection_metric # :nmd or :rnod
@@ -144,8 +144,8 @@ function ranking(metricsfile::String)
             sdf[sdf[!, :val_curvature_level].==-1, :],
             replace(
                 metricsfile,
-                regex => SubstitutionString("\\1/table-tex/\\2_$(metric)_all.tex")
-            ), # output path: replace with "*/table-tex/*_<metric name>_all.tex"
+                regex => SubstitutionString("\\1/tex/\\2_$(metric)_all.tex")
+            ), # output path: replace with "*/tex/*_<metric name>_all.tex"
             Symbol(metric) => uppercase(metric) # pair metric_column => metric_name
         )
 
@@ -156,8 +156,8 @@ function ranking(metricsfile::String)
                 sdf[(sdf.val_curvature_level.==level) .& (sdf.tst_curvature_level.==level), :],
                 replace(
                     metricsfile,
-                    regex => SubstitutionString("\\1/table-tex/\\2_$(metric)_$(level).tex")
-                ), # replace with "*/table-tex/*_<metric name>_<curvature level>.tex"
+                    regex => SubstitutionString("\\1/tex/\\2_$(metric)_$(level).tex")
+                ), # replace with "*/tex/*_<metric name>_<curvature level>.tex"
                 Symbol(metric) => uppercase(metric)
             )
         end
@@ -165,7 +165,10 @@ function ranking(metricsfile::String)
 end
 
 function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,String})
-    @info "Receiving a subset of $(nrow(df)) results for $(outfile)"
+    @debug "Receiving a subset of $(nrow(df)) results for $(outfile)"
+    if outfile[end-3:end] != ".tex"
+        error("$(outfile) does not end on '.tex'; please use inputs from res/csv/")
+    end
 
     # compute averages to sort by
     agg = sort(combine(
