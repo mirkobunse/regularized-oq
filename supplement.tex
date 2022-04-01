@@ -28,19 +28,15 @@
 
 \begin{table}[h]
   \centering
-  \caption{NMD}
+  \caption{NMD (Tab.~2 in the main paper)}
   \input{jl/res/tex/main_nmd.tex}
 \end{table}
-
-%\pagebreak
 
 \begin{table}[h]
   \centering
   \caption{RNOD}
   \input{jl/res/tex/main_rnod.tex}
 \end{table}
-
-%\pagebreak
 
 \begin{table}[h]
 
@@ -51,8 +47,6 @@
   }%
 \end{table}
 
-%\pagebreak
-
 \begin{table}[h]
   \centering
   \caption{RNOD in additional datasets}
@@ -61,19 +55,61 @@
   }%
 \end{table}
 
-%\pagebreak
+% the main data sets
 
 \def \captionamazon {NMD on \textsc{Amazon-OQ-BK}}
-\rankingtable{jl/res/tex/amazon_roberta_nmd_all.tex}{\captionamazon, split ``all'' }
-\rankingtable{jl/res/tex/amazon_roberta_nmd_1.tex}{\captionamazon, smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_all.tex}{\captionamazon, regular APP}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_1.tex}{\captionamazon, APP-OQ = smooth 1 out of 5 (the smoothest)}
 \rankingtable{jl/res/tex/amazon_roberta_nmd_2.tex}{\captionamazon, smooth 2 out of 5}
 \rankingtable{jl/res/tex/amazon_roberta_nmd_3.tex}{\captionamazon, smooth 3 out of 5}
 \rankingtable{jl/res/tex/amazon_roberta_nmd_4.tex}{\captionamazon, smooth 4 out of 5}
 \rankingtable{jl/res/tex/amazon_roberta_nmd_5.tex}{\captionamazon, smooth 5 out of 5 (the least smooth)}
 
 \def \captionfact{NMD on \textsc{Fact-OQ}}
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_all.tex}{\captionfact, split ``all'' }
-\rankingtable{jl/res/tex/dirichlet_fried_nmd_1.tex}{\captionfact, smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/dirichlet_fact_nmd_all.tex}{\captionfact, regular APP}
+\rankingtable{jl/res/tex/dirichlet_fact_nmd_1.tex}{\captionfact, APP-OQ = smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/dirichlet_fact_nmd_2.tex}{\captionfact, smooth 2 out of 5}
+\rankingtable{jl/res/tex/dirichlet_fact_nmd_3.tex}{\captionfact, smooth 3 out of 5}
+\rankingtable{jl/res/tex/dirichlet_fact_nmd_4.tex}{\captionfact, smooth 4 out of 5}
+\rankingtable{jl/res/tex/dirichlet_fact_nmd_5.tex}{\captionfact, smooth 5 out of 5 (the least smooth)}
+
+% additional data sets
+
+\def \captionamazon {NMD on \textsc{Amazon-OQ-BK}, in an alternative TFIDF representation}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_all.tex}{\captionamazon, regular APP}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_1.tex}{\captionamazon, APP-OQ = smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_2.tex}{\captionamazon, smooth 2 out of 5}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_3.tex}{\captionamazon, smooth 3 out of 5}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_4.tex}{\captionamazon, smooth 4 out of 5}
+\rankingtable{jl/res/tex/amazon_roberta_nmd_5.tex}{\captionamazon, smooth 5 out of 5 (the least smooth)}
+
+\def \captionfact{NMD on \textsc{Uci-blog-feedback-OQ}}
+\rankingtable{jl/res/tex/dirichlet_blog-feedback_nmd_all.tex}{\captionfact, regular APP}
+\rankingtable{jl/res/tex/dirichlet_blog-feedback_nmd_1.tex}{\captionfact, APP-OQ = smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/dirichlet_blog-feedback_nmd_2.tex}{\captionfact, smooth 2 out of 5}
+\rankingtable{jl/res/tex/dirichlet_blog-feedback_nmd_3.tex}{\captionfact, smooth 3 out of 5}
+\rankingtable{jl/res/tex/dirichlet_blog-feedback_nmd_4.tex}{\captionfact, smooth 4 out of 5}
+\rankingtable{jl/res/tex/dirichlet_blog-feedback_nmd_5.tex}{\captionfact, smooth 5 out of 5 (the least smooth)}
+
+\def \captionfact{NMD on \textsc{Uci-online-news-popularity-OQ}}
+\rankingtable{jl/res/tex/dirichlet_online-news-popularity_nmd_all.tex}{\captionfact, regular APP}
+\rankingtable{jl/res/tex/dirichlet_online-news-popularity_nmd_1.tex}{\captionfact, APP-OQ = smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/dirichlet_online-news-popularity_nmd_2.tex}{\captionfact, smooth 2 out of 5}
+\rankingtable{jl/res/tex/dirichlet_online-news-popularity_nmd_3.tex}{\captionfact, smooth 3 out of 5}
+\rankingtable{jl/res/tex/dirichlet_online-news-popularity_nmd_4.tex}{\captionfact, smooth 4 out of 5}
+\rankingtable{jl/res/tex/dirichlet_online-news-popularity_nmd_5.tex}{\captionfact, smooth 5 out of 5 (the least smooth)}
+
+\def \captionfact{NMD on \textsc{OpenMl-Yolanda-OQ}}
+\rankingtable{jl/res/tex/dirichlet_Yolanda_nmd_all.tex}{\captionfact, regular APP}
+\rankingtable{jl/res/tex/dirichlet_Yolanda_nmd_1.tex}{\captionfact, APP-OQ = smooth 1 out of 5 (the smoothest)}
+\rankingtable{jl/res/tex/dirichlet_Yolanda_nmd_2.tex}{\captionfact, smooth 2 out of 5}
+\rankingtable{jl/res/tex/dirichlet_Yolanda_nmd_3.tex}{\captionfact, smooth 3 out of 5}
+\rankingtable{jl/res/tex/dirichlet_Yolanda_nmd_4.tex}{\captionfact, smooth 4 out of 5}
+\rankingtable{jl/res/tex/dirichlet_Yolanda_nmd_5.tex}{\captionfact, smooth 5 out of 5 (the least smooth)}
+
+\def \captionfact{NMD on \textsc{OpenMl-fried-OQ}}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_all.tex}{\captionfact, regular APP}
+\rankingtable{jl/res/tex/dirichlet_fried_nmd_1.tex}{\captionfact, APP-OQ = smooth 1 out of 5 (the smoothest)}
 \rankingtable{jl/res/tex/dirichlet_fried_nmd_2.tex}{\captionfact, smooth 2 out of 5}
 \rankingtable{jl/res/tex/dirichlet_fried_nmd_3.tex}{\captionfact, smooth 3 out of 5}
 \rankingtable{jl/res/tex/dirichlet_fried_nmd_4.tex}{\captionfact, smooth 4 out of 5}
