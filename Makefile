@@ -4,6 +4,7 @@ supplement.zip: $(CONTENT)
 	rm -f $@ && zip -r $@ $^
 
 supplement.pdf: supplement.tex $(wildcard jl/res/tex/*)
+	- pdflatex $<
 	pdflatex $<
 
 # check for phrases that might reveal our identities
