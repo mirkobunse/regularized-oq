@@ -28,13 +28,7 @@ def nmd(prev, prev_hat):
     n = len(prev)
     return (1./(n-1))*mdpa(prev, prev_hat)
 
-
-"""
-Minimum Distance of Pair Assignments (MDPA) [cha2002measuring] for ordinal pdfs `a` and `b`.
-The MDPA is a special case of the Earth Mover's Distance [rubner1998metric] that can be
-computed efficiently.
-[Mirko Bunse's code from Julia adapted]
-"""
+# MDPA implementation of the EMD; see jl/src/Util.jl in this repository
 def mdpa(a, b):
     assert len(a) == len(b), "histograms have to have the same length"
     assert np.isclose(sum(a), sum(b)), "histograms have to have the same mass (difference is $(sum(a)-sum(b))"
