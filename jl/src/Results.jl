@@ -6,12 +6,14 @@ METRICSFILES_MAIN = [
     "\\textsc{Amazon-OQ-BK}" => "res/csv/amazon_roberta.csv",
     "\\textsc{Fact-OQ}" => "res/csv/dirichlet_fact.csv",
 ]
-METRICSFILES_OTHERS = [
+METRICSFILES_TFIDF = [
     "\\textsc{Amazon-OQ-BK} (TFIDF)" => "res/csv/amazon_tfidf.csv",
-    "blg-fdbck" => "res/csv/dirichlet_blog-feedback.csv",
-    "nln-nws" => "res/csv/dirichlet_online-news-popularity.csv",
-    "Ylnd" => "res/csv/dirichlet_Yolanda.csv",
-    "frd" => "res/csv/dirichlet_fried.csv",
+]
+METRICSFILES_OTHERS = [
+    "\\textsc{Uci-blog-feedback-OQ}" => "res/csv/dirichlet_blog-feedback.csv",
+    "\\textsc{Uci-online-news-popularity-OQ}" => "res/csv/dirichlet_online-news-popularity.csv",
+    "\\textsc{OpenMl-Yolanda-OQ}" => "res/csv/dirichlet_Yolanda.csv",
+    "\\textsc{OpenMl-fried-OQ}" => "res/csv/dirichlet_fried.csv",
 ]
 METHODS_MAIN = [
     :cc => ("MQ", "CC"), # first group: non-ordinal baselines
@@ -28,8 +30,13 @@ METHODS_MAIN = [
     :osld => ("OQ+", "o-SLD"),
 ]
 
+main_tfidf() = Results.main("res/tex/main_tfidf.tex"; metricsfiles=Results.METRICSFILES_TFIDF)
+main_others() = Results.main("res/tex/main_others.tex"; metricsfiles=Results.METRICSFILES_OTHERS)
+
 """
     main([outfile; metricsfiles])
+    main_tfidf()
+    main_others()
 
 Generate main plots from experimental results.
 """
