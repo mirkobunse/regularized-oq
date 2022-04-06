@@ -329,8 +329,8 @@ and PCC can choose between 10 hyperparameter configurations of the
 classifier (2 class weights $\times$ 5 regularization parameters), but
 they do not have additional parameters on the quantification level. We
 note that an inspection of the validation results revealed that the
-fraction of hold-out data does not considerably affect the results of
-ACC, PACC, OQT, and ARC. Therefore, for OQT and ARC we decided to fix the proportion of the hold-out split to 1/3 and do not include this hyperparameter in the exploration, since those methods are computationally expensive.% save computational resources by omitting some values of this parameter in the final hyperparameter grid.
+fraction of held-out data does not considerably affect the results of
+ACC, PACC, OQT, and ARC. Therefore, for OQT and ARC we decided to fix the proportion of the held-out split to 1/3 and do not include this hyperparameter in the exploration, since those methods are computationally expensive.% save computational resources by omitting some values of this parameter in the final hyperparameter grid.
 
 Table~\ref{tab:hyperparameter-fact-classifier} and
 Table~\ref{tab:hyperparameter-fact-quantifier} present the parameters
@@ -368,19 +368,19 @@ Table~\ref{tab:hyperparameter-others}.
  \midrule
  CC & no parameters & \\
  PCC & no parameters & \\
- ACC & fraction of hold-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
- PACC & fraction of hold-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
+ ACC & fraction of held-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
+ PACC & fraction of held-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
  SLD & no parameters & \\
  \midrule
- OQT & fraction of hold-out data & $\{\frac{1}{3}\}$ \\
- ARC & fraction of hold-out data & $\{\frac{1}{3}\}$ \\
+ OQT & fraction of held-out data & $\{\frac{1}{3}\}$ \\
+ ARC & fraction of held-out data & $\{\frac{1}{3}\}$ \\
  RUN & $\tau$ & $\{$3e-2, 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-6$\}$ \\
  IBU & order of polynomial & $\{0, 1, 2\}$ \\
  & interpolation factor & $\{$3e-1, 1e-1, 3e-2, 1e-2, 3e-3, 1e-3$\}$ \\
  \midrule
- o-ACC & fraction of hold-out data & $\{\frac{1}{4}, \frac{1}{3}\}$ \\
+ o-ACC & fraction of held-out data & $\{\frac{1}{4}, \frac{1}{3}\}$ \\
  & $\tau$ & $\{$1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9$\}$ \\
- o-PACC & fraction of hold-out data & $\{\frac{1}{4}, \frac{1}{3}\}$ \\
+ o-PACC & fraction of held-out data & $\{\frac{1}{4}, \frac{1}{3}\}$ \\
  & $\tau$ & $\{$1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9$\}$ \\
  o-SLD & order of polynomial & $\{0, 1, 2\}$ \\
  & interpolation factor & $\{$1e-1, 3e-2, 1e-2, 3e-3, 1e-3$\}$ \\
@@ -420,21 +420,21 @@ Table~\ref{tab:hyperparameter-others}.
  \midrule
  CC & no parameters & \\
  PCC & no parameters & \\
- ACC & fraction of hold-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
- PACC & fraction of hold-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
+ ACC & fraction of held-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
+ PACC & fraction of held-out data & $\{\frac{1}{4}, \frac{1}{3}, \frac{1}{2}\}$ \\
  SLD & no parameters & \\
  \midrule
- OQT & fraction of hold-out data & $\{\frac{1}{3}\}$ \\
- ARC & fraction of hold-out data & $\{\frac{1}{3}\}$ \\
+ OQT & fraction of held-out data & $\{\frac{1}{3}\}$ \\
+ ARC & fraction of held-out data & $\{\frac{1}{3}\}$ \\
  RUN & $\tau$ & $\{$1e-1, 1e-3, 1e-5$\}$ \\
  & number of leaf nodes & $\{60, 120, 180\}$ \\
  IBU & order of polynomial & $\{0, 1, 2\}$ \\
  & interpolation factor & $\{$0.1, 0.01, 0.0$\}$ \\
  & number of leaf nodes & $\{60, 120, 180\}$ \\
  \midrule
- o-ACC & fraction of hold-out data & $\{\frac{1}{3}\}$ \\
+ o-ACC & fraction of held-out data & $\{\frac{1}{3}\}$ \\
  & $\tau$ & $\{$1e-1, 1e-3, 1e-5$\}$ \\
- o-PACC & fraction of hold-out data & $\{\frac{1}{3}\}$ \\
+ o-PACC & fraction of held-out data & $\{\frac{1}{3}\}$ \\
  & $\tau$ & $\{$1e-1, 1e-3, 1e-5$\}$ \\
  o-SLD & order of polynomial & $\{0, 1, 2\}$ \\
  & interpolation factor & $\{$1e-1, 3e-2, 1e-2$\}$ \\
