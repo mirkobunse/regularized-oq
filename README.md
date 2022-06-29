@@ -7,4 +7,4 @@ The directories `jl/` and `py/` contain the source code of our methods and exper
 - the Python code implements the extraction of the Amazon-OQ-BK dataset and the ordinal classifier experiment (Tab. 1 in our paper).
 - the Julia code implements the extraction of the FACT-OQ dataset and the comparison experiment (Tab. 2 in our paper).
 
-We use two programming languages because we could build, for the respective tasks, on existing public code. In particular, we would like to thank the authors of [QuaPy](https://github.com/HLT-ISTI/QuaPy), [mord](https://github.com/fabianp/mord), and [CherenkovDeconvolution.jl](https://github.com/mirkobunse/CherenkovDeconvolution.jl) for making their code publicly available.
+We use two programming languages because we could build, for the respective tasks, on existing, public code: [QuaPy](https://github.com/HLT-ISTI/QuaPy) and [CherenkovDeconvolution.jl](https://github.com/mirkobunse/CherenkovDeconvolution.jl). We further thank the authors of [mord](https://github.com/fabianp/mord) for making their code publicly available.
