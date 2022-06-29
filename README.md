@@ -1,6 +1,6 @@
 # Supplementary material for "Ordinal Quantification Through Regularization"
 
-The `supplement.pdf` contains additional material, such as pseudo code and extended experimental results.
+The `supplement.pdf` contains additional material, e.g., extended experimental results.
 
 The directories `jl/` and `py/` contain the source code of our methods and experiments, as written in Julia and Python, respectively. Please consult their `jl/README.md` and `py/README.md` files for more information.
 
