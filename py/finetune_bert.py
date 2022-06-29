@@ -54,7 +54,7 @@ if __name__ == '__main__':
     # load the training set, and extract a held-out validation split of 1000 documents (stratified)
     df = pd.read_csv(datapath, sep='\t', names=['labels', 'review'], quoting=csv.QUOTE_NONE)
     labels = df['labels'].to_frame()
-    X_train, X_val = train_test_split(df, stratify=labels, test_size=.25, random_state=1)
+    X_train, X_val = train_test_split(df, stratify=labels, test_size=1000, random_state=1)
     num_labels = len(pd.unique(labels['labels']))
 
     features = datasets.Features({'labels': datasets.Value('int32'), 'review': datasets.Value('string')})
