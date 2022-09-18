@@ -509,25 +509,41 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     # generate indices
     @info "Generating indices for $(c[:M_val]) validation samples."
     val_indices = zeros(Int, (c[:M_val], c[:N_val]))
+    val_curvatures = zeros(c[:M_val])
     for (sample_index, sample_seed) in enumerate(c[:val_seed])
         rng_sample = MersenneTwister(sample_seed)
         p_sample = rand(rng_sample, dirichlet_distribution)
         i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
+        f_true = DeconvUtil.fit_pdf(y_val[i_sample], Data.bins(discr))
         val_indices[sample_index, :] = i_sample
+        val_curvatures = sum((C_curv*f_true).^2)
     end
-    CSV.write("val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to ./val_indices.csv"
+    CSV.write("app_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to app_val_indices.csv"
+
+    # filter smoothest 20% for APP-OQ
+    val_indices = val_indices[1 .== _curvature_level(DataFrame(sample_curvature=val_curvatures), c[:protocol][:n_splits]), :]
+    CSV.write("app-oq_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to app-oq_val_indices.csv"
 
     @info "Generating indices for $(c[:M_tst]) testing samples."
     tst_indices = zeros(Int, (c[:M_tst], c[:N_tst]))
+    tst_curvatures = zeros(c[:M_tst])
     for (sample_index, sample_seed) in enumerate(c[:tst_seed])
         rng_sample = MersenneTwister(sample_seed)
         p_sample = rand(rng_sample, dirichlet_distribution)
         i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
+        f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
         tst_indices[sample_index, :] = i_sample
+        tst_curvatures = sum((C_curv*f_true).^2)
     end
-    CSV.write("tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to ./tst_indices.csv"
+    CSV.write("app_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to app_tst_indices.csv"
+
+    # filter smoothest 20% for APP-OQ
+    tst_indices = tst_indices[1 .== _curvature_level(DataFrame(sample_curvature=tst_curvatures), c[:protocol][:n_splits]), :]
+    CSV.write("app-oq_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to app-oq_tst_indices.csv"
 
     return nothing
 end
