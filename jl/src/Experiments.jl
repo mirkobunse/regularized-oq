@@ -516,7 +516,7 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
         i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
         f_true = DeconvUtil.fit_pdf(y_val[i_sample], Data.bins(discr))
         val_indices[sample_index, :] = i_sample
-        val_curvatures = sum((C_curv*f_true).^2)
+        val_curvatures[sample_index] = sum((C_curv*f_true).^2)
     end
     CSV.write("app_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app_val_indices.csv"
@@ -535,7 +535,7 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
         i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
         f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
         tst_indices[sample_index, :] = i_sample
-        tst_curvatures = sum((C_curv*f_true).^2)
+        tst_curvatures[sample_index] = sum((C_curv*f_true).^2)
     end
     CSV.write("app_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app_tst_indices.csv"
