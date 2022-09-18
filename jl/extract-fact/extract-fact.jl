@@ -1,9 +1,7 @@
 #
 # julia extract-fact.jl
 #
-using CSV, DataFrames, HDF5
-
-FACT_TARGET = :log10_energy
+using CSV, DataFrames, Discretizers, HDF5
 
 # sub-routine creating a meaningful DataFrame from a full HDF5 file
 function _read_fact_hdf5(path::String)
@@ -48,13 +46,18 @@ function _read_fact_hdf5(path::String)
     df[!, :cog_r] = sqrt.(df[!, :cog_x].^2 + df[!, :cog_y].^2)
 
     # the label needs to be transformed for log10 plots
-    df[!, FACT_TARGET] = log10.(df[!, :corsika_event_header_total_energy])
+    df[!, :log10_energy] = log10.(df[!, :corsika_event_header_total_energy])
+
+    # map the continuous target quantity to ordinal classes
+    discr = LinearDiscretizer(range(2.4, stop=4.2, length=13)) # 12 bin representation
+    class_label = encode(discr, df[!, :log10_energy])
 
     # convert the label and the actual features to Float32, to find non-finite elements
-    df = df[!, [FACT_TARGET, :log_size, :area, :size_area, :cog_r, features...]]
+    df = df[!, [:log_size, :area, :size_area, :cog_r, features...]]
     for column in names(df)
         df[!, column] = convert.(Float32, df[!, column])
     end
+    df[!, :class_label] = class_label # keep Int type; do not convert to Float32
 
     # only return instances without NaNs (by pseudo broadcasting)
     return filter(row -> all([ isfinite(cell) for cell in row ]), df)
