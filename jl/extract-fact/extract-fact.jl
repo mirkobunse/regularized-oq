@@ -50,14 +50,13 @@ function _read_fact_hdf5(path::String)
 
     # map the continuous target quantity to ordinal classes
     discr = LinearDiscretizer(range(2.4, stop=4.2, length=13)) # 12 bin representation
-    class_label = encode(discr, df[!, :log10_energy])
+    df[!, :class_label] = encode(discr, df[!, :log10_energy])
 
-    # convert the label and the actual features to Float32, to find non-finite elements
-    df = df[!, [:log_size, :area, :size_area, :cog_r, features...]]
-    for column in names(df)
+    # convert the features (but not the label) to Float32, to find non-finite elements
+    df = df[!, [:class_label, :log_size, :area, :size_area, :cog_r, features...]]
+    for column in names(df)[2:end]
         df[!, column] = convert.(Float32, df[!, column])
     end
-    df[!, :class_label] = class_label # keep Int type; do not convert to Float32
 
     # only return instances without NaNs (by pseudo broadcasting)
     return filter(row -> all([ isfinite(cell) for cell in row ]), df)
