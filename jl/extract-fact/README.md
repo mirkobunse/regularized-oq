@@ -5,7 +5,11 @@ Bla bla.
 
 ## Usage
 
-You extract the data `fact.csv` through the provided script `extract-fact.jl`, which is conveniently wrapped in a `Makefile`. The `Project.toml` and `Manifest.toml` specify the Julia package dependencies, similar to a requirements file in Python. In your terminal, you can call either
+You extract the data `fact.csv` through the provided script `extract-fact.jl`, which is conveniently wrapped in a `Makefile`. The `Project.toml` and `Manifest.toml` specify the Julia package dependencies, similar to a requirements file in Python.
+
+**Preliminaries:** You have to have a working Julia installation. We have used Julia v1.6.5 in our experiments.
+
+**Data Extraction:** In your terminal, you can call either
 
 ```
 make
@@ -14,6 +18,7 @@ make
 or
 
 ```
+curl --fail -o fact.hdf5 https://factdata.app.tu-dortmund.de/dl2/FACT-Tools/v1.1.2/gamma_simulations_facttools_dl2.hdf5
 julia --project="." --eval "using Pkg; Pkg.instantiate()"
 julia --project="." extract-fact.jl
 ```

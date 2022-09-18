@@ -1,16 +1,9 @@
 #
 # julia extract-fact.jl
 #
-using CSV, DataFrames, Discretizers, HDF5
-using MetaConfigurations: parsefile
+using CSV, DataFrames, HDF5
 
 FACT_TARGET = :log10_energy
-c = parsefile("fact.yml"; dicttype=Dict{Symbol, Any}) # read the configuration file
-discr = LinearDiscretizer(range( # configure the discretizer of the continuous target quantity
-    c[:discretization_y][:min],
-    stop = c[:discretization_y][:max],
-    length = c[:discretization_y][:num_bins]+1
-))
 
 # sub-routine creating a meaningful DataFrame from a full HDF5 file
 function _read_fact_hdf5(path::String)
@@ -67,11 +60,8 @@ function _read_fact_hdf5(path::String)
     return filter(row -> all([ isfinite(cell) for cell in row ]), df)
 end
 
-# download, extract, and write the FACT data to fact.csv
-url = c[:download][:wobble]
-tmp = "fact.hdf5" # local path
-@info "Downloading $(url) to $(tmp)"
-download(url, tmp) # from the Base package
-df = _read_fact_hdf5(tmp) # process the downloaded file
+# extract the FACT data from fact.hdf5 to fact.csv
+@info "Reading from fact.hdf5"
+df = _read_fact_hdf5("fact.hdf5") # process the downloaded file
 @info "Writing prepared data to fact.csv"
 CSV.write("fact.csv", df)
