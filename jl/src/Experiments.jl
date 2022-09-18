@@ -454,4 +454,82 @@ function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, n_splits:
     return c
 end
 
+"""
+    dirichlet_indices(configfile="conf/gen/dirichlet_fact.yml")
+
+Extract the indices of our evaluation.
+"""
+function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
+    c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
+
+    # read and split the data
+    Random.seed!(c[:seed])
+    dataset = Data.dataset(c[:dataset])
+    discr = Data.discretizer(dataset)
+    n_classes = length(Data.bins(discr))
+    y_full = encode(discr, Data.y_data(dataset))
+    i_trn, i_rem = Util.SkObject(
+        "sklearn.model_selection.train_test_split",
+        collect(1:length(y_full)); # split indices
+        train_size = c[:N_trn],
+        stratify = y_full,
+        random_state = rand(UInt32)
+    )
+    i_val, i_tst = Util.SkObject(
+        "sklearn.model_selection.train_test_split",
+        i_rem;
+        train_size = .5,
+        stratify = y_full[i_rem],
+        random_state = rand(UInt32)
+    )
+    @info "Split" length(y_full) length(i_trn) length(i_val) length(i_tst) length(unique(vcat(i_trn, i_val, i_tst)))
+    y_trn = y_full[i_trn]
+    y_val = y_full[i_val]
+    y_tst = y_full[i_tst]
+    C_curv = LinearAlgebra.diagm(
+        -1 => fill(-1, n_classes-1),
+        0 => fill(2, n_classes),
+        1 => fill(-1, n_classes-1)
+    )[2:n_classes-1, :] # matrix for curvature computation
+
+    # generate seeds for validation and test samples
+    c[:val_seed] = rand(UInt32, c[:M_val])
+    c[:tst_seed] = rand(UInt32, c[:M_tst])
+
+    # different parametrizations of the Dirichlet distribution realize APP and NPP
+    dirichlet_parameters = if c[:protocol][:sampling] == "app"
+        ones(n_classes)
+    elseif c[:protocol][:sampling] == "npp"
+        DeconvUtil.fit_pdf(y_tst) * c[:N_tst]
+    else
+        throw(ArgumentError("Protocol '$(c[:protocol][:sampling])' not supported"))
+    end
+    dirichlet_distribution = Dirichlet(dirichlet_parameters)
+
+    # generate indices
+    @info "Generating indices for $(c[:M_val]) validation samples."
+    val_indices = zeros(Int, (c[:M_val], c[:N_val]))
+    for (sample_index, sample_seed) in enumerate(c[:val_seed])
+        rng_sample = MersenneTwister(sample_seed)
+        p_sample = rand(rng_sample, dirichlet_distribution)
+        i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
+        val_indices[sample_index, :] = i_sample
+    end
+    CSV.write("val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to ./val_indices.csv"
+
+    @info "Generating indices for $(c[:M_tst]) testing samples."
+    tst_indices = zeros(Int, (c[:M_tst], c[:N_tst]))
+    for (sample_index, sample_seed) in enumerate(c[:tst_seed])
+        rng_sample = MersenneTwister(sample_seed)
+        p_sample = rand(rng_sample, dirichlet_distribution)
+        i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
+        tst_indices[sample_index, :] = i_sample
+    end
+    CSV.write("tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to ./tst_indices.csv"
+
+    return nothing
+end
+
 end # module
