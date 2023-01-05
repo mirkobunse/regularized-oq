@@ -17,7 +17,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - val_split: 0.334
@@ -31,7 +31,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - binning:
@@ -44,7 +44,7 @@ method:
           class_weight: "balanced"
           C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
     method_id: "ibu"
@@ -70,7 +70,7 @@ method:
           class_weight: "balanced"
           C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
     method_id: "prun"
@@ -90,7 +90,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - method_id: "pcc"
@@ -103,7 +103,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - val_split: 0.25
@@ -117,7 +117,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - val_split: 0.25
@@ -131,7 +131,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - method_id: "sld"
@@ -144,7 +144,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - method_id: "osld"
@@ -163,7 +163,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
   - val_split: 0.334
@@ -177,7 +177,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
     regularization: "curvature"
@@ -194,7 +194,7 @@ method:
         class_weight: "balanced"
         C: 0.001
       bagging:
-        n_estimators: 100
+        n_estimators: 10
         random_state: 3193573456
         oob_score: true
     regularization: "curvature"

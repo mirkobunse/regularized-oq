@@ -18,6 +18,13 @@ function SkObject(class_name::AbstractString, args...; kwargs...)
 end
 
 """
+    numpy_seterr(; kwargs...) = np.seterr(; kwargs...)
+
+Set how numpy handles floating-point errors.
+"""
+numpy_seterr(; kwargs...) = pyimport("numpy").seterr(; kwargs...)
+
+"""
     rnod(a, b)
 
 Root Normalized Order-aware Divergence (RNOD) [sakai2021evaluating].

@@ -116,6 +116,7 @@ function _amazon_batch(batch::Dict{Symbol, Any})
         nmd = Float64[],
         rnod = Float64[]
     ) # store all results in this DataFrame
+    Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
     Random.seed!(batch[:seed])
     C_curv = LinearAlgebra.diagm(
         -1 => fill(-1, 4),
@@ -350,6 +351,7 @@ function _dirichlet_trial(
         nmd = Float64[],
         rnod = Float64[]
     ) # store all results in this DataFrame
+    Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
     C_curv = LinearAlgebra.diagm(
         -1 => fill(-1, n_classes-1),
         0 => fill(2, n_classes),
