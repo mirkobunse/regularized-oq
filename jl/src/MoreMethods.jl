@@ -4,6 +4,7 @@ using
     CherenkovDeconvolution,
     Discretizers,
     Distances,
+    Downloads,
     LinearAlgebra,
     Optim,
     PyCall,
@@ -23,6 +24,8 @@ function __init__()
     if !isfile(python_file)
         # download and repair the original implementation
         url = "https://raw.githubusercontent.com/aesuli/semeval2016-task4/8d0c6f2365e29efa7bb08b1521299c6e3a875ed0/binary_tree_regressor.py"
+        mkpath(dirname(python_file))
+        Downloads.download(url, python_file)
         open(python_file, "w") do io
             for line in readlines(download(url))
                 line = replace(line,
