@@ -12,6 +12,7 @@ using
     ScikitLearn,
     StatsBase,
     QuaPy,
+    QUnfold,
     OrderedCollections
 
 # download and import the original implementation of the BinaryTreeRegressor
@@ -114,6 +115,29 @@ end
 # ============================================================
 OrdinalEMQ(classifier::Any; fit_learner::Bool=true, smoothing::Smoothing=NoSmoothing()) =
     EMQ(classifier; fit_learner=fit_learner, transform_prior=f_est->apply(smoothing, f_est))
+
+
+# ===================================================================================
+# QUnfold wrappers
+# ===================================================================================
+
+CherenkovDeconvolution.deconvolve(
+        m::T,
+        X_obs::Any,
+        X_trn::Any,
+        y_trn::AbstractVector{I}
+        ) where {T<:QUnfold.AbstractMethod, I<:Integer} =
+    QUnfold.predict(QUnfold.fit(m, X_trn, y_trn), X_obs)
+
+CherenkovDeconvolution.prefit(
+        m::T,
+        X_trn::Any,
+        y_trn::Vector{I}
+        ) where {T<:QUnfold.AbstractMethod, I<:Integer} =
+    QUnfold.fit(m, X_trn, y_trn)
+
+CherenkovDeconvolution.deconvolve(m::T, X_obs::Any) where {T<:QUnfold.FittedMethod}=
+    QUnfold.predict(m, X_obs)
 
 # ===================================================================================
 # Numerically Adjusted Classify & Count (NACC) with proper losses and regularizations
