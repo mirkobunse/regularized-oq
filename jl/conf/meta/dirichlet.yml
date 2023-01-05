@@ -41,16 +41,17 @@ protocol:
 # all classifiers over which the quantification methods are optimized
 classifier:
 
-  - name: "DT ($w=$(class_weight), c=$(criterion), d=$(max_depth)$)"
-    classifier: DecisionTreeClassifier
-    calibration: isotonic
-    package: tree
+  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth)$)"
+    classifier: RandomForestClassifier
+    package: ensemble
     parameters:
       criterion: [ "entropy", "gini" ]
-      max_depth: [ 4, 6, 8, 10, 12 ]
+      max_depth: [ 4, 8, 12 ]
       class_weight: [ "balanced", ~ ]
       max_features: sqrt
+      n_estimators: 100
       random_state: 876
+      oob_score: true
 
   - classifier: LogisticRegression # not tried on FACT (does not work, anyway)
     method_id: logReg
@@ -58,6 +59,10 @@ classifier:
     parameters:
       C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
       class_weight: [ "balanced", ~ ]
+    bagging: # parameters of a BaggingClassifier
+      n_estimators: 100
+      random_state: 876
+      oob_score: true
 
 # all methods to be compared
 method:

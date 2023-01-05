@@ -94,23 +94,27 @@ function _configure_classifier(config::Dict{Symbol,Any})
     parameters = haskey(config, :parameters) ? config[:parameters] : Dict{Symbol,Any}()
     preprocessing = get(config, :preprocessing, "")
     calibration = Symbol(get(config, :calibration, "none"))
+    bagging = haskey(config, :bagging) ? config[:bagging] : Dict{Symbol,Any}()
 
     # instantiate classifier object
     Classifier = eval(Meta.parse(classname)) # constructor method
-    classifier = Classifier(; parameters...) # zip(Symbol.(keys(parameters)), values(parameters))...
+    classifier = Classifier(; parameters...)
 
-    # add calibration
+    # add optional calibration
     if calibration == :isotonic
         classifier = CalibratedClassifierCV(
             classifier,
             method=string(calibration),
             cv=KFold(n_splits=3) # do not stratify CV
         )
-    elseif calibration != :none
-        throw(ArgumentError("calibration has to be :none or :isotonic"))
     end
 
-    # add pre-processing
+    # add optional bagging
+    if length(bagging) > 0
+        classifier = BaggingClassifier(classifier; bagging...)
+    end
+
+    # add optional pre-processing
     if preprocessing != ""
         transformer = eval(Meta.parse(preprocessing))() # call the constructor method
         classifier  = Pipeline([ ("preprocessing", transformer), ("classifier", classifier) ])
@@ -119,10 +123,12 @@ function _configure_classifier(config::Dict{Symbol,Any})
 end
 
 # in-place substitutes of ScikitLearn.@sk_import
+RandomForestClassifier(args...; kwargs...) = Util.SkObject("sklearn.ensemble.RandomForestClassifier", args...; kwargs...)
 DecisionTreeClassifier(args...; kwargs...) = Util.SkObject("sklearn.tree.DecisionTreeClassifier", args...; kwargs...)
 LogisticRegression(args...; kwargs...) = Util.SkObject("sklearn.linear_model.LogisticRegression", args...; kwargs...)
 Pipeline(args...; kwargs...) = Util.SkObject("sklearn.pipeline.Pipeline", args...; kwargs...)
 StandardScaler(args...; kwargs...) = Util.SkObject("sklearn.preprocessing.StandardScaler", args...; kwargs...)
+BaggingClassifier(args...; kwargs...) = Util.SkObject("sklearn.ensemble.BaggingClassifier", args...; kwargs...)
 CalibratedClassifierCV(args...; kwargs...) = Util.SkObject("sklearn.calibration.CalibratedClassifierCV", args...; kwargs...)
 KFold(args...; kwargs...) = Util.SkObject("sklearn.model_selection.KFold", args...; kwargs...)
 label_binarize(args...; kwargs...) = Util.SkObject("sklearn.preprocessing.label_binarize", args...; kwargs...)
@@ -201,13 +207,17 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         end, vcat(map(clf -> begin # expansion
             on = if clf[:classifier] == "LogisticRegression"
                 [[:parameters, :class_weight], [:parameters, :C]]
-            elseif clf[:classifier] == "DecisionTreeClassifier"
+            elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
                 [[:parameters, :class_weight], [:parameters, :max_depth], [:parameters, :criterion]]
             end
             expand(clf, on...)
         end, pop!(job, :classifier))...))
         for clf in classifiers # interpolate classifier names
-            clf[:parameters][:random_state] = rand(UInt32)
+            if haskey(clf, :bagging)
+                clf[:bagging][:random_state] = rand(UInt32)
+            else
+                clf[:parameters][:random_state] = rand(UInt32)
+            end
             if clf[:classifier] == "LogisticRegression"
                 clf[:name] = replace(clf[:name], "\$(C)" => clf[:parameters][:C])
                 if clf[:parameters][:class_weight] == "balanced"
@@ -215,7 +225,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 else
                     clf[:name] = replace(clf[:name], "\$(class_weight)" => "n")
                 end
-            elseif clf[:classifier] == "DecisionTreeClassifier"
+            elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
                 clf[:name] = replace(clf[:name], "\$(max_depth)" => clf[:parameters][:max_depth])
                 if clf[:parameters][:criterion] == "entropy"
                     clf[:name] = replace(clf[:name], "\$(criterion)" => "E")
@@ -359,17 +369,21 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
         # expand classifiers, fix random seeds, and interpolate classifier names
         Random.seed!(job[:seed])
         classifiers = filter(clf -> begin # filtering: ignore LR on FACT
-            job[:data][:id] != "tfidf" || clf[:classifier] != "DecisionTreeClassifier"
+            job[:data][:id] != "tfidf" || clf[:classifier] ∉ ["RandomForestClassifier", "DecisionTreeClassifier"]
         end, vcat(map(clf -> begin # expansion
             on = if clf[:classifier] == "LogisticRegression"
                 [[:parameters, :class_weight], [:parameters, :C]]
-            elseif clf[:classifier] == "DecisionTreeClassifier"
+            elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
                 [[:parameters, :class_weight], [:parameters, :max_depth], [:parameters, :criterion]]
             end
             expand(clf, on...)
         end, pop!(job, :classifier))...))
         for clf in classifiers # interpolate classifier names
-            clf[:parameters][:random_state] = rand(UInt32)
+            if haskey(clf, :bagging)
+                clf[:bagging][:random_state] = rand(UInt32)
+            else
+                clf[:parameters][:random_state] = rand(UInt32)
+            end
             if clf[:classifier] == "LogisticRegression"
                 clf[:name] = replace(clf[:name], "\$(C)" => clf[:parameters][:C])
                 if clf[:parameters][:class_weight] == "balanced"
@@ -377,7 +391,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                 else
                     clf[:name] = replace(clf[:name], "\$(class_weight)" => "n")
                 end
-            elseif clf[:classifier] == "DecisionTreeClassifier"
+            elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
                 clf[:name] = replace(clf[:name], "\$(max_depth)" => clf[:parameters][:max_depth])
                 if clf[:parameters][:criterion] == "entropy"
                     clf[:name] = replace(clf[:name], "\$(criterion)" => "E")
