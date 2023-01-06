@@ -15,11 +15,16 @@ QUNFOLD_CONSTRUCTORS = Dict(
     "acc" => QUnfold.ACC,
     "pacc" => QUnfold.PACC,
     "sld" => QUnfold.SLD,
+    "hdx" => QUnfold.HDx,
+    "hdy" => QUnfold.HDy,
     "run" => QUnfold.RUN,
     "ibu" => QUnfold.IBU,
+    "svd" => QUnfold.SVD,
     "oacc" => QUnfold.ACC, # o-ACC uses the ACC constructor
     "opacc" => QUnfold.PACC, # o-PACC uses the PACC constructor
     "osld" => QUnfold.SLD, # o-SLD uses the SLD constructor
+    "ohdx" => QUnfold.HDx, # o-HDx uses the HDx constructor
+    "ohdy" => QUnfold.HDy, # o-HDy uses the HDy constructor
 ) # multi-class quantifiers from QuaPy
 QUAPY_CONSTRUCTORS = Dict(
     "cc" => MoreMethods.ClassifyAndCount,
@@ -58,6 +63,7 @@ function configure_method(c::Dict{Symbol, Any})
             if haskey(c, :parameters) && haskey(c[:parameters], :n_bins)
                 c[:parameters] = copy(c[:parameters]) # a shallow copy in the deep
                 push!(args, pop!(c[:parameters], :n_bins))
+                @info "N_BINS" args kwargs
             end
         end
         kwargs = get(c, :parameters, Dict{Symbol,Any}())
@@ -204,6 +210,16 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             elseif exp[:method_id] ∈ ["oacc", "opacc"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, [:parameters, :τ]) # :regularization
+            elseif exp[:method_id] == "hdx"
+                expand(exp, [:parameters, :n_bins])
+            elseif exp[:method_id] == "hdy"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :n_bins])
+            elseif exp[:method_id] == "ohdx"
+                expand(exp, [:parameters, :τ], [:parameters, :n_bins])
+            elseif exp[:method_id] == "ohdy"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
             else
                 throw(ArgumentError("Illegal method $(exp[:method_id])"))
             end
@@ -220,16 +236,18 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             if haskey(exp, :classifier)
                 name = replace(name, "\$(classifier)" => exp[:classifier][:name])
             end
+            if haskey(exp, :parameters) && haskey(exp[:parameters], :τ)
+                name = replace(name, "\$(τ)" => exp[:parameters][:τ])
+            end
             if exp[:method_id] in ["ibu", "osld"]
                 name = replace(name, "\$(o)" => exp[:parameters][:o])
                 name = replace(name, "\$(λ)" => exp[:parameters][:λ])
-            elseif exp[:method_id] in ["run", "svd", "oacc", "opacc"]
-                name = replace(name, "\$(τ)" => exp[:parameters][:τ])
-                # if exp[:method_id] ∈ ["oacc", "opacc"]
-                #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
-                # end
+            # elseif exp[:method_id] ∈ ["oacc", "opacc"]
+            #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
             elseif exp[:method_id] in ["oqt", "arc"]
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
+            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy"]
+                name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
             end
             exp[:name] = name # replace with interpolation
         end
@@ -256,7 +274,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         job[:M_tst] = 3
         job[:N_tst] = 100
         job[:N_val] = 100
-        job[:N_trn] = 1000
+        job[:N_trn] = 2000
         job[:protocol][:n_splits] = 2
         job[:method] = vcat(rand.(values(method_exp))...)
         @info "Writing a test configuration to $(job[:configfile])"
@@ -318,7 +336,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             end
         end
 
-        # expand and filter experiments
+        # expand experiments
         job[:method] = vcat(map(exp -> begin # expansion
             exp = deepcopy(exp)
             if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld"]
@@ -340,6 +358,16 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             elseif exp[:method_id] ∈ ["oacc", "opacc"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, [:parameters, :τ]) # :regularization
+            elseif exp[:method_id] == "hdx"
+                expand(exp, [:parameters, :n_bins])
+            elseif exp[:method_id] == "hdy"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :n_bins])
+            elseif exp[:method_id] == "ohdx"
+                expand(exp, [:parameters, :τ], [:parameters, :n_bins])
+            elseif exp[:method_id] == "ohdy"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
             else # other methods are not supported
                 throw(ArgumentError("Illegal method $(exp[:method_id])"))
             end
@@ -351,16 +379,18 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             if haskey(exp, :classifier)
                 name = replace(name, "\$(classifier)" => exp[:classifier][:name])
             end
+            if haskey(exp, :parameters) && haskey(exp[:parameters], :τ)
+                name = replace(name, "\$(τ)" => exp[:parameters][:τ])
+            end
             if exp[:method_id] in ["ibu", "osld"]
                 name = replace(name, "\$(o)" => exp[:parameters][:o])
                 name = replace(name, "\$(λ)" => exp[:parameters][:λ])
-            elseif exp[:method_id] in ["run", "svd", "oacc", "opacc"]
-                name = replace(name, "\$(τ)" => exp[:parameters][:τ])
-                # if exp[:method_id] ∈ ["oacc", "opacc"]
-                #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
-                # end
+            # elseif exp[:method_id] ∈ ["oacc", "opacc"]
+            #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
             elseif exp[:method_id] in ["oqt", "arc"]
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
+            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy"]
+                name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
             end
             exp[:name] = name # replace with interpolation
         end
@@ -385,7 +415,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
         end
         job[:M_val] = 3
         job[:M_tst] = 3
-        job[:N_trn] = 1000
+        job[:N_trn] = 2000
         job[:protocol][:n_splits] = 2
         job[:method] = vcat(rand.(values(method_exp))...)
         @info "Writing a test configuration to $(job[:configfile])"

@@ -61,14 +61,20 @@ method:
     name: "IBU ($o=$(o), i=$(λ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      o: [ 0, 1, 2 ]
-      λ: [ 3e-1, 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
+      o: [ 0, 1 ]
+      λ: [ 1e-1, 1e-2, 0.0 ]
 
   - method_id: run
     name: "RUN ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 3e-2, 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-6 ]
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+
+  - method_id: svd
+    name: "SVD ($\\tau=$(τ)$) on $(classifier)"
+    transformer: classifier
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
@@ -86,20 +92,42 @@ method:
   - method_id: sld # a.k.a. EMQ
     name: "SLD on $(classifier)"
 
+  - method_id: hdx
+    name: "HDx ($(n_bins) bins per feature)"
+    parameters:
+      n_bins: [2, 3, 4]
+
+  - method_id: hdy
+    name: "HDy ($(n_bins) bins per class) on $(classifier)"
+    parameters:
+      n_bins: [2, 4]
+
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
-      o: [ 0, 1, 2 ]
-      λ: [ 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
+      o: [ 0, 1 ]
+      λ: [ 1e-1, 1e-2, 0.0 ]
 
   - method_id: oacc # ordinal ACC
-    name: "o-ACC (\\tau=$(τ)) on $(classifier)" # $r=$(regularization)
+    name: "o-ACC ($\\tau=$(τ)$) on $(classifier)" # $r=$(regularization)
     parameters:
-      τ: [ 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9 ]
+      τ: [ 1e-1, 1e-3, 1e-5 ]
       # TODO regularization: [ "curvature", "norm" ]
 
   - method_id: opacc # ordinal PACC
-    name: "o-PACC (\\tau=$(τ)) on $(classifier)" # $r=$(regularization)
+    name: "o-PACC ($\\tau=$(τ)$) on $(classifier)" # $r=$(regularization)
     parameters:
-      τ: [ 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9 ]
+      τ: [ 1e-1, 1e-3, 1e-5 ]
       # TODO regularization: [ "curvature", "norm" ]
+
+  - method_id: ohdx # ordinal HDx
+    name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      n_bins: [2, 3, 4]
+
+  - method_id: ohdy # ordinal HDy
+    name: "o-HDy ($\\tau=$(τ)$, $(n_bins) bins per class) on $(classifier)"
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      n_bins: [2, 4]

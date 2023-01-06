@@ -403,157 +403,205 @@ method:
     parameters:
       val_split: 0.334
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.1, J=36$)"
+    name: "IBU ($o=0, i=0.1, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       o: 0
       λ: 0.1
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.1, J=120$)"
+    name: "IBU ($o=0, i=0.1, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       o: 0
       λ: 0.1
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.01, J=36$)"
+    name: "IBU ($o=0, i=0.01, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       o: 0
       λ: 0.01
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.01, J=120$)"
+    name: "IBU ($o=0, i=0.01, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       o: 0
       λ: 0.01
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.0, J=36$)"
+    name: "IBU ($o=0, i=0.0, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       o: 0
       λ: 0.0
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.0, J=120$)"
+    name: "IBU ($o=0, i=0.0, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       o: 0
       λ: 0.0
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.1, J=36$)"
+    name: "IBU ($o=1, i=0.1, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       o: 1
       λ: 0.1
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.1, J=120$)"
+    name: "IBU ($o=1, i=0.1, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       o: 1
       λ: 0.1
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.01, J=36$)"
+    name: "IBU ($o=1, i=0.01, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       o: 1
       λ: 0.01
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.01, J=120$)"
+    name: "IBU ($o=1, i=0.01, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       o: 1
       λ: 0.01
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.0, J=36$)"
+    name: "IBU ($o=1, i=0.0, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       o: 1
       λ: 0.0
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.0, J=120$)"
+    name: "IBU ($o=1, i=0.0, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       o: 1
       λ: 0.0
   - method_id: "run"
-    name: "RUN ($\\tau=0.1, J=36$)"
+    name: "RUN ($\\tau=0.1, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.1, J=120$)"
+    name: "RUN ($\\tau=0.1, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001, J=36$)"
+    name: "RUN ($\\tau=0.001, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       τ: 0.001
   - method_id: "run"
-    name: "RUN ($\\tau=0.001, J=120$)"
+    name: "RUN ($\\tau=0.001, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
       τ: 0.001
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5, J=36$)"
+    name: "RUN ($\\tau=1.0e-5, J=24$)"
     transformer_parameters:
-      max_leaf_nodes: 36
+      max_leaf_nodes: 24
       random_state: 1078380895
     transformer: "tree"
     parameters:
       τ: 1.0e-5
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5, J=120$)"
+    name: "RUN ($\\tau=1.0e-5, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 120
+      max_leaf_nodes: 60
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1, J=24$)"
+    transformer_parameters:
+      max_leaf_nodes: 24
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001, J=24$)"
+    transformer_parameters:
+      max_leaf_nodes: 24
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5, J=24$)"
+    transformer_parameters:
+      max_leaf_nodes: 24
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
       random_state: 2918134088
     transformer: "tree"
     parameters:
@@ -1398,6 +1446,402 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+  - method_id: "hdx"
+    name: "HDx (2 bins per feature)"
+    parameters:
+      n_bins: 2
+  - method_id: "hdx"
+    name: "HDx (3 bins per feature)"
+    parameters:
+      n_bins: 3
+  - method_id: "hdx"
+    name: "HDx (4 bins per feature)"
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (2 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_bins: 2
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_bins: 4
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=E, d=4$)"
     classifier:
@@ -2215,7 +2659,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=E, d=4$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -2231,7 +2675,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=4$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -2247,7 +2691,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=4$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -2263,7 +2707,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=G, d=4$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -2279,7 +2723,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=G, d=4$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -2295,7 +2739,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=4$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -2311,7 +2755,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=E, d=8$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -2327,7 +2771,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=8$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -2343,7 +2787,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=8$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -2359,7 +2803,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=G, d=8$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -2375,7 +2819,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=G, d=8$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -2391,7 +2835,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=8$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -2407,7 +2851,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=E, d=12$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -2423,7 +2867,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=12$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -2439,7 +2883,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=12$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -2455,7 +2899,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=G, d=12$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -2471,7 +2915,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=G, d=12$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -2487,7 +2931,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=12$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -2503,7 +2947,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=E, d=4$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -2519,7 +2963,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=E, d=4$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -2535,7 +2979,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=4$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -2551,7 +2995,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=G, d=4$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -2567,7 +3011,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=G, d=4$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -2583,7 +3027,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=4$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -2599,7 +3043,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=E, d=8$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -2615,7 +3059,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=E, d=8$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -2631,7 +3075,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=8$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -2647,7 +3091,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=G, d=8$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -2663,7 +3107,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=G, d=8$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -2679,7 +3123,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=8$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -2695,7 +3139,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=E, d=12$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -2711,7 +3155,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=E, d=12$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -2727,7 +3171,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=12$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -2743,7 +3187,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=G, d=12$)"
+    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -2759,7 +3203,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=G, d=12$)"
+    name: "o-ACC ($\\tau=0.001$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -2775,7 +3219,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=12$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -2791,7 +3235,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=E, d=4$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -2807,7 +3251,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=E, d=4$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -2823,7 +3267,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=4$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -2839,7 +3283,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=G, d=4$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -2855,7 +3299,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=G, d=4$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -2871,7 +3315,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=4$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -2887,7 +3331,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=E, d=8$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -2903,7 +3347,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=E, d=8$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -2919,7 +3363,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=8$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -2935,7 +3379,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=G, d=8$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -2951,7 +3395,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=G, d=8$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -2967,7 +3411,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=8$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -2983,7 +3427,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=E, d=12$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -2999,7 +3443,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=E, d=12$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -3015,7 +3459,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=12$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -3031,7 +3475,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=G, d=12$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -3047,7 +3491,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=G, d=12$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -3063,7 +3507,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=12$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -3079,7 +3523,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=E, d=4$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -3095,7 +3539,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=E, d=4$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -3111,7 +3555,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=4$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -3127,7 +3571,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=G, d=4$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -3143,7 +3587,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=G, d=4$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -3159,7 +3603,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=4$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -3175,7 +3619,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=E, d=8$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -3191,7 +3635,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=E, d=8$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -3207,7 +3651,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=8$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -3223,7 +3667,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=G, d=8$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -3239,7 +3683,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=G, d=8$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -3255,7 +3699,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=8$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -3271,7 +3715,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=E, d=12$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -3287,7 +3731,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=E, d=12$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -3303,7 +3747,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=12$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -3319,7 +3763,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=G, d=12$)"
+    name: "o-PACC ($\\tau=0.1$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -3335,7 +3779,7 @@ method:
     parameters:
       τ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=G, d=12$)"
+    name: "o-PACC ($\\tau=0.001$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -3351,7 +3795,7 @@ method:
     parameters:
       τ: 0.001
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=12$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -3366,6 +3810,1275 @@ method:
         max_depth: 12
     parameters:
       τ: 1.0e-5
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.1$, 2 bins per feature)"
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.1$, 3 bins per feature)"
+    parameters:
+      τ: 0.1
+      n_bins: 3
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.1$, 4 bins per feature)"
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.001$, 2 bins per feature)"
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.001$, 3 bins per feature)"
+    parameters:
+      τ: 0.001
+      n_bins: 3
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.001$, 4 bins per feature)"
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=1.0e-5$, 2 bins per feature)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=1.0e-5$, 3 bins per feature)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 3
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=1.0e-5$, 4 bins per feature)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 2 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 2
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
 N_trn: 20000
 N_val: 1000
 protocol:
