@@ -128,10 +128,12 @@ uuid = "9e997f8a-9a97-42d5-a9f1-ce6bfc15e2c0"
 version = "0.1.4"
 
 [[CherenkovDeconvolution]]
-deps = ["Discretizers", "LinearAlgebra", "Optim", "Polynomials", "PyCall", "Random", "Reexport", "ScikitLearn", "ScikitLearnBase", "StatsBase"]
-git-tree-sha1 = "1ee672449bea6c9c278ff54154123a1e508ffc53"
+deps = ["Conda", "Discretizers", "LinearAlgebra", "Optim", "Polynomials", "PyCall", "Random", "Reexport", "ScikitLearn", "ScikitLearnBase", "StatsBase"]
+git-tree-sha1 = "45c9f8425c95990f9648bf50d7818200f750a4e3"
+repo-rev = "main"
+repo-url = "https://github.com/mirkobunse/CherenkovDeconvolution.jl"
 uuid = "7995dc16-b5cc-11e8-32a0-21341f07e0b5"
-version = "0.3.0"
+version = "0.3.1"
 
 [[Clustering]]
 deps = ["Distances", "LinearAlgebra", "NearestNeighbors", "Printf", "Random", "SparseArrays", "Statistics", "StatsBase"]
