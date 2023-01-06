@@ -67,83 +67,66 @@ classifier:
 # all methods to be compared
 method:
 
-  # Iterative Bayesian Unfolding without smoothing
-  - method_id: ibu
-    epsilon: 1e-6
-    K: 1000
-    binning:
-      method_id: tree
-      J: [ 60, 120, 180 ] # 5, 10, and 15 times the number of classes (12)
-    smoothing:
-      method_id: "polynomial"
-      order: [ 0, 1, 2 ]
-      impact: [ .1, .01, 0.0 ]
-      avg_negative: false
-      warn: false
-    stepsize:
-      method_id: constant
-      alpha: 1.0
-    name: "IBU ($o=$(order), i=$(impact), J=$(J)$)"
-
-  # p-RUN: positive-constrained maximum likelihood estimate
-  - method_id: prun
-    epsilon: 1e-6
-    warn: false
-    K: 1000
-    binning:
-      method_id: tree
-      J: [ 60, 120, 180 ]
-    ac_regularisation: false
-    tau: [ 1e-1, 1e-3, 1e-5 ]
-    name: "RUN ($\\tau=$(tau), J=$(J)$)"
-
   # Ordinal Quantification Tree (CAUTION: will break with costly ensemble skconfigs)
   - method_id: oqt
     name: "OQT ($v=$(val_split)$) on $(classifier)"
-    epsilon: 1e-6
-    val_split: [ 0.334 ] # 1/3
+    parameters:
+      epsilon: 1e-6
+      val_split: [ 0.334 ] # 1/3
 
-  - method_id: "arc" # AdjustedRegressAndCount (by Andrea Esuli)
+  - method_id: arc # AdjustedRegressAndCount (by Andrea Esuli)
     name: "ARC ($v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.334 ]
+    parameters:
+      val_split: [ 0.334 ]
 
-  # Classify and Count variants from QuaPy.jl
-  - method_id: cc # ClassifyAndCount
+  # unfolding methods from QUnfold.jl
+  - method_id: ibu
+    name: "IBU ($o=$(o), i=$(λ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      max_leaf_nodes: [ 36, 120 ] # 3 and 10 times the number of classes
+    parameters:
+      o: [ 0, 1 ]
+      λ: [ 1e-1, 1e-2, 0.0 ]
+
+  - method_id: run
+    name: "RUN ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      max_leaf_nodes: [ 36, 120 ]
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+
+  # quantification methods
+  - method_id: cc
     name: "CC on $(classifier)"
 
-  - method_id: pcc # ProbabilisticClassifyAndCount
+  - method_id: pcc
     name: "PCC on $(classifier)"
 
-  - method_id: acc # AdjustedClassifyAndCount
-    name: "ACC ($v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.25, 0.334, 0.5 ] # 1/4, 1/3 and 1/2
+  - method_id: acc # softmax ACC
+    name: "ACC on $(classifier)"
 
-  - method_id: pacc # ProbabilisticAdjustedClassifyAndCount
-    name: "PACC ($v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.25, 0.334, 0.5 ]
+  - method_id: pacc # softmax PACC
+    name: "PACC on $(classifier)"
 
-  - method_id: sld # ExpectationMaximizationQuantifier
+  - method_id: sld # a.k.a. EMQ
     name: "SLD on $(classifier)"
 
-  - method_id: osld # our smooth version of SLD
-    name: "o-SLD ($o=$(order), i=$(impact)$) on $(classifier)"
-    smoothing:
-      method_id: "polynomial"
-      order: [ 0, 1, 2 ]
-      impact: [ 1e-1, 3e-2, 1e-2 ]
-      avg_negative: false
-      warn: false
+  - method_id: osld # ordinal SLD
+    name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
+    parameters:
+      o: [ 0, 1 ]
+      λ: [ 1e-1, 1e-2 ]
 
-  - method_id: oacc # our smooth version of ACC
-    name: "o-ACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.334 ]
-    criterion: [ "mse" ]
-    regularization: [ "curvature", "norm" ]
-    tau: [ 1e-1, 1e-3, 1e-5 ]
+  - method_id: oacc # ordinal ACC
+    name: "o-ACC ($\\tau=$(τ)) on $(classifier)" # r=$(regularization)
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      # TODO regularization: [ "curvature", "norm" ]
 
-  - method_id: opacc # our smooth version of PACC
-    name: "o-PACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.334 ]
-    criterion: [ "mse" ]
-    regularization: [ "curvature", "norm" ]
-    tau: [ 1e-1, 1e-3, 1e-5 ]
+  - method_id: opacc # ordinal PACC
+    name: "o-PACC ($\\tau=$(τ)) on $(classifier)" # r=$(regularization)
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      # TODO regularization: [ "curvature", "norm" ]

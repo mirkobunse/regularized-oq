@@ -46,79 +46,60 @@ method:
   # Ordinal Quantification Tree (CAUTION: will break with costly ensemble skconfigs)
   - method_id: oqt
     name: "OQT ($v=$(val_split)$) on $(classifier)"
-    epsilon: 1e-6
-    val_split: [ 0.334 ]
+    parameters:
+      epsilon: 1e-6
+      val_split: [ 0.334 ] # 1/3
 
   # AdjustedRegressAndCount (by Andrea Esuli)
-  - method_id: "arc"
+  - method_id: arc
     name: "ARC ($v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.334 ]
+    parameters:
+      val_split: [ 0.334 ]
 
-  # Iterative Bayesian Unfolding
+  # unfolding methods from QUnfold.jl
   - method_id: ibu
-    epsilon: 1e-6
-    K: 1000
-    binning:
-      method_id: classifier
-    smoothing:
-      method_id: "polynomial"
-      order: [ 0, 1, 2 ]
-      impact: [ 3e-1, 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
-      avg_negative: false
-      warn: false
-    stepsize:
-      method_id: constant
-      alpha: 1.0
-    name: "IBU ($o=$(order), i=$(impact)$) on $(classifier)"
+    name: "IBU ($o=$(o), i=$(λ)$) on $(classifier)"
+    transformer: classifier
+    parameters:
+      o: [ 0, 1, 2 ]
+      λ: [ 3e-1, 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
 
-  # p-RUN: positive-constrained maximum likelihood estimate
-  - method_id: prun
-    epsilon: 1e-6
-    warn: false
-    K: 1000
-    binning:
-      method_id: classifier
-    ac_regularisation: false
-    tau: [ 3e-2, 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-6 ]
-    name: "RUN ($\\tau=$(tau)$) on $(classifier)"
+  - method_id: run
+    name: "RUN ($\\tau=$(τ)$) on $(classifier)"
+    transformer: classifier
+    parameters:
+      τ: [ 3e-2, 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-6 ]
 
-  # Classify and Count variants from QuaPy.jl
-  - method_id: cc # ClassifyAndCount
+  # quantification methods from QUnfold.jl
+  - method_id: cc
     name: "CC on $(classifier)"
 
-  - method_id: pcc # ProbabilisticClassifyAndCount
+  - method_id: pcc
     name: "PCC on $(classifier)"
 
-  - method_id: acc # AdjustedClassifyAndCount
-    name: "ACC ($v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.25, 0.334, 0.5 ]
+  - method_id: acc # softmax ACC
+    name: "ACC on $(classifier)"
 
-  - method_id: pacc # ProbabilisticAdjustedClassifyAndCount
-    name: "PACC ($v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.25, 0.334, 0.5 ]
+  - method_id: pacc # softmax PACC
+    name: "PACC on $(classifier)"
 
-  - method_id: sld # ExpectationMaximizationQuantifier
+  - method_id: sld # a.k.a. EMQ
     name: "SLD on $(classifier)"
 
-  - method_id: osld # our smooth version of SLD
-    name: "o-SLD ($o=$(order), i=$(impact)$) on $(classifier)"
-    smoothing:
-      method_id: "polynomial"
-      order: [ 0, 1, 2 ]
-      impact: [ 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
-      avg_negative: false
-      warn: false
+  - method_id: osld # ordinal SLD
+    name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
+    parameters:
+      o: [ 0, 1, 2 ]
+      λ: [ 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
 
-  - method_id: oacc # our smooth version of ACC
-    name: "o-ACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.334, 0.25 ]
-    criterion: [ "mse" ]
-    regularization: [ "curvature", "norm" ]
-    tau: [ 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9 ]
+  - method_id: oacc # ordinal ACC
+    name: "o-ACC (\\tau=$(τ)) on $(classifier)" # $r=$(regularization)
+    parameters:
+      τ: [ 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9 ]
+      # TODO regularization: [ "curvature", "norm" ]
 
-  - method_id: opacc # our smooth version of PACC
-    name: "o-PACC ($r=$(regularization), \\tau=$(tau), v=$(val_split)$) on $(classifier)"
-    val_split: [ 0.334, 0.25 ]
-    criterion: [ "mse" ]
-    regularization: [ "curvature", "norm" ]
-    tau: [ 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9 ]
+  - method_id: opacc # ordinal PACC
+    name: "o-PACC (\\tau=$(τ)) on $(classifier)" # $r=$(regularization)
+    parameters:
+      τ: [ 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 1e-5, 1e-6, 1e-9 ]
+      # TODO regularization: [ "curvature", "norm" ]

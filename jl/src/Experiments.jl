@@ -233,7 +233,7 @@ function load_amazon_data(data_path::String)
             push!(X, line[3:end]) # extract text
         end
     end
-    return X, y
+    return X, y .+ 1 # convert zero-based labeling to one-based labeling
 end
 
 # split each line by spaces, parse into Float64s, and reshape into a matrix

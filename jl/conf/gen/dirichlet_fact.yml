@@ -6,568 +6,8 @@ M_tst: 5000
 configfile: "conf/gen/dirichlet_fact.yml"
 dataset: "fact"
 method:
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.1, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.1, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.1, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.01, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.01, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.01, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.0, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.0, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=0, i=0.0, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.1, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.1, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.1, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.01, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.01, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.01, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.0, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.0, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=1, i=0.0, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.1, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.1, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.1, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.01, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.01, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.01, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.0, J=60$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.0, J=120$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "ibu"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.0
-      warn: false
-      avg_negative: false
-    K: 1000
-    name: "IBU ($o=2, i=0.0, J=180$)"
-    epsilon: 1.0e-6
-    stepsize:
-      alpha: 1.0
-      method_id: "constant"
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=0.1, J=60$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 0.1
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=0.1, J=120$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 0.1
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=0.1, J=180$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 0.1
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=0.001, J=60$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 0.001
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=0.001, J=120$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 0.001
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=0.001, J=180$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 0.001
-  - binning:
-      method_id: "tree"
-      J: 60
-      seed: 1078380895
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=1.0e-5, J=60$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 1.0e-5
-  - binning:
-      method_id: "tree"
-      J: 120
-      seed: 2918134088
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=1.0e-5, J=120$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 1.0e-5
-  - binning:
-      method_id: "tree"
-      J: 180
-      seed: 832709507
-    method_id: "prun"
-    K: 1000
-    warn: false
-    name: "RUN ($\\tau=1.0e-5, J=180$)"
-    epsilon: 1.0e-6
-    ac_regularisation: false
-    tau: 1.0e-5
-  - val_split: 0.334
-    method_id: "oqt"
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -580,10 +20,11 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -596,10 +37,11 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -612,10 +54,11 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -628,10 +71,11 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -644,10 +88,11 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -660,10 +105,11 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -676,10 +122,11 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -692,10 +139,11 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -708,10 +156,11 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -724,10 +173,11 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -740,10 +190,11 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "oqt"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    epsilon: 1.0e-6
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -756,8 +207,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -771,8 +224,9 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -786,8 +240,9 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -801,8 +256,9 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -816,8 +272,9 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -831,8 +288,9 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -846,8 +304,9 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -861,8 +320,9 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -876,8 +336,9 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -891,8 +352,9 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -906,8 +368,9 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -921,8 +384,9 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "arc"
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -936,6 +400,164 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      val_split: 0.334
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.001, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 0.001
+  - method_id: "run"
+    name: "RUN ($\\tau=0.001, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 0.001
+  - method_id: "run"
+    name: "RUN ($\\tau=1.0e-5, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "run"
+    name: "RUN ($\\tau=1.0e-5, J=120$)"
+    transformer_parameters:
+      max_leaf_nodes: 120
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
   - method_id: "cc"
     name: "CC on RF ($w=u, c=E, d=4$)"
     classifier:
@@ -1272,9 +894,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=u, c=E, d=4$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -1287,9 +908,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=u, c=G, d=4$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -1302,9 +922,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=u, c=E, d=8$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -1317,9 +936,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=u, c=G, d=8$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -1332,9 +950,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=u, c=E, d=12$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -1347,9 +964,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=u, c=G, d=12$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -1362,9 +978,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=n, c=E, d=4$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -1377,9 +992,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=n, c=G, d=4$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -1392,9 +1006,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=n, c=E, d=8$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -1407,9 +1020,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=n, c=G, d=8$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -1422,9 +1034,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=n, c=E, d=12$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -1437,9 +1048,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.25
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{4}$) on RF ($w=n, c=G, d=12$)"
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -1452,9 +1062,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -1467,9 +1076,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -1482,9 +1090,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -1497,9 +1104,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -1512,9 +1118,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -1527,9 +1132,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -1542,9 +1146,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -1557,9 +1160,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -1572,9 +1174,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -1587,9 +1188,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -1602,9 +1202,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -1617,729 +1216,8 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-  - val_split: 0.334
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "acc"
-    name: "ACC ($v=\\frac{1}{2}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.25
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{4}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.334
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - val_split: 0.5
-    method_id: "pacc"
-    name: "PACC ($v=\\frac{1}{2}$) on RF ($w=n, c=G, d=12$)"
+  - method_id: "pacc"
+    name: "PACC on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -2521,12 +1399,6 @@ method:
         criterion: "gini"
         max_depth: 12
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -2540,33 +1412,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -2580,13 +1429,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -2600,33 +1446,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -2640,73 +1463,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -2720,33 +1480,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -2760,13 +1497,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -2780,33 +1514,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -2820,73 +1531,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -2900,33 +1548,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -2940,13 +1565,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -2960,33 +1582,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -3000,73 +1599,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -3080,33 +1616,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -3120,13 +1633,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -3140,33 +1650,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -3180,73 +1667,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -3260,33 +1684,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -3300,13 +1701,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -3320,33 +1718,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -3360,73 +1735,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -3440,33 +1752,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -3480,13 +1769,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -3500,33 +1786,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -3540,73 +1803,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -3620,33 +1820,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -3660,13 +1837,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -3680,33 +1854,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
@@ -3720,73 +1871,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -3800,33 +1888,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -3840,13 +1905,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -3860,33 +1922,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
@@ -3900,73 +1939,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -3980,33 +1956,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -4020,13 +1973,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -4040,33 +1990,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
@@ -4080,73 +2007,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -4160,33 +2024,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -4200,13 +2041,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -4220,33 +2058,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
@@ -4260,73 +2075,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -4340,33 +2092,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -4380,13 +2109,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -4400,33 +2126,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
@@ -4440,73 +2143,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -4520,33 +2160,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=0, i=0.03$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 0
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -4560,13 +2177,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 0
+      λ: 0.01
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.1
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -4580,33 +2194,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
+    parameters:
+      o: 1
+      λ: 0.1
   - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=1, i=0.03$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 1
-      impact: 0.01
-      warn: false
-      avg_negative: false
     name: "o-SLD ($o=1, i=0.01$) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
@@ -4620,69 +2211,11 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.1
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.1$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.03
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.03$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - method_id: "osld"
-    smoothing:
-      method_id: "polynomial"
-      order: 2
-      impact: 0.01
-      warn: false
-      avg_negative: false
-    name: "o-SLD ($o=2, i=0.01$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -4695,12 +2228,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -4713,12 +2244,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -4731,12 +2260,538 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 10
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -4749,12 +2804,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -4767,12 +2820,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -4785,12 +2836,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -4803,12 +2852,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -4821,12 +2868,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -4839,66 +2884,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -4911,12 +2900,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -4929,12 +2916,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -4947,66 +2932,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -5019,12 +2948,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -5037,12 +2964,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -5055,66 +2980,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -5127,12 +2996,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -5145,12 +3012,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -5163,66 +3028,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -5235,12 +3044,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -5253,12 +3060,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -5271,66 +3076,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -5343,12 +3092,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -5361,12 +3108,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -5379,66 +3124,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -5451,12 +3140,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -5469,12 +3156,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -5487,66 +3172,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -5559,12 +3188,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -5577,12 +3204,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -5595,66 +3220,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -5667,12 +3236,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -5685,12 +3252,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -5703,66 +3268,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -5775,12 +3284,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -5793,12 +3300,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -5811,66 +3316,10 @@ method:
         n_estimators: 10
         criterion: "entropy"
         max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -5883,12 +3332,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -5901,12 +3348,10 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -5919,1359 +3364,8 @@ method:
         n_estimators: 10
         criterion: "gini"
         max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "oacc"
-    name: "o-ACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3193573456
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1466828405
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 539010050
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 3249917414
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 674079454
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=u, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: "balanced"
-        random_state: 1207595197
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 3645983298
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=4$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 1669086789
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 4
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 910122224
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=8$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 931584667
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 8
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=E, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2104093590
-        n_estimators: 10
-        criterion: "entropy"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=C_2, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "curvature"
-    tau: 1.0e-5
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.1, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.1
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=0.001, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 0.001
-    criterion: "mse"
-  - val_split: 0.334
-    method_id: "opacc"
-    name: "o-PACC ($r=I, \\tau=1.0e-5, v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
-    classifier:
-      package: "ensemble"
-      name: "RF ($w=n, c=G, d=12$)"
-      classifier: "RandomForestClassifier"
-      parameters:
-        oob_score: true
-        max_features: "sqrt"
-        class_weight: ~
-        random_state: 2979853892
-        n_estimators: 10
-        criterion: "gini"
-        max_depth: 12
-    regularization: "norm"
-    tau: 1.0e-5
-    criterion: "mse"
+    parameters:
+      τ: 1.0e-5
 N_trn: 20000
 N_val: 1000
 protocol:

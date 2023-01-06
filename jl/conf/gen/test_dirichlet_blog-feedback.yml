@@ -1,0 +1,180 @@
+M_val: 3
+outfile: "res/csv/test_dirichlet_blog-feedback.csv"
+valfile: "res/csv/test_dirichlet_val_blog-feedback.csv"
+N_tst: 100
+M_tst: 3
+configfile: "conf/gen/test_dirichlet_blog-feedback.yml"
+dataset: "blog-feedback"
+method:
+  - method_id: "pcc"
+    name: "PCC on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 55344545
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "acc"
+    name: "ACC on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+  - method_id: "pacc"
+    name: "PACC on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 3246234475
+        n_estimators: 10
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1078380895
+        n_estimators: 10
+    parameters:
+      val_split: 0.334
+  - method_id: "sld"
+    name: "SLD on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 12
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      τ: 0.001
+  - method_id: "cc"
+    name: "CC on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 2079480891
+        n_estimators: 10
+  - method_id: "osld"
+    name: "o-SLD ($o=0, i=0.01$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 10
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 2079480891
+        n_estimators: 10
+    parameters:
+      τ: 0.001
+  - method_id: "run"
+    name: "RUN ($\\tau=1.0e-5, J=36$)"
+    transformer_parameters:
+      max_leaf_nodes: 36
+      random_state: 55344545
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+N_trn: 1000
+N_val: 100
+protocol:
+  n_splits: 2
+  sampling: "app"
+job: "dirichlet"
+seed: 876

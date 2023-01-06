@@ -54,7 +54,7 @@ The individual experiments are configured in `conf/gen/`, the contents of which 
 You can run an experiment either from the interactive Julia shell (recommended only for testing):
 
 ```
-julia> Experiments.run("conf/test/<file>.yml")
+julia> Experiments.run("conf/gen/test_<experiment>.yml")
 ```
 
 Or you can run multiple experiments in batch mode with multiple cores (recommended for actual experimentation). Call from a regular shell (not from Julia):
