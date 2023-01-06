@@ -22,6 +22,7 @@ method:
         max_depth: 8
   - method_id: "ohdx"
     name: "o-HDx ($\\tau=0.1$, 4 bins per feature)"
+    random_state: 3379360669
     parameters:
       τ: 0.1
       n_bins: 4
@@ -49,6 +50,7 @@ method:
         n_estimators: 10
   - method_id: "hdx"
     name: "HDx (3 bins per feature)"
+    random_state: 1145106099
     parameters:
       n_bins: 3
   - method_id: "pacc"

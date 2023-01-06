@@ -63,7 +63,6 @@ function configure_method(c::Dict{Symbol, Any})
             if haskey(c, :parameters) && haskey(c[:parameters], :n_bins)
                 c[:parameters] = copy(c[:parameters]) # a shallow copy in the deep
                 push!(args, pop!(c[:parameters], :n_bins))
-                @info "N_BINS" args kwargs
             end
         end
         kwargs = get(c, :parameters, Dict{Symbol,Any}())
@@ -181,10 +180,6 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         end
 
         # expand experiments
-        J_seed = Dict(map( # make sure that each TreeTransformer is the same
-            J -> J => rand(UInt32),
-            unique(vcat(MetaConfigurations.find(job[:method], :max_leaf_nodes)...))
-        )...)
         job[:method] = vcat(map(exp -> begin # expansion
             if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld"]
                 exp[:classifier] = classifiers
@@ -225,11 +220,19 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             end
         end, job[:method])...)
 
-        # interpolate the method names and seed the TreeTransformers
+        # interpolate the method names and provide consistent seeds for TreeTransformer & HDx
+        tree_seed = Dict(map( # make sure that each TreeTransformer is the same
+            J -> J => rand(UInt32),
+            unique(vcat(MetaConfigurations.find(job[:method], :max_leaf_nodes)...))
+        )...)
+        hdx_seed = Dict(map( # make sure that each HDx n_bins setting is the same
+            J -> J => rand(UInt32),
+            unique(vcat(MetaConfigurations.find(job[:method], :n_bins)...))
+        )...)
         for exp in job[:method]
             name = exp[:name]
             if exp[:method_id] in ["ibu", "run", "svd"]
-                seed = J_seed[exp[:transformer_parameters][:max_leaf_nodes]]
+                seed = tree_seed[exp[:transformer_parameters][:max_leaf_nodes]]
                 exp[:transformer_parameters][:random_state] = seed
                 name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:max_leaf_nodes])
             end
@@ -248,6 +251,9 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
             elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy"]
                 name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
+                if exp[:method_id] in ["hdx", "ohdx"]
+                    exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]
+                end
             end
             exp[:name] = name # replace with interpolation
         end
@@ -373,7 +379,11 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             end
         end, job[:method])...)
 
-        # interpolate the method names
+        # interpolate the method names and provide consistent seeds for HDx
+        hdx_seed = Dict(map( # make sure that each HDx n_bins setting is the same
+            J -> J => rand(UInt32),
+            unique(vcat(MetaConfigurations.find(job[:method], :n_bins)...))
+        )...)
         for exp in job[:method]
             name = exp[:name]
             if haskey(exp, :classifier)
@@ -391,6 +401,9 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
             elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy"]
                 name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
+                if exp[:method_id] in ["hdx", "ohdx"]
+                    exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]
+                end
             end
             exp[:name] = name # replace with interpolation
         end

@@ -180,7 +180,12 @@ function _amazon_prefitted_trials(batch::Dict{Symbol, Any})
     trials = expand(batch, :method)
     n_trials = length(trials)
     for (i_trial, trial) in enumerate(trials)
-        trial[:seed] = MetaConfigurations.find(trial[:method], :random_state)[1]
+        try
+            trial[:seed] = MetaConfigurations.find(trial[:method], :random_state)[1]
+        catch
+            @error "no :random_state" trial[:method]
+            rethrow()
+        end
         Random.seed!(trial[:seed])
         @info "Batch $(batch[:batch]) training $(i_trial)/$(n_trials): $(trial[:method][:name])"
         trial[:prefitted_method] = prefit(Configuration.configure_method(trial[:method]), X_trn, y_trn)

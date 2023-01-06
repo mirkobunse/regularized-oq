@@ -19,6 +19,7 @@ method:
         n_estimators: 10
   - method_id: "ohdx"
     name: "o-HDx ($\\tau=0.1$, 4 bins per feature)"
+    random_state: 1078380895
     parameters:
       τ: 0.1
       n_bins: 4
@@ -54,6 +55,7 @@ method:
         n_estimators: 10
   - method_id: "hdx"
     name: "HDx (3 bins per feature)"
+    random_state: 2979853892
     parameters:
       n_bins: 3
   - method_id: "pacc"

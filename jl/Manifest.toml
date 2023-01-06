@@ -1359,7 +1359,7 @@ version = "1.0.0"
 
 [[QUnfold]]
 deps = ["DiffResults", "ForwardDiff", "Ipopt", "JuMP", "LinearAlgebra", "MathOptInterface", "Polynomials", "Preferences", "Random", "Requires", "ScikitLearnBase", "StatsBase"]
-git-tree-sha1 = "bf771a1d90521e4870fa767c597a14982b2544e7"
+git-tree-sha1 = "b316e23882737b3045c68d35f0bdf192a8c7a0ff"
 repo-rev = "main"
 repo-url = "https://github.com/mirkobunse/QUnfold.jl"
 uuid = "05092f44-7bf9-4fd9-a898-7e10d889cee9"
