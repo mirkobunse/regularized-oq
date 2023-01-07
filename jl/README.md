@@ -60,7 +60,13 @@ julia> Experiments.run("conf/gen/test_<experiment>.yml")
 Or you can run multiple experiments in batch mode with multiple cores (recommended for actual experimentation). Call from a regular shell (not from Julia):
 
 ```
-julia -p <number of cores> main.jl conf/gen/<file 1>.yml conf/gen/<file 2>.yml ...
+julia -p <number of cores> main.jl [--no-validate] conf/gen/<file 1>.yml conf/gen/<file 2>.yml ...
+```
+
+If you use a **local setup** without Docker, the above command has to be changed to
+
+```
+julia --project=. -p <number of cores> main.jl [--no-validate] conf/gen/<file 1>.yml conf/gen/<file 2>.yml ...
 ```
 
 We have run all experiments on 40 cores, with which each experiment took between 2 and 12 hours. Testing is much faster, only a few minutes on a single core.

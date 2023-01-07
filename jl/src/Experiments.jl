@@ -15,16 +15,16 @@ using
 using ..Util, ..Data, ..Configuration
 
 """
-    run(configfile)
+    run(configfile; kwargs...)
 
 Hand the `configfile` to the Experiments method of which the name is configured by the property
-`job` in the `configfile`.
+`job` in the `configfile`. All `kwargs` are passed to this method.
 """
-function run(configfile::String)
+function run(configfile::String; kwargs...)
     c = parsefile(configfile)
     funname = "Experiments." * c["job"]
-    @info "Calling $funname(\"$configfile\")"
-    eval(Meta.parse(funname))(configfile) # function call
+    @info "Calling $funname(\"$configfile\")" kwargs
+    eval(Meta.parse(funname))(configfile; kwargs...) # function call
 end
 
 """
@@ -42,11 +42,11 @@ catch_during_trial(jobfunction, args...) =
     end
 
 """
-    amazon(configfile="conf/gen/amazon.yml")
+    amazon(configfile="conf/gen/amazon.yml"; validate=true)
 
-Experiments of different quantification methods on Amazon customer review text data.
+Experiments of different quantification methods on Amazon customer review text data. If `validate==false`, read the results from the `valfile` instead of running the validation / hyper-parameter optimization.
 """
-function amazon(configfile::String="conf/gen/amazon.yml")
+function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
     c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
     Random.seed!(c[:seed])
     @info "Parsing $(c[:data][:type]) from $(c[:data][:path])/"
@@ -66,18 +66,24 @@ function amazon(configfile::String="conf/gen/amazon.yml")
         m[:selection_metric] = [ :none ]
     end # fake reason for evaluating each model: -1 means to validate on all data
     val_batches = _amazon_trial_batches(val_c)
-    @info "Starting $(length(val_batches)) validation batch(es) on $(nworkers()) worker(s)."
-    val_df = vcat(pmap(
-        val_batch -> catch_during_trial(_amazon_batch, val_batch),
-        val_batches
-    )...)
+    val_df = DataFrame()
+    if validate
+        @info "Starting $(length(val_batches)) validation batches on $(nworkers()) worker(s)."
+        vcat(pmap(
+            val_batch -> catch_during_trial(_amazon_batch, val_batch),
+            val_batches
+        )...)
 
-    # split the validation data into curvature levels ∈ [ 1, 2, ..., n_splits ]
-    val_df[!, :curvature_level] = _curvature_level(val_df, c[:protocol][:n_splits])
+        # split the validation data into curvature levels ∈ [ 1, 2, ..., n_splits ]
+        val_df[!, :curvature_level] = _curvature_level(val_df, c[:protocol][:n_splits])
 
-    # validation output
-    CSV.write(c[:valfile], val_df)
-    @info "Validation results written to $(c[:valfile])"
+        # validation output
+        CSV.write(c[:valfile], val_df)
+        @info "Validation results written to $(c[:valfile])"
+    else
+        val_df = coalesce.(CSV.read(c[:valfile], DataFrame), "")
+        @info "Read validation results from $(c[:valfile])"
+    end
 
     # select the best overall methods and the best methods for each curvature level
     _filter_best_methods!(c, val_df, c[:protocol][:n_splits])
