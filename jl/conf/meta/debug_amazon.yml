@@ -1,8 +1,8 @@
 # conf/meta/debug_amazon.yml
 job: amazon # this file configures the function Job.<job>
 seed: 876 # random number generator seed
-M_val: 1000 # number of validation samples
-M_tst: 5000 # number of testing samples
+M_val: 500 # number of validation samples
+M_tst: 1000 # number of testing samples
 
 # output of configuration expansion and of experiments
 configfile: conf/gen/debug_amazon_$(id).yml # $(id) is replaced by the data ID
@@ -36,5 +36,11 @@ classifier:
 # all methods to be compared
 method:
 
-  - method_id: quapy-sld
+  - method_id: quapy-sld # QuaPy SLD for reference
     name: "QuaPy SLD on $(classifier)"
+
+  - method_id: sld
+    name: "SLD on $(classifier)"
+
+  - method_id: pacc # softmax PACC
+    name: "PACC on $(classifier)"
