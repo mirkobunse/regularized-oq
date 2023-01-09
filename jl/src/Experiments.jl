@@ -69,7 +69,7 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
     val_df = DataFrame()
     if validate
         @info "Starting $(length(val_batches)) validation batches on $(nworkers()) worker(s)."
-        vcat(pmap(
+        val_df = vcat(pmap(
             val_batch -> catch_during_trial(_amazon_batch, val_batch),
             val_batches
         )...)
