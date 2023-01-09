@@ -27,11 +27,11 @@ QUNFOLD_CONSTRUCTORS = Dict(
     "ohdy" => QUnfold.HDy, # o-HDy uses the HDy constructor
 ) # multi-class quantifiers from QuaPy
 QUAPY_CONSTRUCTORS = Dict(
-    "cc" => MoreMethods.ClassifyAndCount,
-    "pcc" => MoreMethods.ProbabilisticClassifyAndCount,
-    "acc" => MoreMethods.AdjustedClassifyAndCount,
-    "pacc" => MoreMethods.ProbabilisticAdjustedClassifyAndCount,
-    "sld" => MoreMethods.ExpectationMaximizationQuantifier,
+    "quapy-cc" => MoreMethods.ClassifyAndCount,
+    "quapy-pcc" => MoreMethods.ProbabilisticClassifyAndCount,
+    "quapy-acc" => MoreMethods.AdjustedClassifyAndCount,
+    "quapy-pacc" => MoreMethods.ProbabilisticAdjustedClassifyAndCount,
+    "quapy-sld" => MoreMethods.ExpectationMaximizationQuantifier,
 ) # multi-class quantifiers from QuaPy
 
 """
@@ -41,12 +41,13 @@ Set up an OQ method from CherenkovDeconvolution.jl or from src/MoreMethods.jl.
 """
 function configure_method(c::Dict{Symbol, Any})
     c = copy(c) # keep the input unchanged; CAUTION: this copy is only shallow
+    kwargs = copy(get(c, :parameters, Dict{Symbol,Any}())) # a shallow copy in the deep
 
     # initialize classifiers, binnings, and methods
     if c[:method_id] == "oqt"
-        return MoreMethods.OQT(_configure_classifier(c[:classifier]); c[:parameters]...)
+        return MoreMethods.OQT(_configure_classifier(c[:classifier]); kwargs...)
     elseif c[:method_id] == "arc"
-        return MoreMethods.ARC(_configure_classifier(c[:classifier]); c[:parameters]...)
+        return MoreMethods.ARC(_configure_classifier(c[:classifier]); kwargs...)
     elseif c[:method_id] in keys(QUNFOLD_CONSTRUCTORS)
         constructor = QUNFOLD_CONSTRUCTORS[c[:method_id]]
         args = Any[] # set up positional arguments
@@ -60,18 +61,18 @@ function configure_method(c::Dict{Symbol, Any})
             if haskey(c, :classifier) && c[:method_id] ∉ ["hdx", "ohdx"]
                 push!(args, _configure_classifier(c[:classifier]))
             end
-            if haskey(c, :parameters) && haskey(c[:parameters], :n_bins)
-                c[:parameters] = copy(c[:parameters]) # a shallow copy in the deep
-                push!(args, pop!(c[:parameters], :n_bins))
+            if haskey(kwargs, :n_bins)
+                push!(args, pop!(kwargs, :n_bins))
             end
         end
-        kwargs = get(c, :parameters, Dict{Symbol,Any}())
         try
             return constructor(args...; kwargs...)
         catch
             @error "Cannot configure method" c[:method_id] args kwargs
             rethrow()
         end
+    elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
+        return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
     else
         throw(ArgumentError("Unknown method_id=$(c[:method_id])"))
     end
@@ -345,7 +346,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
         # expand experiments
         job[:method] = vcat(map(exp -> begin # expansion
             exp = deepcopy(exp)
-            if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld"]
+            if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
             elseif exp[:method_id] in ["oqt", "arc"]
