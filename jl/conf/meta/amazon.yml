@@ -109,12 +109,12 @@ method:
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC
-    name: "o-ACC ($\\tau=$(τ)$) on $(classifier)" # $r=$(regularization)
+    name: "o-ACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
   - method_id: opacc # ordinal PACC
-    name: "o-PACC ($\\tau=$(τ)$) on $(classifier)" # $r=$(regularization)
+    name: "o-PACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
