@@ -17,7 +17,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 12
   - method_id: "ohdx"
@@ -46,7 +46,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 2104093590
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 12
   - method_id: "hdx"
@@ -65,7 +65,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
         criterion: "gini"
         max_depth: 12
   - method_id: "arc"
@@ -79,7 +79,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 4
     parameters:
@@ -95,7 +95,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 8
     parameters:
@@ -120,7 +120,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 12
   - method_id: "oacc"
@@ -134,7 +134,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
         criterion: "gini"
         max_depth: 8
     parameters:
@@ -150,7 +150,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 8
   - method_id: "oqt"
@@ -164,7 +164,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 4
     parameters:
@@ -181,7 +181,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
         criterion: "gini"
         max_depth: 12
     parameters:
@@ -198,7 +198,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 8
     parameters:
@@ -222,7 +222,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 2104093590
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 12
     parameters:

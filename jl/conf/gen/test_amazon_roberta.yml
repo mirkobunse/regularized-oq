@@ -16,7 +16,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "ohdx"
     name: "o-HDx ($\\tau=0.1$, 4 bins per feature)"
     random_state: 1078380895
@@ -35,7 +35,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -52,7 +52,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "hdx"
     name: "HDx (3 bins per feature)"
     random_state: 2979853892
@@ -70,7 +70,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "arc"
     name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -83,7 +83,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "ohdy"
@@ -98,7 +98,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -114,7 +114,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -130,7 +130,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "oacc"
     name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.1$)"
     classifier:
@@ -143,7 +143,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "cc"
@@ -158,7 +158,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on LR ($w=n, C=0.001$)"
     classifier:
@@ -171,12 +171,12 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
   - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=u, C=10.0$)"
+    name: "o-SLD ($o=0, i=0.01$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -187,10 +187,10 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
-      λ: 0.0
+      λ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=1.0e-5$) on LR ($w=n, C=0.01$)"
     classifier:
@@ -203,7 +203,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "run"
@@ -218,7 +218,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -234,7 +234,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
 N_trn: 2000

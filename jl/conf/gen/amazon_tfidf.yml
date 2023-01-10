@@ -1,7 +1,7 @@
 M_val: 1000
 outfile: "res/csv/amazon_tfidf.csv"
 valfile: "res/csv/amazon_tfidf_val.csv"
-M_tst: 5000
+M_tst: 2000
 configfile: "conf/gen/amazon_tfidf.yml"
 method:
   - method_id: "oqt"
@@ -16,7 +16,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -32,7 +32,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -48,7 +48,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -64,7 +64,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -80,7 +80,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -96,7 +96,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -112,7 +112,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -128,7 +128,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -144,7 +144,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -160,7 +160,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -176,7 +176,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -191,7 +191,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -206,7 +206,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -221,7 +221,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -236,7 +236,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -251,7 +251,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -266,7 +266,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -281,7 +281,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -296,7 +296,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "arc"
@@ -311,7 +311,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
   - method_id: "ibu"
@@ -326,7 +326,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -343,7 +343,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -360,7 +360,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -377,7 +377,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -394,7 +394,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -411,7 +411,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -428,7 +428,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -445,7 +445,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -462,7 +462,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -479,7 +479,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -496,7 +496,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -513,7 +513,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -530,7 +530,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -547,7 +547,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -564,7 +564,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -581,7 +581,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -598,7 +598,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -615,7 +615,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -632,7 +632,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -649,7 +649,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -666,7 +666,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -683,7 +683,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -700,7 +700,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -717,7 +717,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -734,7 +734,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -751,7 +751,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -768,7 +768,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -785,7 +785,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -802,7 +802,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -819,7 +819,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -836,7 +836,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -853,7 +853,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -870,7 +870,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -887,7 +887,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -904,7 +904,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -921,7 +921,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -938,7 +938,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -955,7 +955,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -972,7 +972,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -989,7 +989,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1006,7 +1006,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1023,7 +1023,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1040,7 +1040,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1057,7 +1057,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1074,7 +1074,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1091,7 +1091,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1108,7 +1108,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1125,7 +1125,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1142,7 +1142,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1159,7 +1159,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1176,7 +1176,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1193,7 +1193,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1210,7 +1210,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1227,7 +1227,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1244,7 +1244,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1261,7 +1261,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1278,7 +1278,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 0
@@ -1295,7 +1295,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1312,7 +1312,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1329,7 +1329,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       o: 1
@@ -1346,7 +1346,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1362,7 +1362,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1378,7 +1378,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1394,7 +1394,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1410,7 +1410,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1426,7 +1426,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1442,7 +1442,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1458,7 +1458,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1474,7 +1474,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1490,7 +1490,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1506,7 +1506,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1522,7 +1522,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1538,7 +1538,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1554,7 +1554,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1570,7 +1570,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1586,7 +1586,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1602,7 +1602,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1618,7 +1618,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1634,7 +1634,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1650,7 +1650,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1666,7 +1666,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1682,7 +1682,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1698,7 +1698,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1714,7 +1714,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1730,7 +1730,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1746,7 +1746,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1762,7 +1762,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1778,7 +1778,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1794,7 +1794,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1810,7 +1810,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1826,7 +1826,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1842,7 +1842,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1858,7 +1858,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1874,7 +1874,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1890,7 +1890,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1906,7 +1906,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1922,7 +1922,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1938,7 +1938,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -1954,7 +1954,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -1970,7 +1970,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -1986,7 +1986,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2002,7 +2002,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2018,7 +2018,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -2034,7 +2034,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2050,7 +2050,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2066,7 +2066,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -2082,7 +2082,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2098,7 +2098,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2114,7 +2114,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -2130,7 +2130,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2146,7 +2146,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2162,7 +2162,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -2178,7 +2178,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2194,7 +2194,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2210,7 +2210,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -2226,7 +2226,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2242,7 +2242,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2258,7 +2258,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.1
@@ -2274,7 +2274,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 0.001
@@ -2290,7 +2290,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     transformer: "classifier"
     parameters:
       τ: 1.0e-5
@@ -2306,7 +2306,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=u, C=0.01$)"
     classifier:
@@ -2319,7 +2319,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=u, C=0.1$)"
     classifier:
@@ -2332,7 +2332,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=u, C=1.0$)"
     classifier:
@@ -2345,7 +2345,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=u, C=10.0$)"
     classifier:
@@ -2358,7 +2358,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=n, C=0.001$)"
     classifier:
@@ -2371,7 +2371,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=n, C=0.01$)"
     classifier:
@@ -2384,7 +2384,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=n, C=0.1$)"
     classifier:
@@ -2397,7 +2397,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=n, C=1.0$)"
     classifier:
@@ -2410,7 +2410,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "cc"
     name: "CC on LR ($w=n, C=10.0$)"
     classifier:
@@ -2423,7 +2423,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=u, C=0.001$)"
     classifier:
@@ -2436,7 +2436,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=u, C=0.01$)"
     classifier:
@@ -2449,7 +2449,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=u, C=0.1$)"
     classifier:
@@ -2462,7 +2462,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=u, C=1.0$)"
     classifier:
@@ -2475,7 +2475,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=u, C=10.0$)"
     classifier:
@@ -2488,7 +2488,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=n, C=0.001$)"
     classifier:
@@ -2501,7 +2501,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=n, C=0.01$)"
     classifier:
@@ -2514,7 +2514,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=n, C=0.1$)"
     classifier:
@@ -2527,7 +2527,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=n, C=1.0$)"
     classifier:
@@ -2540,7 +2540,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pcc"
     name: "PCC on LR ($w=n, C=10.0$)"
     classifier:
@@ -2553,7 +2553,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=u, C=0.001$)"
     classifier:
@@ -2566,7 +2566,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=u, C=0.01$)"
     classifier:
@@ -2579,7 +2579,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=u, C=0.1$)"
     classifier:
@@ -2592,7 +2592,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=u, C=1.0$)"
     classifier:
@@ -2605,7 +2605,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=u, C=10.0$)"
     classifier:
@@ -2618,7 +2618,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=0.001$)"
     classifier:
@@ -2631,7 +2631,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=0.01$)"
     classifier:
@@ -2644,7 +2644,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=0.1$)"
     classifier:
@@ -2657,7 +2657,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=1.0$)"
     classifier:
@@ -2670,7 +2670,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=10.0$)"
     classifier:
@@ -2683,7 +2683,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=u, C=0.001$)"
     classifier:
@@ -2696,7 +2696,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=u, C=0.01$)"
     classifier:
@@ -2709,7 +2709,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=u, C=0.1$)"
     classifier:
@@ -2722,7 +2722,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=u, C=1.0$)"
     classifier:
@@ -2735,7 +2735,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=u, C=10.0$)"
     classifier:
@@ -2748,7 +2748,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=n, C=0.001$)"
     classifier:
@@ -2761,7 +2761,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=n, C=0.01$)"
     classifier:
@@ -2774,7 +2774,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=n, C=0.1$)"
     classifier:
@@ -2787,7 +2787,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=n, C=1.0$)"
     classifier:
@@ -2800,7 +2800,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "pacc"
     name: "PACC on LR ($w=n, C=10.0$)"
     classifier:
@@ -2813,7 +2813,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=u, C=0.001$)"
     classifier:
@@ -2826,7 +2826,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=u, C=0.01$)"
     classifier:
@@ -2839,7 +2839,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=u, C=0.1$)"
     classifier:
@@ -2852,7 +2852,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=u, C=1.0$)"
     classifier:
@@ -2865,7 +2865,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=u, C=10.0$)"
     classifier:
@@ -2878,7 +2878,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=n, C=0.001$)"
     classifier:
@@ -2891,7 +2891,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=n, C=0.01$)"
     classifier:
@@ -2904,7 +2904,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=n, C=0.1$)"
     classifier:
@@ -2917,7 +2917,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=n, C=1.0$)"
     classifier:
@@ -2930,7 +2930,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "sld"
     name: "SLD on LR ($w=n, C=10.0$)"
     classifier:
@@ -2943,7 +2943,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "hdx"
     name: "HDx (2 bins per feature)"
     random_state: 2104093590
@@ -2971,7 +2971,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -2986,7 +2986,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3001,7 +3001,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3016,7 +3016,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3031,7 +3031,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3046,7 +3046,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3061,7 +3061,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3076,7 +3076,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3091,7 +3091,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3106,7 +3106,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3121,7 +3121,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3136,7 +3136,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3151,7 +3151,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3166,7 +3166,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3181,7 +3181,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3196,7 +3196,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3211,7 +3211,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3226,7 +3226,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "hdy"
@@ -3241,7 +3241,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 2
   - method_id: "hdy"
@@ -3256,7 +3256,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
   - method_id: "osld"
@@ -3271,7 +3271,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3287,26 +3287,10 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=u, C=0.001$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 0.001
-      bagging:
-        oob_score: true
-        random_state: 3193573456
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -3319,7 +3303,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3335,26 +3319,10 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=u, C=0.001$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 0.001
-      bagging:
-        oob_score: true
-        random_state: 3193573456
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
@@ -3367,7 +3335,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3383,26 +3351,10 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=u, C=0.01$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 0.01
-      bagging:
-        oob_score: true
-        random_state: 1466828405
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
@@ -3415,7 +3367,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3431,26 +3383,10 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=u, C=0.01$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 0.01
-      bagging:
-        oob_score: true
-        random_state: 1466828405
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=0.1$)"
     classifier:
@@ -3463,7 +3399,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3479,26 +3415,10 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=u, C=0.1$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 0.1
-      bagging:
-        oob_score: true
-        random_state: 539010050
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=u, C=0.1$)"
     classifier:
@@ -3511,7 +3431,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3527,26 +3447,10 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=u, C=0.1$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 0.1
-      bagging:
-        oob_score: true
-        random_state: 539010050
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
@@ -3559,7 +3463,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3575,26 +3479,10 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=u, C=1.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 1.0
-      bagging:
-        oob_score: true
-        random_state: 3249917414
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
@@ -3607,7 +3495,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3623,26 +3511,10 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=u, C=1.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 1.0
-      bagging:
-        oob_score: true
-        random_state: 3249917414
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
@@ -3655,7 +3527,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3671,26 +3543,10 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=u, C=10.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 10.0
-      bagging:
-        oob_score: true
-        random_state: 674079454
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
@@ -3703,7 +3559,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3719,26 +3575,10 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=u, C=10.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        C: 10.0
-      bagging:
-        oob_score: true
-        random_state: 674079454
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
@@ -3751,7 +3591,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3767,26 +3607,10 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=n, C=0.001$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 0.001
-      bagging:
-        oob_score: true
-        random_state: 1207595197
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
@@ -3799,7 +3623,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3815,26 +3639,10 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=n, C=0.001$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 0.001
-      bagging:
-        oob_score: true
-        random_state: 1207595197
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=0.01$)"
     classifier:
@@ -3847,7 +3655,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3863,26 +3671,10 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=n, C=0.01$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 0.01
-      bagging:
-        oob_score: true
-        random_state: 3645983298
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=n, C=0.01$)"
     classifier:
@@ -3895,7 +3687,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -3911,26 +3703,10 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=n, C=0.01$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 0.01
-      bagging:
-        oob_score: true
-        random_state: 3645983298
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
@@ -3943,7 +3719,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -3959,26 +3735,10 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=n, C=0.1$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 0.1
-      bagging:
-        oob_score: true
-        random_state: 1669086789
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
@@ -3991,7 +3751,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -4007,26 +3767,10 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=n, C=0.1$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 0.1
-      bagging:
-        oob_score: true
-        random_state: 1669086789
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=1.0$)"
     classifier:
@@ -4039,7 +3783,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -4055,26 +3799,10 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=n, C=1.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 1.0
-      bagging:
-        oob_score: true
-        random_state: 910122224
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=n, C=1.0$)"
     classifier:
@@ -4087,7 +3815,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -4103,26 +3831,10 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=n, C=1.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 1.0
-      bagging:
-        oob_score: true
-        random_state: 910122224
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
@@ -4135,7 +3847,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.1
@@ -4151,26 +3863,10 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 0
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.0$) on LR ($w=n, C=10.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 10.0
-      bagging:
-        oob_score: true
-        random_state: 931584667
-        n_estimators: 10
-    parameters:
-      o: 0
-      λ: 0.0
   - method_id: "osld"
     name: "o-SLD ($o=1, i=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
@@ -4183,7 +3879,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.1
@@ -4199,26 +3895,10 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       o: 1
       λ: 0.01
-  - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.0$) on LR ($w=n, C=10.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 10.0
-      bagging:
-        oob_score: true
-        random_state: 931584667
-        n_estimators: 10
-    parameters:
-      o: 1
-      λ: 0.0
   - method_id: "oacc"
     name: "o-ACC ($\\tau=0.1$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -4231,7 +3911,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4246,7 +3926,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4261,7 +3941,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4276,7 +3956,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4291,7 +3971,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4306,7 +3986,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4321,7 +4001,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4336,7 +4016,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4351,7 +4031,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4366,7 +4046,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4381,7 +4061,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4396,7 +4076,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4411,7 +4091,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4426,7 +4106,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4441,7 +4121,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4456,7 +4136,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4471,7 +4151,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4486,7 +4166,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4501,7 +4181,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4516,7 +4196,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4531,7 +4211,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4546,7 +4226,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4561,7 +4241,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4576,7 +4256,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4591,7 +4271,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4606,7 +4286,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4621,7 +4301,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "oacc"
@@ -4636,7 +4316,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "oacc"
@@ -4651,7 +4331,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "oacc"
@@ -4666,7 +4346,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4681,7 +4361,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4696,7 +4376,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4711,7 +4391,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4726,7 +4406,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4741,7 +4421,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4756,7 +4436,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4771,7 +4451,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4786,7 +4466,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4801,7 +4481,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4816,7 +4496,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4831,7 +4511,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4846,7 +4526,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4861,7 +4541,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4876,7 +4556,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4891,7 +4571,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4906,7 +4586,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4921,7 +4601,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4936,7 +4616,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4951,7 +4631,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -4966,7 +4646,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -4981,7 +4661,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -4996,7 +4676,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -5011,7 +4691,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -5026,7 +4706,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -5041,7 +4721,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -5056,7 +4736,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -5071,7 +4751,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "opacc"
@@ -5086,7 +4766,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "opacc"
@@ -5101,7 +4781,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "opacc"
@@ -5116,7 +4796,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
   - method_id: "ohdx"
@@ -5185,7 +4865,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5201,7 +4881,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5217,7 +4897,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5233,7 +4913,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5249,7 +4929,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5265,7 +4945,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5281,7 +4961,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5297,7 +4977,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5313,7 +4993,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5329,7 +5009,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5345,7 +5025,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5361,7 +5041,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1466828405
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5377,7 +5057,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5393,7 +5073,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5409,7 +5089,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5425,7 +5105,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5441,7 +5121,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5457,7 +5137,7 @@ method:
       bagging:
         oob_score: true
         random_state: 539010050
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5473,7 +5153,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5489,7 +5169,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5505,7 +5185,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5521,7 +5201,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5537,7 +5217,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5553,7 +5233,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3249917414
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5569,7 +5249,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5585,7 +5265,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5601,7 +5281,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5617,7 +5297,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5633,7 +5313,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5649,7 +5329,7 @@ method:
       bagging:
         oob_score: true
         random_state: 674079454
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5665,7 +5345,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5681,7 +5361,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5697,7 +5377,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5713,7 +5393,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5729,7 +5409,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5745,7 +5425,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1207595197
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5761,7 +5441,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5777,7 +5457,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5793,7 +5473,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5809,7 +5489,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5825,7 +5505,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5841,7 +5521,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3645983298
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5857,7 +5537,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5873,7 +5553,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5889,7 +5569,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -5905,7 +5585,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -5921,7 +5601,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -5937,7 +5617,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1669086789
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -5953,7 +5633,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -5969,7 +5649,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -5985,7 +5665,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -6001,7 +5681,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -6017,7 +5697,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -6033,7 +5713,7 @@ method:
       bagging:
         oob_score: true
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4
@@ -6049,7 +5729,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 2
@@ -6065,7 +5745,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -6081,7 +5761,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 2
@@ -6097,7 +5777,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
       n_bins: 4
@@ -6113,7 +5793,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 2
@@ -6129,7 +5809,7 @@ method:
       bagging:
         oob_score: true
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 1.0e-5
       n_bins: 4

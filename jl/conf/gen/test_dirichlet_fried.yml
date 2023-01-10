@@ -17,7 +17,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 8
   - method_id: "ohdx"
@@ -47,7 +47,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3246234475
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "hdx"
     name: "HDx (3 bins per feature)"
     random_state: 1145106099
@@ -64,7 +64,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 2104093590
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 12
   - method_id: "arc"
@@ -78,7 +78,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 3193573456
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 4
     parameters:
@@ -95,7 +95,7 @@ method:
       bagging:
         oob_score: true
         random_state: 2079480891
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
       n_bins: 4
@@ -118,7 +118,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 910122224
-        n_estimators: 10
+        n_estimators: 100
         criterion: "entropy"
         max_depth: 8
   - method_id: "oacc"
@@ -133,7 +133,7 @@ method:
       bagging:
         oob_score: true
         random_state: 2079480891
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.001
   - method_id: "cc"
@@ -148,7 +148,7 @@ method:
       bagging:
         oob_score: true
         random_state: 4076317281
-        n_estimators: 10
+        n_estimators: 100
   - method_id: "oqt"
     name: "OQT ($v=\\frac{1}{3}$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -161,7 +161,7 @@ method:
       bagging:
         oob_score: true
         random_state: 1078380895
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       val_split: 0.334
       epsilon: 1.0e-6
@@ -176,7 +176,7 @@ method:
         max_features: "sqrt"
         class_weight: ~
         random_state: 931584667
-        n_estimators: 10
+        n_estimators: 100
         criterion: "gini"
         max_depth: 8
     parameters:
@@ -194,7 +194,7 @@ method:
       bagging:
         oob_score: true
         random_state: 4076317281
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       τ: 0.1
   - method_id: "run"
@@ -217,7 +217,7 @@ method:
       bagging:
         oob_score: true
         random_state: 3246234475
-        n_estimators: 10
+        n_estimators: 100
     parameters:
       n_bins: 4
 N_trn: 2000
