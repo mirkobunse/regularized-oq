@@ -9,7 +9,7 @@ job: dirichlet # this file configures the function Job.<job>
 seed: 876 # random number generator seed
 N_trn: 20000 # number of training data items
 M_val: 1000 # number of validation samples
-M_tst: 5000 # number of testing samples
+M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
 N_val: 1000 # number of items in each validation sample
 N_tst: 1000 # number of items in each testing sample
 
@@ -49,7 +49,7 @@ classifier:
       max_depth: [ 4, 8, 12 ]
       class_weight: [ "balanced", ~ ]
       max_features: sqrt
-      n_estimators: 10
+      n_estimators: 100
       random_state: 876
       oob_score: true
 
@@ -60,7 +60,7 @@ classifier:
       C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
       class_weight: [ "balanced", ~ ]
     bagging: # parameters of a BaggingClassifier
-      n_estimators: 10
+      n_estimators: 100
       random_state: 876
       oob_score: true
 
@@ -105,7 +105,7 @@ method:
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
-  # quantification methods
+  # quantification methods from QUnfold.jl
   - method_id: cc
     name: "CC on $(classifier)"
 
@@ -138,16 +138,14 @@ method:
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC
-    name: "o-ACC ($\\tau=$(τ)$) on $(classifier)" # r=$(regularization)
+    name: "o-ACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      # TODO regularization: [ "curvature", "norm" ]
 
   - method_id: opacc # ordinal PACC
-    name: "o-PACC ($\\tau=$(τ)$) on $(classifier)" # r=$(regularization)
+    name: "o-PACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      # TODO regularization: [ "curvature", "norm" ]
 
   - method_id: ohdx # ordinal HDx
     name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"

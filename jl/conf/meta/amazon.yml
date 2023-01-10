@@ -6,7 +6,7 @@
 job: amazon # this file configures the function Job.<job>
 seed: 876 # random number generator seed
 M_val: 1000 # number of validation samples
-M_tst: 5000 # number of testing samples
+M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
 
 # output of configuration expansion and of experiments
 configfile: conf/gen/amazon_$(id).yml # $(id) is replaced by the data ID
@@ -36,7 +36,7 @@ classifier:
       C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
       class_weight: [ "balanced", ~ ]
     bagging: # parameters of a BaggingClassifier
-      n_estimators: 10
+      n_estimators: 100
       random_state: 876
       oob_score: true
 
@@ -106,19 +106,17 @@ method:
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
       o: [ 0, 1 ]
-      λ: [ 1e-1, 1e-2, 0.0 ]
+      λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC
     name: "o-ACC ($\\tau=$(τ)$) on $(classifier)" # $r=$(regularization)
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      # TODO regularization: [ "curvature", "norm" ]
 
   - method_id: opacc # ordinal PACC
     name: "o-PACC ($\\tau=$(τ)$) on $(classifier)" # $r=$(regularization)
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      # TODO regularization: [ "curvature", "norm" ]
 
   - method_id: ohdx # ordinal HDx
     name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
