@@ -142,6 +142,12 @@ Generate ranking tables from the results obtained with a single data set.
 function ranking(metricsfile::String)
     df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
     regex = r"(.+)/csv/(.+)\.csv" # what to replace in the file name
+    if :val_curvature_level ∉ propertynames(df)
+        @warn "Adding missing curvature levels; are these validations results?"
+        df[!,:val_curvature_level] .= -1
+        df[!,:tst_curvature_level] = df[!,:curvature_level]
+        df[!,:selection_metric] .= "nmd"
+    end
 
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         metric = key.selection_metric # :nmd or :rnod
@@ -172,6 +178,10 @@ function ranking(metricsfile::String)
 end
 
 function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,String})
+    if nrow(df) == 0
+        @warn "Skipping $(outfile) for having no results; are these validations results?"
+        return
+    end
     @debug "Receiving a subset of $(nrow(df)) results for $(outfile)"
     if outfile[end-3:end] != ".tex"
         error("$(outfile) does not end on '.tex'; please use inputs from res/csv/")
@@ -182,6 +192,10 @@ function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,
         groupby(df, [:name, :method]),
         metric[1] => mean => :avg,
         metric[1] => std => :std
+    ), :avg)
+    agg = sort(combine(
+        groupby(agg, :method),
+        sdf -> sort(sdf, :avg)[1,:] # select the best
     ), :avg)
     agg[!, :p_value] = map(agg[!, :name]) do name
         jdf = innerjoin(
