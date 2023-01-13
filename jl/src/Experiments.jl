@@ -114,7 +114,7 @@ end
 function _amazon_batch(batch::Dict{Symbol, Any})
     df = DataFrame(
         name = String[],
-        method = String[],
+        validation_group = String[],
         curvature_level = Int64[], # reason why this method is evaluated
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
@@ -156,7 +156,8 @@ function _amazon_batch(batch::Dict{Symbol, Any})
 
             # this model might be evaluated for multiple reasons; store the results for each reason
             for (cl, sm) in zip(trial[:method][:curvature_level], trial[:method][:selection_metric])
-                push!(df, [ trial[:method][:name], trial[:method][:method_id], cl, sm, i, sample_curvature, nmd, rnod ])
+                validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
+                push!(df, [ trial[:method][:name], validation_group, cl, sm, i, sample_curvature, nmd, rnod ])
             end
         end
     end
@@ -205,11 +206,11 @@ function _amazon_trial_batches(c::Dict{Symbol, Any})
     # collect configurations of each method
     methods = Dict{String,Vector{Dict{Symbol, Any}}}()
     for method in pop!(c, :method)
-        id = method[:method_id]
-        if !haskey(methods, id)
-            push!(methods, id => Dict{Symbol, Any}[])
+        validation_group = get(method, :validation_group, method[:method_id])
+        if !haskey(methods, validation_group)
+            push!(methods, validation_group => Dict{Symbol, Any}[])
         end
-        push!(methods[id], method)
+        push!(methods[validation_group], method)
     end
 
     # initialize empty batches
@@ -221,8 +222,8 @@ function _amazon_trial_batches(c::Dict{Symbol, Any})
 
     # round-robin assignment of methods to batches
     i_batch = 1
-    for methods_of_id in values(methods)
-        for method in methods_of_id
+    for methods_of_group in values(methods)
+        for method in methods_of_group
             push!(batches[i_batch][:method], method)
             i_batch = (i_batch % length(batches)) + 1
         end
@@ -360,7 +361,7 @@ function _dirichlet_trial(
     f_trn = DeconvUtil.fit_pdf(y_trn, Data.bins(discr))
     df = DataFrame(
         name = String[],
-        method = String[],
+        validation_group = String[],
         curvature_level = Int64[], # reason why this method is evaluated
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
@@ -408,7 +409,8 @@ function _dirichlet_trial(
 
         # this model might be evaluated for multiple reasons; store the results for each reason
         for (cl, sm) in zip(trial[:method][:curvature_level], trial[:method][:selection_metric])
-            push!(df, [ trial[:method][:name], trial[:method][:method_id], cl, sm, sample_seed, sample_curvature, nmd, rnod ])
+            validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
+            push!(df, [ trial[:method][:name], validation_group, cl, sm, sample_seed, sample_curvature, nmd, rnod ])
         end
     end
     return df
@@ -437,9 +439,9 @@ function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, n_splits:
     best_methods = vcat(map(selection_metric -> begin
         best_avg = combine( # find methods with the minimum average metric
             groupby(combine(
-                groupby(val_df, [:name, :method]),
+                groupby(val_df, [:name, :validation_group]),
                 selection_metric => DataFrames.mean => :avg_metric
-            ), :method), # average NMD/RNOD per configuration
+            ), :validation_group), # average NMD/RNOD per configuration
             sdf -> sdf[argmin(sdf[!, :avg_metric]), :]
         )[!, [:name]]
         best_avg[!, :selection_metric] .= selection_metric # reason for keeping these methods
@@ -452,9 +454,9 @@ function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, n_splits:
         for selection_metric in [:nmd, :rnod]
             best_avg = combine(
                 groupby(combine( # also split by curvature_level, this time
-                    groupby(val_df, [:name, :method, :curvature_level]),
+                    groupby(val_df, [:name, :validation_group, :curvature_level]),
                     selection_metric => DataFrames.mean => :avg_metric
-                ), [:method, :curvature_level]),
+                ), [:validation_group, :curvature_level]),
                 sdf -> sdf[argmin(sdf[!, :avg_metric]), :]
             )[!, [:name, :curvature_level]]
             best_avg[!, :selection_metric] .= selection_metric
