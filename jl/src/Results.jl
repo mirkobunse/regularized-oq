@@ -55,12 +55,12 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         selection_metric = key.selection_metric # :nmd or :rnod
         agg_app = _main(
-            df[df[!, :val_curvature_level].==-1, :],
+            sdf[sdf[!, :val_curvature_level].==-1, :],
             selection_metric
         )
         agg_app[!, :bin] .= "APP" # typical APP
         agg_1 = _main(
-            df[(df.val_curvature_level.==1) .& (df.tst_curvature_level.==1), :],
+            sdf[(sdf.val_curvature_level.==1) .& (sdf.tst_curvature_level.==1), :],
             selection_metric
         )
         agg_1[!, :bin] .= "APP-1" # first bin
@@ -111,7 +111,6 @@ _main_std(x) = @sprintf("%.3f", x)[2:end] # ".nnn"
 _main_bold(x) = x >= 0.01 ? "\\mathbf" : ""
 
 function _main(df::DataFrame, selection_metric::AbstractString)
-    df = df[df[!, :selection_metric].==selection_metric, :]
     @info "_main receives a subset of $(nrow(df)) results"
     agg = combine(
         groupby(df, [:dataset, :method]),
