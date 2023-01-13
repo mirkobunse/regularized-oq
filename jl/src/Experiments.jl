@@ -252,11 +252,11 @@ parse_dense_vector(X_txt::Vector{String}) =
     vcat(map(x -> parse.(Float64, split(x, r"\s+"))', X_txt)...)
 
 """
-    dirichlet(configfile="conf/gen/dirichlet_fact.yml")
+    dirichlet(configfile="conf/gen/dirichlet_fact.yml"; validate=true)
 
-Comparative evaluation over the unit simplex.
+Comparative evaluation over the unit simplex. If `validate==false`, read the results from the `valfile` instead of running the validation / hyper-parameter optimization.
 """
-function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml")
+function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::Bool=true)
     c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
 
     # read and split the data
@@ -303,19 +303,25 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml")
     for (i, val_trial) in enumerate(val_trials)
         val_trial[:trial] = i # add the trial number to each configuration
     end
-    @info "Starting $(length(val_trials)) validation trials on $(nworkers()) worker(s)."
-    job_args = [ X_trn, y_trn, X_val, y_val, discr ]
-    val_df = vcat(pmap(
-        val_trial -> catch_during_trial(_dirichlet_trial, val_trial, job_args...),
-        val_trials
-    )...)
 
-    # split the validation data into curvature levels, see src/job/amazon.jl
-    val_df[!, :curvature_level] = _curvature_level(val_df, c[:protocol][:n_splits])
+    if validate
+        @info "Starting $(length(val_trials)) validation trials on $(nworkers()) worker(s)."
+        job_args = [ X_trn, y_trn, X_val, y_val, discr ]
+        val_df = vcat(pmap(
+            val_trial -> catch_during_trial(_dirichlet_trial, val_trial, job_args...),
+            val_trials
+        )...)
 
-    # validation output
-    CSV.write(c[:valfile], val_df)
-    @info "Validation results written to $(c[:valfile])"
+        # split the validation data into curvature levels, see src/job/amazon.jl
+        val_df[!, :curvature_level] = _curvature_level(val_df, c[:protocol][:n_splits])
+
+        # validation output
+        CSV.write(c[:valfile], val_df)
+        @info "Validation results written to $(c[:valfile])"
+    else
+        val_df = coalesce.(CSV.read(c[:valfile], DataFrame), "")
+        @info "Read validation results from $(c[:valfile])"
+    end
 
     # select the best overall methods and the best methods for each curvature level
     _filter_best_methods!(c, val_df, c[:protocol][:n_splits])
