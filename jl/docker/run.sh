@@ -46,7 +46,7 @@ echo "| Args: $args"
 read -p "Run this INTERACTIVE job? [y|N] " -r
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     docker create \
-        --tty --interactive --rm \
+        --tty --interactive \
         --env constraint:nodetype!=phi \
         --volume /home/$USER:/mnt/home \
         --volume /rdata/s01f_c3_004:/mnt/data \
