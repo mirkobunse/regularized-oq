@@ -259,14 +259,17 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             exp[:name] = name # replace with interpolation
         end
 
-        # collect experiments per method_id
-        method_exp = Dict{String,Vector{Dict{Symbol,Any}}}()
+        # collect experiments per validation_group
+        group_exp = Dict{String,Vector{Dict{Symbol,Any}}}()
         for exp in job[:method]
-            id = exp[:method_id]
-            method_exp[id] = push!(get(method_exp, id, Dict{Symbol,Any}[]), exp)
+            validation_group = get(exp, :validation_group, exp[:method_id])
+            group_exp[validation_group] = push!(
+                get(group_exp, validation_group, Dict{Symbol,Any}[]),
+                exp
+            )
         end
-        for (method, exp) in pairs(method_exp)
-            @info "$(method) will be optimized over $(length(exp)) configurations"
+        for (validation_group, exp) in pairs(group_exp)
+            @info "$(validation_group) will be optimized over $(length(exp)) configurations"
         end
 
         # write the generated job configuration to a file
@@ -283,7 +286,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         job[:N_val] = 100
         job[:N_trn] = 2000
         job[:protocol][:n_splits] = 2
-        job[:method] = vcat(rand.(values(method_exp))...)
+        job[:method] = vcat(rand.(values(group_exp))...)
         @info "Writing a test configuration to $(job[:configfile])"
         save(job[:configfile], job)
     end
@@ -409,14 +412,17 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             exp[:name] = name # replace with interpolation
         end
 
-        # collect experiments per method_id
-        method_exp = Dict{String,Vector{Dict{Symbol,Any}}}()
+        # collect experiments per validation_group
+        group_exp = Dict{String,Vector{Dict{Symbol,Any}}}()
         for exp in job[:method]
-            id = exp[:method_id]
-            method_exp[id] = push!(get(method_exp, id, Dict{Symbol,Any}[]), exp)
+            validation_group = get(exp, :validation_group, exp[:method_id])
+            group_exp[validation_group] = push!(
+                get(group_exp, validation_group, Dict{Symbol,Any}[]),
+                exp
+            )
         end
-        for (method, exp) in pairs(method_exp)
-            @info "$(method) will be optimized over $(length(exp)) configurations"
+        for (validation_group, exp) in pairs(group_exp)
+            @info "$(validation_group) will be optimized over $(length(exp)) configurations"
         end
 
         # write job to file
@@ -431,7 +437,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
         job[:M_tst] = 3
         job[:N_trn] = 2000
         job[:protocol][:n_splits] = 2
-        job[:method] = vcat(rand.(values(method_exp))...)
+        job[:method] = vcat(rand.(values(group_exp))...)
         @info "Writing a test configuration to $(job[:configfile])"
         save(job[:configfile], job)
     end

@@ -67,7 +67,7 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
         agg = vcat(agg_app, agg_1)
 
         # unstack
-        agg[!, :id] = agg[!, :method]
+        agg[!, :id] = agg[!, :validation_group]
         agg[!, :variable] = agg[!, :dataset] .* " (" .* agg[!, :bin] .* ")"
         agg[!, :value] = "\$" .* _main_bold.(agg[!, :p_value]) .* "{" .* _main_avg.(agg[!, :avg]) .* " \\pm " .* _main_std.(agg[!, :std]) .* "}\$"
         agg = agg[!, [:id, :variable, :value]]
@@ -79,7 +79,7 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
         tab[!, :order] = sortperm(first.(methods))
         sort!(tab, :order)
         tab[!, :group] = first.(last.(methods)) # group column
-        tab[!, :method] = last.(last.(methods)) # method name column
+        tab[!, :validation_group] = last.(last.(methods)) # method name column
 
         # write a LaTeX table to a text file
         _outfile = replace(outfile, ".tex" => "_$(selection_metric).tex")
@@ -113,18 +113,18 @@ _main_bold(x) = x >= 0.01 ? "\\mathbf" : ""
 function _main(df::DataFrame, selection_metric::AbstractString)
     @info "_main receives a subset of $(nrow(df)) results"
     agg = combine(
-        groupby(df, [:dataset, :method]),
+        groupby(df, [:dataset, :validation_group]),
         Symbol(selection_metric) => mean => :avg,
         Symbol(selection_metric) => std => :std
     ) # compute averages
     agg[!, :p_value] = map(eachrow(agg)) do row
-        id = row[:method]
+        id = row[:validation_group]
         ds = row[:dataset]
         _df = df[df[!, :dataset].==ds, :]
         _agg = agg[agg[!, :dataset].==ds, :]
-        best_id = _agg[argmin(_agg[!, :avg]), :method]
-        current_method = _df[(_df[!, :method].==id), :]
-        best_method = _df[(_df[!, :method].==best_id), :]
+        best_id = _agg[argmin(_agg[!, :avg]), :validation_group]
+        current_method = _df[(_df[!, :validation_group].==id), :]
+        best_method = _df[(_df[!, :validation_group].==best_id), :]
         jdf = innerjoin(current_method, best_method;
             on = :sample,
             validate = (true, true), # check that the join column is a unique key
@@ -193,12 +193,12 @@ function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,
 
     # compute averages to sort by
     agg = sort(combine(
-        groupby(df, [:name, :method]),
+        groupby(df, [:name, :validation_group]),
         metric[1] => mean => :avg,
         metric[1] => std => :std
     ), :avg)
     agg = sort(combine(
-        groupby(agg, :method),
+        groupby(agg, :validation_group),
         sdf -> sort(sdf, :avg)[1,:] # select the best
     ), :avg)
     agg[!, :p_value] = map(agg[!, :name]) do name
