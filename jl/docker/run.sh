@@ -5,7 +5,7 @@
 set -e
 USER=`id --user --name`  # Docker user
 NAME="ecml22"            # default container name
-RESOURCES="-c 8 -m 128g" # default resources allocated by each container
+RESOURCES="-c 8 -m 512g" # default resources allocated by each container
 
 # find the name of the image (with or without prefix)
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
