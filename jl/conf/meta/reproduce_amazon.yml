@@ -32,6 +32,10 @@ classifier:
     parameters:
       C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
       class_weight: [ "balanced", ~ ]
+    bagging: # parameters of a BaggingClassifier
+      n_estimators: 100
+      random_state: 876
+      oob_score: true
 
 # all methods to be compared
 method:
