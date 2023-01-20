@@ -1,7 +1,7 @@
 M_val: 1000
 outfile: "res/csv/reproduce_amazon_roberta.csv"
 valfile: "res/csv/reproduce_amazon_roberta_val.csv"
-M_tst: 5000
+M_tst: 2000
 configfile: "conf/gen/reproduce_amazon_roberta.yml"
 method:
   - binning:
@@ -12,11 +12,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -38,11 +35,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -64,11 +58,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -90,11 +81,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -116,11 +104,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -142,11 +127,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -168,11 +150,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -194,11 +173,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -220,11 +196,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -246,11 +219,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -272,11 +242,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -298,11 +265,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -324,11 +288,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -350,11 +311,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -376,11 +334,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -402,11 +357,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -428,11 +380,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -454,11 +403,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -480,11 +426,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -506,11 +449,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -532,11 +472,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -558,11 +495,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -584,11 +518,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -610,11 +541,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -636,11 +564,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -662,11 +587,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -688,11 +610,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -714,11 +633,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -740,11 +656,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -766,11 +679,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -792,11 +702,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -818,11 +725,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -844,11 +748,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -870,11 +771,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -896,11 +794,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -922,11 +817,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -948,11 +840,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -974,11 +863,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1000,11 +886,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1026,11 +909,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1052,11 +932,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1078,11 +955,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1104,11 +978,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1130,11 +1001,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1156,11 +1024,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1182,11 +1047,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1208,11 +1070,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1234,11 +1093,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1260,11 +1116,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1286,11 +1139,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1312,11 +1162,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1338,11 +1185,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1364,11 +1208,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1390,11 +1231,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1416,11 +1254,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1442,11 +1277,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1468,11 +1300,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1494,11 +1323,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1520,11 +1346,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1546,11 +1369,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1572,11 +1392,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1598,11 +1415,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1624,11 +1438,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1650,11 +1461,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1676,11 +1484,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1702,11 +1507,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1728,11 +1530,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1754,11 +1553,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1780,11 +1576,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1806,11 +1599,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1832,11 +1622,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1858,11 +1645,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1884,11 +1668,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1910,11 +1691,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1936,11 +1714,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1962,11 +1737,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -1988,11 +1760,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2014,11 +1783,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2040,11 +1806,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2066,11 +1829,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2092,11 +1852,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2118,11 +1875,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2144,11 +1898,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2170,11 +1921,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2196,11 +1944,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2222,11 +1967,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2248,11 +1990,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2274,11 +2013,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2300,11 +2036,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2326,11 +2059,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2352,11 +2082,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2378,11 +2105,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2404,11 +2128,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2430,11 +2151,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2456,11 +2174,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2482,11 +2197,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2508,11 +2220,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2534,11 +2243,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2560,11 +2266,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2586,11 +2289,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2612,11 +2312,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2638,11 +2335,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2664,11 +2358,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2690,11 +2381,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2716,11 +2404,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2742,11 +2427,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2768,11 +2450,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2794,11 +2473,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2820,11 +2496,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2846,11 +2519,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2872,11 +2542,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2898,11 +2565,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2924,11 +2588,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2950,11 +2611,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -2976,11 +2634,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3002,11 +2657,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3028,11 +2680,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3054,11 +2703,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3080,11 +2726,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3106,11 +2749,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3132,11 +2772,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3158,11 +2795,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3184,11 +2818,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3210,11 +2841,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3236,11 +2864,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3262,11 +2887,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3288,11 +2910,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3314,11 +2933,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3340,11 +2956,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3366,11 +2979,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3392,11 +3002,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3418,11 +3025,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3444,11 +3048,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3470,11 +3071,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3496,11 +3094,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3522,11 +3117,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3548,11 +3140,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3574,11 +3163,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3600,11 +3186,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3626,11 +3209,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3652,11 +3232,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3678,11 +3255,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3704,11 +3278,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3730,11 +3301,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3756,11 +3324,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3782,11 +3347,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3808,11 +3370,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3834,11 +3393,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3860,11 +3416,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3886,11 +3439,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3912,11 +3462,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3938,11 +3485,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3964,11 +3508,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -3990,11 +3531,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4016,11 +3554,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4042,11 +3577,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4068,11 +3600,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4094,11 +3623,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4120,11 +3646,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4146,11 +3669,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4172,11 +3692,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4198,11 +3715,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4224,11 +3738,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4250,11 +3761,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4276,11 +3784,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4302,11 +3807,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4328,11 +3830,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4354,11 +3853,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4380,11 +3876,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4406,11 +3899,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4432,11 +3922,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4458,11 +3945,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4484,11 +3968,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4510,11 +3991,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4536,11 +4014,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4562,11 +4037,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4588,11 +4060,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4614,11 +4083,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4640,11 +4106,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4666,11 +4129,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "ibu"
     smoothing:
       method_id: "polynomial"
@@ -4692,11 +4152,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4712,11 +4169,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4732,11 +4186,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4752,11 +4203,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4772,11 +4220,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4792,11 +4237,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4812,11 +4254,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4832,11 +4271,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4852,11 +4288,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4872,11 +4305,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4892,11 +4322,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4912,11 +4339,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4932,11 +4356,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4952,11 +4373,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4972,11 +4390,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -4992,11 +4407,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5012,11 +4424,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5032,11 +4441,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5052,11 +4458,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5072,11 +4475,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5092,11 +4492,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5112,11 +4509,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5132,11 +4526,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5152,11 +4543,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5172,11 +4560,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5192,11 +4577,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5212,11 +4594,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5232,11 +4611,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5252,11 +4628,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5272,11 +4645,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5292,11 +4662,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5312,11 +4679,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5332,11 +4696,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5352,11 +4713,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5372,11 +4730,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5392,11 +4747,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5412,11 +4764,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5432,11 +4781,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5452,11 +4798,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5472,11 +4815,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5492,11 +4832,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5512,11 +4849,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5532,11 +4866,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5552,11 +4883,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5572,11 +4900,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5592,11 +4917,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5612,11 +4934,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5632,11 +4951,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5652,11 +4968,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5672,11 +4985,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5692,11 +5002,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5712,11 +5019,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5732,11 +5036,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5752,11 +5053,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5772,11 +5070,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5792,11 +5087,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5812,11 +5104,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5832,11 +5121,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5852,11 +5138,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5872,11 +5155,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5892,11 +5172,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5912,11 +5189,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5932,11 +5206,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5952,11 +5223,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5972,11 +5240,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -5992,11 +5257,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6012,11 +5274,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6032,11 +5291,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6052,11 +5308,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6072,11 +5325,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6092,11 +5342,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 3926593139
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 3193573456
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6112,11 +5359,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 235696739
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 1466828405
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6132,11 +5376,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 4217698560
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 539010050
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6152,11 +5393,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 1819994937
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 3249917414
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6172,11 +5410,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: "balanced"
+          random_state: 2833382744
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 674079454
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6192,11 +5427,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 3954971799
           C: 0.001
-        bagging:
-          oob_score: true
-          random_state: 1207595197
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6212,11 +5444,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1637735171
           C: 0.01
-        bagging:
-          oob_score: true
-          random_state: 3645983298
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6232,11 +5461,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 480042572
           C: 0.1
-        bagging:
-          oob_score: true
-          random_state: 1669086789
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6252,11 +5478,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 4153921509
           C: 1.0
-        bagging:
-          oob_score: true
-          random_state: 910122224
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6272,11 +5495,8 @@ method:
         classifier: "LogisticRegression"
         parameters:
           class_weight: ~
+          random_state: 1435871540
           C: 10.0
-        bagging:
-          oob_score: true
-          random_state: 931584667
-          n_estimators: 100
     method_id: "prun"
     K: 1000
     warn: false
@@ -6292,4 +5512,4 @@ data:
   id: "roberta"
   path: "/mnt/data/amazon-oq-bk/roberta"
   type: "dense_vector"
-seed: 876
+seed: 42

@@ -4,9 +4,9 @@
 # Meta-configuration for comparing quantification methods on Amazon customer review text data.
 #
 job: amazon # this file configures the function Job.<job>
-seed: 876 # random number generator seed
+seed: 42 # random number generator seed
 M_val: 1000 # number of validation samples
-M_tst: 5000 # number of testing samples
+M_tst: 2000 # number of testing samples
 
 # output of configuration expansion and of experiments
 configfile: conf/gen/reproduce_amazon_$(id).yml # $(id) is replaced by the data ID
@@ -32,10 +32,6 @@ classifier:
     parameters:
       C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
       class_weight: [ "balanced", ~ ]
-    bagging: # parameters of a BaggingClassifier
-      n_estimators: 100
-      random_state: 876
-      oob_score: true
 
 # all methods to be compared
 method:
