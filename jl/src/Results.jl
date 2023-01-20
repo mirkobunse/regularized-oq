@@ -85,7 +85,7 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
         _outfile = replace(outfile, ".tex" => "_$(selection_metric).tex")
         @info "Writing to $(_outfile)" selection_metric tab
         columns = vcat(
-            [ "method" ],
+            [ "validation_group" ],
             vcat(map(dataset -> [ "$(dataset) (APP)", "$(dataset) (APP-1)" ], first.(metricsfiles))...)
         )
         open(_outfile, "w") do io
