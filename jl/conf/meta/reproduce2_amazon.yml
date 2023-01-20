@@ -1,0 +1,65 @@
+#
+# conf/meta/reproduce2_amazon.yml
+#
+# Meta-configuration for comparing quantification methods on Amazon customer review text data.
+#
+job: amazon # this file configures the function Job.<job>
+seed: 42 # random number generator seed
+M_val: 1000 # number of validation samples
+M_tst: 2000 # number of testing samples
+
+# output of configuration expansion and of experiments
+configfile: conf/gen/reproduce2_amazon_$(id).yml # $(id) is replaced by the data ID
+outfile: res/csv/reproduce2_amazon_$(id).csv
+valfile: res/csv/reproduce2_amazon_$(id)_val.csv
+
+data:
+  - id: roberta
+    path: /mnt/data/amazon-oq-bk/roberta
+    type: dense_vector
+
+# the sampling protocols with which to evaluate
+protocol:
+  sampling: app # app or npp
+  n_splits: 5 # investigate multiple levels of curvature + all data
+
+# all classifiers over which the quantification methods are optimized
+classifier:
+
+  - classifier: LogisticRegression
+    method_id: logReg
+    name: "LR ($w=$(class_weight), C=$(C)$)"
+    parameters:
+      C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
+      class_weight: [ "balanced", ~ ]
+
+# all methods to be compared
+method:
+
+  # Iterative Bayesian Unfolding
+  - method_id: ibu
+    epsilon: 1e-6
+    K: 1000
+    binning:
+      method_id: classifier
+    smoothing:
+      method_id: "polynomial"
+      order: [ 0, 1, 2 ]
+      impact: [ 3e-1, 1e-1, 3e-2, 1e-2, 3e-3, 1e-3 ]
+      avg_negative: false
+      warn: false
+    stepsize:
+      method_id: constant
+      alpha: 1.0
+    name: "IBU ($o=$(order), i=$(impact)$) on $(classifier)"
+
+  # p-RUN: positive-constrained maximum likelihood estimate
+  - method_id: prun
+    epsilon: 1e-6
+    warn: false
+    K: 1000
+    binning:
+      method_id: classifier
+    ac_regularisation: false
+    tau: [ 3e-2, 1e-2, 3e-3, 1e-3, 3e-4, 1e-4, 3e-5, 1e-6 ]
+    name: "RUN ($\\tau=$(tau)$) on $(classifier)"

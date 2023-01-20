@@ -1,0 +1,5515 @@
+M_val: 1000
+outfile: "res/csv/reproduce2_amazon_roberta.csv"
+valfile: "res/csv/reproduce2_amazon_roberta_val.csv"
+M_tst: 2000
+configfile: "conf/gen/reproduce2_amazon_roberta.yml"
+method:
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.3$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.03$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.01$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.003$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 0
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=0, i=0.001$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.3$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.1$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.03$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.003$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 1
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=1, i=0.001$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.3
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.3$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.1
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.03
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.01
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.003
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "ibu"
+    smoothing:
+      method_id: "polynomial"
+      order: 2
+      impact: 0.001
+      warn: false
+      avg_negative: false
+    K: 1000
+    name: "IBU ($o=2, i=0.001$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    stepsize:
+      alpha: 1.0
+      method_id: "constant"
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.03$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.03
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.01
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.003$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0003$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0003
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=0.0001$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 0.0001
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=3.0e-5$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 3.0e-5
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 3926593139
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=u, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 235696739
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=u, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 4217698560
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=u, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 1819994937
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=u, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=u, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: "balanced"
+          random_state: 2833382744
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=u, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.001$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 3954971799
+          C: 0.001
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=n, C=0.001$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.01$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1637735171
+          C: 0.01
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=n, C=0.01$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=0.1$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 480042572
+          C: 0.1
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=n, C=0.1$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=1.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 4153921509
+          C: 1.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=n, C=1.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+  - binning:
+      method_id: "classifier"
+      classifier:
+        method_id: "logReg"
+        name: "LR ($w=n, C=10.0$)"
+        classifier: "LogisticRegression"
+        parameters:
+          class_weight: ~
+          random_state: 1435871540
+          C: 10.0
+    method_id: "prun"
+    K: 1000
+    warn: false
+    name: "RUN ($\\tau=1.0e-6$) on LR ($w=n, C=10.0$)"
+    epsilon: 1.0e-6
+    ac_regularisation: false
+    tau: 1.0e-6
+protocol:
+  n_splits: 5
+  sampling: "app"
+job: "amazon"
+data:
+  id: "roberta"
+  path: "/mnt/data/amazon-oq-bk/roberta"
+  type: "dense_vector"
+seed: 42
