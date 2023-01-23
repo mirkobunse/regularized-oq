@@ -71,6 +71,43 @@ function configure_method(c::Dict{Symbol, Any})
             @error "Cannot configure method" c[:method_id] args kwargs
             rethrow()
         end
+    elseif c[:method_id] == "cherenkov-run"
+        transformer = if c[:transformer] == "classifier"
+            QUnfold.ClassTransformer(_configure_classifier(c[:classifier]))
+        elseif c[:transformer] == "tree"
+            QUnfold.TreeTransformer(DecisionTreeClassifier(; c[:transformer_parameters]...))
+        end
+        return MoreMethods.MixtureMethod(
+            QUnfold.RUN(transformer),
+            CherenkovDeconvolution.PRUN(
+                TreeBinning(-1),
+                epsilon=1e-6,
+                warn=false,
+                K=1000,
+                ac_regularisation=false,
+                tau=c[:parameters][:τ]
+            )
+        )
+    elseif c[:method_id] == "cherenkov-ibu"
+        transformer = if c[:transformer] == "classifier"
+            QUnfold.ClassTransformer(_configure_classifier(c[:classifier]))
+        elseif c[:transformer] == "tree"
+            QUnfold.TreeTransformer(DecisionTreeClassifier(; c[:transformer_parameters]...))
+        end
+        return MoreMethods.MixtureMethod(
+            QUnfold.IBU(transformer),
+            CherenkovDeconvolution.IBU(
+                TreeBinning(-1),
+                epsilon=1e-6,
+                K=1000,
+                smoothing=PolynomialSmoothing(
+                    c[:parameters][:o];
+                    impact=c[:parameters][:λ],
+                    avg_negative=false,
+                    warn=false
+                )
+            )
+        )
     elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
         return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
     else
@@ -355,14 +392,14 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             elseif exp[:method_id] in ["oqt", "arc"]
                 exp[:classifier] = classifiers
                 expand(exp, [:parameters, :val_split], :classifier)
-            elseif exp[:method_id] in ["ibu", "osld"]
+            elseif exp[:method_id] in ["ibu", "osld", "cherenkov-ibu"]
                 exp[:classifier] = classifiers
                 expand(exp,
                     :classifier,
                     [:parameters, :o],
                     [:parameters, :λ]
                 )
-            elseif exp[:method_id] in ["run", "svd"]
+            elseif exp[:method_id] in ["run", "svd", "cherenkov-run"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, [:parameters, :τ])
             elseif exp[:method_id] ∈ ["oacc", "opacc"]

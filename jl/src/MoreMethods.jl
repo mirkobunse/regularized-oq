@@ -139,6 +139,54 @@ CherenkovDeconvolution.prefit(
 CherenkovDeconvolution.deconvolve(m::T, X_obs::Any) where {T<:QUnfold.FittedMethod}=
     QUnfold.predict(m, X_obs)
 
+
+# ===================================================================================
+# Mixtures betweeen CherenkovDeconvolution and QUnfold
+# ===================================================================================
+
+struct MixtureMethod <: DeconvolutionMethod
+    qunfold::QUnfold.AbstractMethod
+    cherenkov::DiscreteMethod
+end
+struct PrefittedMixtureMethod <: DeconvolutionMethod
+    qunfold::QUnfold.FittedMethod
+    cherenkov::DiscreteMethod
+    label_sanitizer::LabelSanitizer
+end
+
+CherenkovDeconvolution.deconvolve(
+        m::MixtureMethod,
+        X_obs::Any,
+        X_trn::Any,
+        y_trn::AbstractVector{I}
+        ) where {I<:Integer} =
+    deconvolve(prefit(m, X_trn, y_trn), X_obs)
+
+CherenkovDeconvolution.prefit(
+        m::MixtureMethod,
+        X_trn::Any,
+        y_trn::Vector{I}
+        ) where {I<:Integer} =
+    PrefittedMixtureMethod(
+        QUnfold.fit(m.qunfold, X_trn, y_trn),
+        m.cherenkov,
+        LabelSanitizer(y_trn)
+    )
+
+function CherenkovDeconvolution.deconvolve(m::PrefittedMixtureMethod, X_obs::Any)
+    # initialize_deconvolve!(stepsize(m.cherenkov), X_obs)
+    statistic = if CherenkovDeconvolution.Methods.expects_normalized_g(m.cherenkov) mean else sum end
+    return deconvolve(
+        m.cherenkov,
+        m.qunfold.M, # = R
+        statistic(QUnfold._transform(m.qunfold.f, X_obs), dims=1)[:], # = g
+        m.label_sanitizer,
+        m.qunfold.p_trn, # = f_trn
+        nothing # = f_0 uniform
+    )
+end
+
+
 # ===================================================================================
 # Numerically Adjusted Classify & Count (NACC) with proper losses and regularizations
 #
