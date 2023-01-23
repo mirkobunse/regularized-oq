@@ -5,7 +5,7 @@ M_tst: 3
 configfile: "conf/gen/test_cherenkov_amazon_roberta.yml"
 method:
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"

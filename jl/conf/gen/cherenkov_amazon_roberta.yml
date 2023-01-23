@@ -5,7 +5,7 @@ M_tst: 2000
 configfile: "conf/gen/cherenkov_amazon_roberta.yml"
 method:
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.001$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -22,7 +22,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.001$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -39,7 +39,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.001$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -56,7 +56,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.001$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -73,7 +73,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.001$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -90,7 +90,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.001$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -107,7 +107,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.01$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -124,7 +124,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.01$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -141,7 +141,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.01$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -158,7 +158,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.01$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -175,7 +175,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.01$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -192,7 +192,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.01$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -209,7 +209,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.1$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -226,7 +226,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.1$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -243,7 +243,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.1$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -260,7 +260,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.1$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -277,7 +277,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.1$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -294,7 +294,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=0.1$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -311,7 +311,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -328,7 +328,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -345,7 +345,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -362,7 +362,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -379,7 +379,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -396,7 +396,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -413,7 +413,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=10.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -430,7 +430,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=10.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -447,7 +447,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=10.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -464,7 +464,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=10.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -481,7 +481,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=10.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -498,7 +498,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=u, C=10.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -515,7 +515,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.001$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -532,7 +532,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.001$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -549,7 +549,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.001$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -566,7 +566,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.001$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -583,7 +583,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.001$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -600,7 +600,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.001$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -617,7 +617,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.01$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -634,7 +634,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.01$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -651,7 +651,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.01$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -668,7 +668,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.01$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -685,7 +685,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.01$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -702,7 +702,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.01$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -719,7 +719,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.1$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -736,7 +736,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.1$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -753,7 +753,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.1$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -770,7 +770,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.1$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -787,7 +787,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.1$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -804,7 +804,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=0.1$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -821,7 +821,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=1.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -838,7 +838,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=1.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -855,7 +855,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=1.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -872,7 +872,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -889,7 +889,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -906,7 +906,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=1.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -923,7 +923,7 @@ method:
       o: 1
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=10.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -940,7 +940,7 @@ method:
       o: 0
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=10.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.01$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -957,7 +957,7 @@ method:
       o: 0
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=10.0$)"
+    name: "Cherenkov IBU ($o=0, i=0.0$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -974,7 +974,7 @@ method:
       o: 0
       λ: 0.0
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=10.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -991,7 +991,7 @@ method:
       o: 1
       λ: 0.1
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=10.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.01$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -1008,7 +1008,7 @@ method:
       o: 1
       λ: 0.01
   - method_id: "cherenkov-ibu"
-    name: "Cherenkov IBU ($o=$(o), i=$(λ)$) on LR ($w=n, C=10.0$)"
+    name: "Cherenkov IBU ($o=1, i=0.0$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"

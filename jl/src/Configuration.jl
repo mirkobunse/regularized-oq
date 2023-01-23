@@ -433,7 +433,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             if haskey(exp, :parameters) && haskey(exp[:parameters], :τ)
                 name = replace(name, "\$(τ)" => exp[:parameters][:τ])
             end
-            if exp[:method_id] in ["ibu", "osld"]
+            if exp[:method_id] in ["ibu", "osld", "cherenkov-ibu"]
                 name = replace(name, "\$(o)" => exp[:parameters][:o])
                 name = replace(name, "\$(λ)" => exp[:parameters][:λ])
             # elseif exp[:method_id] ∈ ["oacc", "opacc"]
