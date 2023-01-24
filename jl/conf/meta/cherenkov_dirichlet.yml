@@ -47,8 +47,8 @@ classifier:
 # all methods to be compared
 method:
 
-  - method_id: cherenkov-ibu
-    name: "Cherenkov IBU ($o=$(o), i=$(λ), J=$(max_leaf_nodes)$)"
+  - method_id: ibu
+    name: "QUnfold IBU ($o=$(o), i=$(λ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
       max_leaf_nodes: [ 60 ]
@@ -56,8 +56,8 @@ method:
       o: [ 0, 2 ]
       λ: [ 1e-2 ]
 
-  - method_id: cherenkov-run
-    name: "Cherenkov RUN ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
+  - method_id: run
+    name: "QUnfold RUN ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
       max_leaf_nodes: [ 60 ]
