@@ -51,15 +51,15 @@ method:
     name: "Cherenkov IBU ($o=$(o), i=$(λ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
-      max_leaf_nodes: [ 24, 60 ] # 2 and 5 times the number of classes
+      max_leaf_nodes: [ 60 ]
     parameters:
-      o: [ 0, 1 ]
-      λ: [ 1e-1, 1e-2, 0.0 ]
+      o: [ 0, 2 ]
+      λ: [ 1e-2 ]
 
   - method_id: cherenkov-run
     name: "Cherenkov RUN ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
-      max_leaf_nodes: [ 24, 60 ]
+      max_leaf_nodes: [ 60 ]
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-5 ]
