@@ -225,13 +225,13 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             elseif exp[:method_id] in ["oqt", "arc"]
                 exp[:classifier] = classifiers
                 expand(exp, [:parameters, :val_split], :classifier)
-            elseif exp[:method_id] == "ibu"
+            elseif exp[:method_id] in ["ibu", "cherenkov-ibu"]
                 expand(exp,
                     [:parameters, :o],
                     [:parameters, :λ],
                     [:transformer_parameters, :max_leaf_nodes]
                 )
-            elseif exp[:method_id] in ["run", "svd"]
+            elseif exp[:method_id] in ["run", "svd", "cherenkov-run"]
                 expand(exp, [:parameters, :τ], [:transformer_parameters, :max_leaf_nodes])
             elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
@@ -269,7 +269,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         )...)
         for exp in job[:method]
             name = exp[:name]
-            if exp[:method_id] in ["ibu", "run", "svd"]
+            if exp[:method_id] in ["ibu", "run", "svd", "cherenkov-ibu", "cherenkov-run"]
                 seed = tree_seed[exp[:transformer_parameters][:max_leaf_nodes]]
                 exp[:transformer_parameters][:random_state] = seed
                 name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:max_leaf_nodes])
@@ -280,7 +280,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             if haskey(exp, :parameters) && haskey(exp[:parameters], :τ)
                 name = replace(name, "\$(τ)" => exp[:parameters][:τ])
             end
-            if exp[:method_id] in ["ibu", "osld"]
+            if exp[:method_id] in ["ibu", "osld", "cherenkov-ibu"]
                 name = replace(name, "\$(o)" => exp[:parameters][:o])
                 name = replace(name, "\$(λ)" => exp[:parameters][:λ])
             # elseif exp[:method_id] ∈ ["oacc", "opacc"]

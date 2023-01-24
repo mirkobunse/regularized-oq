@@ -1,0 +1,32 @@
+M_val: 3
+outfile: "res/csv/test_cherenkov_dirichlet_fact.csv"
+valfile: "res/csv/test_cherenkov_dirichlet_val_fact.csv"
+N_tst: 100
+M_tst: 3
+configfile: "conf/gen/test_cherenkov_dirichlet_fact.yml"
+dataset: "fact"
+method:
+  - method_id: "cherenkov-ibu"
+    name: "Cherenkov IBU ($o=0, i=0.0, J=24$)"
+    transformer_parameters:
+      max_leaf_nodes: 24
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "cherenkov-run"
+    name: "Cherenkov RUN ($\\tau=0.1, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      random_state: 2918134088
+    transformer: "tree"
+    parameters:
+      τ: 0.1
+N_trn: 2000
+N_val: 100
+protocol:
+  n_splits: 2
+  sampling: "app"
+job: "dirichlet"
+seed: 876
