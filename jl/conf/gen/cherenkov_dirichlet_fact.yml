@@ -6,28 +6,72 @@ M_tst: 2000
 configfile: "conf/gen/cherenkov_dirichlet_fact.yml"
 dataset: "fact"
 method:
-  - method_id: "ibu"
-    name: "QUnfold IBU ($o=0, i=0.01, J=60$)"
+  - validation_group: "fixed"
+    method_id: "run"
+    name: "fit_frac=0.2 fixed (RUN, $\\tau=1.0e-5, J=60$)"
     transformer_parameters:
       max_leaf_nodes: 60
+      fit_frac: 0.2
       random_state: 1078380895
     transformer: "tree"
     parameters:
-      o: 0
-      λ: 0.01
-  - method_id: "ibu"
-    name: "QUnfold IBU ($o=2, i=0.01, J=60$)"
+      τ: 1.0e-5
+  - validation_group: "optimized"
+    method_id: "run"
+    name: "fit_frac=0.25 optimized (RUN, $\\tau=1.0e-5, J=60$)"
     transformer_parameters:
       max_leaf_nodes: 60
+      fit_frac: 0.25
       random_state: 1078380895
     transformer: "tree"
     parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "run"
-    name: "QUnfold RUN ($\\tau=1.0e-5, J=60$)"
+      τ: 1.0e-5
+  - validation_group: "optimized"
+    method_id: "run"
+    name: "fit_frac=0.334 optimized (RUN, $\\tau=1.0e-5, J=60$)"
     transformer_parameters:
       max_leaf_nodes: 60
+      fit_frac: 0.334
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - validation_group: "optimized"
+    method_id: "run"
+    name: "fit_frac=0.5 optimized (RUN, $\\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      fit_frac: 0.5
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - validation_group: "optimized"
+    method_id: "run"
+    name: "fit_frac=0.666 optimized (RUN, $\\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      fit_frac: 0.666
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - validation_group: "optimized"
+    method_id: "run"
+    name: "fit_frac=0.75 optimized (RUN, $\\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      fit_frac: 0.75
+      random_state: 1078380895
+    transformer: "tree"
+    parameters:
+      τ: 1.0e-5
+  - validation_group: "optimized"
+    method_id: "run"
+    name: "fit_frac=0.8 optimized (RUN, $\\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      max_leaf_nodes: 60
+      fit_frac: 0.8
       random_state: 1078380895
     transformer: "tree"
     parameters:

@@ -47,19 +47,22 @@ classifier:
 # all methods to be compared
 method:
 
-  - method_id: ibu
-    name: "QUnfold IBU ($o=$(o), i=$(λ), J=$(max_leaf_nodes)$)"
+  - method_id: run
+    validation_group: fixed
+    name: "fit_frac=$(fit_frac) fixed (RUN, $\\tau=$(τ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
       max_leaf_nodes: [ 60 ]
+      fit_frac: [ 0.2 ] # = 1/5
     parameters:
-      o: [ 0, 2 ]
-      λ: [ 1e-2 ]
+      τ: [ 1e-5 ]
 
   - method_id: run
-    name: "QUnfold RUN ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
+    validation_group: optimized
+    name: "fit_frac=$(fit_frac) optimized (RUN, $\\tau=$(τ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
       max_leaf_nodes: [ 60 ]
+      fit_frac: [ 0.25, 0.334, 0.5, 0.666, 0.75, 0.8 ]
     parameters:
       τ: [ 1e-5 ]

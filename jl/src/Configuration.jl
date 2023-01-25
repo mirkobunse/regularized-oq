@@ -55,7 +55,12 @@ function configure_method(c::Dict{Symbol, Any})
             if c[:transformer] == "classifier"
                 push!(args, QUnfold.ClassTransformer(_configure_classifier(c[:classifier])))
             elseif c[:transformer] == "tree"
-                push!(args, QUnfold.TreeTransformer(DecisionTreeClassifier(; c[:transformer_parameters]...)))
+                tree_parameters = copy(c[:transformer_parameters])
+                fit_frac = pop!(tree_parameters, :fit_frac, 1/2) # remove or use default
+                push!(args, QUnfold.TreeTransformer(
+                    DecisionTreeClassifier(; tree_parameters...);
+                    fit_frac = fit_frac
+                ))
             end
         else
             if haskey(c, :classifier) && c[:method_id] ∉ ["hdx", "ohdx"]
@@ -232,7 +237,11 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                     [:transformer_parameters, :max_leaf_nodes]
                 )
             elseif exp[:method_id] in ["run", "svd", "cherenkov-run"]
-                expand(exp, [:parameters, :τ], [:transformer_parameters, :max_leaf_nodes])
+                expand(exp,
+                    [:parameters, :τ],
+                    [:transformer_parameters, :max_leaf_nodes],
+                    [:transformer_parameters, :fit_frac]
+                )
             elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
                 expand(exp,
@@ -273,6 +282,9 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 seed = tree_seed[exp[:transformer_parameters][:max_leaf_nodes]]
                 exp[:transformer_parameters][:random_state] = seed
                 name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:max_leaf_nodes])
+            end
+            if exp[:method_id] in ["run", "cherenkov-run"]
+                name = replace(name, "\$(fit_frac)" => exp[:transformer_parameters][:fit_frac])
             end
             if haskey(exp, :classifier)
                 name = replace(name, "\$(classifier)" => exp[:classifier][:name])
