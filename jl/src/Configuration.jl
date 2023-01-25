@@ -34,6 +34,7 @@ QUAPY_CONSTRUCTORS = Dict(
     "quapy-sld" => MoreMethods.ExpectationMaximizationQuantifier,
 ) # multi-class quantifiers from QuaPy
 
+
 """
     configure_method(c::Dict{Symbol, Any})
 
@@ -55,11 +56,9 @@ function configure_method(c::Dict{Symbol, Any})
             if c[:transformer] == "classifier"
                 push!(args, QUnfold.ClassTransformer(_configure_classifier(c[:classifier])))
             elseif c[:transformer] == "tree"
-                tree_parameters = copy(c[:transformer_parameters])
-                fit_frac = pop!(tree_parameters, :fit_frac, 1/2) # remove or use default
                 push!(args, QUnfold.TreeTransformer(
-                    DecisionTreeClassifier(; tree_parameters...);
-                    fit_frac = fit_frac
+                    DecisionTreeClassifier(; c[:transformer_parameters][:tree_parameters]...);
+                    fit_tree = c[:transformer_parameters][:fit_tree]
                 ))
             end
         else
@@ -80,7 +79,10 @@ function configure_method(c::Dict{Symbol, Any})
         transformer = if c[:transformer] == "classifier"
             QUnfold.ClassTransformer(_configure_classifier(c[:classifier]))
         elseif c[:transformer] == "tree"
-            QUnfold.TreeTransformer(DecisionTreeClassifier(; c[:transformer_parameters]...))
+            QUnfold.TreeTransformer(
+                DecisionTreeClassifier(; c[:transformer_parameters][:tree_parameters]...);
+                fit_tree = c[:transformer_parameters][:fit_tree]
+            )
         end
         return MoreMethods.MixtureMethod(
             QUnfold.RUN(transformer),
@@ -97,7 +99,10 @@ function configure_method(c::Dict{Symbol, Any})
         transformer = if c[:transformer] == "classifier"
             QUnfold.ClassTransformer(_configure_classifier(c[:classifier]))
         elseif c[:transformer] == "tree"
-            QUnfold.TreeTransformer(DecisionTreeClassifier(; c[:transformer_parameters]...))
+            QUnfold.TreeTransformer(
+                DecisionTreeClassifier(; c[:transformer_parameters][:tree_parameters]...);
+                fit_tree = c[:transformer_parameters][:fit_tree]
+            )
         end
         return MoreMethods.MixtureMethod(
             QUnfold.IBU(transformer),
@@ -152,6 +157,7 @@ function _configure_classifier(config::Dict{Symbol,Any})
     end
     return classifier
 end
+
 
 # in-place substitutes of ScikitLearn.@sk_import
 RandomForestClassifier(args...; kwargs...) = Util.SkObject("sklearn.ensemble.RandomForestClassifier", args...; kwargs...)
@@ -234,13 +240,16 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 expand(exp,
                     [:parameters, :o],
                     [:parameters, :λ],
-                    [:transformer_parameters, :max_leaf_nodes]
+                    [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                    [:transformer_parameters, :tree_parameters, :class_weight],
+                    [:transformer_parameters, :fit_tree]
                 )
             elseif exp[:method_id] in ["run", "svd", "cherenkov-run"]
                 expand(exp,
                     [:parameters, :τ],
-                    [:transformer_parameters, :max_leaf_nodes],
-                    [:transformer_parameters, :fit_frac]
+                    [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                    [:transformer_parameters, :tree_parameters, :class_weight],
+                    [:transformer_parameters, :fit_tree]
                 )
             elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
@@ -279,12 +288,15 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         for exp in job[:method]
             name = exp[:name]
             if exp[:method_id] in ["ibu", "run", "svd", "cherenkov-ibu", "cherenkov-run"]
-                seed = tree_seed[exp[:transformer_parameters][:max_leaf_nodes]]
-                exp[:transformer_parameters][:random_state] = seed
-                name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:max_leaf_nodes])
-            end
-            if exp[:method_id] in ["run", "cherenkov-run"]
-                name = replace(name, "\$(fit_frac)" => exp[:transformer_parameters][:fit_frac])
+                seed = tree_seed[exp[:transformer_parameters][:tree_parameters][:max_leaf_nodes]]
+                exp[:transformer_parameters][:tree_parameters][:random_state] = seed
+                name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:tree_parameters][:max_leaf_nodes])
+                if exp[:transformer_parameters][:tree_parameters][:class_weight] == "balanced"
+                    name = replace(name, "\$(class_weight)" => "u")
+                else
+                    name = replace(name, "\$(class_weight)" => "n")
+                end
+                name = replace(name, "\$(fit_tree)" => exp[:transformer_parameters][:fit_tree])
             end
             if haskey(exp, :classifier)
                 name = replace(name, "\$(classifier)" => exp[:classifier][:name])
