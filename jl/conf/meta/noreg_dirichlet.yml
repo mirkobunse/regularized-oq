@@ -1,0 +1,72 @@
+#
+# conf/meta/noreg_dirichlet.yml
+#
+# Meta-configuration for comparing methods on telescope data
+# with multiple sampling protocols. Namely, APP and NPP are
+# implemented through a Dirichlet prior.
+#
+job: dirichlet # this file configures the function Job.<job>
+seed: 876 # random number generator seed
+N_trn: 20000 # number of training data items
+M_val: 1000 # number of validation samples
+M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
+N_val: 1000 # number of items in each validation sample
+N_tst: 1000 # number of items in each testing sample
+
+
+# output of configuration expansion and of experiments
+configfile: conf/gen/noreg_dirichlet_$(dataset).yml
+outfile: res/csv/noreg_dirichlet_$(dataset).csv
+valfile: res/csv/noreg_dirichlet_val_$(dataset).csv
+
+
+# all data sets to be used
+dataset:
+  - fact # FACT telescope data
+
+# the sampling protocols with which to evaluate
+protocol:
+  sampling: app # app or npp
+  n_splits: 5 # investigate multiple levels of curvature + all data
+
+# all classifiers over which the quantification methods are optimized
+classifier:
+
+  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth)$)"
+    classifier: RandomForestClassifier
+    package: ensemble
+    parameters:
+      criterion: [ "entropy", "gini" ]
+      max_depth: [ 4, 8, 12 ]
+      class_weight: [ "balanced", ~ ]
+      max_features: sqrt
+      n_estimators: 100
+      random_state: 876
+      oob_score: true
+
+# all methods to be compared
+method:
+
+  - method_id: run
+    validation_group: softmax
+    name: "Softmax RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      fit_tree: [ 1. ]
+      tree_parameters:
+        max_leaf_nodes: [ 60 ]
+        class_weight: [ ~ ]
+    parameters:
+      τ: [ .0 ]
+
+  - method_id: cherenkov-run
+    validation_group: cherenkov
+    name: "Cherenkov RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      fit_tree: [ 1. ]
+      tree_parameters:
+        max_leaf_nodes: [ 60 ]
+        class_weight: [ ~ ]
+    parameters:
+      τ: [ .0 ]
