@@ -69,6 +69,9 @@ function configure_method(c::Dict{Symbol, Any})
                 push!(args, pop!(kwargs, :n_bins))
             end
         end
+        if haskey(kwargs, :strategy)
+            kwargs[:strategy] = Symbol(kwargs[:strategy])
+        end
         try
             return constructor(args...; kwargs...)
         catch

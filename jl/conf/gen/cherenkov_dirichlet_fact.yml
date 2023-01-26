@@ -6,8 +6,9 @@ M_tst: 2000
 configfile: "conf/gen/cherenkov_dirichlet_fact.yml"
 dataset: "fact"
 method:
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.25, w=u, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.25, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -17,8 +18,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.334, w=u, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -28,8 +30,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.5, w=u, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.5, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -39,8 +42,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.666, w=u, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.666, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -50,8 +54,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.75, w=u, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.75, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -61,8 +66,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=1.0, w=u, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=1.0, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -72,8 +78,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.25, w=n, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.25, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -83,8 +90,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.334, w=n, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -94,8 +102,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.5, w=n, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.5, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -105,8 +114,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.666, w=n, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.666, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -116,8 +126,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.75, w=n, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.75, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -127,8 +138,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=1.0, w=n, \\tau=0.1, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=1.0, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -138,8 +150,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.25, w=u, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.25, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -149,8 +162,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.334, w=u, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -160,8 +174,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.5, w=u, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.5, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -171,8 +186,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.666, w=u, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.666, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -182,8 +198,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.75, w=u, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.75, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -193,8 +210,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=1.0, w=u, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=1.0, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -204,8 +222,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.25, w=n, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.25, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -215,8 +234,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.334, w=n, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -226,8 +246,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.5, w=n, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.5, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -237,8 +258,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.666, w=n, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.666, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -248,8 +270,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.75, w=n, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.75, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -259,8 +282,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=1.0, w=n, \\tau=0.001, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=1.0, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -270,8 +294,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.25, w=u, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.25, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -281,8 +306,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.334, w=u, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -292,8 +318,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.5, w=u, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.5, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -303,8 +330,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.666, w=u, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.666, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -314,8 +342,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.75, w=u, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.75, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -325,8 +354,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=1.0, w=u, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=1.0, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -336,8 +366,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.25, w=n, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.25, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -347,8 +378,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.334, w=n, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -358,8 +390,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.5, w=n, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.5, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -369,8 +402,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.666, w=n, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.666, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -380,8 +414,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=0.75, w=n, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.75, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -391,8 +426,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "run"
-    name: "QUnfold RUN ($f=1.0, w=n, \\tau=1.0e-5, J=60$)"
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=1.0, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -402,7 +438,476 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.25, w=u, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.25
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=u, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.5, w=u, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.666, w=u, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.666
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.75, w=u, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.75
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=1.0, w=u, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 1.0
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.25, w=n, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.25
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=n, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.5, w=n, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.666, w=n, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.666
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.75, w=n, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.75
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=1.0, w=n, \\tau=0.1, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 1.0
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.1
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.25, w=u, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.25
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=u, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.5, w=u, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.666, w=u, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.666
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.75, w=u, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.75
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=1.0, w=u, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 1.0
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.25, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.25
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.5, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.666, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.666
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.75, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.75
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=1.0, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 1.0
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 0.001
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.25, w=u, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.25
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=u, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.5, w=u, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.666, w=u, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.666
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.75, w=u, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 0.75
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=1.0, w=u, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: "balanced"
+        random_state: 1078380895
+      fit_tree: 1.0
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.25, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.25
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.5, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.666, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.666
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.75, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.75
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=1.0, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 1.0
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.25, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -413,7 +918,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.334, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -424,7 +930,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.5, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -435,7 +942,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.666, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -446,7 +954,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.75, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -457,7 +966,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=1.0, w=u, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -468,7 +978,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.25, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -479,7 +990,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.334, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -490,7 +1002,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.5, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -501,7 +1014,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.666, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -512,7 +1026,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.75, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -523,7 +1038,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=1.0, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -534,7 +1050,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.1
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.25, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -545,7 +1062,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.334, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -556,7 +1074,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.5, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -567,7 +1086,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.666, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -578,7 +1098,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.75, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -589,7 +1110,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=1.0, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -600,7 +1122,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.25, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -611,7 +1134,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.334, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -622,7 +1146,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.5, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -633,7 +1158,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.666, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -644,7 +1170,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.75, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -655,7 +1182,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=1.0, w=n, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -666,7 +1194,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.25, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -677,7 +1206,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.334, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -688,7 +1218,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.5, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -699,7 +1230,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.666, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -710,7 +1242,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.75, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -721,7 +1254,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=1.0, w=u, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -732,7 +1266,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.25, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -743,7 +1278,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.334, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -754,7 +1290,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.5, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -765,7 +1302,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.666, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -776,7 +1314,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=0.75, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:
@@ -787,7 +1326,8 @@ method:
     transformer: "tree"
     parameters:
       τ: 1.0e-5
-  - method_id: "cherenkov-run"
+  - validation_group: "cherenkov"
+    method_id: "cherenkov-run"
     name: "Cherenkov RUN ($f=1.0, w=n, \\tau=1.0e-5, J=60$)"
     transformer_parameters:
       tree_parameters:

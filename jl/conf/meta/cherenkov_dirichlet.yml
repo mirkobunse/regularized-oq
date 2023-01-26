@@ -48,7 +48,8 @@ classifier:
 method:
 
   - method_id: run
-    name: "QUnfold RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
+    validation_group: softmax
+    name: "Softmax RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
       fit_tree: [ .25, .334, .5, .666, .75, 1. ]
@@ -58,7 +59,21 @@ method:
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
+  - method_id: run
+    validation_group: positive
+    name: "Positive RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      fit_tree: [ .25, .334, .5, .666, .75, 1. ]
+      tree_parameters:
+        max_leaf_nodes: [ 60 ]
+        class_weight: [ "balanced", ~ ]
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      strategy: positive
+
   - method_id: cherenkov-run
+    validation_group: cherenkov
     name: "Cherenkov RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
