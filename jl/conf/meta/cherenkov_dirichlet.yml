@@ -83,3 +83,29 @@ method:
         class_weight: [ "balanced", ~ ]
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
+
+  - method_id: run
+    validation_group: ipnewton
+    name: "IPNewton RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      fit_tree: [ .25, .334, .5, .666, .75, 1. ]
+      tree_parameters:
+        max_leaf_nodes: [ 60 ]
+        class_weight: [ "balanced", ~ ]
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      backend: ipnewton
+
+  - method_id: run
+    validation_group: constrained
+    name: "constrained RUN ($f=$(fit_tree), w=$(class_weight), \\tau=$(τ), J=$(max_leaf_nodes)$)"
+    transformer: tree
+    transformer_parameters:
+      fit_tree: [ .25, .334, .5, .666, .75, 1. ]
+      tree_parameters:
+        max_leaf_nodes: [ 60 ]
+        class_weight: [ "balanced", ~ ]
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      strategy: constrained

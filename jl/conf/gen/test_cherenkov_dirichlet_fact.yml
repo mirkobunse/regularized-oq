@@ -18,9 +18,9 @@ method:
     transformer: "tree"
     parameters:
       τ: 0.001
-  - validation_group: "positive"
+  - validation_group: "constrained"
     method_id: "run"
-    name: "Positive RUN ($f=0.5, w=n, \\tau=0.1, J=60$)"
+    name: "constrained RUN ($f=0.5, w=n, \\tau=0.1, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
@@ -29,17 +29,43 @@ method:
       fit_tree: 0.5
     transformer: "tree"
     parameters:
-      strategy: "positive"
+      strategy: "constrained"
       τ: 0.1
-  - validation_group: "softmax"
+  - validation_group: "ipnewton"
     method_id: "run"
-    name: "Softmax RUN ($f=0.5, w=u, \\tau=0.001, J=60$)"
+    name: "IPNewton RUN ($f=0.5, w=u, \\tau=0.001, J=60$)"
     transformer_parameters:
       tree_parameters:
         max_leaf_nodes: 60
         class_weight: "balanced"
         random_state: 1078380895
       fit_tree: 0.5
+    transformer: "tree"
+    parameters:
+      τ: 0.001
+      backend: "ipnewton"
+  - validation_group: "positive"
+    method_id: "run"
+    name: "Positive RUN ($f=0.334, w=n, \\tau=1.0e-5, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.334
+    transformer: "tree"
+    parameters:
+      strategy: "positive"
+      τ: 1.0e-5
+  - validation_group: "softmax"
+    method_id: "run"
+    name: "Softmax RUN ($f=0.334, w=n, \\tau=0.001, J=60$)"
+    transformer_parameters:
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 1078380895
+      fit_tree: 0.334
     transformer: "tree"
     parameters:
       τ: 0.001
