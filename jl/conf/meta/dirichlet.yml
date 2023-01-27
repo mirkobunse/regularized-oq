@@ -81,27 +81,36 @@ method:
 
   # unfolding methods from QUnfold.jl
   - method_id: ibu
-    name: "IBU ($o=$(o), i=$(λ), J=$(max_leaf_nodes)$)"
+    name: "IBU ($o=$(o), i=$(λ), f=$(fit_tree), w=$(class_weight), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
-      max_leaf_nodes: [ 24, 60 ] # 2 and 5 times the number of classes
+      fit_tree: [ 1., .5 ]
+      tree_parameters:
+        max_leaf_nodes: [ 60, 120 ] # 5 and 10 times the number of classes
+        class_weight: [ "balanced", ~ ]
     parameters:
-      o: [ 0, 1 ]
+      o: [ 0, 1, 2 ]
       λ: [ 1e-1, 1e-2, 0.0 ]
 
   - method_id: run
-    name: "RUN ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
+    name: "RUN ($\\tau=$(τ), f=$(fit_tree), w=$(class_weight), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
-      max_leaf_nodes: [ 24, 60 ]
+      fit_tree: [ 1., .5 ]
+      tree_parameters:
+        max_leaf_nodes: [ 60, 120 ]
+        class_weight: [ "balanced", ~ ]
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
 
   - method_id: svd
-    name: "SVD ($\\tau=$(τ), J=$(max_leaf_nodes)$)"
+    name: "SVD ($\\tau=$(τ), f=$(fit_tree), w=$(class_weight), J=$(max_leaf_nodes)$)"
     transformer: tree
     transformer_parameters:
-      max_leaf_nodes: [ 24, 60 ]
+      fit_tree: [ 1., .5 ]
+      tree_parameters:
+        max_leaf_nodes: [ 60, 120 ]
+        class_weight: [ "balanced", ~ ]
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
@@ -134,7 +143,7 @@ method:
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
-      o: [ 0, 1 ]
+      o: [ 0, 1, 2 ]
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC

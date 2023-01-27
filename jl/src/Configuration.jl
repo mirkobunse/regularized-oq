@@ -34,6 +34,7 @@ QUAPY_CONSTRUCTORS = Dict(
     "quapy-sld" => MoreMethods.ExpectationMaximizationQuantifier,
 ) # multi-class quantifiers from QuaPy
 
+
 """
     configure_method(c::Dict{Symbol, Any})
 
@@ -55,7 +56,10 @@ function configure_method(c::Dict{Symbol, Any})
             if c[:transformer] == "classifier"
                 push!(args, QUnfold.ClassTransformer(_configure_classifier(c[:classifier])))
             elseif c[:transformer] == "tree"
-                push!(args, QUnfold.TreeTransformer(DecisionTreeClassifier(; c[:transformer_parameters]...)))
+                push!(args, QUnfold.TreeTransformer(
+                    DecisionTreeClassifier(; c[:transformer_parameters][:tree_parameters]...);
+                    fit_tree = c[:transformer_parameters][:fit_tree]
+                ))
             end
         else
             if haskey(c, :classifier) && c[:method_id] ∉ ["hdx", "ohdx"]
@@ -64,6 +68,9 @@ function configure_method(c::Dict{Symbol, Any})
             if haskey(kwargs, :n_bins)
                 push!(args, pop!(kwargs, :n_bins))
             end
+        end
+        if haskey(kwargs, :strategy)
+            kwargs[:strategy] = Symbol(kwargs[:strategy])
         end
         try
             return constructor(args...; kwargs...)
@@ -110,6 +117,7 @@ function _configure_classifier(config::Dict{Symbol,Any})
     end
     return classifier
 end
+
 
 # in-place substitutes of ScikitLearn.@sk_import
 RandomForestClassifier(args...; kwargs...) = Util.SkObject("sklearn.ensemble.RandomForestClassifier", args...; kwargs...)
@@ -192,10 +200,17 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 expand(exp,
                     [:parameters, :o],
                     [:parameters, :λ],
-                    [:transformer_parameters, :max_leaf_nodes]
+                    [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                    [:transformer_parameters, :tree_parameters, :class_weight],
+                    [:transformer_parameters, :fit_tree]
                 )
             elseif exp[:method_id] in ["run", "svd"]
-                expand(exp, [:parameters, :τ], [:transformer_parameters, :max_leaf_nodes])
+                expand(exp,
+                    [:parameters, :τ],
+                    [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                    [:transformer_parameters, :tree_parameters, :class_weight],
+                    [:transformer_parameters, :fit_tree]
+                )
             elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
                 expand(exp,
@@ -233,9 +248,15 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         for exp in job[:method]
             name = exp[:name]
             if exp[:method_id] in ["ibu", "run", "svd"]
-                seed = tree_seed[exp[:transformer_parameters][:max_leaf_nodes]]
-                exp[:transformer_parameters][:random_state] = seed
-                name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:max_leaf_nodes])
+                seed = tree_seed[exp[:transformer_parameters][:tree_parameters][:max_leaf_nodes]]
+                exp[:transformer_parameters][:tree_parameters][:random_state] = seed
+                name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:tree_parameters][:max_leaf_nodes])
+                if exp[:transformer_parameters][:tree_parameters][:class_weight] == "balanced"
+                    name = replace(name, "\$(class_weight)" => "u")
+                else
+                    name = replace(name, "\$(class_weight)" => "n")
+                end
+                name = replace(name, "\$(fit_tree)" => exp[:transformer_parameters][:fit_tree])
             end
             if haskey(exp, :classifier)
                 name = replace(name, "\$(classifier)" => exp[:classifier][:name])

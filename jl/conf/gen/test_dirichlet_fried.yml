@@ -27,14 +27,17 @@ method:
       τ: 0.1
       n_bins: 4
   - method_id: "ibu"
-    name: "IBU ($o=0, i=0.0, J=24$)"
+    name: "IBU ($o=1, i=0.1, f=1.0, w=u, J=120$)"
     transformer_parameters:
-      max_leaf_nodes: 24
-      random_state: 55344545
+      tree_parameters:
+        max_leaf_nodes: 120
+        class_weight: "balanced"
+        random_state: 123188287
+      fit_tree: 1.0
     transformer: "tree"
     parameters:
-      o: 0
-      λ: 0.0
+      o: 1
+      λ: 0.1
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=0.1$)"
     classifier:
@@ -100,10 +103,13 @@ method:
       τ: 0.1
       n_bins: 4
   - method_id: "svd"
-    name: "SVD ($\\tau=0.1, J=60$)"
+    name: "SVD ($\\tau=0.1, f=1.0, w=n, J=120$)"
     transformer_parameters:
-      max_leaf_nodes: 60
-      random_state: 123188287
+      tree_parameters:
+        max_leaf_nodes: 120
+        class_weight: ~
+        random_state: 123188287
+      fit_tree: 1.0
     transformer: "tree"
     parameters:
       τ: 0.1
@@ -198,13 +204,16 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.1, J=24$)"
+    name: "RUN ($\\tau=1000.0, f=1.0, w=n, J=60$)"
     transformer_parameters:
-      max_leaf_nodes: 24
-      random_state: 55344545
+      tree_parameters:
+        max_leaf_nodes: 60
+        class_weight: ~
+        random_state: 55344545
+      fit_tree: 1.0
     transformer: "tree"
     parameters:
-      τ: 0.1
+      τ: 1000.0
   - method_id: "hdy"
     name: "HDy (4 bins per class) on LR ($w=n, C=0.1$)"
     classifier:

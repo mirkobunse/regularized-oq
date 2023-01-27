@@ -61,14 +61,14 @@ method:
     name: "IBU ($o=$(o), i=$(λ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      o: [ 0, 1 ]
+      o: [ 0, 1, 2 ]
       λ: [ 1e-1, 1e-2, 0.0 ]
 
   - method_id: run
     name: "RUN ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
 
   - method_id: svd
     name: "SVD ($\\tau=$(τ)$) on $(classifier)"
@@ -105,7 +105,7 @@ method:
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
-      o: [ 0, 1 ]
+      o: [ 0, 1, 2 ]
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC

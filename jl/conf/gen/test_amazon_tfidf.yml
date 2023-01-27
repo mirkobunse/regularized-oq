@@ -24,7 +24,7 @@ method:
       τ: 0.1
       n_bins: 4
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.0$) on LR ($w=u, C=1.0$)"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -38,7 +38,7 @@ method:
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      o: 1
+      o: 2
       λ: 0.0
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=1.0$)"
@@ -176,7 +176,7 @@ method:
       val_split: 0.334
       epsilon: 1.0e-6
   - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.01$) on LR ($w=u, C=10.0$)"
+    name: "o-SLD ($o=1, i=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -189,8 +189,8 @@ method:
         random_state: 674079454
         n_estimators: 100
     parameters:
-      o: 0
-      λ: 0.01
+      o: 1
+      λ: 0.1
   - method_id: "opacc"
     name: "o-PACC ($\\tau=1.0e-5$) on LR ($w=n, C=0.01$)"
     classifier:
@@ -207,7 +207,7 @@ method:
     parameters:
       τ: 1.0e-5
   - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.01$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -221,7 +221,7 @@ method:
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.1
+      τ: 1000.0
   - method_id: "hdy"
     name: "HDy (2 bins per class) on LR ($w=n, C=10.0$)"
     classifier:

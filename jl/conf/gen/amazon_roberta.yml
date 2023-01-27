@@ -417,6 +417,57 @@ method:
       o: 1
       λ: 0.0
   - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
@@ -517,6 +568,57 @@ method:
     transformer: "classifier"
     parameters:
       o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
       λ: 0.0
   - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=0.1$)"
@@ -621,6 +723,57 @@ method:
       o: 1
       λ: 0.0
   - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
@@ -721,6 +874,57 @@ method:
     transformer: "classifier"
     parameters:
       o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
       λ: 0.0
   - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=u, C=10.0$)"
@@ -825,6 +1029,57 @@ method:
       o: 1
       λ: 0.0
   - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
@@ -925,6 +1180,57 @@ method:
     transformer: "classifier"
     parameters:
       o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
       λ: 0.0
   - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=0.01$)"
@@ -1029,6 +1335,57 @@ method:
       o: 1
       λ: 0.0
   - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
@@ -1129,6 +1486,57 @@ method:
     transformer: "classifier"
     parameters:
       o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
       λ: 0.0
   - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=1.0$)"
@@ -1233,6 +1641,57 @@ method:
       o: 1
       λ: 0.0
   - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
     name: "IBU ($o=0, i=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
@@ -1334,6 +1793,89 @@ method:
     parameters:
       o: 1
       λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -1351,37 +1893,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=0.001$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
+      name: "LR ($w=u, C=0.01$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 0.001
+        C: 0.01
       bagging:
         oob_score: true
-        random_state: 3193573456
+        random_state: 1466828405
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=u, C=0.001$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
+      name: "LR ($w=u, C=0.01$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 0.001
+        C: 0.01
       bagging:
         oob_score: true
-        random_state: 3193573456
+        random_state: 1466828405
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
@@ -1399,37 +1941,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=0.01$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
+      name: "LR ($w=u, C=0.1$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 0.01
+        C: 0.1
       bagging:
         oob_score: true
-        random_state: 1466828405
+        random_state: 539010050
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=u, C=0.01$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
+      name: "LR ($w=u, C=0.1$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 0.01
+        C: 0.1
       bagging:
         oob_score: true
-        random_state: 1466828405
+        random_state: 539010050
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.1$)"
     classifier:
@@ -1447,37 +1989,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=0.1$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
+      name: "LR ($w=u, C=1.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 0.1
+        C: 1.0
       bagging:
         oob_score: true
-        random_state: 539010050
+        random_state: 3249917414
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=u, C=0.1$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
+      name: "LR ($w=u, C=1.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 0.1
+        C: 1.0
       bagging:
         oob_score: true
-        random_state: 539010050
+        random_state: 3249917414
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
@@ -1495,37 +2037,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=1.0$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
+      name: "LR ($w=u, C=10.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 1.0
+        C: 10.0
       bagging:
         oob_score: true
-        random_state: 3249917414
+        random_state: 674079454
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=u, C=1.0$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
+      name: "LR ($w=u, C=10.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: "balanced"
-        C: 1.0
+        C: 10.0
       bagging:
         oob_score: true
-        random_state: 3249917414
+        random_state: 674079454
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
@@ -1543,37 +2085,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=u, C=10.0$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
+      name: "LR ($w=n, C=0.001$)"
       classifier: "LogisticRegression"
       parameters:
-        class_weight: "balanced"
-        C: 10.0
+        class_weight: ~
+        C: 0.001
       bagging:
         oob_score: true
-        random_state: 674079454
+        random_state: 1207595197
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=u, C=10.0$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
+      name: "LR ($w=n, C=0.001$)"
       classifier: "LogisticRegression"
       parameters:
-        class_weight: "balanced"
-        C: 10.0
+        class_weight: ~
+        C: 0.001
       bagging:
         oob_score: true
-        random_state: 674079454
+        random_state: 1207595197
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
@@ -1591,37 +2133,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=0.001$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
+      name: "LR ($w=n, C=0.01$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 0.001
+        C: 0.01
       bagging:
         oob_score: true
-        random_state: 1207595197
+        random_state: 3645983298
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=n, C=0.001$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
+      name: "LR ($w=n, C=0.01$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 0.001
+        C: 0.01
       bagging:
         oob_score: true
-        random_state: 1207595197
+        random_state: 3645983298
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=n, C=0.01$)"
     classifier:
@@ -1639,37 +2181,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=0.01$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
+      name: "LR ($w=n, C=0.1$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 0.01
+        C: 0.1
       bagging:
         oob_score: true
-        random_state: 3645983298
+        random_state: 1669086789
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=n, C=0.01$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
+      name: "LR ($w=n, C=0.1$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 0.01
+        C: 0.1
       bagging:
         oob_score: true
-        random_state: 3645983298
+        random_state: 1669086789
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
@@ -1687,37 +2229,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=0.1$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
+      name: "LR ($w=n, C=1.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 0.1
+        C: 1.0
       bagging:
         oob_score: true
-        random_state: 1669086789
+        random_state: 910122224
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=n, C=0.1$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
+      name: "LR ($w=n, C=1.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 0.1
+        C: 1.0
       bagging:
         oob_score: true
-        random_state: 1669086789
+        random_state: 910122224
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=n, C=1.0$)"
     classifier:
@@ -1735,37 +2277,37 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=1.0$)"
+    name: "RUN ($\\tau=1000.0$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
+      name: "LR ($w=n, C=10.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 1.0
+        C: 10.0
       bagging:
         oob_score: true
-        random_state: 910122224
+        random_state: 931584667
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 1000.0
   - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=n, C=1.0$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
+      name: "LR ($w=n, C=10.0$)"
       classifier: "LogisticRegression"
       parameters:
         class_weight: ~
-        C: 1.0
+        C: 10.0
       bagging:
         oob_score: true
-        random_state: 910122224
+        random_state: 931584667
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1.0e-5
+      τ: 10.0
   - method_id: "run"
     name: "RUN ($\\tau=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
@@ -1782,38 +2324,6 @@ method:
     transformer: "classifier"
     parameters:
       τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.001$) on LR ($w=n, C=10.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 10.0
-      bagging:
-        oob_score: true
-        random_state: 931584667
-        n_estimators: 100
-    transformer: "classifier"
-    parameters:
-      τ: 0.001
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0e-5$) on LR ($w=n, C=10.0$)"
-    classifier:
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        C: 10.0
-      bagging:
-        oob_score: true
-        random_state: 931584667
-        n_estimators: 100
-    transformer: "classifier"
-    parameters:
-      τ: 1.0e-5
   - method_id: "svd"
     name: "SVD ($\\tau=0.1$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -3324,6 +3834,38 @@ method:
       o: 1
       λ: 0.01
   - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
@@ -3386,6 +3928,38 @@ method:
         n_estimators: 100
     parameters:
       o: 1
+      λ: 0.01
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    parameters:
+      o: 2
       λ: 0.01
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=0.1$)"
@@ -3452,6 +4026,38 @@ method:
       o: 1
       λ: 0.01
   - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
@@ -3514,6 +4120,38 @@ method:
         n_estimators: 100
     parameters:
       o: 1
+      λ: 0.01
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    parameters:
+      o: 2
       λ: 0.01
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=u, C=10.0$)"
@@ -3580,6 +4218,38 @@ method:
       o: 1
       λ: 0.01
   - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
@@ -3642,6 +4312,38 @@ method:
         n_estimators: 100
     parameters:
       o: 1
+      λ: 0.01
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    parameters:
+      o: 2
       λ: 0.01
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=0.01$)"
@@ -3708,6 +4410,38 @@ method:
       o: 1
       λ: 0.01
   - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
@@ -3770,6 +4504,38 @@ method:
         n_estimators: 100
     parameters:
       o: 1
+      λ: 0.01
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    parameters:
+      o: 2
       λ: 0.01
   - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=1.0$)"
@@ -3836,6 +4602,38 @@ method:
       o: 1
       λ: 0.01
   - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "osld"
     name: "o-SLD ($o=0, i=0.1$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
@@ -3898,6 +4696,38 @@ method:
         n_estimators: 100
     parameters:
       o: 1
+      λ: 0.01
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    parameters:
+      o: 2
       λ: 0.01
   - method_id: "oacc"
     name: "o-ACC ($\\tau=0.1$) on LR ($w=u, C=0.001$)"
