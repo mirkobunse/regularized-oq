@@ -1,0 +1,3183 @@
+M_val: 1000
+outfile: "res/csv/classifier_dirichlet_fact.csv"
+valfile: "res/csv/classifier_dirichlet_val_fact.csv"
+N_tst: 1000
+M_tst: 2000
+configfile: "conf/gen/classifier_dirichlet_fact.yml"
+dataset: "fact"
+method:
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.0$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.0$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.1$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.01$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "ibu"
+    name: "IBU ($o=2, i=0.0$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      o: 2
+      λ: 0.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+N_trn: 20000
+N_val: 1000
+protocol:
+  n_splits: 5
+  sampling: "app"
+job: "dirichlet"
+seed: 876

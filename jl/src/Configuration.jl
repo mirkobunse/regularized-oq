@@ -197,20 +197,30 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 exp[:classifier] = classifiers
                 expand(exp, [:parameters, :val_split], :classifier)
             elseif exp[:method_id] == "ibu"
-                expand(exp,
-                    [:parameters, :o],
-                    [:parameters, :λ],
-                    [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
-                    [:transformer_parameters, :tree_parameters, :class_weight],
-                    [:transformer_parameters, :fit_tree]
-                )
+                if exp[:transformer] == "tree"
+                    expand(exp,
+                        [:parameters, :o],
+                        [:parameters, :λ],
+                        [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                        [:transformer_parameters, :tree_parameters, :class_weight],
+                        [:transformer_parameters, :fit_tree]
+                    )
+                elseif exp[:transformer] == "classifier"
+                    exp[:classifier] = classifiers
+                    expand(exp, [:parameters, :o], [:parameters, :λ], :classifier)
+                end
             elseif exp[:method_id] in ["run", "svd"]
-                expand(exp,
-                    [:parameters, :τ],
-                    [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
-                    [:transformer_parameters, :tree_parameters, :class_weight],
-                    [:transformer_parameters, :fit_tree]
-                )
+                if exp[:transformer] == "tree"
+                    expand(exp,
+                        [:parameters, :τ],
+                        [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                        [:transformer_parameters, :tree_parameters, :class_weight],
+                        [:transformer_parameters, :fit_tree]
+                    )
+                elseif exp[:transformer] == "classifier"
+                    exp[:classifier] = classifiers
+                    expand(exp, [:parameters, :τ], :classifier)
+                end
             elseif exp[:method_id] == "osld"
                 exp[:classifier] = classifiers
                 expand(exp,
@@ -247,7 +257,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         )...)
         for exp in job[:method]
             name = exp[:name]
-            if exp[:method_id] in ["ibu", "run", "svd"]
+            if get(exp, :transformer, "") == "tree"
                 seed = tree_seed[exp[:transformer_parameters][:tree_parameters][:max_leaf_nodes]]
                 exp[:transformer_parameters][:tree_parameters][:random_state] = seed
                 name = replace(name, "\$(max_leaf_nodes)" => exp[:transformer_parameters][:tree_parameters][:max_leaf_nodes])
