@@ -22,22 +22,28 @@ method:
         max_depth: 12
   - method_id: "ohdx"
     name: "o-HDx ($\\tau=0.1$, 4 bins per feature)"
-    random_state: 2079480891
+    random_state: 832709507
     parameters:
       τ: 0.1
       n_bins: 4
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.1, f=1.0, w=u, J=120$)"
-    transformer_parameters:
-      tree_parameters:
-        max_leaf_nodes: 120
-        class_weight: "balanced"
-        random_state: 2918134088
-      fit_tree: 1.0
-    transformer: "tree"
+    name: "IBU ($o=0, i=0.01$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    transformer: "classifier"
     parameters:
-      o: 1
-      λ: 0.1
+      o: 0
+      λ: 0.01
   - method_id: "acc"
     name: "ACC on RF ($w=n, c=E, d=12$)"
     classifier:
@@ -54,7 +60,7 @@ method:
         max_depth: 12
   - method_id: "hdx"
     name: "HDx (3 bins per feature)"
-    random_state: 4076317281
+    random_state: 2918134088
     parameters:
       n_bins: 3
   - method_id: "pacc"
@@ -105,14 +111,20 @@ method:
       τ: 1.0e-5
       n_bins: 4
   - method_id: "svd"
-    name: "SVD ($\\tau=0.1, f=1.0, w=n, J=120$)"
-    transformer_parameters:
-      tree_parameters:
-        max_leaf_nodes: 120
+    name: "SVD ($\\tau=0.1$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
         class_weight: ~
-        random_state: 2918134088
-      fit_tree: 1.0
-    transformer: "tree"
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    transformer: "classifier"
     parameters:
       τ: 0.1
   - method_id: "sld"
@@ -210,14 +222,20 @@ method:
     parameters:
       τ: 0.1
   - method_id: "run"
-    name: "RUN ($\\tau=1000.0, f=1.0, w=n, J=60$)"
-    transformer_parameters:
-      tree_parameters:
-        max_leaf_nodes: 60
-        class_weight: ~
-        random_state: 1078380895
-      fit_tree: 1.0
-    transformer: "tree"
+    name: "RUN ($\\tau=1000.0$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    transformer: "classifier"
     parameters:
       τ: 1000.0
   - method_id: "hdy"
