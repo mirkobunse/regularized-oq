@@ -1,8 +1,8 @@
-M_val: 250
+M_val: 1000
 outfile: "res/csv/castano_dirichlet_fact.csv"
 valfile: "res/csv/castano_dirichlet_val_fact.csv"
 N_tst: 1000
-M_tst: 1000
+M_tst: 2000
 configfile: "conf/gen/castano_dirichlet_fact.yml"
 dataset: "fact"
 method:

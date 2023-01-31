@@ -8,8 +8,8 @@
 job: dirichlet # this file configures the function Job.<job>
 seed: 876 # random number generator seed
 N_trn: 20000 # number of training data items
-M_val: 250 # TODO: INCREASE TO 1000; number of validation samples
-M_tst: 1000 # TODO: INCREASE TO 5000; number of testing samples
+M_val: 1000 # number of validation samples
+M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
 N_val: 1000 # number of items in each validation sample
 N_tst: 1000 # number of items in each testing sample
 
