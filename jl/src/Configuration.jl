@@ -33,6 +33,13 @@ QUAPY_CONSTRUCTORS = Dict(
     "quapy-pacc" => MoreMethods.ProbabilisticAdjustedClassifyAndCount,
     "quapy-sld" => MoreMethods.ExpectationMaximizationQuantifier,
 ) # multi-class quantifiers from QuaPy
+CASTANO_CONSTRUCTORS = Dict(
+    "castano-cc" => MoreMethods.CastanoCC,
+    "castano-pcc" => MoreMethods.CastanoPCC,
+    "castano-acc" => MoreMethods.CastanoAC,
+    "castano-pacc" => MoreMethods.CastanoPAC,
+    "castano-edy" => MoreMethods.CastanoEDy,
+) # ordinal quantifiers from https://github.com/mirkobunse/ordinal_quantification
 
 
 """
@@ -80,6 +87,13 @@ function configure_method(c::Dict{Symbol, Any})
         end
     elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
         return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
+    elseif c[:method_id] in keys(CASTANO_CONSTRUCTORS)
+        if haskey(kwargs, :distances)
+            if kwargs[:distances] == "emd_distances"
+                kwargs[:distances] = MoreMethods.__castano_emd_distances
+            end
+        end
+        return CASTANO_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
     else
         throw(ArgumentError("Unknown method_id=$(c[:method_id])"))
     end
@@ -191,6 +205,9 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         # expand experiments
         job[:method] = vcat(map(exp -> begin # expansion
             if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld"]
+                exp[:classifier] = classifiers
+                expand(exp, :classifier)
+            elseif exp[:method_id] in keys(CASTANO_CONSTRUCTORS)
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
             elseif exp[:method_id] in ["oqt", "arc"]

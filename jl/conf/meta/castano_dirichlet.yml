@@ -1,0 +1,87 @@
+#
+# conf/meta/castano_dirichlet.yml
+#
+# Meta-configuration for comparing methods on telescope data
+# with multiple sampling protocols. Namely, APP and NPP are
+# implemented through a Dirichlet prior.
+#
+job: dirichlet # this file configures the function Job.<job>
+seed: 876 # random number generator seed
+N_trn: 20000 # number of training data items
+M_val: 250 # TODO: INCREASE TO 1000; number of validation samples
+M_tst: 1000 # TODO: INCREASE TO 5000; number of testing samples
+N_val: 1000 # number of items in each validation sample
+N_tst: 1000 # number of items in each testing sample
+
+
+# output of configuration expansion and of experiments
+configfile: conf/gen/castano_dirichlet_$(dataset).yml
+outfile: res/csv/castano_dirichlet_$(dataset).csv
+valfile: res/csv/castano_dirichlet_val_$(dataset).csv
+
+
+# all data sets to be used
+dataset:
+  - fact # FACT telescope data
+
+# the sampling protocols with which to evaluate
+protocol:
+  sampling: app # app or npp
+  n_splits: 5 # investigate multiple levels of curvature + all data
+
+
+# all classifiers over which the quantification methods are optimized
+classifier:
+
+  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth)$)"
+    classifier: RandomForestClassifier
+    package: ensemble
+    parameters:
+      criterion: [ "entropy", "gini" ]
+      max_depth: [ 4, 8, 12 ]
+      class_weight: [ "balanced", ~ ]
+      max_features: sqrt
+      n_estimators: 100
+      random_state: 876
+      oob_score: true
+
+  - classifier: LogisticRegression # not tried on FACT (does not work, anyway)
+    method_id: logReg
+    name: "LR ($w=$(class_weight), C=$(C)$)"
+    parameters:
+      C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
+      class_weight: [ "balanced", ~ ]
+    bagging: # parameters of a BaggingClassifier
+      n_estimators: 100
+      random_state: 876
+      oob_score: true
+
+# all methods to be compared
+method:
+
+  # ordinal methods by Castaño et al. (2022)
+  - method_id: castano-cc
+    name: "Casta{\\~{n}}o CC on $(classifier)"
+    parameters:
+      n_folds: 10
+
+  - method_id: castano-pcc
+    name: "Casta{\\~{n}}o PCC on $(classifier)"
+    parameters:
+      n_folds: 10
+
+  - method_id: castano-acc
+    name: "Casta{\\~{n}}o ACC on $(classifier)"
+    parameters:
+      n_folds: 10
+
+  - method_id: castano-pacc
+    name: "Casta{\\~{n}}o PACC on $(classifier)"
+    parameters:
+      n_folds: 10
+
+  - method_id: castano-edy
+    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+    parameters:
+      distances: emd_distances
+      n_folds: 10

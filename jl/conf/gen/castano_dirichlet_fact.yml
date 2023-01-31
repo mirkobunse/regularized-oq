@@ -1,0 +1,987 @@
+M_val: 250
+outfile: "res/csv/castano_dirichlet_fact.csv"
+valfile: "res/csv/castano_dirichlet_val_fact.csv"
+N_tst: 1000
+M_tst: 1000
+configfile: "conf/gen/castano_dirichlet_fact.yml"
+dataset: "fact"
+method:
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      n_folds: 10
+      distances: "emd_distances"
+N_trn: 20000
+N_val: 1000
+protocol:
+  n_splits: 5
+  sampling: "app"
+job: "dirichlet"
+seed: 876

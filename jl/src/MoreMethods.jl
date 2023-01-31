@@ -14,12 +14,27 @@ using
     QuaPy,
     QUnfold,
     OrderedCollections
+import Conda
 
 # download and import the original implementation of the BinaryTreeRegressor
 const __numpy = PyNULL()
+const __castano_factory = PyNULL()
+const __castano_emd_distances = PyNULL()
 const __BinaryTreeRegressor = PyNULL()
 function __init__()
     copy!(__numpy, pyimport_conda("numpy", "numpy"))
+
+    castano_factory = pyimport_e("ordinal_quantification.factory")
+    if ispynull(castano_factory) # need to install ordinal_quantification?
+        Conda.pip_interop(true)
+        Conda.pip("install", "git+https://github.com/mirkobunse/ordinal_quantification.git")
+        castano_factory = pyimport("ordinal_quantification.factory")
+    end
+    copy!(__castano_factory, castano_factory)
+    copy!( # we can now safely assume that ordinal_quantification is installed
+        __castano_emd_distances,
+        pyimport("ordinal_quantification.metrics.ordinal").emd_distances
+    )
 
     python_file = "deps/binary_tree_regressor.py"
     if !isfile(python_file)
@@ -116,7 +131,6 @@ end
 OrdinalEMQ(classifier::Any; fit_learner::Bool=true, smoothing::Smoothing=NoSmoothing()) =
     EMQ(classifier; fit_learner=fit_learner, transform_prior=f_est->apply(smoothing, f_est))
 
-
 # ===================================================================================
 # QUnfold wrappers
 # ===================================================================================
@@ -138,6 +152,41 @@ CherenkovDeconvolution.prefit(
 
 CherenkovDeconvolution.deconvolve(m::T, X_obs::Any) where {T<:QUnfold.FittedMethod}=
     QUnfold.predict(m, X_obs)
+
+# ===================================================================================
+# https://github.com/mirkobunse/ordinal_quantification wrappers
+# ===================================================================================
+
+struct _CastanoMethod <: DeconvolutionMethod
+    quantifier::PyObject
+end
+
+CherenkovDeconvolution.deconvolve(
+        m::_CastanoMethod,
+        X_obs::Any,
+        X_trn::Any,
+        y_trn::AbstractVector{I}
+        ) where {I<:Integer} =
+    deconvolve(prefit(m, X_trn, y_trn), X_obs)
+
+CherenkovDeconvolution.deconvolve(m::_CastanoMethod, X_obs::Any) =
+    m.quantifier.predict(X_obs)
+
+function CherenkovDeconvolution.prefit(m::_CastanoMethod, X::Any, y::AbstractVector{I}) where {I<:Integer}
+    m.quantifier.fit(X, y)
+    return m
+end
+
+CastanoCC(classifier::Any; kwargs...) =
+    _CastanoMethod(__castano_factory.CC(classifier; kwargs...))
+CastanoAC(classifier::Any; kwargs...) =
+    _CastanoMethod(__castano_factory.AC(classifier; kwargs...))
+CastanoPCC(classifier::Any; kwargs...) =
+    _CastanoMethod(__castano_factory.PCC(classifier; kwargs...))
+CastanoPAC(classifier::Any; kwargs...) =
+    _CastanoMethod(__castano_factory.PAC(classifier; kwargs...))
+CastanoEDy(classifier::Any; kwargs...) =
+    _CastanoMethod(__castano_factory.EDy(classifier; kwargs...))
 
 # ===================================================================================
 # Numerically Adjusted Classify & Count (NACC) with proper losses and regularizations
