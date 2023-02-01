@@ -170,7 +170,15 @@ CherenkovDeconvolution.deconvolve(
     deconvolve(prefit(m, X_trn, y_trn), X_obs)
 
 CherenkovDeconvolution.deconvolve(m::_CastanoMethod, X_obs::Any) =
-    m.quantifier.predict(X_obs)
+    try # do not warn about zero entries
+        return DeconvUtil.normalizepdf(m.quantifier.predict(X_obs); warn=false)
+    catch any_exception # print backtrace and return a uniform estimate
+        Base.printstyled("\nWARNING (_CastanoMethod): "; color=:yellow, bold=true)
+        Base.showerror(stdout, any_exception)
+        Base.show_backtrace(stdout, Base.catch_backtrace())
+        C = length(m.quantifier.estimator_test.classes_)
+        return ones(C) ./ C
+    end
 
 function CherenkovDeconvolution.prefit(m::_CastanoMethod, X::Any, y::AbstractVector{I}) where {I<:Integer}
     m.quantifier.fit(X, y)
