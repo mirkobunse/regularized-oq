@@ -21,6 +21,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=u, c=G, d=4$)"
@@ -37,6 +38,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=u, c=E, d=8$)"
@@ -53,6 +55,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=u, c=G, d=8$)"
@@ -69,6 +72,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=u, c=E, d=12$)"
@@ -85,6 +89,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=u, c=G, d=12$)"
@@ -101,6 +106,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=n, c=E, d=4$)"
@@ -117,6 +123,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=n, c=G, d=4$)"
@@ -133,6 +140,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=n, c=E, d=8$)"
@@ -149,6 +157,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=n, c=G, d=8$)"
@@ -165,6 +174,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=n, c=E, d=12$)"
@@ -181,6 +191,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-cc"
     name: "Casta{\\~{n}}o CC on RF ($w=n, c=G, d=12$)"
@@ -197,6 +208,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=u, c=E, d=4$)"
@@ -213,6 +225,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=u, c=G, d=4$)"
@@ -229,6 +242,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=u, c=E, d=8$)"
@@ -245,6 +259,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=u, c=G, d=8$)"
@@ -261,6 +276,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=u, c=E, d=12$)"
@@ -277,6 +293,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=u, c=G, d=12$)"
@@ -293,6 +310,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=n, c=E, d=4$)"
@@ -309,6 +327,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=n, c=G, d=4$)"
@@ -325,6 +344,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=n, c=E, d=8$)"
@@ -341,6 +361,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=n, c=G, d=8$)"
@@ -357,6 +378,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=n, c=E, d=12$)"
@@ -373,6 +395,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pcc"
     name: "Casta{\\~{n}}o PCC on RF ($w=n, c=G, d=12$)"
@@ -389,6 +412,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=u, c=E, d=4$)"
@@ -405,6 +429,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=u, c=G, d=4$)"
@@ -421,6 +446,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=u, c=E, d=8$)"
@@ -437,6 +463,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=u, c=G, d=8$)"
@@ -453,6 +480,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=u, c=E, d=12$)"
@@ -469,6 +497,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=u, c=G, d=12$)"
@@ -485,6 +514,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=n, c=E, d=4$)"
@@ -501,6 +531,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=n, c=G, d=4$)"
@@ -517,6 +548,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=n, c=E, d=8$)"
@@ -533,6 +565,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=n, c=G, d=8$)"
@@ -549,6 +582,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=n, c=E, d=12$)"
@@ -565,6 +599,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-acc"
     name: "Casta{\\~{n}}o ACC on RF ($w=n, c=G, d=12$)"
@@ -581,6 +616,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=u, c=E, d=4$)"
@@ -597,6 +633,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=u, c=G, d=4$)"
@@ -613,6 +650,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=u, c=E, d=8$)"
@@ -629,6 +667,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=u, c=G, d=8$)"
@@ -645,6 +684,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=u, c=E, d=12$)"
@@ -661,6 +701,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=u, c=G, d=12$)"
@@ -677,6 +718,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=n, c=E, d=4$)"
@@ -693,6 +735,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=n, c=G, d=4$)"
@@ -709,6 +752,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=n, c=E, d=8$)"
@@ -725,6 +769,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=n, c=G, d=8$)"
@@ -741,6 +786,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=n, c=E, d=12$)"
@@ -757,6 +803,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-pacc"
     name: "Casta{\\~{n}}o PACC on RF ($w=n, c=G, d=12$)"
@@ -773,6 +820,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
   - method_id: "castano-edy"
     name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=E, d=4$)"
@@ -789,6 +837,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -806,6 +855,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -823,6 +873,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -840,6 +891,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -857,6 +909,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -874,6 +927,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -891,6 +945,7 @@ method:
         criterion: "entropy"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -908,6 +963,7 @@ method:
         criterion: "gini"
         max_depth: 4
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -925,6 +981,7 @@ method:
         criterion: "entropy"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -942,6 +999,7 @@ method:
         criterion: "gini"
         max_depth: 8
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -959,6 +1017,7 @@ method:
         criterion: "entropy"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
   - method_id: "castano-edy"
@@ -976,6 +1035,7 @@ method:
         criterion: "gini"
         max_depth: 12
     parameters:
+      decomposer: "none"
       n_folds: 10
       distances: "emd_distances"
 N_trn: 20000

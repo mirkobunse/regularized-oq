@@ -93,6 +93,11 @@ function configure_method(c::Dict{Symbol, Any})
                 kwargs[:distances] = MoreMethods.__castano_emd_distances
             end
         end
+        if get(kwargs, :decomposer, "monotone") == "monotone"
+            kwargs[:decomposer] = MoreMethods.__castano_factory.Decomposer.monotone
+        elseif get(kwargs, :decomposer, "monotone") == "none"
+            kwargs[:decomposer] = MoreMethods.__castano_factory.Decomposer.none
+        end
         return CASTANO_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
     else
         throw(ArgumentError("Unknown method_id=$(c[:method_id])"))

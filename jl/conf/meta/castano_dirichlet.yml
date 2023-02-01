@@ -64,24 +64,29 @@ method:
     name: "Casta{\\~{n}}o CC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-pcc
     name: "Casta{\\~{n}}o PCC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-acc
     name: "Casta{\\~{n}}o ACC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-pacc
     name: "Casta{\\~{n}}o PACC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-edy
     name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
     parameters:
       distances: emd_distances
       n_folds: 10
+      decomposer: none
