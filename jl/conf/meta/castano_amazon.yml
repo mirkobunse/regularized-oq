@@ -9,9 +9,9 @@ M_val: 1000 # number of validation samples
 M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
 
 # output of configuration expansion and of experiments
-configfile: conf/gen/castano_monotone_amazon_$(id).yml # $(id) is replaced by the data ID
-outfile: res/csv/castano_monotone_amazon_$(id).csv
-valfile: res/csv/castano_monotone_amazon_$(id)_val.csv
+configfile: conf/gen/castano_none_amazon_$(id).yml # $(id) is replaced by the data ID
+outfile: res/csv/castano_none_amazon_$(id).csv
+valfile: res/csv/castano_none_amazon_$(id)_val.csv
 
 data:
   - id: roberta
@@ -41,24 +41,29 @@ method:
     name: "Casta{\\~{n}}o CC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-pcc
     name: "Casta{\\~{n}}o PCC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-acc
     name: "Casta{\\~{n}}o ACC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-pacc
     name: "Casta{\\~{n}}o PACC on $(classifier)"
     parameters:
       n_folds: 10
+      decomposer: none
 
   - method_id: castano-edy
     name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
     parameters:
       distances: emd_distances
       n_folds: 10
+      decomposer: none

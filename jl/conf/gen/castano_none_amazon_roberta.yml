@@ -1,0 +1,675 @@
+M_val: 1000
+outfile: "res/csv/castano_none_amazon_roberta.csv"
+valfile: "res/csv/castano_none_amazon_roberta_val.csv"
+M_tst: 2000
+configfile: "conf/gen/castano_none_amazon_roberta.yml"
+method:
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+protocol:
+  n_splits: 5
+  sampling: "app"
+job: "amazon"
+data:
+  id: "roberta"
+  path: "/mnt/data/amazon-oq-bk/roberta"
+  type: "dense_vector"
+seed: 876
