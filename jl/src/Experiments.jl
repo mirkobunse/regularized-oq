@@ -133,7 +133,7 @@ function _amazon_batch(batch::Dict{Symbol, Any})
     trials, vectorizer = _amazon_prefitted_trials(batch) # prefit all methods
     @info "Batch $(batch[:batch]) starts evaluating $(batch[:M_tst]) samples"
     for i in 1:batch[:M_tst]
-        if i % 10 == 0
+        if i % 25 == 0
             @info "Batch $(batch[:batch]) has evaluated $(i)/$(batch[:M_tst]) samples"
         end
         X_txt, y_tst = load_amazon_data(batch[:data][:tst_path] * "/$(i-1).txt")

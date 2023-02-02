@@ -405,6 +405,9 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
+            elseif exp[:method_id] in keys(CASTANO_CONSTRUCTORS)
+                exp[:classifier] = classifiers
+                expand(exp, :classifier)
             elseif exp[:method_id] in ["oqt", "arc"]
                 exp[:classifier] = classifiers
                 expand(exp, [:parameters, :val_split], :classifier)
