@@ -42,6 +42,7 @@ CASTANO_CONSTRUCTORS = Dict(
     "castano-acc" => MoreMethods.CastanoAC,
     "castano-pacc" => MoreMethods.CastanoPAC,
     "castano-edy" => MoreMethods.CastanoEDy,
+    "castano-pdf" => MoreMethods.CastanoPDF,
 ) # ordinal quantifiers from https://github.com/mirkobunse/ordinal_quantification
 
 
@@ -98,9 +99,15 @@ function configure_method(c::Dict{Symbol, Any})
     elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
         return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
     elseif c[:method_id] in keys(CASTANO_CONSTRUCTORS)
+        args = Any[ _configure_classifier(c[:classifier]) ] # set up positional arguments
+        if haskey(kwargs, :n_bins)
+            push!(args, pop!(kwargs, :n_bins))
+        end
         if haskey(kwargs, :distances)
             if kwargs[:distances] == "emd_distances"
                 kwargs[:distances] = MoreMethods.__castano_emd_distances
+            elseif kwargs[:distances] == "euclidean_distances"
+                kwargs[:distances] = MoreMethods.__sklearn_euclidean_distances
             end
         end
         if get(kwargs, :decomposer, "monotone") == "monotone"
@@ -108,7 +115,7 @@ function configure_method(c::Dict{Symbol, Any})
         elseif get(kwargs, :decomposer, "monotone") == "none"
             kwargs[:decomposer] = MoreMethods.__castano_factory.Decomposer.none
         end
-        return CASTANO_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
+        return CASTANO_CONSTRUCTORS[c[:method_id]](args...; kwargs...)
     else
         throw(ArgumentError("Unknown method_id=$(c[:method_id])"))
     end
@@ -222,6 +229,9 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
+            elseif exp[:method_id] == "castano-pdf"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :n_bins])
             elseif exp[:method_id] in keys(CASTANO_CONSTRUCTORS)
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
@@ -421,6 +431,9 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             if exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld"]
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)
+            elseif exp[:method_id] == "castano-pdf"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :n_bins])
             elseif exp[:method_id] in keys(CASTANO_CONSTRUCTORS)
                 exp[:classifier] = classifiers
                 expand(exp, :classifier)

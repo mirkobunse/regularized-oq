@@ -20,6 +20,7 @@ import Conda
 const __numpy = PyNULL()
 const __castano_factory = PyNULL()
 const __castano_emd_distances = PyNULL()
+const __sklearn_euclidean_distances = PyNULL()
 const __BinaryTreeRegressor = PyNULL()
 function __init__()
     copy!(__numpy, pyimport_conda("numpy", "numpy"))
@@ -34,6 +35,10 @@ function __init__()
     copy!( # we can now safely assume that ordinal_quantification is installed
         __castano_emd_distances,
         pyimport("ordinal_quantification.metrics.ordinal").emd_distances
+    )
+    copy!( # we can now safely assume that ordinal_quantification is installed
+        __sklearn_euclidean_distances,
+        pyimport("sklearn.metrics.pairwise").euclidean_distances
     )
 
     python_file = "deps/binary_tree_regressor.py"
@@ -195,6 +200,8 @@ CastanoPAC(classifier::Any; kwargs...) =
     _CastanoMethod(__castano_factory.PAC(classifier; kwargs...))
 CastanoEDy(classifier::Any; kwargs...) =
     _CastanoMethod(__castano_factory.EDy(classifier; kwargs...))
+CastanoPDF(classifier::Any, n_bins; kwargs...) =
+    _CastanoMethod(__castano_factory.PDF(classifier, n_bins; kwargs...))
 
 # ===================================================================================
 # Numerically Adjusted Classify & Count (NACC) with proper losses and regularizations
