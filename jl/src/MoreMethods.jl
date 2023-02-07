@@ -150,7 +150,7 @@ CherenkovDeconvolution.prefit(
         ) where {T<:QUnfold.AbstractMethod, I<:Integer} =
     QUnfold.fit(m, X_trn, y_trn)
 
-CherenkovDeconvolution.deconvolve(m::T, X_obs::Any) where {T<:QUnfold.FittedMethod}=
+CherenkovDeconvolution.deconvolve(m::T, X_obs::Any) where {T<:Union{QUnfold.FittedMethod,QUnfold._FittedEDX}}=
     QUnfold.predict(m, X_obs)
 
 # ===================================================================================

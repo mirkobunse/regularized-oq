@@ -2,6 +2,7 @@ module Configuration
 
 using CherenkovDeconvolution, MetaConfigurations, QUnfold, Random
 using ..Util, ..Data, ..MoreMethods
+import Distances
 
 DISCRETE_CONSTRUCTORS = Dict(
     "run" => CherenkovDeconvolution.RUN,
@@ -25,6 +26,8 @@ QUNFOLD_CONSTRUCTORS = Dict(
     "osld" => QUnfold.SLD, # o-SLD uses the SLD constructor
     "ohdx" => QUnfold.HDx, # o-HDx uses the HDx constructor
     "ohdy" => QUnfold.HDy, # o-HDy uses the HDy constructor
+    "edy" => QUnfold.EDy,
+    "pdf" => QUnfold.PDF,
 ) # multi-class quantifiers from QuaPy
 QUAPY_CONSTRUCTORS = Dict(
     "quapy-cc" => MoreMethods.ClassifyAndCount,
@@ -78,6 +81,13 @@ function configure_method(c::Dict{Symbol, Any})
         end
         if haskey(kwargs, :strategy)
             kwargs[:strategy] = Symbol(kwargs[:strategy])
+        end
+        if haskey(kwargs, :distance)
+            kwargs[:distance] = Dict(
+                "Euclidean" => Distances.Euclidean(),
+                "EarthMovers" => QUnfold.EarthMovers(),
+                "EarthMoversSurrogate" => QUnfold.EarthMoversSurrogate(),
+            )[kwargs[:distance]]
         end
         try
             return constructor(args...; kwargs...)
@@ -263,6 +273,12 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             elseif exp[:method_id] == "ohdy"
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
+            elseif exp[:method_id] == "edy"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier)
+            elseif exp[:method_id] == "pdf"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :n_bins])
             else
                 throw(ArgumentError("Illegal method $(exp[:method_id])"))
             end
@@ -303,7 +319,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
             elseif exp[:method_id] in ["oqt", "arc"]
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
-            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy"]
+            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf"]
                 name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
                 if exp[:method_id] in ["hdx", "ohdx"]
                     exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]

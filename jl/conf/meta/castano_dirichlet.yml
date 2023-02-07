@@ -15,9 +15,9 @@ N_tst: 1000 # number of items in each testing sample
 
 
 # output of configuration expansion and of experiments
-configfile: conf/gen/castano_dirichlet_$(dataset).yml
-outfile: res/csv/castano_dirichlet_$(dataset).csv
-valfile: res/csv/castano_dirichlet_val_$(dataset).csv
+configfile: conf/gen/castano_jl_dirichlet_$(dataset).yml
+outfile: res/csv/castano_jl_dirichlet_$(dataset).csv
+valfile: res/csv/castano_jl_dirichlet_val_$(dataset).csv
 
 
 # all data sets to be used
@@ -59,34 +59,62 @@ classifier:
 # all methods to be compared
 method:
 
-  # ordinal methods by Castaño et al. (2022)
-  - method_id: castano-cc
-    name: "Casta{\\~{n}}o CC on $(classifier)"
-    parameters:
-      n_folds: 10
-      decomposer: none
+  # # ordinal methods by Castaño et al. (2022)
+  # - method_id: castano-cc
+  #   name: "Casta{\\~{n}}o CC on $(classifier)"
+  #   parameters:
+  #     n_folds: 10
+  #     decomposer: none
 
-  - method_id: castano-pcc
-    name: "Casta{\\~{n}}o PCC on $(classifier)"
-    parameters:
-      n_folds: 10
-      decomposer: none
+  # - method_id: castano-pcc
+  #   name: "Casta{\\~{n}}o PCC on $(classifier)"
+  #   parameters:
+  #     n_folds: 10
+  #     decomposer: none
 
-  - method_id: castano-acc
-    name: "Casta{\\~{n}}o ACC on $(classifier)"
-    parameters:
-      n_folds: 10
-      decomposer: none
+  # - method_id: castano-acc
+  #   name: "Casta{\\~{n}}o ACC on $(classifier)"
+  #   parameters:
+  #     n_folds: 10
+  #     decomposer: none
 
-  - method_id: castano-pacc
-    name: "Casta{\\~{n}}o PACC on $(classifier)"
-    parameters:
-      n_folds: 10
-      decomposer: none
+  # - method_id: castano-pacc
+  #   name: "Casta{\\~{n}}o PACC on $(classifier)"
+  #   parameters:
+  #     n_folds: 10
+  #     decomposer: none
 
-  - method_id: castano-edy
-    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+  # - method_id: castano-edy
+  #   name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+  #   parameters:
+  #     distances: emd_distances
+  #     n_folds: 10
+  #     decomposer: none
+
+  # reimplementations from QUnfold.jl
+  - method_id: edy
+    validation_group: edy-l2
+    name: "QUnfold EDy (d=L2) on $(classifier)"
     parameters:
-      distances: emd_distances
-      n_folds: 10
-      decomposer: none
+      distance: Euclidean
+
+  - method_id: edy
+    validation_group: edy-emd
+    name: "QUnfold EDy (d=EMD) on $(classifier)"
+    parameters:
+      distance: EarthMovers
+
+  - method_id: pdf
+    validation_group: pdf-softmax
+    name: "QUnfold PDF (J=$(n_bins), d=s-EMD, softmax) on $(classifier)"
+    parameters:
+      distance: EarthMoversSurrogate
+      n_bins: [ 24, 60 ]
+
+  - method_id: pdf
+    validation_group: pdf-original
+    name: "QUnfold PDF (J=$(n_bins), d=EMD, constrained) on $(classifier)"
+    parameters:
+      distance: EarthMovers
+      strategy: constrained
+      n_bins: [ 24, 60 ]

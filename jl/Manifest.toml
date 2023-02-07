@@ -1360,9 +1360,9 @@ uuid = "4b34888f-f399-49d4-9bb3-47ed5cae4e65"
 version = "1.0.0"
 
 [[QUnfold]]
-deps = ["DiffResults", "ForwardDiff", "Ipopt", "JuMP", "LinearAlgebra", "MathOptInterface", "Polynomials", "Preferences", "Random", "Requires", "ScikitLearnBase", "StatsBase"]
-git-tree-sha1 = "e3f79265e2c66a568a8ddee5f379609084e6ddcb"
-repo-rev = "main"
+deps = ["DiffResults", "Distances", "ForwardDiff", "Ipopt", "JuMP", "LinearAlgebra", "MathOptInterface", "Polynomials", "Preferences", "Random", "Requires", "ScikitLearnBase", "StatsBase"]
+git-tree-sha1 = "f1ebe8b2b13547700f8911560494202b4995ddbe"
+repo-rev = "castano"
 repo-url = "https://github.com/mirkobunse/QUnfold.jl"
 uuid = "05092f44-7bf9-4fd9-a898-7e10d889cee9"
 version = "0.0.1"
