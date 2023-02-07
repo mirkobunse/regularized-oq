@@ -463,6 +463,12 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             elseif exp[:method_id] == "ohdy"
                 exp[:classifier] = classifiers
                 expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
+            elseif exp[:method_id] == "edy"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier)
+            elseif exp[:method_id] == "pdf"
+                exp[:classifier] = classifiers
+                expand(exp, :classifier, [:parameters, :n_bins])
             else # other methods are not supported
                 throw(ArgumentError("Illegal method $(exp[:method_id])"))
             end

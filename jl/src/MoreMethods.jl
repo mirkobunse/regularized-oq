@@ -158,6 +158,26 @@ CherenkovDeconvolution.prefit(
 CherenkovDeconvolution.deconvolve(m::T, X_obs::Any) where {T<:Union{QUnfold.FittedMethod,QUnfold._FittedEDX}}=
     QUnfold.predict(m, X_obs)
 
+# enable EarthMoversSurrogate as a EDy distance
+function (d::EarthMoversSurrogate{Cityblock})(
+        a::AbstractVector{T},
+        b::AbstractVector{T}
+        ) where {T<:Number}
+    if length(a) != length(b)
+        error("length(a) = $(length(a)) != length(b) = $(length(b))")
+    elseif !isapprox(sum(a), sum(b))
+        error("sum(a) = $(sum(a)) != sum(b) = $(sum(b))")
+    end
+    prefixsum = 0.0 # algorithm 1 in [cha2002measuring]
+    distance  = 0.0
+    for i in 1:length(a)
+        prefixsum += a[i] - b[i]
+        distance  += prefixsum^2
+    end
+    return distance / sum(a) # this normalization renders MDPA equivalent to EMD
+end
+(d::EarthMoversSurrogate{Cityblock})(a::T, b::T) where {T<:Number} = (a - b)^2
+
 # ===================================================================================
 # https://github.com/mirkobunse/ordinal_quantification wrappers
 # ===================================================================================
