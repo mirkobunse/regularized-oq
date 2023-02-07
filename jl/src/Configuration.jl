@@ -329,7 +329,7 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
             #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
             elseif exp[:method_id] in ["oqt", "arc"]
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
-            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf"]
+            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf", "castano-pdf"]
                 name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
                 if exp[:method_id] in ["hdx", "ohdx"]
                     exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]
@@ -488,7 +488,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             #     name = replace(name, "\$(regularization)" => Dict("curvature"=>"C_2", "difference"=>"C_1", "norm"=>"I")[exp[:parameters][:regularization]])
             elseif exp[:method_id] in ["oqt", "arc"]
                 name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
-            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy"]
+            elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf", "castano-pdf"]
                 name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
                 if exp[:method_id] in ["hdx", "ohdx"]
                     exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]

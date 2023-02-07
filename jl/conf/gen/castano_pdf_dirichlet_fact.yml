@@ -235,7 +235,7 @@ method:
       n_folds: 10
       distances: "euclidean_distances"
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -252,7 +252,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -269,7 +269,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=u, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=4$)"
@@ -286,7 +286,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -303,7 +303,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -320,7 +320,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -337,7 +337,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -354,7 +354,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -371,7 +371,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=u, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=8$)"
@@ -388,7 +388,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -405,7 +405,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -422,7 +422,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -439,7 +439,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -456,7 +456,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -473,7 +473,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=E, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -490,7 +490,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -507,7 +507,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -524,7 +524,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=u, c=G, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=u, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=12$)"
@@ -541,7 +541,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -558,7 +558,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -575,7 +575,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=n, c=E, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=4$)"
@@ -592,7 +592,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -609,7 +609,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -626,7 +626,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=4$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=n, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=4$)"
@@ -643,7 +643,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -660,7 +660,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -677,7 +677,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -694,7 +694,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -711,7 +711,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -728,7 +728,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=8$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=n, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=8$)"
@@ -745,7 +745,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -762,7 +762,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -779,7 +779,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=E, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=n, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=12$)"
@@ -796,7 +796,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -813,7 +813,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"
@@ -830,7 +830,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on RF ($w=n, c=G, d=12$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on RF ($w=n, c=G, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=G, d=12$)"

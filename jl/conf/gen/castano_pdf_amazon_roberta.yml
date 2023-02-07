@@ -155,7 +155,7 @@ method:
       n_folds: 10
       distances: "euclidean_distances"
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.001$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -168,7 +168,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.001$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -181,7 +181,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.001$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -194,7 +194,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.01$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -207,7 +207,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.01$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -220,7 +220,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.01$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.01$)"
@@ -233,7 +233,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.1$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -246,7 +246,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.1$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -259,7 +259,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=0.1$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.1$)"
@@ -272,7 +272,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=1.0$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -285,7 +285,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=1.0$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -298,7 +298,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=1.0$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=1.0$)"
@@ -311,7 +311,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=10.0$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -324,7 +324,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=10.0$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -337,7 +337,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=u, C=10.0$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=10.0$)"
@@ -350,7 +350,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.001$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -363,7 +363,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.001$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -376,7 +376,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.001$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -389,7 +389,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.01$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -402,7 +402,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.01$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -415,7 +415,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.01$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=0.01$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.01$)"
@@ -428,7 +428,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.1$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -441,7 +441,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.1$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -454,7 +454,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=0.1$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -467,7 +467,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=1.0$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -480,7 +480,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=1.0$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -493,7 +493,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=1.0$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -506,7 +506,7 @@ method:
       decomposer: "none"
       n_bins: 20
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=10.0$)"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -519,7 +519,7 @@ method:
       decomposer: "none"
       n_bins: 5
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=10.0$)"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -532,7 +532,7 @@ method:
       decomposer: "none"
       n_bins: 10
   - method_id: "castano-pdf"
-    name: "Casta{\\~{n}}o PDF (d=EMD) on LR ($w=n, C=10.0$)"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"

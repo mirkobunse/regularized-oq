@@ -78,7 +78,7 @@ method:
       decomposer: none
 
   - method_id: castano-pdf
-    name: "Casta{\\~{n}}o PDF (d=EMD) on $(classifier)"
+    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
     parameters:
       n_bins: [ 5, 10, 20 ]
       decomposer: none
