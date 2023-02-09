@@ -15,9 +15,9 @@ N_tst: 1000 # number of items in each testing sample
 
 
 # output of configuration expansion and of experiments
-configfile: conf/gen/castano_bagging_dirichlet_$(dataset).yml
-outfile: res/csv/castano_bagging_dirichlet_$(dataset).csv
-valfile: res/csv/castano_bagging_dirichlet_val_$(dataset).csv
+configfile: conf/gen/castano_bagging2_dirichlet_$(dataset).yml
+outfile: res/csv/castano_bagging2_dirichlet_$(dataset).csv
+valfile: res/csv/castano_bagging2_dirichlet_val_$(dataset).csv
 
 
 # all data sets to be used
@@ -59,55 +59,59 @@ classifier:
 # all methods to be compared
 method:
 
-  # # ordinal methods by Castaño et al. (2022)
-  # - method_id: castano-cc
-  #   name: "Casta{\\~{n}}o CC on $(classifier)"
-  #   parameters:
-  #     n_folds: 10
-  #     decomposer: none
-
-  # - method_id: castano-pcc
-  #   name: "Casta{\\~{n}}o PCC on $(classifier)"
-  #   parameters:
-  #     n_folds: 10
-  #     decomposer: none
-
-  # - method_id: castano-acc
-  #   name: "Casta{\\~{n}}o ACC on $(classifier)"
-  #   parameters:
-  #     n_folds: 10
-  #     decomposer: none
-
-  # - method_id: castano-pacc
-  #   name: "Casta{\\~{n}}o PACC on $(classifier)"
-  #   parameters:
-  #     n_folds: 10
-  #     decomposer: none
-
-  - method_id: castano-edy
-    validation_group: castano-edy-emd
-    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+  # ordinal methods by Castaño et al. (2022)
+  - method_id: castano-cc
+    name: "Casta{\\~{n}}o CC on $(classifier)"
     parameters:
-      distances: emd_distances
       n_folds: 10
       decomposer: none
       option: bagging_decomp
 
-  - method_id: castano-edy
-    validation_group: castano-edy-l2
-    name: "Casta{\\~{n}}o EDy (d=L2) on $(classifier)"
+  - method_id: castano-pcc
+    name: "Casta{\\~{n}}o PCC on $(classifier)"
     parameters:
-      distances: euclidean_distances
       n_folds: 10
       decomposer: none
       option: bagging_decomp
 
-  - method_id: castano-pdf
-    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
+  - method_id: castano-acc
+    name: "Casta{\\~{n}}o ACC on $(classifier)"
     parameters:
-      n_bins: [ 5, 10, 20 ] # bins per class, equivalent to 55, 110, 220
+      n_folds: 10
       decomposer: none
       option: bagging_decomp
+
+  - method_id: castano-pacc
+    name: "Casta{\\~{n}}o PACC on $(classifier)"
+    parameters:
+      n_folds: 10
+      decomposer: none
+      option: bagging_decomp
+
+  # - method_id: castano-edy
+  #   validation_group: castano-edy-emd
+  #   name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+  #   parameters:
+  #     distances: emd_distances
+  #     n_folds: 10
+  #     decomposer: none
+  #     option: bagging_decomp
+
+  # - method_id: castano-edy
+  #   validation_group: castano-edy-l2
+  #   name: "Casta{\\~{n}}o EDy (d=L2) on $(classifier)"
+  #   parameters:
+  #     distances: euclidean_distances
+  #     n_folds: 10
+  #     decomposer: none
+  #     option: bagging_decomp
+
+  # - method_id: castano-pdf
+  #   name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
+  #   parameters:
+  #     n_bins: [ 5, 10, 20 ] # bins per class, equivalent to 55, 110, 220
+  #     decomposer: none
+  #     option: bagging_decomp
 
   # # re-implementations from QUnfold.jl
   # - method_id: edy
