@@ -9,9 +9,9 @@ M_val: 1000 # number of validation samples
 M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
 
 # output of configuration expansion and of experiments
-configfile: conf/gen/castano_bagging2_amazon_$(id).yml # $(id) is replaced by the data ID
-outfile: res/csv/castano_bagging2_amazon_$(id).csv
-valfile: res/csv/castano_bagging2_amazon_$(id)_val.csv
+configfile: conf/gen/castano_amazon_$(id).yml # $(id) is replaced by the data ID
+outfile: res/csv/castano_amazon_$(id).csv
+valfile: res/csv/castano_amazon_$(id)_val.csv
 
 data:
   - id: roberta
@@ -36,90 +36,31 @@ classifier:
 # all methods to be compared
 method:
 
-  # ordinal methods by Castaño et al. (2022)
-  - method_id: castano-cc
-    name: "Casta{\\~{n}}o CC on $(classifier)"
+  # original implementations by Castaño et al. (2022)
+  - method_id: castano-edy
+    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
     parameters:
-      n_folds: 10
+      distances: emd_distances
       decomposer: none
       option: bagging_decomp
 
-  - method_id: castano-pcc
-    name: "Casta{\\~{n}}o PCC on $(classifier)"
+  - method_id: castano-pdf
+    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
     parameters:
-      n_folds: 10
+      n_bins: [ 5, 10 ] # bins per class, equivalent to [ 20, 40 ] in QUnfold
       decomposer: none
       option: bagging_decomp
 
-  - method_id: castano-acc
-    name: "Casta{\\~{n}}o ACC on $(classifier)"
+  # regularized implementations from QUnfold.jl
+  - method_id: edy
+    name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
     parameters:
-      n_folds: 10
-      decomposer: none
-      option: bagging_decomp
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      distance: EarthMovers
 
-  - method_id: castano-pacc
-    name: "Casta{\\~{n}}o PACC on $(classifier)"
+  - method_id: pdf
+    name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
     parameters:
-      n_folds: 10
-      decomposer: none
-      option: bagging_decomp
-
-  # - method_id: castano-edy
-  #   validation_group: castano-edy-emd
-  #   name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
-  #   parameters:
-  #     distances: emd_distances
-  #     n_folds: 10
-  #     decomposer: none
-  #     option: bagging_decomp
-
-  # - method_id: castano-edy
-  #   validation_group: castano-edy-l2
-  #   name: "Casta{\\~{n}}o EDy (d=L2) on $(classifier)"
-  #   parameters:
-  #     distances: euclidean_distances
-  #     n_folds: 10
-  #     decomposer: none
-  #     option: bagging_decomp
-
-  # - method_id: castano-pdf
-  #   name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
-  #   parameters:
-  #     n_bins: [ 5, 10, 20 ]
-  #     decomposer: none
-  #     option: bagging_decomp
-
-  # # re-implementations from QUnfold.jl
-  # - method_id: edy
-  #   validation_group: edy-l2
-  #   name: "QUnfold EDy (d=L2) on $(classifier)"
-  #   parameters:
-  #     distance: Euclidean
-
-  # - method_id: edy
-  #   validation_group: edy-emd
-  #   name: "QUnfold EDy (d=EMD) on $(classifier)"
-  #   parameters:
-  #     distance: EarthMovers
-
-  # - method_id: edy
-  #   validation_group: edy-semd
-  #   name: "QUnfold EDy (d=s-EMD) on $(classifier)"
-  #   parameters:
-  #     distance: EarthMoversSurrogate
-
-  # - method_id: pdf
-  #   validation_group: pdf-softmax
-  #   name: "QUnfold PDF (J=$(n_bins), d=s-EMD, softmax) on $(classifier)"
-  #   parameters:
-  #     distance: EarthMoversSurrogate
-  #     n_bins: [ 20, 40, 80 ]
-
-  # - method_id: pdf
-  #   validation_group: pdf-original
-  #   name: "QUnfold PDF (J=$(n_bins), d=EMD, constrained) on $(classifier)"
-  #   parameters:
-  #     distance: EarthMovers
-  #     strategy: constrained
-  #     n_bins: [ 20, 40, 80 ]
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      n_bins: [ 20, 40 ]
+      distance: EarthMoversSurrogate

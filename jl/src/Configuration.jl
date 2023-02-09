@@ -290,10 +290,10 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
             elseif exp[:method_id] == "edy"
                 exp[:classifier] = classifiers
-                expand(exp, :classifier)
+                expand(exp, :classifier, [:parameters, :τ])
             elseif exp[:method_id] == "pdf"
                 exp[:classifier] = classifiers
-                expand(exp, :classifier, [:parameters, :n_bins])
+                expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
             else
                 throw(ArgumentError("Illegal method $(exp[:method_id])"))
             end
@@ -470,10 +470,10 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                 expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
             elseif exp[:method_id] == "edy"
                 exp[:classifier] = classifiers
-                expand(exp, :classifier)
+                expand(exp, :classifier, [:parameters, :τ])
             elseif exp[:method_id] == "pdf"
                 exp[:classifier] = classifiers
-                expand(exp, :classifier, [:parameters, :n_bins])
+                expand(exp, :classifier, [:parameters, :τ], [:parameters, :n_bins])
             else # other methods are not supported
                 throw(ArgumentError("Illegal method $(exp[:method_id])"))
             end
