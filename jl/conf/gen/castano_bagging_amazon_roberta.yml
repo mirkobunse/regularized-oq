@@ -1,0 +1,755 @@
+M_val: 1000
+outfile: "res/csv/castano_bagging_amazon_roberta.csv"
+valfile: "res/csv/castano_bagging_amazon_roberta_val.csv"
+M_tst: 2000
+configfile: "conf/gen/castano_bagging_amazon_roberta.yml"
+method:
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-emd"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "emd_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - validation_group: "castano-edy-l2"
+    method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=L2) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_folds: 10
+      distances: "euclidean_distances"
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3193573456
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      option: "bagging_decomp"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=20, d=EMD) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+    parameters:
+      decomposer: "none"
+      n_bins: 20
+      option: "bagging_decomp"
+protocol:
+  n_splits: 5
+  sampling: "app"
+job: "amazon"
+data:
+  id: "roberta"
+  path: "/mnt/data/amazon-oq-bk/roberta"
+  type: "dense_vector"
+seed: 876

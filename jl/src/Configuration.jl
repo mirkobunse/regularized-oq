@@ -115,6 +115,11 @@ function configure_method(c::Dict{Symbol, Any})
         elseif get(kwargs, :decomposer, "monotone") == "none"
             kwargs[:decomposer] = MoreMethods.__castano_factory.Decomposer.none
         end
+        if get(kwargs, :option, "cv_decomp") == "cv_decomp"
+            kwargs[:option] = MoreMethods.__castano_factory.Option.cv_decomp
+        elseif get(kwargs, :option, "cv_decomp") == "bagging_decomp"
+            kwargs[:option] = MoreMethods.__castano_factory.Option.bagging_decomp
+        end
         return CASTANO_CONSTRUCTORS[c[:method_id]](args...; kwargs...)
     else
         throw(ArgumentError("Unknown method_id=$(c[:method_id])"))
