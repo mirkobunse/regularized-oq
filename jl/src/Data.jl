@@ -3,6 +3,7 @@ module Data
 using CSV, DataFrames, Distributions, Discretizers, HDF5, Random, StatsBase, PyCall
 using MetaConfigurations: parsefile
 using ..Util
+import Downloads
 
 # import UCIData without precompiling because its precompilation is broken
 function __init__()
@@ -62,6 +63,7 @@ bins(cd::CategoricalDiscretizer) = collect(1:nlabels(cd))
 abstract type DataSet end   # abstract supertype
 include("data/fact.jl")     # FACT telescope data
 include("data/ordinal.jl")  # ordinal data from UCI and OpenML
+include("data/castano.jl")  # data from Castano et al. (2022)
 
 """
     X_data(d)
@@ -108,6 +110,8 @@ Return the DataSet object with the given `id`.
 dataset(id::AbstractString, args...; kwargs...) =
     if id == "fact"
         return Fact(args...; kwargs...)
+    elseif id ∈ CASTANO_DATASET_NAMES
+        return CastanoDataSet(id)
     elseif id ∈ keys(parsefile("conf/data/uci.yml")) 
         return UciDataSet(id; kwargs...)
     elseif id ∈ keys(parsefile("conf/data/openml.yml"))

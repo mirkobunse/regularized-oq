@@ -4,7 +4,6 @@ using
     CherenkovDeconvolution,
     Discretizers,
     Distances,
-    Downloads,
     LinearAlgebra,
     Optim,
     PyCall,
@@ -14,7 +13,7 @@ using
     QuaPy,
     QUnfold,
     OrderedCollections
-import Conda
+import Conda, Downloads
 
 # download and import the original implementation of the BinaryTreeRegressor
 const __numpy = PyNULL()
