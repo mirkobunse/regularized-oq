@@ -584,7 +584,8 @@ function castano(metaconfig::String="conf/meta/castano.yml")
             gs = Util.SkObject(
                 "sklearn.model_selection.GridSearchCV",
                 Util.SkObject(
-                    "sklearn.$(classifier[:package]).$(classifier[:classifier])"
+                    "sklearn.$(classifier[:package]).$(classifier[:classifier])";
+                    n_jobs = -1,
                 );
                 param_grid = classifier[:parameters],
                 cv = Util.SkObject(

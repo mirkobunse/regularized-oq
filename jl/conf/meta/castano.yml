@@ -6,7 +6,7 @@
 #
 job: castano # this file configures the function Job.<job>
 seed: 876 # random number generator seed
-n_reps: 2 # 10
+n_reps: 10
 n_bags: 300
 test_size: 0.3
 
@@ -40,9 +40,9 @@ classifier:
   classifier: RandomForestClassifier
   package: ensemble
   parameters:
-    max_depth: [ 1, 5 ] # [ 1, 5, 10, 15, 20, 25, 30 ]
-    min_samples_leaf: [ 20 ] # [ 20 ]
-    n_estimators: [ 3 ] # [ 100 ]
+    max_depth: [ 1, 5, 10, 15, 20, 25, 30 ]
+    min_samples_leaf: [ 1, 2, 5, 10, 20 ]
+    n_estimators: [ 100 ]
     random_state: [ 876 ]
     oob_score: [ true ]
 
