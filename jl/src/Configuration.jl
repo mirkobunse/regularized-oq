@@ -1,8 +1,14 @@
 module Configuration
 
-using CherenkovDeconvolution, MetaConfigurations, QUnfold, Random
+using
+    CherenkovDeconvolution,
+    Distances,
+    MetaConfigurations,
+    OrderedCollections,
+    PyCall,
+    QUnfold,
+    Random
 using ..Util, ..Data, ..MoreMethods
-import Distances
 
 DISCRETE_CONSTRUCTORS = Dict(
     "run" => CherenkovDeconvolution.RUN,
@@ -85,7 +91,7 @@ function configure_method(c::Dict{Symbol, Any})
         end
         if haskey(kwargs, :distance)
             kwargs[:distance] = Dict(
-                "Euclidean" => Distances.Euclidean(),
+                "Euclidean" => Euclidean(),
                 "EarthMovers" => QUnfold.EarthMovers(),
                 "EarthMoversSurrogate" => QUnfold.EarthMoversSurrogate(),
             )[kwargs[:distance]]
@@ -537,6 +543,143 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
         @info "Writing a test configuration to $(job[:configfile])"
         save(job[:configfile], job)
     end
+end
+
+"""
+    castano([metaconfig = "conf/meta/castano.yml"])
+
+Generate a set of job configurations from the given meta-configuration file.
+"""
+function castano(metaconfig::String="conf/meta/castano.yml")
+    meta = parsefile(metaconfig; dicttype=OrderedDict{Symbol,Any})
+    Random.seed!(meta[:seed])
+    meta[:repetition] = [
+        OrderedDict{Symbol,Any}(
+            :repetition => i,
+            :seed => seed,
+            :dataset => OrderedDict{Symbol,Any}[]
+        )
+        for (i, seed) in enumerate(rand(UInt32, meta[:n_reps]))
+    ]
+    classifier = pop!(meta, :classifier)
+    dataset_ids = pop!(meta, :dataset)
+    geometric_mean_score = Util.SkObject(
+        "sklearn.metrics.make_scorer",
+        pyimport("imblearn.metrics").geometric_mean_score
+    )
+    for repetition in meta[:repetition]
+        for dataset_id in dataset_ids
+            @info "Optimizing hyper-parameters" repetition[:repetition] dataset_id
+            dataset = Data.dataset(dataset_id)
+            discr = Data.discretizer(dataset)
+            X_full = Data.X_data(dataset)
+            y_full = encode(discr, Data.y_data(dataset))
+            i_trn, _ = Util.SkObject(
+                "sklearn.model_selection.train_test_split",
+                collect(1:length(y_full)); # split indices
+                test_size = meta[:test_size],
+                stratify = y_full,
+                random_state = repetition[:seed]
+            )
+            gs = Util.SkObject(
+                "sklearn.model_selection.GridSearchCV",
+                Util.SkObject(
+                    "sklearn.$(classifier[:package]).$(classifier[:classifier])"
+                );
+                param_grid = classifier[:parameters],
+                cv = Util.SkObject(
+                    "sklearn.model_selection.StratifiedKFold";
+                    n_splits = 3,
+                    shuffle = true,
+                    random_state = repetition[:seed],
+                ),
+                scoring = geometric_mean_score
+            )
+            gs.fit(X_full[i_trn, :], y_full[i_trn])
+            classifier_config = OrderedDict{Symbol,Any}(
+                :name => classifier[:name],
+                :package => classifier[:package],
+                :classifier => classifier[:classifier],
+                :parameters => Dict{Symbol,Any}([Symbol(k)=>v for (k, v) in gs.best_params_]),
+            )
+            interpolate!(classifier_config, :name; classifier_config[:parameters]...)
+            push!(repetition[:dataset], OrderedDict{Symbol,Any}(
+                :id => dataset_id,
+                :classifier => classifier_config,
+            )) # add the combination of classifier and dataset_id to the datasets
+        end
+    end
+
+    # expand experiments
+    meta[:method] = vcat(map(exp -> begin # expansion
+        exp = deepcopy(exp)
+        if exp[:method_id] in ["castano-pdf", "hdx", "hdy"]
+            expand(exp, [:parameters, :n_bins])
+        elseif exp[:method_id] in ["oqt", "arc"]
+            expand(exp, [:parameters, :val_split])
+        elseif exp[:method_id] in ["ibu", "osld"]
+            expand(exp, [:parameters, :o], [:parameters, :λ])
+        elseif exp[:method_id] in ["run", "svd", "oacc", "opacc", "edy"]
+            expand(exp, [:parameters, :τ]) # :regularization
+        elseif exp[:method_id] in ["ohdx", "ohdy", "pdf"]
+            expand(exp, [:parameters, :τ], [:parameters, :n_bins])
+        elseif exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld", CASTANO_CONSTRUCTORS...]
+            exp
+        else
+            throw(ArgumentError("Illegal method $(exp[:method_id])"))
+        end
+    end, meta[:method])...)
+
+    # interpolate the method names and provide consistent seeds for HDx
+    hdx_seed = Dict(map( # make sure that each HDx n_bins setting is the same
+        J -> J => rand(UInt32),
+        unique(vcat(MetaConfigurations.find(meta[:method], :n_bins)...))
+    )...)
+    for exp in meta[:method]
+        name = exp[:name]
+        if haskey(exp, :parameters) && haskey(exp[:parameters], :τ)
+            name = replace(name, "\$(τ)" => exp[:parameters][:τ])
+        end
+        if exp[:method_id] in ["ibu", "osld"]
+            name = replace(name, "\$(o)" => exp[:parameters][:o])
+            name = replace(name, "\$(λ)" => exp[:parameters][:λ])
+        elseif exp[:method_id] in ["oqt", "arc"]
+            name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
+        elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf", "castano-pdf"]
+            name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
+            if exp[:method_id] in ["hdx", "ohdx"]
+                exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]
+            end
+        end
+        exp[:name] = name # replace with interpolation
+    end
+
+    # collect experiments per validation_group
+    group_exp = Dict{String,Vector{Dict{Symbol,Any}}}()
+    for exp in meta[:method]
+        validation_group = get(exp, :validation_group, exp[:method_id])
+        group_exp[validation_group] = push!(
+            get(group_exp, validation_group, Dict{Symbol,Any}[]),
+            exp
+        )
+    end
+    for (validation_group, exp) in pairs(group_exp)
+        @info "$(validation_group) will be optimized over $(length(exp)) configurations"
+    end
+
+    # write the generated job configuration to a file
+    @info "Writing a configuration of $(length(meta[:method])) methods to $(meta[:configfile])"
+    save(meta[:configfile], meta)
+
+    # derive a testing configuration
+    for x in [:configfile, :outfile]
+        meta[x] = joinpath(dirname(meta[x]), "test_" * basename(meta[x]))
+    end
+    meta[:n_bags] = 3
+    meta[:repetition] = [ meta[:repetition][1] ] # only keep the first repetition
+    meta[:method] = vcat(rand.(values(group_exp))...)
+    @info "Writing a test configuration to $(meta[:configfile])"
+    save(meta[:configfile], meta)
 end
 
 end # module
