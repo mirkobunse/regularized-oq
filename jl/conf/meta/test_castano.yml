@@ -1,38 +1,24 @@
 #
-# conf/meta/castano.yml
+# conf/meta/test_castano.yml
 #
 # Meta-configuration for comparing methods on the data used
 # by Castano et al.
 #
 job: castano # this file configures the function Job.<job>
 seed: 876 # random number generator seed
-n_reps: 10
-n_bags: 300
+n_reps: 2
+n_bags: 3
 test_size: 0.3
 
 # output of configuration expansion and of experiments
-configfile: conf/gen/castano.yml
-outfile: res/csv/castano.csv
+configfile: conf/gen/test_castano.yml
+outfile: res/csv/test_castano.csv
 
 # all data sets to be used
 dataset:
-  - abalone.ord_chu
-  - ailerons_gago
   - auto.data.ord_chu
   - bostonhousing.ord_chu
-  - californiahousing_gago
-  - cement_strength_gago
-  - ERA
   - ESL
-  - kinematics_gago
-  - LEV
-  - SkillCraft1_rev_7clases
-  - SkillCraft1_rev_8clases
-  - skill_gago
-  - stock.ord
-  - SWD
-  - winequality-red_gago
-  - winequality-white_gago_rev
 
 # the parameter grid for the classifier, to be optimized already during configuration
 classifier:
@@ -40,9 +26,9 @@ classifier:
   classifier: RandomForestClassifier
   package: ensemble
   parameters:
-    max_depth: [ 1, 5, 10, 15, 20, 25, 30 ]
-    min_samples_leaf: [ 1, 2, 5, 10, 20 ]
-    n_estimators: [ 100 ]
+    max_depth: [ 1, 5 ]
+    min_samples_leaf: [ 1 ]
+    n_estimators: [ 5 ]
     random_state: [ 876 ]
     oob_score: [ true ]
 
@@ -58,20 +44,20 @@ method:
   - method_id: castano-pdf
     name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
     parameters:
-      n_bins: [ 8, 16, 32 ]
+      n_bins: [ 4 ]
 
   # regularized implementations of the Castano methods, from QUnfold.jl
   - method_id: edy
     name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1 ]
       distance: EarthMovers
 
   - method_id: pdf
     name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [ 40, 80, 160 ] # TODO change to n_bins_per_feature
+      τ: [ 1e-1 ]
+      n_bins: [ 4 ]
       distance: EarthMoversSurrogate
 
   # unfolding methods from QUnfold.jl
@@ -80,19 +66,19 @@ method:
     transformer: classifier
     parameters:
       o: [ 0, 1 ]
-      λ: [ 1e-1, 1e-2 ]
+      λ: [ 1e-1 ]
 
   - method_id: run
     name: "RUN ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
+      τ: [ 1e3 ] # count-based loss of RUN requires larger τ values
 
   - method_id: svd
     name: "SVD ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
@@ -113,37 +99,37 @@ method:
   - method_id: hdx
     name: "HDx ($(n_bins) bins per feature)"
     parameters:
-      n_bins: [4, 8, 16, 32]
+      n_bins: [ 4, 8 ]
 
   - method_id: hdy
     name: "HDy ($(n_bins) bins per class) on $(classifier)"
     parameters:
-      n_bins: [4, 8, 16, 32]
+      n_bins: [ 4, 8 ]
 
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
       o: [ 0, 1 ]
-      λ: [ 1e-1, 1e-2 ]
+      λ: [ 1e-1 ]
 
   - method_id: oacc # ordinal ACC
     name: "o-ACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1 ]
 
   - method_id: opacc # ordinal PACC
     name: "o-PACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1 ]
 
   - method_id: ohdx # ordinal HDx
     name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [4, 8, 16, 32]
+      τ: [ 1e-1 ]
+      n_bins: [ 4 ]
 
   - method_id: ohdy # ordinal HDy
     name: "o-HDy ($\\tau=$(τ)$, $(n_bins) bins per class) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [4, 8, 16, 32]
+      τ: [ 1e-1 ]
+      n_bins: [ 4 ]

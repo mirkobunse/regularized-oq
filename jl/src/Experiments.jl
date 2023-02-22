@@ -627,20 +627,29 @@ function _castano_trial(trial::Dict{Symbol, Any})
     # fit methods
     for m in trial[:method]
         m[:name] = replace(m[:name], "\$(classifier)" => classifier_name)
-        if m[:method_id] ∉ [ "hdx", "ohdx" ] # set fit_classifier to false
-            if !haskey(m, :parameters)
-                m[:parameters] = Dict{Symbol,Any}()
-            end
-            m[:parameters][:fit_classifier] = false
-        end
         if !haskey(m, :validation_group)
             m[:validation_group] = m[:method_id]
         end
-        m[:method] = prefit(
-            Configuration.configure_method(m, classifier),
-            X_trn,
-            y_trn
-        )
+        if m[:method_id] ∈ keys(Configuration.CASTANO_CONSTRUCTORS)
+            m[:classifier] = deepcopy(trial[:repetition][:dataset][:classifier])
+            m[:method] = prefit(
+                Configuration.configure_method(m),
+                X_trn,
+                y_trn
+            )
+        else # all other methods use a prefitted classifier with fit_classifier=false
+            if m[:method_id] ∉ [ "hdx", "ohdx" ]
+                if !haskey(m, :parameters)
+                    m[:parameters] = Dict{Symbol,Any}()
+                end
+                m[:parameters][:fit_classifier] = false
+            end # set fit_classifier to false
+            m[:method] = prefit(
+                Configuration.configure_method(m, classifier),
+                X_trn,
+                y_trn
+            )
+        end
     end
     @info "Repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id]) has finished training"
 

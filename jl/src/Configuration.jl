@@ -627,7 +627,7 @@ function castano(metaconfig::String="conf/meta/castano.yml")
             expand(exp, [:parameters, :τ]) # :regularization
         elseif exp[:method_id] in ["ohdx", "ohdy", "pdf"]
             expand(exp, [:parameters, :τ], [:parameters, :n_bins])
-        elseif exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld", CASTANO_CONSTRUCTORS...]
+        elseif exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld", keys(CASTANO_CONSTRUCTORS)...]
             exp
         else
             throw(ArgumentError("Illegal method $(exp[:method_id])"))
@@ -673,16 +673,6 @@ function castano(metaconfig::String="conf/meta/castano.yml")
 
     # write the generated job configuration to a file
     @info "Writing a configuration of $(length(meta[:method])) methods to $(meta[:configfile])"
-    save(meta[:configfile], meta)
-
-    # derive a testing configuration
-    for x in [:configfile, :outfile]
-        meta[x] = joinpath(dirname(meta[x]), "test_" * basename(meta[x]))
-    end
-    meta[:n_bags] = 3
-    meta[:repetition] = [ meta[:repetition][1] ] # only keep the first repetition
-    meta[:method] = vcat(rand.(values(group_exp))...)
-    @info "Writing a test configuration to $(meta[:configfile])"
     save(meta[:configfile], meta)
 end
 
