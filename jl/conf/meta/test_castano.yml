@@ -57,7 +57,7 @@ method:
     name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
     parameters:
       τ: [ 1e-1 ]
-      n_bins: [ 4 ]
+      n_bins: [ 20 ] # assume n_classes=5 to yield same bins as castano-pdf
       distance: EarthMoversSurrogate
 
   # unfolding methods from QUnfold.jl
