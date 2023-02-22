@@ -53,25 +53,28 @@ CASTANO_CONSTRUCTORS = Dict(
 
 
 """
-    configure_method(c::Dict{Symbol, Any})
+    configure_method(c::Dict{Symbol, Any}[, classifier=nothing])
 
 Set up an OQ method from CherenkovDeconvolution.jl or from src/MoreMethods.jl.
 """
-function configure_method(c::Dict{Symbol, Any})
+function configure_method(c::Dict{Symbol, Any}, classifier::Any=nothing)
     c = copy(c) # keep the input unchanged; CAUTION: this copy is only shallow
     kwargs = copy(get(c, :parameters, Dict{Symbol,Any}())) # a shallow copy in the deep
+    if classifier === nothing && haskey(c, :classifier)
+        classifier = configure_classifier(c[:classifier])
+    end
 
     # initialize classifiers, binnings, and methods
     if c[:method_id] == "oqt"
-        return MoreMethods.OQT(_configure_classifier(c[:classifier]); kwargs...)
+        return MoreMethods.OQT(classifier; kwargs...)
     elseif c[:method_id] == "arc"
-        return MoreMethods.ARC(_configure_classifier(c[:classifier]); kwargs...)
+        return MoreMethods.ARC(classifier; kwargs...)
     elseif c[:method_id] in keys(QUNFOLD_CONSTRUCTORS)
         constructor = QUNFOLD_CONSTRUCTORS[c[:method_id]]
         args = Any[] # set up positional arguments
         if haskey(c, :transformer)
             if c[:transformer] == "classifier"
-                push!(args, QUnfold.ClassTransformer(_configure_classifier(c[:classifier])))
+                push!(args, QUnfold.ClassTransformer(classifier; fit_classifier=pop!(kwargs, :fit_classifier, true)))
             elseif c[:transformer] == "tree"
                 push!(args, QUnfold.TreeTransformer(
                     DecisionTreeClassifier(; c[:transformer_parameters][:tree_parameters]...);
@@ -79,8 +82,8 @@ function configure_method(c::Dict{Symbol, Any})
                 ))
             end
         else
-            if haskey(c, :classifier) && c[:method_id] ∉ ["hdx", "ohdx"]
-                push!(args, _configure_classifier(c[:classifier]))
+            if classifier !== nothing && c[:method_id] ∉ ["hdx", "ohdx"]
+                push!(args, classifier)
             end
             if haskey(kwargs, :n_bins)
                 push!(args, pop!(kwargs, :n_bins))
@@ -103,9 +106,9 @@ function configure_method(c::Dict{Symbol, Any})
             rethrow()
         end
     elseif c[:method_id] in keys(QUAPY_CONSTRUCTORS)
-        return QUAPY_CONSTRUCTORS[c[:method_id]](_configure_classifier(c[:classifier]); kwargs...)
+        return QUAPY_CONSTRUCTORS[c[:method_id]](classifier; kwargs...)
     elseif c[:method_id] in keys(CASTANO_CONSTRUCTORS)
-        args = Any[ _configure_classifier(c[:classifier]) ] # set up positional arguments
+        args = Any[ classifier ] # set up positional arguments
         if haskey(kwargs, :n_bins)
             push!(args, pop!(kwargs, :n_bins))
         end
@@ -132,7 +135,7 @@ function configure_method(c::Dict{Symbol, Any})
     end
 end
 
-function _configure_classifier(config::Dict{Symbol,Any})
+function configure_classifier(config::Dict{Symbol,Any})
     classname = config[:classifier] # read the configuration
     parameters = haskey(config, :parameters) ? config[:parameters] : Dict{Symbol,Any}()
     preprocessing = get(config, :preprocessing, "")

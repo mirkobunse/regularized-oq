@@ -19,6 +19,7 @@ import Conda, Downloads
 const __numpy = PyNULL()
 const __castano_factory = PyNULL()
 const __castano_emd_distances = PyNULL()
+const __castano_utils = PyNULL()
 const __sklearn_euclidean_distances = PyNULL()
 const __BinaryTreeRegressor = PyNULL()
 function __init__()
@@ -34,6 +35,10 @@ function __init__()
     copy!( # we can now safely assume that ordinal_quantification is installed
         __castano_emd_distances,
         pyimport("ordinal_quantification.metrics.ordinal").emd_distances
+    )
+    copy!(
+        __castano_utils,
+        pyimport("ordinal_quantification.utils")
     )
     copy!( # we can now safely assume that ordinal_quantification is installed
         __sklearn_euclidean_distances,

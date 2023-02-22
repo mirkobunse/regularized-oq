@@ -12,7 +12,7 @@ using
     Random,
     Statistics,
     StatsBase
-using ..Util, ..Data, ..Configuration
+using ..Util, ..Data, ..Configuration, ..MoreMethods
 
 """
     run(configfile; kwargs...)
@@ -567,6 +567,107 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     @info "Validation samples have been written to app-oq_tst_indices.csv"
 
     return nothing
+end
+
+"""
+    castano(configfile="conf/gen/castano.yml")
+
+Comparative evaluation in the setup of Castano et al. (2022).
+"""
+function castano(configfile::String="conf/gen/castano.yml")
+    c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
+
+    # parallelize over repetition × dataset
+    trials = expand(c, :repetition, [:repetition, :dataset])
+    @info "Starting $(length(trials)) trials on $(nworkers()) worker(s)."
+    df = vcat(pmap(
+        trial -> catch_during_trial(_castano_trial, trial),
+        trials
+    )...)
+
+    # store the output
+    CSV.write(c[:outfile], df)
+    @info "$(nrow(df)) results written to $(c[:outfile])"
+    return df
+end
+
+function _castano_trial(trial::Dict{Symbol, Any})
+    Random.seed!(trial[:repetition][:seed])
+    Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
+    @info "Starting repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id])"
+
+    # read and split the data
+    dataset = Data.dataset(trial[:repetition][:dataset][:id])
+    discr = Data.discretizer(dataset)
+    n_classes = length(Data.bins(discr))
+    X_full = Data.X_data(dataset)
+    y_full = encode(discr, Data.y_data(dataset))
+    i_trn, i_tst = Util.SkObject(
+        "sklearn.model_selection.train_test_split",
+        collect(1:length(y_full)); # split indices
+        test_size = trial[:test_size],
+        stratify = y_full,
+        random_state = trial[:repetition][:seed]
+    )
+    X_trn = X_full[i_trn, :]
+    y_trn = y_full[i_trn]
+    X_tst = X_full[i_tst, :]
+    y_tst = y_full[i_tst]
+    C_curv = LinearAlgebra.diagm(
+        -1 => fill(-1, n_classes-1),
+        0 => fill(2, n_classes),
+        1 => fill(-1, n_classes-1)
+    )[2:n_classes-1, :] # matrix for curvature computation
+
+    # fit the classifier
+    classifier_name = trial[:repetition][:dataset][:classifier][:name]
+    classifier = Configuration.configure_classifier(trial[:repetition][:dataset][:classifier])
+    classifier.fit(X_trn, y_trn)
+
+    # fit methods
+    for m in trial[:method]
+        m[:name] = replace(m[:name], "\$(classifier)" => classifier_name)
+        if m[:method_id] ∉ [ "hdx", "ohdx" ] # set fit_classifier to false
+            if !haskey(m, :parameters)
+                m[:parameters] = Dict{Symbol,Any}()
+            end
+            m[:parameters][:fit_classifier] = false
+        end
+        if !haskey(m, :validation_group)
+            m[:validation_group] = m[:method_id]
+        end
+        m[:method] = prefit(
+            Configuration.configure_method(m, classifier),
+            X_trn,
+            y_trn
+        )
+    end
+    @info "Repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id]) has finished training"
+
+    df = DataFrame(
+        name = String[],
+        validation_group = String[],
+        sample = Int64[], # = the bag
+        sample_curvature = Float64[], # actual curvature of the respective sample
+        nmd = Float64[],
+        rnod = Float64[]
+    ) # store all results in this DataFrame
+    for (i_bag, (X_f, y_f, f_true)) in enumerate(
+            MoreMethods.__castano_utils.create_bags_with_multiple_prevalence(
+                X_tst, y_tst, trial[:n_bags], trial[:repetition][:seed]
+            ))
+        for m in trial[:method]
+            f_est = DeconvUtil.normalizepdf(deconvolve(m[:method], X_f))
+            nmd = Util.nmd(f_est, f_true)
+            rnod = Util.rnod(f_est, f_true)
+            sample_curvature = sum((C_curv*f_true).^2)
+            push!(df, [ m[:name], m[:validation_group], i_bag, sample_curvature, nmd, rnod ])
+        end
+        @info "Repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id]) evaluated $(i_bag)/$(trial[:n_bags]) bags"
+    end
+    df[!,:dataset] .= trial[:repetition][:dataset][:id]
+    df[!,:repetition] .= trial[:repetition][:repetition]
+    return df
 end
 
 end # module
