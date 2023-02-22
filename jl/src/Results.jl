@@ -1,6 +1,13 @@
 module Results
 
-using CherenkovDeconvolution, CSV, DataFrames, HypothesisTests, Printf, Statistics
+using
+    CherenkovDeconvolution,
+    CSV,
+    DataFrames,
+    HypothesisTests,
+    OrderedCollections,
+    Printf,
+    Statistics
 
 METRICSFILES_MAIN = [
     "\\textsc{Amazon-OQ-BK}" => "res/csv/amazon_roberta.csv",
@@ -241,6 +248,68 @@ function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,
         println(io, "  \\bottomrule")
         println(io, "\\end{tabular}")
     end
+end
+
+"""
+    castano(metricsfile="res/csv/castano.csv")
+
+Generate the tables of the Castano experiment.
+"""
+function castano(metricsfile::String="res/csv/castano.csv")
+    df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
+    df[!,:name] = replace.( # we must ignore the configuration of the classifier
+        df[!,:name],
+        r"(.+) on (.+)" => SubstitutionString("\\1")
+    )
+    df = combine( # average NMD per method configuration and data set
+        groupby(df, [:name, :validation_group, :dataset]),
+        :nmd => mean => :nmd
+    )
+    avg_nmd = combine(groupby(df, [:name, :validation_group]), :nmd => mean => :nmd)
+    best_configurations = combine( # find configurations with the minimum overall NMD
+        groupby(avg_nmd, :validation_group),
+        gdf -> begin
+            if nrow(gdf) > 1 # investigate methods with multiple configurations
+                @info "$(gdf[1,:validation_group])" sort(gdf[!,[:name, :nmd]], :nmd)
+            end
+            gdf[argmin(gdf[!,:nmd]), :]
+        end
+    )[!,:name]
+    avg_nmd[!,:dataset] .= "avg" # pseudo data set: average over all data sets
+    df = vcat(df, avg_nmd) # include this pseudo data set in the table
+    agg = unstack( # create an NMD pivot table of :validation_group × :dataset
+        df[ # keep only the results of the best methods
+            [ x ∈ best_configurations for x ∈ df[!,:name] ],
+            [ :validation_group, :dataset, :nmd ]
+        ],
+        :validation_group, # columns
+        :nmd # values
+    )
+
+    # write a LaTeX table to a text file
+    outfile = replace( # replace "*/csv/*.csv" with "*/tex/*.tex"
+        metricsfile,
+        r"(.+)/csv/(.+)\.csv" => SubstitutionString("\\1/tex/\\2.tex")
+    )
+    @info "Writing to $outfile"
+    open(outfile, "w") do io
+        println(io, "\\begin{tabular}{lc}")
+        println(io, "  \\toprule")
+        println(io, "  " * join(names(agg), " & ") * " \\\\") # table header
+        println(io, "  \\midrule")
+        for r in eachrow(agg) # write the table body row by row
+            best_method = argmin(r[2:end]) # <: Symbol
+            contents = OrderedDict{Symbol,String}(:dataset => replace(r[:dataset], "_" => "\\_"))
+            for (k, v) in zip(keys(r[2:end]), values(r[2:end]))
+                contents[k] = (@sprintf "%.4f" v)[2:end]
+            end
+            contents[best_method] = "\\textbf{$(contents[best_method])}"
+            println(io, "  " * join(values(contents), " & ") * " \\\\")
+        end
+        println(io, "  \\bottomrule")
+        println(io, "\\end{tabular}")
+    end
+    return agg
 end
 
 end
