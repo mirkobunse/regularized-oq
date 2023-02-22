@@ -71,7 +71,7 @@ method:
     name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [ 40, 80, 160 ] # TODO change to n_bins_per_feature
+      n_bins: [ 8, 16, 32 ]
       distance: EarthMoversSurrogate
 
   # unfolding methods from QUnfold.jl
@@ -113,12 +113,12 @@ method:
   - method_id: hdx
     name: "HDx ($(n_bins) bins per feature)"
     parameters:
-      n_bins: [4, 8, 16, 32]
+      n_bins: [ 8, 16, 32 ]
 
   - method_id: hdy
     name: "HDy ($(n_bins) bins per class) on $(classifier)"
     parameters:
-      n_bins: [4, 8, 16, 32]
+      n_bins: [ 4, 8, 16 ]
 
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
@@ -140,10 +140,10 @@ method:
     name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [4, 8, 16, 32]
+      n_bins: [ 8, 16, 32 ]
 
   - method_id: ohdy # ordinal HDy
     name: "o-HDy ($\\tau=$(τ)$, $(n_bins) bins per class) on $(classifier)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [4, 8, 16, 32]
+      n_bins: [ 4, 8, 16 ]
