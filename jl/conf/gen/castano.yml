@@ -1,0 +1,2228 @@
+job: "castano"
+seed: 876
+n_reps: 10
+n_bags: 300
+test_size: 0.3
+configfile: "conf/gen/castano.yml"
+outfile: "res/csv/castano.csv"
+method:
+  - method_id: "castano-edy"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+    parameters:
+      distances: "emd_distances"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=8, d=EMD) on $(classifier)"
+    parameters:
+      n_bins: 8
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=16, d=EMD) on $(classifier)"
+    parameters:
+      n_bins: 16
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=32, d=EMD) on $(classifier)"
+    parameters:
+      n_bins: 32
+  - method_id: "edy"
+    name: "o-EDy ($\\tau=0.1$, d=EMD) on $(classifier)"
+    parameters:
+      τ: 0.1
+      distance: "EarthMovers"
+  - method_id: "edy"
+    name: "o-EDy ($\\tau=0.001$, d=EMD) on $(classifier)"
+    parameters:
+      τ: 0.001
+      distance: "EarthMovers"
+  - method_id: "edy"
+    name: "o-EDy ($\\tau=1.0e-5$, d=EMD) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      distance: "EarthMovers"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=0.1, J=8$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 0.1
+      n_bins: 40
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=0.1, J=16$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 0.1
+      n_bins: 80
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=0.1, J=32$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 0.1
+      n_bins: 160
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=0.001, J=8$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 0.001
+      n_bins: 40
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=0.001, J=16$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 0.001
+      n_bins: 80
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=0.001, J=32$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 0.001
+      n_bins: 160
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=1.0e-5, J=8$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 40
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=1.0e-5, J=16$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 80
+      distance: "EarthMoversSurrogate"
+  - method_id: "pdf"
+    name: "o-PDF ($\\tau=1.0e-5, J=32$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 160
+      distance: "EarthMoversSurrogate"
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.1$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=0, i=0.01$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.1$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "ibu"
+    name: "IBU ($o=1, i=0.01$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "run"
+    name: "RUN ($\\tau=1000.0$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      τ: 1000.0
+  - method_id: "run"
+    name: "RUN ($\\tau=10.0$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      τ: 10.0
+  - method_id: "run"
+    name: "RUN ($\\tau=0.1$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.1$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      τ: 0.1
+  - method_id: "svd"
+    name: "SVD ($\\tau=0.001$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      τ: 0.001
+  - method_id: "svd"
+    name: "SVD ($\\tau=1.0e-5$) on $(classifier)"
+    transformer: "classifier"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "cc"
+    name: "CC on $(classifier)"
+  - method_id: "pcc"
+    name: "PCC on $(classifier)"
+  - method_id: "acc"
+    name: "ACC on $(classifier)"
+  - method_id: "pacc"
+    name: "PACC on $(classifier)"
+  - method_id: "sld"
+    name: "SLD on $(classifier)"
+  - method_id: "hdx"
+    name: "HDx (8 bins per feature)"
+    parameters:
+      n_bins: 8
+    random_state: 3952393101
+  - method_id: "hdx"
+    name: "HDx (16 bins per feature)"
+    parameters:
+      n_bins: 16
+    random_state: 1198113572
+  - method_id: "hdx"
+    name: "HDx (32 bins per feature)"
+    parameters:
+      n_bins: 32
+    random_state: 2427353787
+  - method_id: "hdy"
+    name: "HDy (4 bins per class) on $(classifier)"
+    parameters:
+      n_bins: 4
+  - method_id: "hdy"
+    name: "HDy (8 bins per class) on $(classifier)"
+    parameters:
+      n_bins: 8
+  - method_id: "hdy"
+    name: "HDy (16 bins per class) on $(classifier)"
+    parameters:
+      n_bins: 16
+  - method_id: "osld"
+    name: "o-SLD ($o=0, i=0.1$) on $(classifier)"
+    parameters:
+      o: 0
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=0, i=0.01$) on $(classifier)"
+    parameters:
+      o: 0
+      λ: 0.01
+  - method_id: "osld"
+    name: "o-SLD ($o=1, i=0.1$) on $(classifier)"
+    parameters:
+      o: 1
+      λ: 0.1
+  - method_id: "osld"
+    name: "o-SLD ($o=1, i=0.01$) on $(classifier)"
+    parameters:
+      o: 1
+      λ: 0.01
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.1$) on $(classifier)"
+    parameters:
+      τ: 0.1
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=0.001$) on $(classifier)"
+    parameters:
+      τ: 0.001
+  - method_id: "oacc"
+    name: "o-ACC ($\\tau=1.0e-5$) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.1$) on $(classifier)"
+    parameters:
+      τ: 0.1
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=0.001$) on $(classifier)"
+    parameters:
+      τ: 0.001
+  - method_id: "opacc"
+    name: "o-PACC ($\\tau=1.0e-5$) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.1$, 8 bins per feature)"
+    parameters:
+      τ: 0.1
+      n_bins: 8
+    random_state: 3952393101
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.1$, 16 bins per feature)"
+    parameters:
+      τ: 0.1
+      n_bins: 16
+    random_state: 1198113572
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.1$, 32 bins per feature)"
+    parameters:
+      τ: 0.1
+      n_bins: 32
+    random_state: 2427353787
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.001$, 8 bins per feature)"
+    parameters:
+      τ: 0.001
+      n_bins: 8
+    random_state: 3952393101
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.001$, 16 bins per feature)"
+    parameters:
+      τ: 0.001
+      n_bins: 16
+    random_state: 1198113572
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=0.001$, 32 bins per feature)"
+    parameters:
+      τ: 0.001
+      n_bins: 32
+    random_state: 2427353787
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=1.0e-5$, 8 bins per feature)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 8
+    random_state: 3952393101
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=1.0e-5$, 16 bins per feature)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 16
+    random_state: 1198113572
+  - method_id: "ohdx"
+    name: "o-HDx ($\\tau=1.0e-5$, 32 bins per feature)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 32
+    random_state: 2427353787
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 4 bins per class) on $(classifier)"
+    parameters:
+      τ: 0.1
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 8 bins per class) on $(classifier)"
+    parameters:
+      τ: 0.1
+      n_bins: 8
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.1$, 16 bins per class) on $(classifier)"
+    parameters:
+      τ: 0.1
+      n_bins: 16
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on $(classifier)"
+    parameters:
+      τ: 0.001
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 8 bins per class) on $(classifier)"
+    parameters:
+      τ: 0.001
+      n_bins: 8
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=0.001$, 16 bins per class) on $(classifier)"
+    parameters:
+      τ: 0.001
+      n_bins: 16
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 4 bins per class) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 4
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 8 bins per class) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 8
+  - method_id: "ohdy"
+    name: "o-HDy ($\\tau=1.0e-5$, 16 bins per class) on $(classifier)"
+    parameters:
+      τ: 1.0e-5
+      n_bins: 16
+repetition:
+  - repetition: 1
+    seed: 424788048
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 5
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 2
+    seed: 411828879
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 5
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=5$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 5
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 5
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=15, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 15
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 3
+    seed: 2370037130
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=5$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 5
+            n_estimators: 100
+            max_depth: 10
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=5$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 5
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=5, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 5
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=30, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 30
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=15, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 15
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 4
+    seed: 772142037
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=30, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 30
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=15, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 15
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 5
+    seed: 2636162050
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=5$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 5
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=30, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 30
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 6
+    seed: 3099246662
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=30, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 30
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 5
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=5$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 5
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 7
+    seed: 529153937
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 5
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=25, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 25
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=25, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 25
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 8
+    seed: 3738711416
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=30, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 30
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=30, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 30
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=15, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 15
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 9
+    seed: 3645983298
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=30, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 30
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 5
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=25, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 25
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=15, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 15
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+  - repetition: 10
+    seed: 1669086789
+    dataset:
+      - id: "abalone.ord_chu"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "ailerons_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "californiahousing_gago"
+        classifier:
+          name: "RF ($d=20, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 20
+      - id: "cement_strength_gago"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ERA"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=10, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 10
+      - id: "kinematics_gago"
+        classifier:
+          name: "RF ($d=30, l=2$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 2
+            n_estimators: 100
+            max_depth: 30
+      - id: "LEV"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_7clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "SkillCraft1_rev_8clases"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "skill_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "stock.ord"
+        classifier:
+          name: "RF ($d=10, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 10
+      - id: "SWD"
+        classifier:
+          name: "RF ($d=15, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 15
+      - id: "winequality-red_gago"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
+      - id: "winequality-white_gago_rev"
+        classifier:
+          name: "RF ($d=1, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 100
+            max_depth: 1
