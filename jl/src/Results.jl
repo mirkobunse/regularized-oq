@@ -293,7 +293,7 @@ function castano(metricsfile::String="res/csv/castano.csv")
     )
     @info "Writing to $outfile"
     open(outfile, "w") do io
-        println(io, "\\begin{tabular}{lc}")
+        println(io, "\\begin{tabular}{l$("c"^(length(names(agg))-1))}")
         println(io, "  \\toprule")
         println(io, "  " * join(names(agg), " & ") * " \\\\") # table header
         println(io, "  \\midrule")
