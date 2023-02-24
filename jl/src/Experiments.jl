@@ -658,6 +658,7 @@ function _castano_trial(trial::Dict{Symbol, Any})
         validation_group = String[],
         sample = Int64[], # = the bag
         sample_curvature = Float64[], # actual curvature of the respective sample
+        emd_score = Float64[],
         nmd = Float64[],
         rnod = Float64[]
     ) # store all results in this DataFrame
@@ -667,10 +668,15 @@ function _castano_trial(trial::Dict{Symbol, Any})
             ))
         for m in trial[:method]
             f_est = DeconvUtil.normalizepdf(deconvolve(m[:method], X_f))
-            nmd = Util.nmd(f_est, f_true)
-            rnod = Util.rnod(f_est, f_true)
-            sample_curvature = sum((C_curv*f_true).^2)
-            push!(df, [ m[:name], m[:validation_group], i_bag, sample_curvature, nmd, rnod ])
+            push!(df, [
+                m[:name],
+                m[:validation_group],
+                i_bag,
+                sum((C_curv*f_true).^2),
+                Util.emd_score(f_est, f_true),
+                Util.nmd(f_est, f_true),
+                Util.rnod(f_est, f_true)
+            ])
         end
         @info "Repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id]) evaluated $(i_bag)/$(trial[:n_bags]) bags"
     end

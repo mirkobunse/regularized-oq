@@ -1,0 +1,77 @@
+#
+# conf/meta/reproduce_castano.yml
+#
+# Meta-configuration for comparing methods on the data used
+# by Castano et al.
+#
+job: castano # this file configures the function Job.<job>
+seed: 876 # random number generator seed
+n_reps: 10
+n_bags: 300
+test_size: 0.3
+
+# output of configuration expansion and of experiments
+configfile: conf/gen/reproduce_castano.yml
+outfile: res/csv/reproduce_castano.csv
+
+# all data sets to be used
+dataset:
+  # - abalone.ord_chu
+  - ailerons_gago
+  - auto.data.ord_chu
+  - bostonhousing.ord_chu
+  - californiahousing_gago
+  - cement_strength_gago
+  - ERA
+  - ESL
+  - kinematics_gago
+  - LEV
+  - SkillCraft1_rev_7clases
+  - SkillCraft1_rev_8clases
+  - skill_gago
+  - stock.ord
+  - SWD
+  - winequality-red_gago
+  - winequality-white_gago_rev
+
+# the parameter grid for the classifier, to be optimized already during configuration
+classifier:
+  name: "RF ($d=$(max_depth), l=$(min_samples_leaf)$)"
+  classifier: RandomForestClassifier
+  package: ensemble
+  parameters:
+    max_depth: [ 1, 5, 10, 15, 20, 25, 30 ]
+    min_samples_leaf: [ 1, 2, 5, 10, 20 ]
+    n_estimators: [ 100 ]
+    random_state: [ 876 ]
+    oob_score: [ true ]
+
+# all methods to be compared
+method:
+
+  - method_id: castano-cc
+    name: "Casta{\\~{n}}o CC on $(classifier)"
+
+  - method_id: castano-pcc
+    name: "Casta{\\~{n}}o PCC on $(classifier)"
+
+  - method_id: castano-acc
+    name: "Casta{\\~{n}}o ACC on $(classifier)"
+
+  - method_id: castano-pacc
+    name: "Casta{\\~{n}}o PACC on $(classifier)"
+
+  - method_id: castano-edy
+    validation_group: castano-edy-l2
+    name: "Casta{\\~{n}}o EDy (d=L2) on $(classifier)"
+
+  - method_id: castano-edy
+    validation_group: castano-edy-emd
+    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+    parameters:
+      distances: emd_distances
+
+  - method_id: castano-pdf
+    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
+    parameters:
+      n_bins: [ 32 ]

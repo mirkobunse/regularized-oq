@@ -261,55 +261,68 @@ function castano(metricsfile::String="res/csv/castano.csv")
         df[!,:name],
         r"(.+) on (.+)" => SubstitutionString("\\1")
     )
-    df = combine( # average NMD per method configuration and data set
-        groupby(df, [:name, :validation_group, :dataset]),
-        :nmd => mean => :nmd
-    )
-    avg_nmd = combine(groupby(df, [:name, :validation_group]), :nmd => mean => :nmd)
-    best_configurations = combine( # find configurations with the minimum overall NMD
-        groupby(avg_nmd, :validation_group),
-        gdf -> begin
-            if nrow(gdf) > 1 # investigate methods with multiple configurations
-                @info "$(gdf[1,:validation_group])" sort(gdf[!,[:name, :nmd]], :nmd)
-            end
-            gdf[argmin(gdf[!,:nmd]), :]
-        end
-    )[!,:name]
-    avg_nmd[!,:dataset] .= "avg" # pseudo data set: average over all data sets
-    df = vcat(df, avg_nmd) # include this pseudo data set in the table
-    agg = unstack( # create an NMD pivot table of :validation_group × :dataset
-        df[ # keep only the results of the best methods
-            [ x ∈ best_configurations for x ∈ df[!,:name] ],
-            [ :validation_group, :dataset, :nmd ]
-        ],
-        :validation_group, # columns
-        :nmd # values
-    )
 
-    # write a LaTeX table to a text file
-    outfile = replace( # replace "*/csv/*.csv" with "*/tex/*.tex"
-        metricsfile,
-        r"(.+)/csv/(.+)\.csv" => SubstitutionString("\\1/tex/\\2.tex")
-    )
-    @info "Writing to $outfile"
-    open(outfile, "w") do io
-        println(io, "\\begin{tabular}{l$("c"^(length(names(agg))-1))}")
-        println(io, "  \\toprule")
-        println(io, "  " * join(names(agg), " & ") * " \\\\") # table header
-        println(io, "  \\midrule")
-        for r in eachrow(agg) # write the table body row by row
-            best_method = argmin(r[2:end]) # <: Symbol
-            contents = OrderedDict{Symbol,String}(:dataset => replace(r[:dataset], "_" => "\\_"))
-            for (k, v) in zip(keys(r[2:end]), values(r[2:end]))
-                contents[k] = (@sprintf "%.4f" v)[2:end]
+    for metric in [ :emd_score, :nmd ]
+        df_metric = combine( # average NMD per method configuration and data set
+            groupby(df, [:name, :validation_group, :dataset]),
+            metric => mean => metric
+        )
+        avg_metric = combine(
+            groupby(df_metric, [:name, :validation_group]),
+            metric => mean => metric
+        )
+        best_configurations = combine( # find configurations with the best avg performance
+            groupby(avg_metric, :validation_group),
+            gdf -> begin
+                if nrow(gdf) > 1 # investigate methods with multiple configurations
+                    @info "$(gdf[1,:validation_group])" sort(gdf[!,[:name, metric]], metric)
+                end
+                if metric == :emd_score
+                    gdf[argmax(gdf[!,metric]), :] # configuration with maximum value
+                else # if metric in [ :nmd, :rnod ]
+                    gdf[argmin(gdf[!,metric]), :] # configuration with minimum value
+                end
             end
-            contents[best_method] = "\\textbf{$(contents[best_method])}"
-            println(io, "  " * join(values(contents), " & ") * " \\\\")
+        )[!,:name]
+        avg_metric[!,:dataset] .= "avg" # pseudo data set: average over all data sets
+        df_metric = vcat(df_metric, avg_metric) # include this pseudo data set in the table
+        df_metric = unstack( # create an NMD pivot table of :validation_group × :dataset
+            df_metric[ # keep only the results of the best methods
+                [ x ∈ best_configurations for x ∈ df_metric[!,:name] ],
+                [ :validation_group, :dataset, metric ]
+            ],
+            :validation_group, # columns
+            metric # values
+        )
+
+        # write a LaTeX table to a text file
+        outfile = replace( # replace "*/csv/*.csv" with "*/tex/*.tex"
+            metricsfile,
+            r"(.+)/csv/(.+)\.csv" => SubstitutionString("\\1/tex/\\2_$(metric).tex")
+        )
+        @info "Writing to $outfile"
+        open(outfile, "w") do io
+            println(io, "\\begin{tabular}{l$("c"^(length(names(df_metric))-1))}")
+            println(io, "  \\toprule")
+            println(io, "  " * join(names(df_metric), " & ") * " \\\\") # table header
+            println(io, "  \\midrule")
+            for r in eachrow(df_metric) # write the table body row by row
+                best_method = if metric == :emd_score
+                    argmax(r[2:end]) # <: Symbol
+                else # if metric in [ :nmd, :rnod ]
+                    argmin(r[2:end]) # <: Symbol
+                end
+                contents = OrderedDict{Symbol,String}(:dataset => replace(r[:dataset], "_" => "\\_"))
+                for (k, v) in zip(keys(r[2:end]), values(r[2:end]))
+                    contents[k] = (@sprintf "%.4f" v)[2:end]
+                end
+                contents[best_method] = "\\textbf{$(contents[best_method])}"
+                println(io, "  " * join(values(contents), " & ") * " \\\\")
+            end
+            println(io, "  \\bottomrule")
+            println(io, "\\end{tabular}")
         end
-        println(io, "  \\bottomrule")
-        println(io, "\\end{tabular}")
     end
-    return agg
 end
 
 end

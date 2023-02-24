@@ -65,6 +65,22 @@ nmd(a::AbstractVector{T}, b::AbstractVector{T}) where T<:Number =
     mdpa(a, b) / (length(a) - 1)
 
 """
+    emd_score(a, b) = (_max_emd(b) - mdpa(a, b)) / _max_emd(b)
+
+Compute the EMDscore [castano2022matching].
+"""
+emd_score(a::AbstractVector{T}, b::AbstractVector{T}) where T<:Number =
+    (_max_emd(b) - mdpa(a, b)) / _max_emd(b)
+
+function _max_emd(b::AbstractVector{T}) where T<:Number
+    a1 = zeros(length(b))
+    a2 = zeros(length(b))
+    a1[1] = 1
+    a2[end] = 1
+    return max(mdpa(b, a1), mdpa(b, a2))
+end
+
+"""
     mdpa(a, b)
 
 Minimum Distance of Pair Assignments (MDPA) [cha2002measuring] for ordinal pdfs `a` and `b`.
