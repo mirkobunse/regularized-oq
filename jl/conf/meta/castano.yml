@@ -45,6 +45,7 @@ classifier:
     n_estimators: [ 100 ]
     random_state: [ 876 ]
     oob_score: [ true ]
+    class_weight: [ "balanced" ]
 
 # all methods to be compared
 method:
