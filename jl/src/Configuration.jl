@@ -555,69 +555,11 @@ Generate a set of job configurations from the given meta-configuration file.
 """
 function castano(metaconfig::String="conf/meta/castano.yml")
     meta = parsefile(metaconfig; dicttype=OrderedDict{Symbol,Any})
-    Random.seed!(meta[:seed])
-    meta[:repetition] = [
-        OrderedDict{Symbol,Any}(
-            :repetition => i,
-            :seed => seed,
-            :dataset => OrderedDict{Symbol,Any}[]
-        )
-        for (i, seed) in enumerate(rand(UInt32, meta[:n_reps]))
-    ]
-    classifier = pop!(meta, :classifier)
-    dataset_ids = pop!(meta, :dataset)
-    geometric_mean_score = Util.SkObject(
-        "sklearn.metrics.make_scorer",
-        pyimport("imblearn.metrics").geometric_mean_score
-    )
-    for repetition in meta[:repetition]
-        for dataset_id in dataset_ids
-            @info "Optimizing hyper-parameters" repetition[:repetition] dataset_id
-            dataset = Data.dataset(dataset_id)
-            discr = Data.discretizer(dataset)
-            X_full = Data.X_data(dataset)
-            y_full = encode(discr, Data.y_data(dataset))
-            i_trn, _ = Util.SkObject(
-                "sklearn.model_selection.train_test_split",
-                collect(1:length(y_full)); # split indices
-                test_size = meta[:test_size],
-                stratify = y_full,
-                random_state = repetition[:seed]
-            )
-            gs = Util.SkObject(
-                "sklearn.model_selection.GridSearchCV",
-                Util.SkObject(
-                    "sklearn.$(classifier[:package]).$(classifier[:classifier])";
-                    n_jobs = -1,
-                );
-                param_grid = classifier[:parameters],
-                cv = Util.SkObject(
-                    "sklearn.model_selection.StratifiedKFold";
-                    n_splits = 3,
-                    shuffle = true,
-                    random_state = repetition[:seed],
-                ),
-                scoring = geometric_mean_score
-            )
-            gs.fit(X_full[i_trn, :], y_full[i_trn])
-            classifier_config = OrderedDict{Symbol,Any}(
-                :name => classifier[:name],
-                :package => classifier[:package],
-                :classifier => classifier[:classifier],
-                :parameters => Dict{Symbol,Any}([Symbol(k)=>v for (k, v) in gs.best_params_]),
-            )
-            interpolate!(classifier_config, :name; classifier_config[:parameters]...)
-            push!(repetition[:dataset], OrderedDict{Symbol,Any}(
-                :id => dataset_id,
-                :classifier => classifier_config,
-            )) # add the combination of classifier and dataset_id to the datasets
-        end
-    end
 
-    # expand experiments
-    meta[:method] = vcat(map(exp -> begin # expansion
+    # expand methods
+    meta[:method] = vcat(map(exp -> begin
         exp = deepcopy(exp)
-        if exp[:method_id] in ["castano-pdf", "hdx", "hdy"]
+        if exp[:method_id] in ["hdx", "hdy"]
             expand(exp, [:parameters, :n_bins])
         elseif exp[:method_id] in ["oqt", "arc"]
             expand(exp, [:parameters, :val_split])
@@ -627,7 +569,7 @@ function castano(metaconfig::String="conf/meta/castano.yml")
             expand(exp, [:parameters, :τ]) # :regularization
         elseif exp[:method_id] in ["ohdx", "ohdy", "pdf"]
             expand(exp, [:parameters, :τ], [:parameters, :n_bins])
-        elseif exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld", keys(CASTANO_CONSTRUCTORS)...]
+        elseif exp[:method_id] in ["cc", "pcc", "acc", "pacc", "sld", "quapy-sld"]
             exp
         else
             throw(ArgumentError("Illegal method $(exp[:method_id])"))
@@ -649,7 +591,7 @@ function castano(metaconfig::String="conf/meta/castano.yml")
             name = replace(name, "\$(λ)" => exp[:parameters][:λ])
         elseif exp[:method_id] in ["oqt", "arc"]
             name = replace(name, "\$(val_split)" => "\\frac{1}{$(round(Int, 1/exp[:parameters][:val_split]))}")
-        elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf", "castano-pdf"]
+        elseif exp[:method_id] in ["hdx", "hdy", "ohdx", "ohdy", "pdf"]
             name = replace(name, "\$(n_bins)" => exp[:parameters][:n_bins])
             if exp[:method_id] in ["hdx", "ohdx"]
                 exp[:random_state] = hdx_seed[exp[:parameters][:n_bins]]

@@ -1,75 +1,34 @@
 #
 # conf/meta/castano.yml
 #
-# Meta-configuration for comparing methods on the data used
-# by Castano et al.
+# Meta-configuration for comparing methods in the experiment
+# devised by Castano et al.
 #
 job: castano # this file configures the function Job.<job>
 seed: 876 # random number generator seed
-n_reps: 10
-n_bags: 300
-test_size: 0.3
 
 # output of configuration expansion and of experiments
 configfile: conf/gen/castano.yml
 outfile: res/csv/castano.csv
 
-# all data sets to be used
-dataset:
-  - abalone.ord_chu
-  - ailerons_gago
-  - auto.data.ord_chu
-  - bostonhousing.ord_chu
-  - californiahousing_gago
-  - cement_strength_gago
-  - ERA
-  - ESL
-  - kinematics_gago
-  - LEV
-  - SkillCraft1_rev_7clases
-  - SkillCraft1_rev_8clases
-  - skill_gago
-  - stock.ord
-  - SWD
-  - winequality-red_gago
-  - winequality-white_gago_rev
+# default methods
+castano_methods:
+  - 'EDy_Eu'
+  - 'EDy_EMD'
+  - 'PDF_EMD'
 
-# the parameter grid for the classifier, to be optimized already during configuration
-classifier:
-  name: "RF ($d=$(max_depth), l=$(min_samples_leaf)$)"
-  classifier: RandomForestClassifier
-  package: ensemble
-  parameters:
-    max_depth: [ 1, 5, 10, 15, 20, 25, 30 ]
-    min_samples_leaf: [ 1, 2, 5, 10, 20 ]
-    n_estimators: [ 100 ]
-    random_state: [ 876 ]
-    oob_score: [ true ]
-    class_weight: [ "balanced" ]
-
-# all methods to be compared
+# our methods
 method:
-
-  # original implementations by Castaño et al. (2022)
-  - method_id: castano-edy
-    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
-    parameters:
-      distances: emd_distances
-
-  - method_id: castano-pdf
-    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
-    parameters:
-      n_bins: [ 8, 16, 32 ]
 
   # regularized implementations of the Castano methods, from QUnfold.jl
   - method_id: edy
-    name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
+    name: "o-EDy (tau=$(τ), d=EMD)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
       distance: EarthMovers
 
   - method_id: pdf
-    name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
+    name: "o-PDF (tau=$(τ), J=$(n_bins), d=s-EMD)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
       n_bins: [ 40, 80, 160 ] # assume n_classes=5 to yield same bins as castano-pdf
@@ -77,39 +36,39 @@ method:
 
   # unfolding methods from QUnfold.jl
   - method_id: ibu
-    name: "IBU ($o=$(o), i=$(λ)$) on $(classifier)"
+    name: "IBU (o=$(o), i=$(λ))"
     transformer: classifier
     parameters:
       o: [ 0, 1 ]
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: run
-    name: "RUN ($\\tau=$(τ)$) on $(classifier)"
+    name: "RUN (tau=$(τ))"
     transformer: classifier
     parameters:
       τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
 
   - method_id: svd
-    name: "SVD ($\\tau=$(τ)$) on $(classifier)"
+    name: "SVD (tau=$(τ))"
     transformer: classifier
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
-    name: "CC on $(classifier)"
+    name: "CC"
 
   - method_id: pcc
-    name: "PCC on $(classifier)"
+    name: "PCC"
 
   - method_id: acc # softmax ACC
-    name: "ACC on $(classifier)"
+    name: "ACC"
 
   - method_id: pacc # softmax PACC
-    name: "PACC on $(classifier)"
+    name: "PACC"
 
   - method_id: sld # a.k.a. EMQ
-    name: "SLD on $(classifier)"
+    name: "SLD"
 
   - method_id: hdx
     name: "HDx ($(n_bins) bins per feature)"
@@ -117,34 +76,34 @@ method:
       n_bins: [ 8, 16, 32 ]
 
   - method_id: hdy
-    name: "HDy ($(n_bins) bins per class) on $(classifier)"
+    name: "HDy ($(n_bins) bins per class)"
     parameters:
       n_bins: [ 4, 8, 16 ]
 
   - method_id: osld # ordinal SLD
-    name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
+    name: "o-SLD (o=$(o), i=$(λ))"
     parameters:
       o: [ 0, 1 ]
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC
-    name: "o-ACC ($\\tau=$(τ)$) on $(classifier)"
+    name: "o-ACC (tau=$(τ))"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
   - method_id: opacc # ordinal PACC
-    name: "o-PACC ($\\tau=$(τ)$) on $(classifier)"
+    name: "o-PACC (tau=$(τ))"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
 
   - method_id: ohdx # ordinal HDx
-    name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
+    name: "o-HDx (tau=$(τ), $(n_bins) bins per feature)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
       n_bins: [ 8, 16, 32 ]
 
   - method_id: ohdy # ordinal HDy
-    name: "o-HDy ($\\tau=$(τ)$, $(n_bins) bins per class) on $(classifier)"
+    name: "o-HDy (tau=$(τ), $(n_bins) bins per class)"
     parameters:
       τ: [ 1e-1, 1e-3, 1e-5 ]
       n_bins: [ 4, 8, 16 ]

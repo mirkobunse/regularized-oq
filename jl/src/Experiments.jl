@@ -9,10 +9,38 @@ using
     Distributions,
     LinearAlgebra,
     MetaConfigurations,
+    PyCall,
     Random,
     Statistics,
     StatsBase
-using ..Util, ..Data, ..Configuration, ..MoreMethods
+using ..Util, ..Data, ..Configuration
+
+const __castano_main = PyNULL()
+const __castano_wrapper = PyNULL()
+function __init__()
+    castano_main = pyimport_e("ordinal_quantification.experiments.__main__")
+    if ispynull(castano_main) # need to install ordinal_quantification?
+        Conda.pip_interop(true)
+        Conda.pip("install", "git+https://github.com/mirkobunse/ordinal_quantification.git")
+        castano_main = pyimport("ordinal_quantification.experiments.__main__")
+    end
+    copy!(__castano_main, castano_main)
+
+    LabelEncoder = pyimport("sklearn.preprocessing").LabelEncoder
+    copy!(__castano_wrapper,
+        @pydef mutable struct CastanoWrapper
+            function __init__(self, method)
+                self.method = method
+            end
+            function fit(self, X, y)
+                y = LabelEncoder().fit_transform(y) .+ 1
+                self.method = CherenkovDeconvolution.prefit(self.method, X, y)
+                return self
+            end
+            predict(self, X) = CherenkovDeconvolution.deconvolve(self.method, X)
+        end
+    )
+end
 
 """
     run(configfile; kwargs...)
@@ -570,119 +598,105 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
 end
 
 """
-    castano(configfile="conf/gen/castano.yml")
+    castano(configfile="conf/gen/castano.yml"; n_jobs=1, is_test_run=false)
 
 Comparative evaluation in the setup of Castano et al. (2022).
 """
-function castano(configfile::String="conf/gen/castano.yml")
+function castano(
+        configfile::String="conf/gen/castano.yml";
+        n_jobs::Int = 1,
+        is_test_run::Bool = false,
+        )
     c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
+    methods = Array{Any}(c[:castano_methods])
+    method_names = copy(c[:castano_methods])
+    for method_config in c[:method] # extend methods with Julia callables
+        push!(methods, (clf, _) -> _castano_method(method_config, clf))
+        push!(method_names, method_config[:name])
+    end
 
-    # parallelize over repetition × dataset
-    trials = expand(c, :repetition, [:repetition, :dataset])
-    @info "Starting $(length(trials)) trials on $(nworkers()) worker(s)."
-    df = vcat(pmap(
-        trial -> catch_during_trial(_castano_trial, trial),
-        trials
-    )...)
+    # same configuration as in the original experiment
+    n_bags = 300
+    n_reps = 10
+    n_folds = 20
+    estimator_grid = Dict{String,Any}([
+        "n_estimators" => [100],
+        "max_depth" => [1, 5, 10, 15, 20, 25, 30],
+        "min_samples_leaf" => [1, 2, 5, 10, 20],
+    ])
+    dataset_names = [
+        "SWD",
+        "ESL",
+        "LEV",
+        "cement_strength_gago",
+        "stock.ord",
+        "auto.data.ord_chu",
+        "bostonhousing.ord_chu",
+        "californiahousing_gago",
+        "winequality-red_gago",
+        "winequality-white_gago_rev",
+        "skill_gago",
+        "SkillCraft1_rev_7clases",
+        "kinematics_gago",
+        "SkillCraft1_rev_8clases",
+        "ERA",
+        "ailerons_gago",
+        "abalone.ord_chu",
+    ]
+    if is_test_run
+        @warn "This is a test run; results are not meaningful"
+        estimator_grid = Dict{String,Any}([
+            "n_estimators" => [10],
+            "max_depth" => [1, 5],
+            "min_samples_leaf" => [1],
+        ])
+        n_bags = 3
+        n_reps = 1
+        n_folds = 2
+        dataset_names = [ "ESL" ]
+    end
+    config = Dict{String,Any}([
+        "seed" => c[:seed],
+        "n_bags" => n_bags,
+        "n_reps" => n_reps,
+        "n_folds" => n_folds,
+        "option" => "CV(DECOMP)",
+        "decomposer" => "Monotone",
+        "n_jobs" => n_jobs,
+        "output_dir" => "res/castano",
+        "estimator" => pyimport("sklearn.ensemble").RandomForestClassifier(
+            random_state = c[:seed],
+            class_weight = "balanced"
+        ),
+        "estimator_grid" => estimator_grid,
+        "methods" => methods,
+    ])
 
-    # store the output
-    CSV.write(c[:outfile], df)
-    @info "$(nrow(df)) results written to $(c[:outfile])"
+    # execute each trial in Python
+    for i_rep in 1:n_reps # TODO parallelize
+        for dataset_name in dataset_names
+            __castano_main._repetition_dataset(i_rep, dataset_name, config)
+        end
+    end
+
+    # process the results
+    config["methods"] = method_names
+    df = CSV.read(__castano_main._collect_results(config), DataFrame)
+    println(df) # TODO
     return df
+
+    # # store the output
+    # CSV.write(c[:outfile], df)
+    # @info "$(nrow(df)) results written to $(c[:outfile])"
+    # return df
 end
 
-function _castano_trial(trial::Dict{Symbol, Any})
-    Random.seed!(trial[:repetition][:seed])
-    Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
-    @info "Starting repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id])"
-
-    # read and split the data
-    dataset = Data.dataset(trial[:repetition][:dataset][:id])
-    discr = Data.discretizer(dataset)
-    n_classes = length(Data.bins(discr))
-    X_full = Data.X_data(dataset)
-    y_full = encode(discr, Data.y_data(dataset))
-    i_trn, i_tst = Util.SkObject(
-        "sklearn.model_selection.train_test_split",
-        collect(1:length(y_full)); # split indices
-        test_size = trial[:test_size],
-        stratify = y_full,
-        random_state = trial[:repetition][:seed]
+function _castano_method(c::Dict{Symbol,Any}, clf::Any)
+    wrapped = __castano_wrapper(
+        Configuration.configure_method(c, pyimport("sklearn.base").clone(clf))
     )
-    X_trn = X_full[i_trn, :]
-    y_trn = y_full[i_trn]
-    X_tst = X_full[i_tst, :]
-    y_tst = y_full[i_tst]
-    C_curv = LinearAlgebra.diagm(
-        -1 => fill(-1, n_classes-1),
-        0 => fill(2, n_classes),
-        1 => fill(-1, n_classes-1)
-    )[2:n_classes-1, :] # matrix for curvature computation
-
-    # fit the classifier
-    classifier_name = trial[:repetition][:dataset][:classifier][:name]
-    classifier = Configuration.configure_classifier(trial[:repetition][:dataset][:classifier])
-    classifier.fit(X_trn, y_trn)
-
-    # fit methods
-    for m in trial[:method]
-        m[:name] = replace(m[:name], "\$(classifier)" => classifier_name)
-        if !haskey(m, :validation_group)
-            m[:validation_group] = m[:method_id]
-        end
-        if m[:method_id] ∈ keys(Configuration.CASTANO_CONSTRUCTORS)
-            m[:classifier] = deepcopy(trial[:repetition][:dataset][:classifier])
-            m[:method] = prefit(
-                Configuration.configure_method(m),
-                X_trn,
-                y_trn
-            )
-        else # all other methods use a prefitted classifier with fit_classifier=false
-            if m[:method_id] ∉ [ "hdx", "ohdx" ]
-                if !haskey(m, :parameters)
-                    m[:parameters] = Dict{Symbol,Any}()
-                end
-                m[:parameters][:fit_classifier] = false
-            end # set fit_classifier to false
-            m[:method] = prefit(
-                Configuration.configure_method(m, classifier),
-                X_trn,
-                y_trn
-            )
-        end
-    end
-    @info "Repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id]) has finished training"
-
-    df = DataFrame(
-        name = String[],
-        validation_group = String[],
-        sample = Int64[], # = the bag
-        sample_curvature = Float64[], # actual curvature of the respective sample
-        emd_score = Float64[],
-        nmd = Float64[],
-        rnod = Float64[]
-    ) # store all results in this DataFrame
-    for (i_bag, (X_f, y_f, f_true)) in enumerate(
-            MoreMethods.__castano_utils.create_bags_with_multiple_prevalence(
-                X_tst, y_tst, trial[:n_bags], trial[:repetition][:seed]
-            ))
-        for m in trial[:method]
-            f_est = DeconvUtil.normalizepdf(deconvolve(m[:method], X_f))
-            push!(df, [
-                m[:name],
-                m[:validation_group],
-                i_bag,
-                sum((C_curv*f_true).^2),
-                Util.emd_score(f_est, f_true),
-                Util.nmd(f_est, f_true),
-                Util.rnod(f_est, f_true)
-            ])
-        end
-        @info "Repetition $(trial[:repetition][:repetition])/$(trial[:n_reps]) on $(trial[:repetition][:dataset][:id]) evaluated $(i_bag)/$(trial[:n_bags]) bags"
-    end
-    df[!,:dataset] .= trial[:repetition][:dataset][:id]
-    df[!,:repetition] .= trial[:repetition][:repetition]
-    return df
+    @info "Instantiated $(c[:name])"
+    return PyObject(c[:name]) => wrapped
 end
 
 end # module
