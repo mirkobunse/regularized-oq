@@ -14,7 +14,7 @@ using
     Statistics,
     StatsBase
 using ..Util, ..Data, ..Configuration
-import Conda
+import Conda, Dates
 
 const __castano_main = PyNULL()
 const __castano_wrapper = PyNULL()
@@ -41,7 +41,14 @@ function __init__()
             end
             function predict(self, X)
                 try
-                    return CherenkovDeconvolution.deconvolve(self.method, X)
+                    pred = CherenkovDeconvolution.deconvolve(self.method, X)
+                    if !all(isfinite.(pred))
+                        @error "Prediction contains NaNs or Infs" worker=myid() method=self.method
+                        C = length(self.encoder.classes_)
+                        return ones(C) ./ C
+                    else
+                        return pred
+                    end
                 catch exception
                     showerror(stdout, exception, catch_backtrace())
                     println(stdout, "")
@@ -662,11 +669,13 @@ function castano(
             "max_depth" => [1, 5],
             "min_samples_leaf" => [1],
         ])
-        n_bags = 3
+        n_bags = 10
         n_reps = 2
         n_folds = 2
         dataset_names = [ "ESL" ]
     end
+    output_dir = "res/castano/" * Dates.format(Dates.now(), "yyyy-mm-dd_HH:MM:SS")
+    mkpath(output_dir)
     config = Dict{String,Any}([
         "seed" => c[:seed],
         "n_bags" => n_bags,
@@ -675,7 +684,7 @@ function castano(
         "option" => "CV(DECOMP)",
         "decomposer" => "Monotone",
         "n_jobs" => n_jobs,
-        "output_dir" => "res/castano",
+        "output_dir" => output_dir,
         "estimator" => pyimport("sklearn.ensemble").RandomForestClassifier(
             random_state = c[:seed],
             class_weight = "balanced"
