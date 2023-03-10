@@ -34,11 +34,22 @@ function __init__()
                 self.method = method
             end
             function fit(self, X, y)
-                y = LabelEncoder().fit_transform(y) .+ 1
+                self.encoder = LabelEncoder()
+                y = self.encoder.fit_transform(y) .+ 1
                 self.method = CherenkovDeconvolution.prefit(self.method, X, y)
                 return self
             end
-            predict(self, X) = CherenkovDeconvolution.deconvolve(self.method, X)
+            function predict(self, X)
+                try
+                    return CherenkovDeconvolution.deconvolve(self.method, X)
+                catch exception
+                    showerror(stdout, exception, catch_backtrace())
+                    println(stdout, "")
+                    @error "An exception occured" worker=myid() method=self.method exception
+                    C = length(self.encoder.classes_)
+                    return ones(C) ./ C
+                end
+            end
         end
     )
 end
@@ -652,7 +663,7 @@ function castano(
             "min_samples_leaf" => [1],
         ])
         n_bags = 3
-        n_reps = 1
+        n_reps = 2
         n_folds = 2
         dataset_names = [ "ESL" ]
     end
@@ -675,6 +686,7 @@ function castano(
 
     # parallel execution of each trial in Python
     @sync @distributed for (i, d) in collect(Iterators.product(1:n_reps, dataset_names))
+        @info "Starting repetition $i of dataset $d on worker $(myid())"
         __castano_main._repetition_dataset(i, d, config)
     end
 
@@ -690,12 +702,9 @@ function castano(
     # return df
 end
 
-function _castano_method(c::Dict{Symbol,Any}, clf::Any)
-    wrapped = __castano_wrapper(
+_castano_method(c::Dict{Symbol,Any}, clf::Any) =
+    PyObject(c[:name]) => __castano_wrapper(
         Configuration.configure_method(c, pyimport("sklearn.base").clone(clf))
     )
-    @info "Instantiated $(c[:name]) at worker $(myid())"
-    return PyObject(c[:name]) => wrapped
-end
 
 end # module
