@@ -672,11 +672,9 @@ function castano(
         "methods" => methods,
     ])
 
-    # execute each trial in Python
-    for i_rep in 1:n_reps # TODO parallelize
-        for dataset_name in dataset_names
-            __castano_main._repetition_dataset(i_rep, dataset_name, config)
-        end
+    # parallel execution of each trial in Python
+    @sync @distributed for (i, d) in collect(Iterators.product(1:n_reps, dataset_names))
+        __castano_main._repetition_dataset(i, d, config)
     end
 
     # process the results
@@ -695,7 +693,7 @@ function _castano_method(c::Dict{Symbol,Any}, clf::Any)
     wrapped = __castano_wrapper(
         Configuration.configure_method(c, pyimport("sklearn.base").clone(clf))
     )
-    @info "Instantiated $(c[:name])"
+    @info "Instantiated $(c[:name]) at worker $(myid())"
     return PyObject(c[:name]) => wrapped
 end
 
