@@ -14,6 +14,7 @@ using
     Statistics,
     StatsBase
 using ..Util, ..Data, ..Configuration
+import Conda
 
 const __castano_main = PyNULL()
 const __castano_wrapper = PyNULL()
