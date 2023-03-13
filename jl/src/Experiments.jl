@@ -702,13 +702,7 @@ function castano(
     # process the results
     config["methods"] = method_names
     df = CSV.read(__castano_main._collect_results(config), DataFrame)
-    println(df) # TODO
     return df
-
-    # # store the output
-    # CSV.write(c[:outfile], df)
-    # @info "$(nrow(df)) results written to $(c[:outfile])"
-    # return df
 end
 
 _castano_method(c::Dict{Symbol,Any}, clf::Any) =

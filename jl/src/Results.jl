@@ -250,69 +250,67 @@ function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,
     end
 end
 
-"""
-    castano(metricsfile="res/csv/castano.csv")
+CASTANO_ROWS = [ # specify the order
+    "SWD",
+    "ESL",
+    "LEV",
+    "cement_strength_gago",
+    "stock.ord",
+    "auto.data.ord_chu",
+    "bostonhousing.ord_chu",
+    "californiahousing_gago",
+    "winequality-red_gago",
+    "winequality-white_gago_rev",
+    "skill_gago",
+    "SkillCraft1_rev_7clases",
+    "kinematics_gago",
+    "SkillCraft1_rev_8clases",
+    "ERA",
+    "ailerons_gago",
+    "abalone.ord_chu",
+]
 
-Generate the tables of the Castano experiment.
 """
-function castano(metricsfile::String="res/csv/castano.csv")
-    df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
-    df[!,:name] = replace.( # we must ignore the configuration of the classifier
-        df[!,:name],
-        r"(.+) on (.+)" => SubstitutionString("\\1")
-    )
+    castano(means_file)
 
-    for metric in [ :emd_score, :nmd ]
-        df_metric = combine( # average NMD per method configuration and data set
-            groupby(df, [:name, :validation_group, :dataset]),
-            metric => mean => metric
-        )
-        avg_metric = combine(
-            groupby(df_metric, [:name, :validation_group]),
-            metric => mean => metric
-        )
-        best_configurations = combine( # find configurations with the best avg performance
-            groupby(avg_metric, :validation_group),
-            gdf -> begin
-                if nrow(gdf) > 1 # investigate methods with multiple configurations
-                    @info "$(gdf[1,:validation_group])" sort(gdf[!,[:name, metric]], metric)
-                end
-                if metric == :emd_score
-                    gdf[argmax(gdf[!,metric]), :] # configuration with maximum value
-                else # if metric in [ :nmd, :rnod ]
-                    gdf[argmin(gdf[!,metric]), :] # configuration with minimum value
-                end
-            end
-        )[!,:name]
-        avg_metric[!,:dataset] .= "avg" # pseudo data set: average over all data sets
-        df_metric = vcat(df_metric, avg_metric) # include this pseudo data set in the table
-        df_metric = unstack( # create an NMD pivot table of :validation_group × :dataset
-            df_metric[ # keep only the results of the best methods
-                [ x ∈ best_configurations for x ∈ df_metric[!,:name] ],
-                [ :validation_group, :dataset, metric ]
-            ],
-            :validation_group, # columns
-            metric # values
-        )
+Generate tables from the `means_file` output of the Castano experiment. Typically, this file is called `res/castano/yyyy-mm-dd_hh:mm:ss/means_CV(DECOMP)_10x300CV20_170.csv`.
+"""
+function castano(means_file::String)
+    df = coalesce.(CSV.read(means_file, DataFrame), "") # read the means_file
+    for (error, argbest) in [ "emd_score" => argmax ] # extend with "nmd"=>argmin
+        df_error = df[
+            df[!, :error] .== error, # select rows
+            setdiff(names(df), ["decomposer", "error"]) # remove constant columns
+        ]
+        df_error = df_error[sortperm(df_error[!,:dataset])[invperm(sortperm(CASTANO_ROWS))],:]
+        push!(df_error, vcat( # compute average performance
+            ["average"],
+            mean.(eachcol(df_error[!, names(df_error)[2:end]]))
+        ))
+
+        # select the best method / column per group
+        method_groups = [ match(r"^([\w-]+)", n)[1] for n in names(df_error) ]
+        df_error = df_error[!, [
+            argbest(df_error[end, method_groups .== g])
+            for g in unique(method_groups)
+        ]]
+        rename!(df_error, [ match(r"^([\w-]+)", n)[1] for n in names(df_error) ])
+
+        # TODO study the performances of group parametrizations
 
         # write a LaTeX table to a text file
-        outfile = replace( # replace "*/csv/*.csv" with "*/tex/*.tex"
-            metricsfile,
-            r"(.+)/csv/(.+)\.csv" => SubstitutionString("\\1/tex/\\2_$(metric).tex")
-        )
+        outfile = splitext(means_file)[1] * "_" * error * ".tex"
         @info "Writing to $outfile"
         open(outfile, "w") do io
-            println(io, "\\begin{tabular}{l$("c"^(length(names(df_metric))-1))}")
+            println(io, "\\begin{tabular}{l$("c"^(length(names(df_error))-1))}")
             println(io, "  \\toprule")
-            println(io, "  " * join(names(df_metric), " & ") * " \\\\") # table header
+            println(io, "  " * join(names(df_error), " & ") * " \\\\") # table header
             println(io, "  \\midrule")
-            for r in eachrow(df_metric) # write the table body row by row
-                best_method = if metric == :emd_score
-                    argmax(r[2:end]) # <: Symbol
-                else # if metric in [ :nmd, :rnod ]
-                    argmin(r[2:end]) # <: Symbol
-                end
-                contents = OrderedDict{Symbol,String}(:dataset => replace(r[:dataset], "_" => "\\_"))
+            for r in eachrow(df_error) # write the table body row by row
+                best_method = argbest(r[2:end]) # <: Symbol
+                contents = OrderedDict{Symbol,String}(
+                    :dataset => replace(r[:dataset], "_" => "\\_")
+                )
                 for (k, v) in zip(keys(r[2:end]), values(r[2:end]))
                     contents[k] = (@sprintf "%.4f" v)[2:end]
                 end
