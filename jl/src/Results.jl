@@ -302,8 +302,6 @@ function castano(means_file::String)
         df_error = df_error[!, [ select_best(g) for g in unique(method_groups) ]]
         rename!(df_error, [ match(r"^([\w-]+)", n)[1] for n in names(df_error) ])
 
-        # TODO study the performances of group parametrizations
-
         # write a LaTeX table to a text file
         outfile = splitext(means_file)[1] * "_" * error * ".tex"
         @info "Writing to $outfile"

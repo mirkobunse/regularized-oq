@@ -1,5 +1,5 @@
 job: "castano"
-seed: 876
+seed: 2032
 configfile: "conf/gen/castano.yml"
 outfile: "res/csv/castano.csv"
 castano_methods:
@@ -8,73 +8,37 @@ castano_methods:
   - "PDF_EMD"
 method:
   - method_id: "edy"
+    name: "o-EDy (tau=1.0, d=EMD)"
+    parameters:
+      τ: 1.0
+      distance: "EarthMovers"
+  - method_id: "edy"
     name: "o-EDy (tau=0.1, d=EMD)"
     parameters:
       τ: 0.1
       distance: "EarthMovers"
   - method_id: "edy"
-    name: "o-EDy (tau=0.001, d=EMD)"
+    name: "o-EDy (tau=0.01, d=EMD)"
     parameters:
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy (tau=1.0e-5, d=EMD)"
-    parameters:
-      τ: 1.0e-5
+      τ: 0.01
       distance: "EarthMovers"
   - method_id: "pdf"
-    name: "o-PDF (tau=0.1, J=40, d=s-EMD)"
-    parameters:
-      τ: 0.1
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF (tau=0.1, J=80, d=s-EMD)"
-    parameters:
-      τ: 0.1
-      n_bins: 80
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF (tau=0.1, J=160, d=s-EMD)"
-    parameters:
-      τ: 0.1
-      n_bins: 160
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF (tau=0.001, J=40, d=s-EMD)"
+    name: "o-PDF (tau=0.001, J=100, d=s-EMD)"
     parameters:
       τ: 0.001
-      n_bins: 40
+      n_bins: 100
       distance: "EarthMoversSurrogate"
   - method_id: "pdf"
-    name: "o-PDF (tau=0.001, J=80, d=s-EMD)"
+    name: "o-PDF (tau=0.0001, J=100, d=s-EMD)"
     parameters:
-      τ: 0.001
-      n_bins: 80
+      τ: 0.0001
+      n_bins: 100
       distance: "EarthMoversSurrogate"
   - method_id: "pdf"
-    name: "o-PDF (tau=0.001, J=160, d=s-EMD)"
-    parameters:
-      τ: 0.001
-      n_bins: 160
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF (tau=1.0e-5, J=40, d=s-EMD)"
+    name: "o-PDF (tau=1.0e-5, J=100, d=s-EMD)"
     parameters:
       τ: 1.0e-5
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF (tau=1.0e-5, J=80, d=s-EMD)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 80
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF (tau=1.0e-5, J=160, d=s-EMD)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 160
+      n_bins: 100
       distance: "EarthMoversSurrogate"
   - method_id: "ibu"
     name: "IBU (o=0, i=0.1)"
@@ -101,35 +65,35 @@ method:
       o: 1
       λ: 0.01
   - method_id: "run"
-    name: "RUN (tau=1000.0)"
+    name: "RUN (tau=1.0)"
     transformer: "classifier"
     parameters:
-      τ: 1000.0
-  - method_id: "run"
-    name: "RUN (tau=10.0)"
-    transformer: "classifier"
-    parameters:
-      τ: 10.0
+      τ: 1.0
   - method_id: "run"
     name: "RUN (tau=0.1)"
     transformer: "classifier"
     parameters:
       τ: 0.1
+  - method_id: "run"
+    name: "RUN (tau=0.01)"
+    transformer: "classifier"
+    parameters:
+      τ: 0.01
+  - method_id: "svd"
+    name: "SVD (tau=1.0)"
+    transformer: "classifier"
+    parameters:
+      τ: 1.0
   - method_id: "svd"
     name: "SVD (tau=0.1)"
     transformer: "classifier"
     parameters:
       τ: 0.1
   - method_id: "svd"
-    name: "SVD (tau=0.001)"
+    name: "SVD (tau=0.01)"
     transformer: "classifier"
     parameters:
-      τ: 0.001
-  - method_id: "svd"
-    name: "SVD (tau=1.0e-5)"
-    transformer: "classifier"
-    parameters:
-      τ: 1.0e-5
+      τ: 0.01
   - method_id: "cc"
     name: "CC"
   - method_id: "pcc"
@@ -140,33 +104,6 @@ method:
     name: "PACC"
   - method_id: "sld"
     name: "SLD"
-  - method_id: "hdx"
-    name: "HDx (8 bins per feature)"
-    parameters:
-      n_bins: 8
-    random_state: 2443831012
-  - method_id: "hdx"
-    name: "HDx (16 bins per feature)"
-    parameters:
-      n_bins: 16
-    random_state: 2939027323
-  - method_id: "hdx"
-    name: "HDx (32 bins per feature)"
-    parameters:
-      n_bins: 32
-    random_state: 2044794860
-  - method_id: "hdy"
-    name: "HDy (4 bins per class)"
-    parameters:
-      n_bins: 4
-  - method_id: "hdy"
-    name: "HDy (8 bins per class)"
-    parameters:
-      n_bins: 8
-  - method_id: "hdy"
-    name: "HDy (16 bins per class)"
-    parameters:
-      n_bins: 16
   - method_id: "osld"
     name: "o-SLD (o=0, i=0.1)"
     parameters:
@@ -216,55 +153,37 @@ method:
     parameters:
       τ: 0.1
       n_bins: 8
-    random_state: 2443831012
+    random_state: 2918165140
   - method_id: "ohdx"
     name: "o-HDx (tau=0.1, 16 bins per feature)"
     parameters:
       τ: 0.1
       n_bins: 16
-    random_state: 2939027323
+    random_state: 1746094025
   - method_id: "ohdx"
     name: "o-HDx (tau=0.1, 32 bins per feature)"
     parameters:
       τ: 0.1
       n_bins: 32
-    random_state: 2044794860
+    random_state: 2783735861
   - method_id: "ohdx"
     name: "o-HDx (tau=0.001, 8 bins per feature)"
     parameters:
       τ: 0.001
       n_bins: 8
-    random_state: 2443831012
+    random_state: 2918165140
   - method_id: "ohdx"
     name: "o-HDx (tau=0.001, 16 bins per feature)"
     parameters:
       τ: 0.001
       n_bins: 16
-    random_state: 2939027323
+    random_state: 1746094025
   - method_id: "ohdx"
     name: "o-HDx (tau=0.001, 32 bins per feature)"
     parameters:
       τ: 0.001
       n_bins: 32
-    random_state: 2044794860
-  - method_id: "ohdx"
-    name: "o-HDx (tau=1.0e-5, 8 bins per feature)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 8
-    random_state: 2443831012
-  - method_id: "ohdx"
-    name: "o-HDx (tau=1.0e-5, 16 bins per feature)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 16
-    random_state: 2939027323
-  - method_id: "ohdx"
-    name: "o-HDx (tau=1.0e-5, 32 bins per feature)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 32
-    random_state: 2044794860
+    random_state: 2783735861
   - method_id: "ohdy"
     name: "o-HDy (tau=0.1, 4 bins per class)"
     parameters:
@@ -294,19 +213,4 @@ method:
     name: "o-HDy (tau=0.001, 16 bins per class)"
     parameters:
       τ: 0.001
-      n_bins: 16
-  - method_id: "ohdy"
-    name: "o-HDy (tau=1.0e-5, 4 bins per class)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy (tau=1.0e-5, 8 bins per class)"
-    parameters:
-      τ: 1.0e-5
-      n_bins: 8
-  - method_id: "ohdy"
-    name: "o-HDy (tau=1.0e-5, 16 bins per class)"
-    parameters:
-      τ: 1.0e-5
       n_bins: 16
