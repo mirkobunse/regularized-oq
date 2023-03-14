@@ -290,10 +290,16 @@ function castano(means_file::String)
 
         # select the best method / column per group
         method_groups = [ match(r"^([\w-]+)", n)[1] for n in names(df_error) ]
-        df_error = df_error[!, [
-            argbest(df_error[end, method_groups .== g])
-            for g in unique(method_groups)
-        ]]
+        select_best = g -> begin
+            r = df_error[end, method_groups .== g] # DataFrame row
+            if length(r) > 1 # log information about parameter outcomes
+                r_df = DataFrame(r)
+                r_df[!, :method] = [:value]
+                @info g sort(permutedims(r_df, :method), :value)
+            end
+            argbest(r) # take out the actual selection
+        end
+        df_error = df_error[!, [ select_best(g) for g in unique(method_groups) ]]
         rename!(df_error, [ match(r"^([\w-]+)", n)[1] for n in names(df_error) ])
 
         # TODO study the performances of group parametrizations
