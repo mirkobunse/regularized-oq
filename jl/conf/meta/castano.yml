@@ -5,7 +5,7 @@
 # devised by Castano et al.
 #
 job: castano # this file configures the function Job.<job>
-seed: 876 # random number generator seed
+seed: 2032 # random number generator seed
 
 # output of configuration expansion and of experiments
 configfile: conf/gen/castano.yml
@@ -24,14 +24,14 @@ method:
   - method_id: edy
     name: "o-EDy (tau=$(τ), d=EMD)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e0, 1e-1, 1e-2 ]
       distance: EarthMovers
 
   - method_id: pdf
     name: "o-PDF (tau=$(τ), J=$(n_bins), d=s-EMD)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
-      n_bins: [ 40, 80, 160 ] # assume n_classes=5 to yield same bins as castano-pdf
+      τ: [ 1e-3, 1e-4, 1e-5 ]
+      n_bins: [ 100 ]
       distance: EarthMoversSurrogate
 
   # unfolding methods from QUnfold.jl
@@ -46,13 +46,13 @@ method:
     name: "RUN (tau=$(τ))"
     transformer: classifier
     parameters:
-      τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
+      τ: [ 1e0, 1e-1, 1e-2 ]
 
   - method_id: svd
     name: "SVD (tau=$(τ))"
     transformer: classifier
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e0, 1e-1, 1e-2 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
@@ -69,16 +69,6 @@ method:
 
   - method_id: sld # a.k.a. EMQ
     name: "SLD"
-
-  - method_id: hdx
-    name: "HDx ($(n_bins) bins per feature)"
-    parameters:
-      n_bins: [ 8, 16, 32 ]
-
-  - method_id: hdy
-    name: "HDy ($(n_bins) bins per class)"
-    parameters:
-      n_bins: [ 4, 8, 16 ]
 
   - method_id: osld # ordinal SLD
     name: "o-SLD (o=$(o), i=$(λ))"
@@ -99,11 +89,11 @@ method:
   - method_id: ohdx # ordinal HDx
     name: "o-HDx (tau=$(τ), $(n_bins) bins per feature)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1, 1e-3 ]
       n_bins: [ 8, 16, 32 ]
 
   - method_id: ohdy # ordinal HDy
     name: "o-HDy (tau=$(τ), $(n_bins) bins per class)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1, 1e-3 ]
       n_bins: [ 4, 8, 16 ]
