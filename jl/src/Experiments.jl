@@ -687,7 +687,8 @@ function castano(
         "output_dir" => output_dir,
         "estimator" => pyimport("sklearn.ensemble").RandomForestClassifier(
             random_state = c[:seed],
-            class_weight = "balanced"
+            class_weight = "balanced",
+            oob_score = true,
         ),
         "estimator_grid" => estimator_grid,
         "methods" => methods,
