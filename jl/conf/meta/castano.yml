@@ -24,13 +24,13 @@ method:
   - method_id: edy
     name: "o-EDy (tau=$(τ), d=EMD)"
     parameters:
-      τ: [ 1e0, 1e-1, 1e-2 ]
+      τ: [ 1e-1, 1e-2, 1e-3 ]
       distance: EarthMovers
 
   - method_id: pdf
     name: "o-PDF (tau=$(τ), J=$(n_bins), d=s-EMD)"
     parameters:
-      τ: [ 1e-3, 1e-4, 1e-5 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       n_bins: [ 100 ]
       distance: EarthMoversSurrogate
 
@@ -46,13 +46,13 @@ method:
     name: "RUN (tau=$(τ))"
     transformer: classifier
     parameters:
-      τ: [ 1e0, 1e-1, 1e-2 ]
+      τ: [ 1e1, 1e0, 1e-1 ]
 
   - method_id: svd
     name: "SVD (tau=$(τ))"
     transformer: classifier
     parameters:
-      τ: [ 1e0, 1e-1, 1e-2 ]
+      τ: [ 1e-1, 1e-2, 1e-3 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
@@ -90,10 +90,10 @@ method:
     name: "o-HDx (tau=$(τ), $(n_bins) bins per feature)"
     parameters:
       τ: [ 1e-1, 1e-3 ]
-      n_bins: [ 8, 16, 32 ]
+      n_bins: [ 8, 16 ]
 
   - method_id: ohdy # ordinal HDy
     name: "o-HDy (tau=$(τ), $(n_bins) bins per class)"
     parameters:
       τ: [ 1e-1, 1e-3 ]
-      n_bins: [ 4, 8, 16 ]
+      n_bins: [ 4, 8 ]
