@@ -302,6 +302,28 @@ function castano(means_file::String)
         df_error = df_error[!, [ select_best(g) for g in unique(method_groups) ]]
         rename!(df_error, [ match(r"^([\w-]+)", n)[1] for n in names(df_error) ])
 
+        # df_error = df_error[!, [ # specify a good order; MAKE SURE ALL COLUMNS ARE PRESENT
+        #     "dataset",
+        #     "EDy_Eu",
+        #     "EDy_EMD",
+        #     "o-EDy",
+        #     "PDF_EMD",
+        #     "o-PDF",
+        #     "CC",
+        #     "PCC",
+        #     "ACC",
+        #     "o-ACC",
+        #     "PACC",
+        #     "o-PACC",
+        #     "SLD",
+        #     "o-SLD",
+        #     "IBU",
+        #     "RUN",
+        #     "SVD",
+        #     "o-HDx",
+        #     "o-HDy",
+        # ]]
+
         # write a LaTeX table to a text file
         outfile = splitext(means_file)[1] * "_" * error * ".tex"
         @info "Writing to $outfile"

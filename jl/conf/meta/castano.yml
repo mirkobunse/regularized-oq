@@ -30,7 +30,7 @@ method:
   - method_id: pdf
     name: "o-PDF (tau=$(τ), J=$(n_bins), d=s-EMD)"
     parameters:
-      τ: [ 1e-2, 1e-3, 1e-4 ]
+      τ: [ 1e-1, 1e-2, 1e-3 ]
       n_bins: [ 100 ]
       distance: EarthMoversSurrogate
 
@@ -46,7 +46,7 @@ method:
     name: "RUN (tau=$(τ))"
     transformer: classifier
     parameters:
-      τ: [ 1e1, 1e0, 1e-1 ]
+      τ: [ 1e2, 1e1, 1e0 ] # count-based loss of RUN requires larger τ values
 
   - method_id: svd
     name: "SVD (tau=$(τ))"
@@ -79,12 +79,12 @@ method:
   - method_id: oacc # ordinal ACC
     name: "o-ACC (tau=$(τ))"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1, 1e-2, 1e-3 ]
 
   - method_id: opacc # ordinal PACC
     name: "o-PACC (tau=$(τ))"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-1, 1e-2, 1e-3 ]
 
   - method_id: ohdx # ordinal HDx
     name: "o-HDx (tau=$(τ), $(n_bins) bins per feature)"
