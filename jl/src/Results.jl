@@ -62,16 +62,16 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         selection_metric = key.selection_metric # :nmd or :rnod
         agg_app = _main(
-            sdf[sdf[!, :val_curvature_level].==-1, :],
+            sdf[.!(sdf[!, :val_is_app_oq]), :],
             selection_metric
         )
         agg_app[!, :bin] .= "APP" # typical APP
-        agg_1 = _main(
-            sdf[(sdf.val_curvature_level.==1) .& (sdf.tst_curvature_level.==1), :],
+        agg_app_oq = _main(
+            sdf[(sdf[!, :val_is_app_oq]) .& (sdf[!, :tst_is_app_oq]), :],
             selection_metric
         )
-        agg_1[!, :bin] .= "APP-1" # first bin
-        agg = vcat(agg_app, agg_1)
+        agg_app_oq[!, :bin] .= "APP-OQ" # first bin
+        agg = vcat(agg_app, agg_app_oq)
 
         # unstack
         agg[!, :id] = agg[!, :validation_group]
@@ -93,7 +93,7 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
         @info "Writing to $(_outfile)" selection_metric tab
         columns = vcat(
             [ "validation_group" ],
-            vcat(map(dataset -> [ "$(dataset) (APP)", "$(dataset) (APP-1)" ], first.(metricsfiles))...)
+            vcat(map(dataset -> [ "$(dataset) (APP)", "$(dataset) (APP-OQ)" ], first.(metricsfiles))...)
         )
         open(_outfile, "w") do io
             println(io, "\\begin{tabular}{l$(repeat("cc", length(metricsfiles)))}")
@@ -153,42 +153,35 @@ Generate ranking tables from the results obtained with a single data set.
 function ranking(metricsfile::String)
     df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
     regex = r"(.+)/csv/(.+)\.csv" # what to replace in the file name
-    if :val_curvature_level ∉ propertynames(df)
-        @warn "Adding missing curvature levels; are these validations results?"
-        df[!,:val_curvature_level] .= -1
-        df[!,:tst_curvature_level] = df[!,:curvature_level]
-        df[!,:selection_metric] .= "nmd"
+    if :val_is_app_oq ∉ propertynames(df)
+        @warn "Adding missing column :val_is_app_oq; are these validations results?"
+        df[!, :val_is_app_oq] .= false
+        df[!, :tst_is_app_oq] = df[!, :is_app_oq]
+        df[!, :selection_metric] .= "nmd"
     end
 
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         metric = key.selection_metric # :nmd or :rnod
-
-        # one output for typical APP, validating and testing on all samples
-        _ranking_curvature(
-            sdf[sdf[!, :val_curvature_level].==-1, :],
+        _ranking( # one output for typical APP
+            sdf[.!(sdf[!, :val_is_app_oq]), :],
             replace(
                 metricsfile,
-                regex => SubstitutionString("\\1/tex/\\2_$(metric)_all.tex")
-            ), # output path: replace with "*/tex/*_<metric name>_all.tex"
+                regex => SubstitutionString("\\1/tex/\\2_$(metric)_app.tex")
+            ), # output path: replace with "*/tex/*_<metric name>_app.tex"
             Symbol(metric) => uppercase(metric) # pair metric_column => metric_name
         )
-
-        # one additional output for each curvature level, used both for validation and testing
-        levels = sort(unique(sdf[!, :tst_curvature_level]))
-        for level in levels
-            _ranking_curvature(
-                sdf[(sdf.val_curvature_level.==level) .& (sdf.tst_curvature_level.==level), :],
-                replace(
-                    metricsfile,
-                    regex => SubstitutionString("\\1/tex/\\2_$(metric)_$(level).tex")
-                ), # replace with "*/tex/*_<metric name>_<curvature level>.tex"
-                Symbol(metric) => uppercase(metric)
-            )
-        end
+        _ranking( # one output for APP-OQ
+            sdf[(sdf[!, :val_is_app_oq]) .& (sdf[!, :tst_is_app_oq]), :],
+            replace(
+                metricsfile,
+                regex => SubstitutionString("\\1/tex/\\2_$(metric)_app_oq.tex")
+            ),
+            Symbol(metric) => uppercase(metric)
+        )
     end
 end
 
-function _ranking_curvature(df::DataFrame, outfile::String, metric::Pair{Symbol,String})
+function _ranking(df::DataFrame, outfile::String, metric::Pair{Symbol,String})
     if nrow(df) == 0
         @warn "Skipping $(outfile) for having no results; are these validations results?"
         return

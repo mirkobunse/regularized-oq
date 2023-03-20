@@ -373,12 +373,11 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
         for x in [:configfile, :outfile, :valfile]
             job[x] = joinpath(dirname(job[x]), "test_" * basename(job[x]))
         end
-        job[:M_val] = 3
-        job[:M_tst] = 3
+        job[:M_val] = 5
+        job[:M_tst] = 5
         job[:N_tst] = 100
         job[:N_val] = 100
         job[:N_trn] = 2000
-        job[:protocol][:n_splits] = 2
         job[:method] = vcat(rand.(values(group_exp))...)
         @info "Writing a test configuration to $(job[:configfile])"
         save(job[:configfile], job)

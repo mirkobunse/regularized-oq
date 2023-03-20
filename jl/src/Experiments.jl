@@ -339,14 +339,14 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
     c[:val_seed] = rand(UInt32, c[:M_val])
     c[:tst_seed] = rand(UInt32, c[:M_tst])
 
-    # configure and execute the validation step
+    # configure the validation step: pretend we were testing
     val_c = deepcopy(c) # keep the original configuration intact
-    val_c[:tst_seed] = val_c[:val_seed] # pretend we were testing
+    val_c[:tst_seed] = val_c[:val_seed]
     val_c[:N_tst] = val_c[:N_val]
-    for m in val_c[:method]
-        m[:curvature_level] = [ -1 ]
+    for m in val_c[:method] # fake reason for "testing" each model
+        m[:is_app_oq] = [ false ]
         m[:selection_metric] = [ :none ]
-    end # fake reason for evaluating each model: -1 means to validate on all data
+    end
     val_trials = expand(val_c, :method)
     for (i, val_trial) in enumerate(val_trials)
         val_trial[:trial] = i # add the trial number to each configuration
@@ -359,9 +359,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
             val_trial -> catch_during_trial(_dirichlet_trial, val_trial, job_args...),
             val_trials
         )...)
-
-        # split the validation data into curvature levels, see src/job/amazon.jl
-        val_df[!, :curvature_level] = _curvature_level(val_df, c[:protocol][:n_splits])
+        val_df[!, :is_app_oq] = _is_app_oq(val_df, c[:app_oq_frac])
 
         # validation output
         CSV.write(c[:valfile], val_df)
@@ -371,8 +369,8 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
         @info "Read validation results from $(c[:valfile])"
     end
 
-    # select the best overall methods and the best methods for each curvature level
-    _filter_best_methods!(c, val_df, c[:protocol][:n_splits])
+    # select the best overall methods and the best methods for each protocol
+    _filter_best_methods!(c, val_df, c[:app_oq_frac])
 
     # parallel execution
     tst_trials = expand(c, :method)
@@ -385,10 +383,8 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
         tst_trial -> catch_during_trial(_dirichlet_trial, tst_trial, job_args...),
         tst_trials
     )...)
-
-    # also split the test data into curvature levels, see src/job/amazon.jl
-    rename!(tst_df, Dict(:curvature_level => :val_curvature_level))
-    tst_df[!, :tst_curvature_level] = _curvature_level(tst_df, c[:protocol][:n_splits])
+    rename!(tst_df, Dict(:is_app_oq => :val_is_app_oq))
+    tst_df[!, :tst_is_app_oq] = _is_app_oq(tst_df, c[:app_oq_frac])
 
     # testing output
     CSV.write(c[:outfile], tst_df)
@@ -409,7 +405,7 @@ function _dirichlet_trial(
     df = DataFrame(
         name = String[],
         validation_group = String[],
-        curvature_level = Int64[], # reason why this method is evaluated
+        is_app_oq = Bool[], # reason why this method is evaluated
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
         sample_curvature = Float64[], # actual curvature of the respective sample
@@ -430,15 +426,8 @@ function _dirichlet_trial(
     Random.seed!(seed)
     @info "Trial $(trial[:trial]) is starting: $(trial[:method][:name])"
 
-    # different parametrizations of the Dirichlet distribution realize APP and NPP
-    dirichlet_parameters = if trial[:protocol][:sampling] == "app"
-        ones(n_classes)
-    elseif trial[:protocol][:sampling] == "npp"
-        DeconvUtil.fit_pdf(y_tst) * trial[:N_tst]
-    else
-        throw(ArgumentError("Protocol '$(trial[:protocol][:sampling])' not supported"))
-    end
-    dirichlet_distribution = Dirichlet(dirichlet_parameters)
+    # implement APP through a Dirichlet distribution
+    dirichlet_distribution = Dirichlet(ones(n_classes))
 
     # evaluate
     method = prefit(Configuration.configure_method(trial[:method]), X_trn, y_trn)
@@ -455,69 +444,61 @@ function _dirichlet_trial(
         sample_curvature = sum((C_curv*f_true).^2)
 
         # this model might be evaluated for multiple reasons; store the results for each reason
-        for (cl, sm) in zip(trial[:method][:curvature_level], trial[:method][:selection_metric])
+        for (oq, sm) in zip(trial[:method][:is_app_oq], trial[:method][:selection_metric])
             validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
-            push!(df, [ trial[:method][:name], validation_group, cl, sm, sample_seed, sample_curvature, nmd, rnod ])
+            push!(df, [ trial[:method][:name], validation_group, oq, sm, sample_seed, sample_curvature, nmd, rnod ])
         end
     end
     return df
 end
 
-# split sample curvatures into discrete levels of equal probability
-function _curvature_level(df::DataFrame, n_splits::Int)
-    if n_splits > 1
-        split_points = Statistics.quantile(
-            unique(df[!, :sample_curvature]),
-            1/n_splits .* collect(1:(n_splits-1))
-        )
-        @info "Computing $(n_splits) curvature levels" split_points
-        return vec(sum(hcat([
-            df[!, :sample_curvature] .> s for s in split_points
-        ]...); dims=2)) .+ 1
-    else
-        return fill(-1, nrow(df))
-    end
+# does a sample curvature belong to the APP-OQ?
+function _is_app_oq(df::DataFrame, app_oq_frac::Real)
+    split_point = max(
+        Statistics.quantile(unique(df[!, :sample_curvature]), app_oq_frac),
+        minimum(df[!, :sample_curvature])
+    )
+    return df[!, :sample_curvature] .<= split_point
 end
 
-# remove all but the best methods (for each curvature level) from the configuration c
-function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, n_splits::Int)
-
-    # find the methods which perform best over the entire APP, according to NMD and RNOD
-    best_methods = vcat(map(selection_metric -> begin
-        best_avg = combine( # find methods with the minimum average metric
-            groupby(combine(
-                groupby(val_df, [:name, :validation_group]),
-                selection_metric => DataFrames.mean => :avg_metric
-            ), :validation_group), # average NMD/RNOD per configuration
-            sdf -> sdf[argmin(sdf[!, :avg_metric]), :]
-        )[!, [:name]]
-        best_avg[!, :selection_metric] .= selection_metric # reason for keeping these methods
-        best_avg # "return value" of the map operation
-    end, [:nmd, :rnod])...)
-    best_methods[!, :curvature_level] .= -1 # these methods are selected for the full APP
-
-    # do the same for separate curvature levels
-    if n_splits > 1
-        for selection_metric in [:nmd, :rnod]
-            best_avg = combine(
-                groupby(combine( # also split by curvature_level, this time
-                    groupby(val_df, [:name, :validation_group, :curvature_level]),
-                    selection_metric => DataFrames.mean => :avg_metric
-                ), [:validation_group, :curvature_level]),
-                sdf -> sdf[argmin(sdf[!, :avg_metric]), :]
-            )[!, [:name, :curvature_level]]
-            best_avg[!, :selection_metric] .= selection_metric
-            best_methods = vcat(best_methods, best_avg) # append
-        end
-    end
+# remove all but the best methods (for each protocol) from the configuration c
+function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, app_oq_frac::Real)
+    best_methods = vcat(map( # find the best methods for APP and APP-OQ
+        is_app_oq -> begin # outer map operation
+            best_app = vcat(map(
+                selection_metric -> begin # inner map operation
+                    best_avg = combine( # find methods with the minimum average metric
+                        groupby(combine(
+                            groupby(
+                                if is_app_oq # use a subset (APP-OQ) or the entire val_df
+                                    val_df[val_df[!, :is_app_oq], :]
+                                else
+                                    val_df
+                                end,
+                                [:name, :validation_group]
+                            ),
+                            selection_metric => DataFrames.mean => :avg_metric
+                        ), :validation_group), # average NMD/RNOD per configuration
+                        sdf -> sdf[argmin(sdf[!, :avg_metric]), :]
+                    )[!, [:name]]
+                    best_avg[!, :selection_metric] .= selection_metric
+                    best_avg # "return value" of the inner map operation
+                end,
+                [:nmd, :rnod] # apply the inner map to both selection metrics
+            )...)
+            best_app[!, :is_app_oq] .= is_app_oq
+            best_app # "return value" of the outer map operation
+        end,
+        [ false, true ]  # apply the outer map to APP and APP-OQ
+    )...)
 
     # remove all methods that are not among the best ones
     c[:method] = filter(m -> m[:name] ∈ best_methods[!, :name], c[:method])
     for m in c[:method] # store the reason for keeping each method
-        m[:curvature_level] = best_methods[best_methods[!, :name].==m[:name], :curvature_level]
+        m[:is_app_oq] = best_methods[best_methods[!, :name].==m[:name], :is_app_oq]
         m[:selection_metric] = best_methods[best_methods[!, :name].==m[:name], :selection_metric]
     end
-    list_best = [(n=m[:name], c=m[:curvature_level], m=m[:selection_metric]) for m in c[:method]]
+    list_best = [(n=m[:name], c=m[:is_app_oq], m=m[:selection_metric]) for m in c[:method]]
     @info "Methods to evaluate on the test data" list_best
     return c
 end
@@ -564,15 +545,8 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     c[:val_seed] = rand(UInt32, c[:M_val])
     c[:tst_seed] = rand(UInt32, c[:M_tst])
 
-    # different parametrizations of the Dirichlet distribution realize APP and NPP
-    dirichlet_parameters = if c[:protocol][:sampling] == "app"
-        ones(n_classes)
-    elseif c[:protocol][:sampling] == "npp"
-        DeconvUtil.fit_pdf(y_tst) * c[:N_tst]
-    else
-        throw(ArgumentError("Protocol '$(c[:protocol][:sampling])' not supported"))
-    end
-    dirichlet_distribution = Dirichlet(dirichlet_parameters)
+    # implement APP through a Dirichlet distribution
+    dirichlet_distribution = Dirichlet(ones(n_classes))
 
     # generate indices
     @info "Generating indices for $(c[:M_val]) validation samples."
@@ -590,7 +564,7 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     @info "Validation samples have been written to app_val_indices.csv"
 
     # filter smoothest 20% for APP-OQ
-    val_indices = val_indices[1 .== _curvature_level(DataFrame(sample_curvature=val_curvatures), c[:protocol][:n_splits]), :]
+    val_indices = val_indices[_is_app_oq(DataFrame(sample_curvature=val_curvatures), c[:app_oq_frac]), :]
     CSV.write("app-oq_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app-oq_val_indices.csv"
 
@@ -609,7 +583,7 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     @info "Validation samples have been written to app_tst_indices.csv"
 
     # filter smoothest 20% for APP-OQ
-    tst_indices = tst_indices[1 .== _curvature_level(DataFrame(sample_curvature=tst_curvatures), c[:protocol][:n_splits]), :]
+    tst_indices = tst_indices[_is_app_oq(DataFrame(sample_curvature=tst_curvatures), c[:app_oq_frac]), :]
     CSV.write("app-oq_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app-oq_tst_indices.csv"
 
