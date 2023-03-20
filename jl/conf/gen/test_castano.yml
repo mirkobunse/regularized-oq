@@ -1,0 +1,101 @@
+job: "castano"
+seed: 876
+n_reps: 2
+n_bags: 3
+test_size: 0.3
+configfile: "conf/gen/test_castano.yml"
+outfile: "res/csv/test_castano.csv"
+method:
+  - method_id: "castano-cc"
+    name: "Casta{\\~{n}}o CC on $(classifier)"
+  - method_id: "castano-pcc"
+    name: "Casta{\\~{n}}o PCC on $(classifier)"
+  - method_id: "castano-acc"
+    name: "Casta{\\~{n}}o ACC on $(classifier)"
+  - method_id: "castano-pacc"
+    name: "Casta{\\~{n}}o PACC on $(classifier)"
+  - method_id: "castano-edy"
+    validation_group: "castano-edy-l2"
+    name: "Casta{\\~{n}}o EDy (d=L2) on $(classifier)"
+  - method_id: "castano-edy"
+    validation_group: "castano-edy-emd"
+    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
+    parameters:
+      distances: "emd_distances"
+  - method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=4, d=EMD) on $(classifier)"
+    parameters:
+      n_bins: 4
+repetition:
+  - repetition: 1
+    seed: 3193573456
+    dataset:
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 5
+            max_depth: 5
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 5
+            max_depth: 5
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 5
+            max_depth: 5
+  - repetition: 2
+    seed: 1466828405
+    dataset:
+      - id: "auto.data.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 5
+            max_depth: 5
+      - id: "bostonhousing.ord_chu"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 5
+            max_depth: 5
+      - id: "ESL"
+        classifier:
+          name: "RF ($d=5, l=1$)"
+          package: "ensemble"
+          classifier: "RandomForestClassifier"
+          parameters:
+            oob_score: true
+            random_state: 876
+            min_samples_leaf: 1
+            n_estimators: 5
+            max_depth: 5

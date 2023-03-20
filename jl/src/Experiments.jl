@@ -101,17 +101,14 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
         @warn "Limiting training data to $(c[:N_trn]) instances"
     end
 
+    # configure the validation step: pretend we were testing
     val_c = deepcopy(c)
-    val_c[:data][:tst_path] = joinpath(
-        c[:data][:path],
-        c[:protocol][:sampling],
-        "dev_samples",
-    ) # pretend we were testing, but use the development samples
+    val_c[:data][:tst_path] = joinpath(c[:data][:path], "app", "dev_samples")
     val_c[:M_tst] = val_c[:M_val]
-    for m in val_c[:method]
-        m[:curvature_level] = [ -1 ]
+    for m in val_c[:method] # fake reason for "testing" each model
+        m[:is_app_oq] = [ false ]
         m[:selection_metric] = [ :none ]
-    end # fake reason for evaluating each model: -1 means to validate on all data
+    end
     val_batches = _amazon_trial_batches(val_c)
     val_df = DataFrame()
     if validate
@@ -120,9 +117,7 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
             val_batch -> catch_during_trial(_amazon_batch, val_batch),
             val_batches
         )...)
-
-        # split the validation data into curvature levels ∈ [ 1, 2, ..., n_splits ]
-        val_df[!, :curvature_level] = _curvature_level(val_df, c[:protocol][:n_splits])
+        val_df[!, :is_app_oq] = _is_app_oq(val_df, c[:app_oq_frac])
 
         # validation output
         CSV.write(c[:valfile], val_df)
@@ -132,25 +127,19 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
         @info "Read validation results from $(c[:valfile])"
     end
 
-    # select the best overall methods and the best methods for each curvature level
-    _filter_best_methods!(c, val_df, c[:protocol][:n_splits])
+    # select the best methods for each protocol
+    _filter_best_methods!(c, val_df, c[:app_oq_frac])
 
     # parallel execution
-    c[:data][:tst_path] = joinpath(
-        c[:data][:path],
-        c[:protocol][:sampling],
-        "test_samples",
-    )
+    c[:data][:tst_path] = joinpath(c[:data][:path], "app", "test_samples")
     tst_batches = _amazon_trial_batches(c)
     @info "Starting $(length(tst_batches)) testing batch(es) on $(nworkers()) worker(s)."
     tst_df = vcat(pmap(
         tst_batch -> catch_during_trial(_amazon_batch, tst_batch),
         tst_batches
     )...)
-
-    # also split the test data into curvature levels ∈ [ 1, 2, ..., n_splits ]
-    rename!(tst_df, Dict(:curvature_level => :val_curvature_level)) # remember the reason for testing this model
-    tst_df[!, :tst_curvature_level] = _curvature_level(tst_df, c[:protocol][:n_splits])
+    rename!(tst_df, Dict(:is_app_oq => :val_is_app_oq))
+    tst_df[!, :tst_is_app_oq] = _is_app_oq(tst_df, c[:app_oq_frac])
 
     # testing output
     CSV.write(c[:outfile], tst_df)
@@ -162,7 +151,7 @@ function _amazon_batch(batch::Dict{Symbol, Any})
     df = DataFrame(
         name = String[],
         validation_group = String[],
-        curvature_level = Int64[], # reason why this method is evaluated
+        is_app_oq = Bool[], # reason why this method is evaluated
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
         sample_curvature = Float64[], # actual curvature of the respective sample
@@ -202,9 +191,9 @@ function _amazon_batch(batch::Dict{Symbol, Any})
             sample_curvature = sum((C_curv*f_true).^2)
 
             # this model might be evaluated for multiple reasons; store the results for each reason
-            for (cl, sm) in zip(trial[:method][:curvature_level], trial[:method][:selection_metric])
+            for (oq, sm) in zip(trial[:method][:is_app_oq], trial[:method][:selection_metric])
                 validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
-                push!(df, [ trial[:method][:name], validation_group, cl, sm, i, sample_curvature, nmd, rnod ])
+                push!(df, [ trial[:method][:name], validation_group, oq, sm, i, sample_curvature, nmd, rnod ])
             end
         end
     end
@@ -369,7 +358,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
         @info "Read validation results from $(c[:valfile])"
     end
 
-    # select the best overall methods and the best methods for each protocol
+    # select the best methods for each protocol
     _filter_best_methods!(c, val_df, c[:app_oq_frac])
 
     # parallel execution

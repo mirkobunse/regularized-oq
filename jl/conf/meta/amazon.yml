@@ -1,12 +1,14 @@
 #
 # conf/meta/amazon.yml
 #
-# Meta-configuration for comparing quantification methods on Amazon customer review text data.
+# Meta-configuration for comparing quantification methods on Amazon
+# customer review text data.
 #
 job: amazon # this file configures the function Job.<job>
 seed: 876 # random number generator seed
-M_val: 1000 # number of validation samples
+M_val: 2000 # number of validation samples
 M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
+app_oq_frac: 0.5 # the fraction of samples to keep in APP-OQ
 
 # output of configuration expansion and of experiments
 configfile: conf/gen/amazon_$(id).yml # $(id) is replaced by the data ID
@@ -20,11 +22,6 @@ data:
   - id: roberta
     path: /mnt/data/amazon-oq-bk/roberta
     type: dense_vector
-
-# the sampling protocols with which to evaluate
-protocol:
-  sampling: app # app or npp
-  n_splits: 5 # investigate multiple levels of curvature + all data
 
 # all classifiers over which the quantification methods are optimized
 classifier:
@@ -43,18 +40,46 @@ classifier:
 # all methods to be compared
 method:
 
-  # Ordinal Quantification Tree (CAUTION: will break with costly ensemble skconfigs)
-  - method_id: oqt
-    name: "OQT ($v=$(val_split)$) on $(classifier)"
-    parameters:
-      epsilon: 1e-6
-      val_split: [ 0.334 ] # 1/3
+  # # early OQ methods
+  # - method_id: oqt
+  #   name: "OQT ($v=$(val_split)$) on $(classifier)"
+  #   parameters:
+  #     epsilon: 1e-6
+  #     val_split: [ 0.334 ] # 1/3
 
-  # AdjustedRegressAndCount (by Andrea Esuli)
-  - method_id: arc
-    name: "ARC ($v=$(val_split)$) on $(classifier)"
+  # - method_id: arc
+  #   name: "ARC ($v=$(val_split)$) on $(classifier)"
+  #   parameters:
+  #     val_split: [ 0.334 ]
+
+  # original implementations of OQ methods by Castaño et al. (2022)
+  - method_id: castano-edy
+    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
     parameters:
-      val_split: [ 0.334 ]
+      distances: emd_distances
+      decomposer: none
+      option: bagging_decomp
+
+  - method_id: castano-pdf
+    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
+    parameters:
+      n_bins: [ 5, 10 ] # bins per class, equivalent to [ 20, 40 ] in QUnfold
+      decomposer: none
+      option: bagging_decomp
+
+  # regularized implementations of OQ methods by Castaño et al. (2022)
+  - method_id: edy
+    name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      distance: EarthMovers
+
+  - method_id: pdf
+    name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
+    parameters:
+      τ: [ 1e-1, 1e-3, 1e-5 ]
+      n_bins: [ 20, 40 ]
+      distance: EarthMoversSurrogate
 
   # unfolding methods from QUnfold.jl
   - method_id: ibu
