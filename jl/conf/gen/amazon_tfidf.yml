@@ -1,5 +1,5 @@
 app_oq_frac: 0.5
-M_val: 2000
+M_val: 1000
 outfile: "res/csv/amazon_tfidf.csv"
 valfile: "res/csv/amazon_tfidf_val.csv"
 M_tst: 2000
