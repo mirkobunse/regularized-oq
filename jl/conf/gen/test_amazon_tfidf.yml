@@ -36,13 +36,13 @@ method:
         random_state: 539010050
         n_estimators: 100
   - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.001$, 2 bins per feature)"
-    random_state: 832709507
+    name: "o-HDx ($\\tau=0.001$, 4 bins per feature)"
+    random_state: 2079480891
     parameters:
       τ: 0.001
-      n_bins: 2
+      n_bins: 4
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.0$) on LR ($w=n, C=1.0$)"
+    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=1.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=1.0$)"
@@ -57,7 +57,7 @@ method:
     transformer: "classifier"
     parameters:
       o: 1
-      λ: 0.0
+      λ: 0.01
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=0.001$)"
     classifier:
@@ -90,7 +90,7 @@ method:
         random_state: 3193573456
         n_estimators: 100
   - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=n, C=0.1$)"
+    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -104,7 +104,7 @@ method:
         n_estimators: 100
     parameters:
       τ: 0.001
-      n_bins: 2
+      n_bins: 4
   - method_id: "svd"
     name: "SVD ($\\tau=1.0e-5$) on LR ($w=u, C=0.1$)"
     classifier:
@@ -135,7 +135,7 @@ method:
         random_state: 674079454
         n_estimators: 100
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.1$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on LR ($w=n, C=0.1$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.1$)"
@@ -148,7 +148,7 @@ method:
         random_state: 1669086789
         n_estimators: 100
     parameters:
-      τ: 0.001
+      τ: 1.0e-5
   - method_id: "cc"
     name: "CC on LR ($w=n, C=0.01$)"
     classifier:
@@ -163,7 +163,7 @@ method:
         random_state: 3645983298
         n_estimators: 100
   - method_id: "osld"
-    name: "o-SLD ($o=1, i=0.01$) on LR ($w=n, C=0.001$)"
+    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=0.001$)"
@@ -176,8 +176,8 @@ method:
         random_state: 1207595197
         n_estimators: 100
     parameters:
-      o: 1
-      λ: 0.01
+      o: 2
+      λ: 0.1
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=10.0$)"
     classifier:
@@ -228,7 +228,7 @@ method:
       distances: "emd_distances"
       option: "bagging_decomp"
   - method_id: "run"
-    name: "RUN ($\\tau=1000.0$) on LR ($w=n, C=10.0$)"
+    name: "RUN ($\\tau=10.0$) on LR ($w=n, C=10.0$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=n, C=10.0$)"
@@ -242,7 +242,7 @@ method:
         n_estimators: 100
     transformer: "classifier"
     parameters:
-      τ: 1000.0
+      τ: 10.0
   - method_id: "hdy"
     name: "HDy (2 bins per class) on LR ($w=u, C=0.1$)"
     classifier:
@@ -259,7 +259,7 @@ method:
     parameters:
       n_bins: 2
   - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=0.001$)"
+    name: "o-EDy ($\\tau=1.0e-5$, d=EMD) on LR ($w=u, C=0.001$)"
     classifier:
       method_id: "logReg"
       name: "LR ($w=u, C=0.001$)"
@@ -272,7 +272,7 @@ method:
         random_state: 3193573456
         n_estimators: 100
     parameters:
-      τ: 0.001
+      τ: 1.0e-5
       distance: "EarthMovers"
 N_trn: 2000
 job: "amazon"

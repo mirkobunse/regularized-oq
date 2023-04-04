@@ -254,16 +254,22 @@ function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
                 expand(exp, [:parameters, :val_split], :classifier)
             elseif exp[:method_id] == "ibu"
                 if exp[:transformer] == "tree"
-                    expand(exp,
-                        [:parameters, :o],
-                        [:parameters, :λ],
-                        [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
-                        [:transformer_parameters, :tree_parameters, :class_weight],
-                        [:transformer_parameters, :fit_tree]
+                    filter(
+                        x -> x[:parameters][:λ] > 0 || x[:parameters][:o] == 0,
+                        expand(exp,
+                            [:parameters, :o],
+                            [:parameters, :λ],
+                            [:transformer_parameters, :tree_parameters, :max_leaf_nodes],
+                            [:transformer_parameters, :tree_parameters, :class_weight],
+                            [:transformer_parameters, :fit_tree]
+                        )
                     )
                 elseif exp[:transformer] == "classifier"
                     exp[:classifier] = classifiers
-                    expand(exp, [:parameters, :o], [:parameters, :λ], :classifier)
+                    filter(
+                        x -> x[:parameters][:λ] > 0 || x[:parameters][:o] == 0,
+                        expand(exp, [:parameters, :o], [:parameters, :λ], :classifier)
+                    )
                 end
             elseif exp[:method_id] in ["run", "svd"]
                 if exp[:transformer] == "tree"
@@ -455,10 +461,13 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                 expand(exp, [:parameters, :val_split], :classifier)
             elseif exp[:method_id] in ["ibu", "osld"]
                 exp[:classifier] = classifiers
-                expand(exp,
-                    :classifier,
-                    [:parameters, :o],
-                    [:parameters, :λ]
+                filter(
+                    x -> x[:parameters][:λ] > 0 || x[:parameters][:o] == 0,
+                    expand(exp,
+                        :classifier,
+                        [:parameters, :o],
+                        [:parameters, :λ]
+                    )
                 )
             elseif exp[:method_id] in ["run", "svd"]
                 exp[:classifier] = classifiers

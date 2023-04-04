@@ -35,11 +35,15 @@ METHODS_MAIN = [
     :ibu => ("OQ", "IBU"),
     :run => ("OQ", "RUN"),
     :svd => ("OQ", "SVD"),
+    Symbol("castano-pdf") => ("OQ", "PDF"),
+    Symbol("castano-edy") => ("OQ", "EDy"),
     :oacc => ("OQ+", "o-ACC"), # third group: new methods
     :opacc => ("OQ+", "o-PACC"),
     :ohdx => ("OQ+", "o-HDx"),
     :ohdy => ("OQ+", "o-HDy"),
     :osld => ("OQ+", "o-SLD"),
+    :pdf => ("OQ+", "o-PDF"),
+    :edy => ("OQ+", "o-EDy"),
 ]
 
 main_tfidf() = Results.main("res/tex/main_tfidf.tex"; metricsfiles=Results.METRICSFILES_TFIDF)
@@ -178,6 +182,31 @@ function ranking(metricsfile::String)
             ),
             Symbol(metric) => uppercase(metric)
         )
+    end
+end
+
+"""
+    inspect_parameters(metricsfile; selection_metric="nmd")
+
+Inspect the performances of hyper-parameters in validation results.
+"""
+function inspect_parameters(metricsfile::String; is_app_oq::Bool=true, metric::String="nmd")
+    df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
+    if :val_is_app_oq ∈ propertynames(df)
+        error("Unexpected column :val_is_app_oq; are these testing results?")
+    end
+    if is_app_oq
+        df = df[df[!, :is_app_oq] .== is_app_oq, :]
+    end
+    agg = combine(
+        groupby(df, [:name, :validation_group]),
+        metric => mean => :avg,
+        metric => std => :std
+    )
+    for (key, sdf) in pairs(groupby(agg, :validation_group))
+        @info "$(key.validation_group) for is_app_oq=$(is_app_oq)"
+        show(sort(sdf, :avg); allcols=true, allrows=true, maximum_columns_width=0)
+        println()
     end
 end
 

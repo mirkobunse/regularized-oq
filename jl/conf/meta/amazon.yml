@@ -71,13 +71,13 @@ method:
   - method_id: edy
     name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
       distance: EarthMovers
 
   - method_id: pdf
     name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
       n_bins: [ 20, 40 ]
       distance: EarthMoversSurrogate
 
@@ -93,13 +93,13 @@ method:
     name: "RUN ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
+      τ: [ 1e1, 1e-1, 1e-3 ] # count-based loss of RUN requires larger τ values
 
   - method_id: svd
     name: "SVD ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
@@ -130,27 +130,27 @@ method:
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
-      o: [ 0, 1, 2 ]
+      o: [ 0, 1, 2, 4 ]
       λ: [ 1e-1, 1e-2 ]
 
   - method_id: oacc # ordinal ACC
     name: "o-ACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
 
   - method_id: opacc # ordinal PACC
     name: "o-PACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
 
   - method_id: ohdx # ordinal HDx
     name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
       n_bins: [2, 3, 4]
 
   - method_id: ohdy # ordinal HDy
     name: "o-HDy ($\\tau=$(τ)$, $(n_bins) bins per class) on $(classifier)"
     parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+      τ: [ 1e-3, 1e-5 ]
       n_bins: [2, 4]
