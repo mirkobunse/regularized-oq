@@ -19,9 +19,11 @@ data:
   - id: tfidf
     path: /mnt/data/amazon-oq-bk/tfidf
     type: raw_text # specify how to read this data
+    evaluate_real_data: false
   - id: roberta
     path: /mnt/data/amazon-oq-bk/roberta
     type: dense_vector
+    evaluate_real_data: true
 
 # all classifiers over which the quantification methods are optimized
 classifier:

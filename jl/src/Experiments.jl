@@ -104,9 +104,10 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
     # configure the validation step: pretend we were testing
     val_c = deepcopy(c)
     val_c[:data][:tst_path] = joinpath(c[:data][:path], "app", "dev_samples")
+    val_c[:data][:real_path] = joinpath(c[:data][:path], "real", "dev_samples")
     val_c[:M_tst] = val_c[:M_val]
     for m in val_c[:method] # fake reason for "testing" each model
-        m[:is_app_oq] = [ false ]
+        m[:protocol] = [ "none" ]
         m[:selection_metric] = [ :none ]
     end
     val_batches = _amazon_trial_batches(val_c)
@@ -117,7 +118,7 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
             val_batch -> catch_during_trial(_amazon_batch, val_batch),
             val_batches
         )...)
-        val_df[!, :is_app_oq] = _is_app_oq(val_df, c[:app_oq_frac])
+        val_df[!, :protocol] = _protocol(val_df, c[:app_oq_frac])
 
         # validation output
         CSV.write(c[:valfile], val_df)
@@ -132,14 +133,15 @@ function amazon(configfile::String="conf/gen/amazon.yml"; validate::Bool=true)
 
     # parallel execution
     c[:data][:tst_path] = joinpath(c[:data][:path], "app", "test_samples")
+    c[:data][:real_path] = joinpath(c[:data][:path], "real", "test_samples")
     tst_batches = _amazon_trial_batches(c)
     @info "Starting $(length(tst_batches)) testing batch(es) on $(nworkers()) worker(s)."
     tst_df = vcat(pmap(
         tst_batch -> catch_during_trial(_amazon_batch, tst_batch),
         tst_batches
     )...)
-    rename!(tst_df, Dict(:is_app_oq => :val_is_app_oq))
-    tst_df[!, :tst_is_app_oq] = _is_app_oq(tst_df, c[:app_oq_frac])
+    rename!(tst_df, Dict(:protocol => :val_protocol))
+    tst_df[!, :tst_protocol] = _protocol(tst_df, c[:app_oq_frac])
 
     # testing output
     CSV.write(c[:outfile], tst_df)
@@ -151,53 +153,77 @@ function _amazon_batch(batch::Dict{Symbol, Any})
     df = DataFrame(
         name = String[],
         validation_group = String[],
-        is_app_oq = Bool[], # reason why this method is evaluated
+        protocol = String[], # reason why this method is evaluated
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
         sample_curvature = Float64[], # actual curvature of the respective sample
+        is_real_sample = Bool[], # whether this sample is a real sample
         nmd = Float64[],
         rnod = Float64[]
     ) # store all results in this DataFrame
     Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
     Random.seed!(batch[:seed])
-    C_curv = LinearAlgebra.diagm(
+    C = LinearAlgebra.diagm(
         -1 => fill(-1, 4),
         0 => fill(2, 5),
         1 => fill(-1, 4)
     )[2:4, :] # matrix for curvature computation
 
-    trials, vectorizer = _amazon_prefitted_trials(batch) # prefit all methods
+    trials, v = _amazon_prefitted_trials(batch) # prefit all methods
     @info "Batch $(batch[:batch]) starts evaluating $(batch[:M_tst]) samples"
     for i in 1:batch[:M_tst]
         if i % 25 == 0
             @info "Batch $(batch[:batch]) has evaluated $(i)/$(batch[:M_tst]) samples"
         end
-        X_txt, y_tst = load_amazon_data(batch[:data][:tst_path] * "/$(i-1).txt")
-        X_tst = if batch[:data][:type] == "raw_text"
-            vectorizer.transform(X_txt)
-        elseif batch[:data][:type] == "dense_vector"
-            parse_dense_vector(X_txt)
-        else
-            throw(ArgumentError("Data type $(batch[:data][:type]) is not known"))
-        end # might be X_val during validation
-        f_true = DeconvUtil.fit_pdf(y_tst, 0:4)
-
-        # deconvolve, evaluate, and store the results of all trials in this batch
-        for trial in trials
-            Random.seed!(trial[:seed])
-            f_est = DeconvUtil.normalizepdf(deconvolve(trial[:prefitted_method], X_tst))
-            nmd = Util.nmd(f_est, f_true)
-            rnod = Util.rnod(f_est, f_true)
-            sample_curvature = sum((C_curv*f_true).^2)
-
-            # this model might be evaluated for multiple reasons; store the results for each reason
-            for (oq, sm) in zip(trial[:method][:is_app_oq], trial[:method][:selection_metric])
-                validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
-                push!(df, [ trial[:method][:name], validation_group, oq, sm, i, sample_curvature, nmd, rnod ])
-            end
+        _amazon_evaluate!(df, batch, C, i, false, batch[:data][:tst_path], trials, v)
+        if get(batch[:data], :evaluate_real_data, false)
+            _amazon_evaluate!(df, batch, C, i, true, batch[:data][:real_path], trials, v)
         end
     end
     return df
+end
+
+function _amazon_evaluate!(
+        df::AbstractDataFrame,
+        batch::Dict{Symbol, Any},
+        C_curv::Matrix{T},
+        i::Int64,
+        is_real_sample::Bool,
+        tst_path::AbstractString,
+        trials::Vector{Dict{Symbol, Any}},
+        vectorizer::Any,
+        ) where {T <: Real}
+    X_txt, y_tst = load_amazon_data(tst_path * "/$(i-1).txt")
+    X_tst = if batch[:data][:type] == "raw_text"
+        vectorizer.transform(X_txt)
+    elseif batch[:data][:type] == "dense_vector"
+        parse_dense_vector(X_txt)
+    else
+        throw(ArgumentError("Data type $(batch[:data][:type]) is not known"))
+    end # might be X_val during validation
+    f_true = DeconvUtil.fit_pdf(y_tst, 0:4)
+
+    # deconvolve, evaluate, and store the results of all trials in this batch
+    for trial in trials
+        Random.seed!(trial[:seed])
+        f_est = DeconvUtil.normalizepdf(deconvolve(trial[:prefitted_method], X_tst))
+        nmd = Util.nmd(f_est, f_true)
+        rnod = Util.rnod(f_est, f_true)
+        sample_curvature = sum((C_curv*f_true).^2)
+
+        # a model can be evaluated for multiple reasons; store the results for each
+        for (protocol, sm) in zip(
+                trial[:method][:protocol],
+                trial[:method][:selection_metric]
+                )
+            validation_group = get(
+                trial[:method],
+                :validation_group,
+                trial[:method][:method_id]
+            )
+            push!(df, [ trial[:method][:name], validation_group, protocol, sm, i, sample_curvature, is_real_sample, nmd, rnod ])
+        end
+    end
 end
 
 function _amazon_prefitted_trials(batch::Dict{Symbol, Any})
@@ -230,6 +256,9 @@ function _amazon_prefitted_trials(batch::Dict{Symbol, Any})
             rethrow()
         end
         Random.seed!(trial[:seed])
+        if haskey(trial[:method], :classifier) && haskey(trial[:method][:classifier], :bagging)
+            trial[:method][:classifier][:bagging][:n_estimators] = 3
+        end
         @info "Batch $(batch[:batch]) training $(i_trial)/$(n_trials): $(trial[:method][:name])"
         trial[:prefitted_method] = prefit(Configuration.configure_method(trial[:method]), X_trn, y_trn)
     end
@@ -288,6 +317,18 @@ end
 parse_dense_vector(X_txt::Vector{String}) =
     vcat(map(x -> parse.(Float64, split(x, r"\s+"))', X_txt)...)
 
+# read amazon prevalences
+function load_amazon_prevalences(
+        prevalence_path::String = "data/prevalence_votes1_reviews100.csv";
+        shuffle::Bool = true
+        )
+    p = Matrix{Float64}(CSV.read(prevalence_path, DataFrame; header=false))
+    if !shuffle
+        return p
+    end
+    return hcat(shuffle(collect(eachrow(p)))...)' # shuffle rows
+end
+
 """
     dirichlet(configfile="conf/gen/dirichlet_fact.yml"; validate=true)
 
@@ -333,7 +374,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
     val_c[:tst_seed] = val_c[:val_seed]
     val_c[:N_tst] = val_c[:N_val]
     for m in val_c[:method] # fake reason for "testing" each model
-        m[:is_app_oq] = [ false ]
+        m[:protocol] = [ "none" ]
         m[:selection_metric] = [ :none ]
     end
     val_trials = expand(val_c, :method)
@@ -348,7 +389,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
             val_trial -> catch_during_trial(_dirichlet_trial, val_trial, job_args...),
             val_trials
         )...)
-        val_df[!, :is_app_oq] = _is_app_oq(val_df, c[:app_oq_frac])
+        val_df[!, :protocol] = _protocol(val_df, c[:app_oq_frac])
 
         # validation output
         CSV.write(c[:valfile], val_df)
@@ -372,8 +413,8 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
         tst_trial -> catch_during_trial(_dirichlet_trial, tst_trial, job_args...),
         tst_trials
     )...)
-    rename!(tst_df, Dict(:is_app_oq => :val_is_app_oq))
-    tst_df[!, :tst_is_app_oq] = _is_app_oq(tst_df, c[:app_oq_frac])
+    rename!(tst_df, Dict(:protocol => :val_protocol))
+    tst_df[!, :tst_protocol] = _protocol(tst_df, c[:app_oq_frac])
 
     # testing output
     CSV.write(c[:outfile], tst_df)
@@ -394,7 +435,7 @@ function _dirichlet_trial(
     df = DataFrame(
         name = String[],
         validation_group = String[],
-        is_app_oq = Bool[], # reason why this method is evaluated
+        protocol = String[], # reason why this method is evaluated
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
         sample_curvature = Float64[], # actual curvature of the respective sample
@@ -433,36 +474,48 @@ function _dirichlet_trial(
         sample_curvature = sum((C_curv*f_true).^2)
 
         # this model might be evaluated for multiple reasons; store the results for each reason
-        for (oq, sm) in zip(trial[:method][:is_app_oq], trial[:method][:selection_metric])
+        for (protocol, sm) in zip(trial[:method][:protocol], trial[:method][:selection_metric])
             validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
-            push!(df, [ trial[:method][:name], validation_group, oq, sm, sample_seed, sample_curvature, nmd, rnod ])
+            push!(df, [ trial[:method][:name], validation_group, protocol, sm, sample_seed, sample_curvature, nmd, rnod ])
         end
     end
     return df
 end
 
-# does a sample curvature belong to the APP-OQ?
-function _is_app_oq(df::DataFrame, app_oq_frac::Real)
+# does a sample curvature belong to APP, APP-OQ, or to the real protocol?
+function _protocol(df::DataFrame, app_oq_frac::Real)
+    is_app = .!(df[!, :is_real_sample])
     split_point = max(
-        Statistics.quantile(unique(df[!, :sample_curvature]), app_oq_frac),
-        minimum(df[!, :sample_curvature])
+        Statistics.quantile(unique(df[is_app, :sample_curvature]), app_oq_frac),
+        minimum(df[is_app, :sample_curvature])
     )
-    return df[!, :sample_curvature] .<= split_point
+    protocol = fill("real", nrow(df))
+    protocol[is_app] = [
+        if x <= split_point
+            "app-oq"
+        else
+            "app"
+        end
+        for x ∈ df[is_app, :sample_curvature]
+    ]
+    return protocol
 end
 
 # remove all but the best methods (for each protocol) from the configuration c
 function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, app_oq_frac::Real)
     best_methods = vcat(map( # find the best methods for APP and APP-OQ
-        is_app_oq -> begin # outer map operation
+        protocol -> begin # outer map operation
             best_app = vcat(map(
                 selection_metric -> begin # inner map operation
                     best_avg = combine( # find methods with the minimum average metric
                         groupby(combine(
                             groupby(
-                                if is_app_oq # use a subset (APP-OQ) or the entire val_df
-                                    val_df[val_df[!, :is_app_oq], :]
-                                else
-                                    val_df
+                                if protocol == "real"
+                                    val_df[val_df[!, :protocol] .== "real", :]
+                                elseif protocol == "app-oq" # use a subset (APP-OQ)
+                                    val_df[val_df[!, :protocol] .== "app-oq", :]
+                                else # use all non-real data (APP)
+                                    val_df[val_df[!, :protocol] .!= "real", :]
                                 end,
                                 [:name, :validation_group]
                             ),
@@ -475,19 +528,19 @@ function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, app_oq_fr
                 end,
                 [:nmd, :rnod] # apply the inner map to both selection metrics
             )...)
-            best_app[!, :is_app_oq] .= is_app_oq
+            best_app[!, :protocol] .= protocol
             best_app # "return value" of the outer map operation
         end,
-        [ false, true ]  # apply the outer map to APP and APP-OQ
+        [ "real", "app-oq", "app" ] # apply the outer map to each protocol
     )...)
 
     # remove all methods that are not among the best ones
     c[:method] = filter(m -> m[:name] ∈ best_methods[!, :name], c[:method])
     for m in c[:method] # store the reason for keeping each method
-        m[:is_app_oq] = best_methods[best_methods[!, :name].==m[:name], :is_app_oq]
+        m[:protocol] = best_methods[best_methods[!, :name].==m[:name], :protocol]
         m[:selection_metric] = best_methods[best_methods[!, :name].==m[:name], :selection_metric]
     end
-    list_best = [(n=m[:name], c=m[:is_app_oq], m=m[:selection_metric]) for m in c[:method]]
+    list_best = [(n=m[:name], p=m[:protocol], m=m[:selection_metric]) for m in c[:method]]
     @info "Methods to evaluate on the test data" list_best
     return c
 end
@@ -552,8 +605,8 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     CSV.write("app_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app_val_indices.csv"
 
-    # filter smoothest 20% for APP-OQ
-    val_indices = val_indices[_is_app_oq(DataFrame(sample_curvature=val_curvatures), c[:app_oq_frac]), :]
+    # filter the smoothest app_oq_frac % of the samples for APP-OQ
+    val_indices = val_indices[_protocol(DataFrame(sample_curvature=val_curvatures), c[:app_oq_frac]) .== "app-oq", :]
     CSV.write("app-oq_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app-oq_val_indices.csv"
 
@@ -571,8 +624,8 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     CSV.write("app_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app_tst_indices.csv"
 
-    # filter smoothest 20% for APP-OQ
-    tst_indices = tst_indices[_is_app_oq(DataFrame(sample_curvature=tst_curvatures), c[:app_oq_frac]), :]
+    # filter the smoothest app_oq_frac % of the samples for APP-OQ
+    tst_indices = tst_indices[_protocol(DataFrame(sample_curvature=tst_curvatures), c[:app_oq_frac]) .== "app-oq", :]
     CSV.write("app-oq_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app-oq_tst_indices.csv"
 

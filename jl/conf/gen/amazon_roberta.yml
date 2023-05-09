@@ -7031,4 +7031,5 @@ data:
   id: "roberta"
   path: "/mnt/data/amazon-oq-bk/roberta"
   type: "dense_vector"
+  evaluate_real_data: true
 seed: 876
