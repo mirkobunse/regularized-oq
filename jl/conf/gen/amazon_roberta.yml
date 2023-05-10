@@ -2,9 +2,319 @@ app_oq_frac: 0.5
 M_val: 1000
 outfile: "res/csv/amazon_roberta.csv"
 valfile: "res/csv/amazon_roberta_val.csv"
-M_tst: 2000
+M_tst: 5000
 configfile: "conf/gen/amazon_roberta.yml"
 method:
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 3193573456
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 1466828405
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=u, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 674079454
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=n, C=0.001$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.001
+      bagging:
+        oob_score: true
+        random_state: 1207595197
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=n, C=0.01$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.01
+      bagging:
+        oob_score: true
+        random_state: 3645983298
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=n, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 1669086789
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=n, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 910122224
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on LR ($w=n, C=10.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        C: 10.0
+      bagging:
+        oob_score: true
+        random_state: 931584667
+        n_estimators: 100
+    parameters:
+      val_split: 0.334
   - method_id: "castano-edy"
     name: "Casta{\\~{n}}o EDy (d=EMD) on LR ($w=u, C=0.001$)"
     classifier:
