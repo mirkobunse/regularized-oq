@@ -29,6 +29,7 @@ METHODS_MAIN = [
     :pacc => ("MQ", "PACC"),
     :hdx => ("MQ", "HDx"),
     :hdy => ("MQ", "HDy"),
+    Symbol("castano-edy") => ("MQ", "EDy"),
     :sld => ("MQ", "SLD"),
     :oqt => ("OQ", "OQT"), # second group: ordinal baselines
     :arc => ("OQ", "ARC"),
@@ -36,14 +37,13 @@ METHODS_MAIN = [
     :run => ("OQ", "RUN"),
     :svd => ("OQ", "SVD"),
     Symbol("castano-pdf") => ("OQ", "PDF"),
-    Symbol("castano-edy") => ("OQ", "EDy"),
     :oacc => ("OQ+", "o-ACC"), # third group: new methods
     :opacc => ("OQ+", "o-PACC"),
     :ohdx => ("OQ+", "o-HDx"),
     :ohdy => ("OQ+", "o-HDy"),
+    :edy => ("OQ+", "o-EDy"),
     :osld => ("OQ+", "o-SLD"),
     :pdf => ("OQ+", "o-PDF"),
-    :edy => ("OQ+", "o-EDy"),
 ]
 
 main_tfidf() = Results.main("res/tex/main_tfidf.tex"; metricsfiles=Results.METRICSFILES_TFIDF)
@@ -66,16 +66,21 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         selection_metric = key.selection_metric # :nmd or :rnod
         agg_app = _main(
-            sdf[.!(sdf[!, :val_is_app_oq]), :],
+            sdf[(sdf[!,:val_protocol] .== "app") .& (sdf[!,:tst_protocol] .!= "real"),:],
             selection_metric
         )
         agg_app[!, :bin] .= "APP" # typical APP
         agg_app_oq = _main(
-            sdf[(sdf[!, :val_is_app_oq]) .& (sdf[!, :tst_is_app_oq]), :],
+            sdf[(sdf[!,:val_protocol] .== "app-oq") .& (sdf[!,:tst_protocol] .== "app-oq"),:],
             selection_metric
         )
-        agg_app_oq[!, :bin] .= "APP-OQ" # first bin
-        agg = vcat(agg_app, agg_app_oq)
+        agg_app_oq[!, :bin] .= "APP-OQ" # its ordinal variant
+        agg_real = _main(
+            sdf[(sdf[!,:val_protocol] .== "real") .& (sdf[!,:tst_protocol] .== "real"),:],
+            selection_metric
+        )
+        agg_real[!, :bin] .= "real" # real prevalence vectors
+        agg = vcat(agg_app, agg_app_oq, agg_real)
 
         # unstack
         agg[!, :id] = agg[!, :validation_group]
@@ -97,13 +102,13 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
         @info "Writing to $(_outfile)" selection_metric tab
         columns = vcat(
             [ "validation_group" ],
-            vcat(map(dataset -> [ "$(dataset) (APP)", "$(dataset) (APP-OQ)" ], first.(metricsfiles))...)
+            vcat(map(dataset -> [ "$(dataset) (APP)", "$(dataset) (APP-OQ)", "$(dataset) (real)" ], first.(metricsfiles))...)
         )
         open(_outfile, "w") do io
-            println(io, "\\begin{tabular}{l$(repeat("cc", length(metricsfiles)))}")
+            println(io, "\\begin{tabular}{l$(repeat("ccc", length(metricsfiles)))}")
             println(io, "  \\toprule") # table header
-            println(io, "  \\multirow{2}{*}{method} & $(join(map(d -> "\\multicolumn{2}{c}{$(d)}", first.(metricsfiles)), " & ")) \\\\")
-            println(io, "  & $(join(map(d -> "APP & APP-OQ", first.(metricsfiles)), " & ")) \\\\")
+            println(io, "  \\multirow{2}{*}{method} & $(join(map(d -> "\\multicolumn{3}{c}{$(d)}", first.(metricsfiles)), " & ")) \\\\")
+            println(io, "  & $(join(map(d -> "APP & APP-OQ & real", first.(metricsfiles)), " & ")) \\\\")
             print(io, "  \\midrule")
             last_group = tab[1, :group]
             for r in eachrow(tab) # write the table body row by row
@@ -118,7 +123,7 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
 end
 
 _main_avg(x) = @sprintf("%.4f", x)[2:end] # ".nnnn"
-_main_std(x) = @sprintf("%.3f", x)[2:end] # ".nnn"
+_main_std(x) = @sprintf("%.4f", x)[2:end] # ".nnnn"
 _main_bold(x) = x >= 0.01 ? "\\mathbf" : ""
 
 function _main(df::DataFrame, selection_metric::AbstractString)
@@ -157,17 +162,17 @@ Generate ranking tables from the results obtained with a single data set.
 function ranking(metricsfile::String)
     df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
     regex = r"(.+)/csv/(.+)\.csv" # what to replace in the file name
-    if :val_is_app_oq ∉ propertynames(df)
-        @warn "Adding missing column :val_is_app_oq; are these validations results?"
-        df[!, :val_is_app_oq] .= false
-        df[!, :tst_is_app_oq] = df[!, :is_app_oq]
+    if :val_protocol ∉ propertynames(df)
+        @warn "Adding missing column :val_protocol; are these validations results?"
+        df[!, :val_protocol] .= "app"
+        df[!, :tst_protocol] = df[!, :protocol]
         df[!, :selection_metric] .= "nmd"
     end
 
     for (key, sdf) in pairs(groupby(df, :selection_metric))
         metric = key.selection_metric # :nmd or :rnod
         _ranking( # one output for typical APP
-            sdf[.!(sdf[!, :val_is_app_oq]), :],
+            sdf[sdf[!,:val_protocol].=="app", :],
             replace(
                 metricsfile,
                 regex => SubstitutionString("\\1/tex/\\2_$(metric)_app.tex")
@@ -175,7 +180,7 @@ function ranking(metricsfile::String)
             Symbol(metric) => uppercase(metric) # pair metric_column => metric_name
         )
         _ranking( # one output for APP-OQ
-            sdf[(sdf[!, :val_is_app_oq]) .& (sdf[!, :tst_is_app_oq]), :],
+            sdf[(sdf[!,:val_protocol].=="app-oq") .& (sdf[!,:tst_protocol].=="app-oq"),:],
             replace(
                 metricsfile,
                 regex => SubstitutionString("\\1/tex/\\2_$(metric)_app_oq.tex")
@@ -190,13 +195,23 @@ end
 
 Inspect the performances of hyper-parameters in validation results.
 """
-function inspect_parameters(metricsfile::String; is_app_oq::Bool=true, metric::String="nmd")
+function inspect_parameters(
+        metricsfile::String;
+        protocol::String = "app-oq",
+        metric::String = "nmd"
+        )
     df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
-    if :val_is_app_oq ∈ propertynames(df)
-        error("Unexpected column :val_is_app_oq; are these testing results?")
+    if :val_protocol ∈ propertynames(df)
+        error("Unexpected column :val_protocol; are these testing results?")
     end
-    if is_app_oq
-        df = df[df[!, :is_app_oq] .== is_app_oq, :]
+    if protocol == "app-oq"
+        df = df[df[!, :protocol] .== "app-oq", :]
+    elseif protocol == "app"
+        df = df[df[!, :protocol] .!= "real", :]
+    elseif protocol == "real"
+        df = df[df[!, :protocol] .== "real", :]
+    else
+        error("Unknown protocol=$(protocol)")
     end
     agg = combine(
         groupby(df, [:name, :validation_group]),
@@ -204,7 +219,7 @@ function inspect_parameters(metricsfile::String; is_app_oq::Bool=true, metric::S
         metric => std => :std
     )
     for (key, sdf) in pairs(groupby(agg, :validation_group))
-        @info "$(key.validation_group) for is_app_oq=$(is_app_oq)"
+        @info "$(key.validation_group) for protocol=$(protocol)"
         show(sort(sdf, :avg); allcols=true, allrows=true, maximum_columns_width=0)
         println()
     end
