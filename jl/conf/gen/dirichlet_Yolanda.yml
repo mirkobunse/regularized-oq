@@ -3,10 +3,406 @@ M_val: 2000
 outfile: "res/csv/dirichlet_Yolanda.csv"
 valfile: "res/csv/dirichlet_val_Yolanda.csv"
 N_tst: 1000
-M_tst: 2000
+M_tst: 5000
 configfile: "conf/gen/dirichlet_Yolanda.yml"
 dataset: "Yolanda"
 method:
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "oqt"
+    name: "OQT ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+      epsilon: 1.0e-6
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3193573456
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1466828405
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 539010050
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 3249917414
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 674079454
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=u, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=u, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: "balanced"
+        random_state: 1207595197
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 3645983298
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=4$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=4$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 1669086789
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 4
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 910122224
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=8$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=8$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 931584667
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 8
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=E, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=E, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2104093590
+        n_estimators: 100
+        criterion: "entropy"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
+  - method_id: "arc"
+    name: "ARC ($v=\\frac{1}{3}$) on RF ($w=n, c=G, d=12$)"
+    classifier:
+      package: "ensemble"
+      name: "RF ($w=n, c=G, d=12$)"
+      classifier: "RandomForestClassifier"
+      parameters:
+        oob_score: true
+        max_features: "sqrt"
+        class_weight: ~
+        random_state: 2979853892
+        n_estimators: 100
+        criterion: "gini"
+        max_depth: 12
+    parameters:
+      val_split: 0.334
   - method_id: "castano-edy"
     name: "Casta{\\~{n}}o EDy (d=EMD) on RF ($w=u, c=E, d=4$)"
     classifier:

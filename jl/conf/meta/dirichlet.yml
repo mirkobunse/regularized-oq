@@ -9,7 +9,7 @@ job: dirichlet # this file configures the function Job.<job>
 seed: 876 # random number generator seed
 N_trn: 20000 # number of training data items
 M_val: 2000 # number of validation samples
-M_tst: 2000 # TODO: INCREASE TO 5000; number of testing samples
+M_tst: 5000 # number of testing samples
 N_val: 1000 # number of items in each validation sample
 N_tst: 1000 # number of items in each testing sample
 app_oq_frac: 0.05 # the fraction of samples to keep in APP-OQ
@@ -49,17 +49,17 @@ classifier:
 # all methods to be compared
 method:
 
-  # # early OQ methods
-  # - method_id: oqt
-  #   name: "OQT ($v=$(val_split)$) on $(classifier)"
-  #   parameters:
-  #     epsilon: 1e-6
-  #     val_split: [ 0.334 ] # 1/3
+  # early OQ methods
+  - method_id: oqt
+    name: "OQT ($v=$(val_split)$) on $(classifier)"
+    parameters:
+      epsilon: 1e-6
+      val_split: [ 0.334 ] # 1/3
 
-  # - method_id: arc
-  #   name: "ARC ($v=$(val_split)$) on $(classifier)"
-  #   parameters:
-  #     val_split: [ 0.334 ]
+  - method_id: arc
+    name: "ARC ($v=$(val_split)$) on $(classifier)"
+    parameters:
+      val_split: [ 0.334 ]
 
   # original implementations of OQ methods by Castaño et al. (2022)
   - method_id: castano-edy
