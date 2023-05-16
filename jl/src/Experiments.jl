@@ -10,6 +10,7 @@ using
     LinearAlgebra,
     MetaConfigurations,
     PyCall,
+    QUnfold,
     Random,
     Statistics,
     StatsBase
@@ -343,6 +344,11 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
     discr = Data.discretizer(dataset)
     X_full = Data.X_data(dataset)
     y_full = encode(discr, Data.y_data(dataset))
+    df_acceptance = if c[:dataset] == "fact"
+        load_acceptance()
+    else
+        nothing
+    end
     i_trn, i_rem = Util.SkObject(
         "sklearn.model_selection.train_test_split",
         collect(1:length(y_full)); # split indices
@@ -357,7 +363,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
         stratify = y_full[i_rem],
         random_state = rand(UInt32)
     )
-    @info "Split" length(y_full) length(i_trn) length(i_val) length(i_tst) length(unique(vcat(i_trn, i_val, i_tst)))
+    @info "Split" length(y_full) length(i_trn) length(i_val) length(i_tst) length(unique(vcat(i_trn, i_val, i_tst))) df_acceptance!=nothing c[:dataset]
     X_trn = X_full[i_trn, :]
     y_trn = y_full[i_trn]
     X_val = X_full[i_val, :]
@@ -384,7 +390,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
 
     if validate
         @info "Starting $(length(val_trials)) validation trials on $(nworkers()) worker(s)."
-        job_args = [ X_trn, y_trn, X_val, y_val, discr ]
+        job_args = [ X_trn, y_trn, X_val, y_val, discr, df_acceptance ]
         val_df = vcat(pmap(
             val_trial -> catch_during_trial(_dirichlet_trial, val_trial, job_args...),
             val_trials
@@ -408,7 +414,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
         tst_trial[:trial] = i # add the trial number to each configuration
     end
     @info "Starting $(length(tst_trials)) testing trials on $(nworkers()) worker(s)."
-    job_args = [ X_trn, y_trn, X_tst, y_tst, discr ]
+    job_args = [ X_trn, y_trn, X_tst, y_tst, discr, df_acceptance ]
     tst_df = vcat(pmap(
         tst_trial -> catch_during_trial(_dirichlet_trial, tst_trial, job_args...),
         tst_trials
@@ -428,7 +434,8 @@ function _dirichlet_trial(
         y_trn :: Vector{TL},
         X_tst :: Matrix{TN}, # might be X_val during validation
         y_tst :: Vector{TL},
-        discr :: AbstractDiscretizer
+        discr :: AbstractDiscretizer,
+        df_acceptance :: Union{DataFrame, Nothing}, # if something, evaluate on real data
         ) where {TN<:Number, TL<:Number}
     n_classes = length(Data.bins(discr))
     f_trn = DeconvUtil.fit_pdf(y_trn, Data.bins(discr))
@@ -439,11 +446,12 @@ function _dirichlet_trial(
         selection_metric = Symbol[], # also a reason why this method is evaluated
         sample = Int64[],
         sample_curvature = Float64[], # actual curvature of the respective sample
+        is_real_sample = Bool[],
         nmd = Float64[],
         rnod = Float64[]
     ) # store all results in this DataFrame
     Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
-    C_curv = LinearAlgebra.diagm(
+    C = LinearAlgebra.diagm(
         -1 => fill(-1, n_classes-1),
         0 => fill(2, n_classes),
         1 => fill(-1, n_classes-1)
@@ -459,27 +467,103 @@ function _dirichlet_trial(
     # implement APP through a Dirichlet distribution
     dirichlet_distribution = Dirichlet(ones(n_classes))
 
-    # evaluate
+    # evaluate on samples with random prevalences
     method = prefit(Configuration.configure_method(trial[:method]), X_trn, y_trn)
-    for sample_seed in trial[:tst_seed] # draw samples with random prevalences
+    for (i_seed, sample_seed) in enumerate(trial[:tst_seed])
         rng_sample = MersenneTwister(sample_seed)
         p_sample = rand(rng_sample, dirichlet_distribution)
-        i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, trial[:N_tst])
-        f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
-
-        # deconvolve, evaluate, and store the results
-        f_est = DeconvUtil.normalizepdf(deconvolve(method, X_tst[i_sample, :]))
-        nmd = Util.nmd(f_est, f_true)
-        rnod = Util.rnod(f_est, f_true)
-        sample_curvature = sum((C_curv*f_true).^2)
-
-        # this model might be evaluated for multiple reasons; store the results for each reason
-        for (protocol, sm) in zip(trial[:method][:protocol], trial[:method][:selection_metric])
-            validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
-            push!(df, [ trial[:method][:name], validation_group, protocol, sm, sample_seed, sample_curvature, nmd, rnod ])
+        _dirichlet_evaluate!(df, trial, X_tst, y_tst, discr, C, method, sample_seed, rng_sample, p_sample, false)
+        if df_acceptance != nothing
+            p_sample = sample_poisson(rng_sample, trial[:N_tst], df_acceptance)
+            _dirichlet_evaluate!(df, trial, X_tst, y_tst, discr, C, method, sample_seed, rng_sample, p_sample, true)
+        end
+        if i_seed % 50 == 0
+            @info "Trial $(trial[:trial]) of $(trial[:method][:name]) has evaluated $(i)/$(batch[:M_tst]) samples"
         end
     end
     return df
+end
+
+function load_acceptance(path::String="data/fact_acceptance.csv")
+    df_acceptance = CSV.read(path, DataFrame)
+    return DataFrame(
+        a_eff = df_acceptance[2:end-1, :a_eff],
+        bin_center = df_acceptance[2:end-1, :bin_center]
+    )
+end
+
+function sample_poisson(
+        rng :: AbstractRNG = Random.GLOBAL_RNG,
+        N :: Integer = 1000,
+        df_acceptance :: DataFrame = load_acceptance();
+        round :: Bool = true
+        )
+    p = magic_crab_flux(df_acceptance[!, :bin_center]) .* df_acceptance[!, :a_eff]
+    λ = p * N ./ sum(p) # Poisson rates for N events in total
+    random_sample = [ rand(rng, Poisson(λ_i)) for λ_i in λ ]
+    if round
+        return round_Np(rng, N, random_sample ./ sum(random_sample)) ./ N
+    else
+        return random_sample ./ sum(random_sample)
+    end
+end
+
+"""
+    magic_crab_flux(x)
+
+Compute the Crab nebula flux in `GeV⋅cm²⋅s` for a vector `x` of energy values
+that are given in `GeV`. This parametrization is by Aleksić et al. (2015).
+"""
+magic_crab_flux(x::Union{Float64,Vector{Float64}}) =
+    @. 3.23e-10 * (x/1e3)^(-2.47 - 0.24 * log10(x/1e3))
+
+"""
+    round_Np([rng, ]N, p; Np_min=1)
+
+Round `N * p` such that `sum(N*p) == N` and `minimum(N*p) >= Np_min`. We use this
+rounding to determine the number of samples to draw according to `N` and `p`.
+"""
+function round_Np(rng::AbstractRNG, N::Int, p::Vector{Float64}; Np_min::Int=1)
+    Np = max.(round.(Int, N * p), Np_min)
+    while N != sum(Np)
+        ϵ = N - sum(Np)
+        if ϵ > 0 # are additional draws needed?
+            Np[StatsBase.sample(rng, 1:length(p), Weights(max.(p, 1/N)), ϵ)] .+= 1
+        elseif ϵ < 0 # are less draws needed?
+            c = findall(Np .> Np_min)
+            Np[StatsBase.sample(rng, c, Weights(max.(p[c], 1/N)), -ϵ)] .-= 1
+        end
+    end # rarely needs more than one iteration
+    return Np
+end
+
+function _dirichlet_evaluate!(
+        df :: DataFrame,
+        trial :: Dict{Symbol, Any},
+        X_tst :: Matrix{TN}, # might be X_val during validation
+        y_tst :: Vector{TL},
+        discr :: AbstractDiscretizer,
+        C_curv :: Matrix{T},
+        method :: Any,
+        sample_seed :: Integer,
+        rng_sample :: AbstractRNG,
+        p_sample :: Vector{Float64},
+        is_real_sample :: Bool,
+        ) where {T <: Real, TN<:Number, TL<:Number}
+    i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, trial[:N_tst])
+    f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
+
+    # deconvolve, evaluate, and store the results
+    f_est = DeconvUtil.normalizepdf(deconvolve(method, X_tst[i_sample, :]))
+    nmd = Util.nmd(f_est, f_true)
+    rnod = Util.rnod(f_est, f_true)
+    sample_curvature = sum((C_curv*f_true).^2)
+
+    # this model might be evaluated for multiple reasons; store the results for each reason
+    for (protocol, sm) in zip(trial[:method][:protocol], trial[:method][:selection_metric])
+        validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
+        push!(df, [ trial[:method][:name], validation_group, protocol, sm, sample_seed, sample_curvature, is_real_sample, nmd, rnod ])
+    end
 end
 
 # does a sample curvature belong to APP, APP-OQ, or to the real protocol?

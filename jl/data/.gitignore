@@ -1,2 +1,3 @@
 *.csv
 !prevalence_*.csv
+!*_acceptance.csv
