@@ -478,7 +478,7 @@ function _dirichlet_trial(
             _dirichlet_evaluate!(df, trial, X_tst, y_tst, discr, C, method, sample_seed, rng_sample, p_sample, true)
         end
         if i_seed % 50 == 0
-            @info "Trial $(trial[:trial]) of $(trial[:method][:name]) has evaluated $(i)/$(batch[:M_tst]) samples"
+            @info "Trial $(trial[:trial]) of $(trial[:method][:name]) has evaluated $(i)/$(trial[:M_tst]) samples"
         end
     end
     return df
