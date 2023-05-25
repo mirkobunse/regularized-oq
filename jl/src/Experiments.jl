@@ -498,14 +498,18 @@ function sample_poisson(
         df_acceptance :: DataFrame = load_acceptance();
         round :: Bool = true
         )
-    p = magic_crab_flux(df_acceptance[!, :bin_center]) .* df_acceptance[!, :a_eff]
-    λ = p * N ./ sum(p) # Poisson rates for N events in total
+    λ = poisson_expectation(df_acceptance) * N # Poisson rates for N events in total
     random_sample = [ rand(rng, Poisson(λ_i)) for λ_i in λ ]
     if round
         return round_Np(rng, N, random_sample ./ sum(random_sample)) ./ N
     else
         return random_sample ./ sum(random_sample)
     end
+end
+
+function poisson_expectation(df_acceptance::DataFrame=load_acceptance())
+    p = magic_crab_flux(df_acceptance[!, :bin_center]) .* df_acceptance[!, :a_eff]
+    return p ./ sum(p)
 end
 
 """
