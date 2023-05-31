@@ -1,0 +1,56 @@
+#
+# conf/meta/amazon.yml
+#
+# Meta-configuration for comparing quantification methods on Amazon
+# customer review text data.
+#
+job: amazon # this file configures the function Job.<job>
+seed: 876 # random number generator seed
+M_val: 1000 # number of validation samples
+M_tst: 5000 # number of testing samples
+app_oq_frac: 0.5 # the fraction of samples to keep in APP-OQ
+
+# output of configuration expansion and of experiments
+configfile: conf/gen/surrogate_amazon_$(id).yml # $(id) is replaced by the data ID
+outfile: res/csv/surrogate_amazon_$(id).csv
+valfile: res/csv/surrogate_amazon_$(id)_val.csv
+
+data:
+  - id: roberta
+    path: /mnt/data/amazon-oq-bk/roberta
+    type: dense_vector
+    evaluate_real_data: true
+
+# all classifiers over which the quantification methods are optimized
+classifier:
+
+  - classifier: LogisticRegression
+    method_id: logReg
+    name: "LR ($w=$(class_weight), C=$(C)$)"
+    parameters:
+      C: [ 0.001, 0.01, 0.1, 1.0, 10.0 ]
+      class_weight: [ "balanced", ~ ]
+    bagging: # parameters of a BaggingClassifier
+      n_estimators: 100
+      random_state: 876
+      oob_score: true
+
+# all methods to be compared
+method:
+
+  - method_id: castano-pdf
+    validation_group: emd
+    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
+    parameters:
+      n_bins: [ 5, 10 ] # bins per class, equivalent to [ 20, 40 ] in QUnfold
+      decomposer: none
+      option: bagging_decomp
+
+  - method_id: castano-pdf
+    validation_group: emd_l2
+    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD_L2) on $(classifier)"
+    parameters:
+      n_bins: [ 5, 10 ] # bins per class, equivalent to [ 20, 40 ] in QUnfold
+      distance: EMD_L2
+      decomposer: none
+      option: bagging_decomp

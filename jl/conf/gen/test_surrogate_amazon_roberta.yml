@@ -1,0 +1,52 @@
+app_oq_frac: 0.5
+M_val: 5
+outfile: "res/csv/test_surrogate_amazon_roberta.csv"
+valfile: "res/csv/test_surrogate_amazon_roberta_val.csv"
+M_tst: 5
+configfile: "conf/gen/test_surrogate_amazon_roberta.yml"
+method:
+  - validation_group: "emd_l2"
+    method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=10, d=EMD_L2) on LR ($w=u, C=1.0$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 1.0
+      bagging:
+        oob_score: true
+        random_state: 3249917414
+        n_estimators: 100
+    parameters:
+      decomposer: "none"
+      n_bins: 10
+      distance: "EMD_L2"
+      option: "bagging_decomp"
+  - validation_group: "emd"
+    method_id: "castano-pdf"
+    name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=u, C=0.1$)"
+    classifier:
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        C: 0.1
+      bagging:
+        oob_score: true
+        random_state: 539010050
+        n_estimators: 100
+    parameters:
+      decomposer: "none"
+      n_bins: 5
+      option: "bagging_decomp"
+N_trn: 2000
+job: "amazon"
+data:
+  id: "roberta"
+  path: "/mnt/data/amazon-oq-bk/roberta"
+  type: "dense_vector"
+  evaluate_real_data: true
+seed: 876
