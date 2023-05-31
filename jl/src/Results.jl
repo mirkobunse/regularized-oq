@@ -49,6 +49,9 @@ METHODS_MAIN = [
 main_tfidf() = Results.main("res/tex/main_tfidf.tex"; metricsfiles=Results.METRICSFILES_TFIDF)
 main_others() = Results.main("res/tex/main_others.tex"; metricsfiles=Results.METRICSFILES_OTHERS)
 
+main_roberta() = Results.main("res/tex/main_amazon_roberta.tex"; metricsfiles=Results.METRICSFILES_MAIN[[1]])
+main_fact() = Results.main("res/tex/main_dirichlet_fact.tex"; metricsfiles=Results.METRICSFILES_MAIN[[2]])
+
 """
     main([outfile; metricsfiles])
     main_tfidf()
