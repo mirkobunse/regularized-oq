@@ -44,6 +44,8 @@ METHODS_MAIN = [
     :osld => ("OQ+", "o-SLD"),
     :edy => ("OQ+", "o-EDy"),
     :pdf => ("OQ+", "o-PDF"),
+    :emd => ("OQ", "PDF (EMD)"), # mapping for surrogate results
+    :emd_l2 => ("OQ", "PDF (EMD surrogate)"),
 ]
 
 main_tfidf() = Results.main("res/tex/main_tfidf.tex"; metricsfiles=Results.METRICSFILES_TFIDF)
