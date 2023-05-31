@@ -29,20 +29,20 @@ METHODS_MAIN = [
     :pacc => ("MQ", "PACC"),
     :hdx => ("MQ", "HDx"),
     :hdy => ("MQ", "HDy"),
-    Symbol("castano-edy") => ("MQ", "EDy"),
     :sld => ("MQ", "SLD"),
     :oqt => ("OQ", "OQT"), # second group: ordinal baselines
     :arc => ("OQ", "ARC"),
     :ibu => ("OQ", "IBU"),
     :run => ("OQ", "RUN"),
     :svd => ("OQ", "SVD"),
+    Symbol("castano-edy") => ("OQ", "EDy"),
     Symbol("castano-pdf") => ("OQ", "PDF"),
     :oacc => ("OQ+", "o-ACC"), # third group: new methods
     :opacc => ("OQ+", "o-PACC"),
     :ohdx => ("OQ+", "o-HDx"),
     :ohdy => ("OQ+", "o-HDy"),
-    :edy => ("OQ+", "o-EDy"),
     :osld => ("OQ+", "o-SLD"),
+    :edy => ("OQ+", "o-EDy"),
     :pdf => ("OQ+", "o-PDF"),
 ]
 
