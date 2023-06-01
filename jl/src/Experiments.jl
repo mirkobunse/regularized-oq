@@ -9,6 +9,7 @@ using
     Distributions,
     LinearAlgebra,
     MetaConfigurations,
+    Printf,
     PyCall,
     QUnfold,
     Random,
@@ -718,6 +719,133 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
     @info "Validation samples have been written to app-oq_tst_indices.csv"
 
     return nothing
+end
+
+"""
+    inspect_protocols([; output_path="res/tex/protocols.tex", N=1000, M=100_000])
+
+Inspect the jaggedness and label shift of different protocols. Generate `M` samples with `N` items each.
+"""
+function inspect_protocols(;
+        output_path::String = "res/tex/protocols.tex",
+        N::Integer = 1000, # number of data items per sample
+        M::Integer = 100000, # number of samples in full APP
+        )
+    Random.seed!(876)
+    y_amazon = load_amazon_data("/mnt/data/amazon-oq-bk/roberta/training_data.txt")[2]
+    y_fact = begin
+        dataset = Data.dataset("fact")
+        y_full = encode(Data.discretizer(dataset), Data.y_data(dataset))
+        i_trn, _ = Util.SkObject(
+            "sklearn.model_selection.train_test_split",
+            collect(1:length(y_full)); # split indices
+            train_size = 20000,
+            stratify = y_full,
+            random_state = rand(UInt32)
+        )
+        y_full[i_trn] # "return value" of the begin-end environment
+    end
+    df_acceptance = load_acceptance()
+    p_trn_real = [ # triples (dataset_name, p_trn, p_real)
+        (
+            "amazon",
+            DeconvUtil.fit_pdf(y_amazon, 0:4),
+            [
+                DeconvUtil.fit_pdf(
+                    load_amazon_data(
+                        "/mnt/data/amazon-oq-bk/roberta/real/dev_samples/$(i-1).txt"
+                    )[2],
+                    0:4
+                )
+                for i in 1:1000
+            ]
+        ),
+        (
+            "fact",
+            DeconvUtil.fit_pdf(y_fact, Data.bins(Data.discretizer(Data.dataset("fact")))),
+            [ sample_poisson(Random.GLOBAL_RNG, N, df_acceptance) for i in 1:1000 ]
+        ),
+    ]
+    # p_app = [
+    #     "amazon" => [ DeconvUtil.fit_pdf(
+    #             load_amazon_data(
+    #                 "/mnt/data/amazon-oq-bk/roberta/app/dev_samples/$(i-1).txt"
+    #             )[2],
+    #             0:4
+    #         ) for i in 1:1000 ],
+    #     "fact" => [ rand(Dirichlet(ones(12))) for i in 1:1000 ]
+    # ]
+    df = DataFrame()
+    for (dataset_name, p_trn, p_real) in p_trn_real
+        _n = length(p_trn)
+        _T = LinearAlgebra.diagm( # Tikhonov matrix
+            -1 => fill(-1, _n-1),
+            0 => fill(2, _n),
+            1 => fill(-1, _n-1)
+        )[2:(_n-1), :]
+        ξ(p) = (_T * p)' * (_T * p) / (1+min(5, _n)) # 1/min(6,n+1) * (Tp)^2
+        p_app = [ round_Np(Random.GLOBAL_RNG, N, rand(Dirichlet(ones(_n)))) ./ N for i in 1:M ]
+        i_app = sortperm(ξ.(p_app)) # first x% indices define APP-OQ(x%)
+        protocols = [
+            "real prevalence vectors" => p_real,
+            "APP" => p_app,
+            "APP-OQ (66\\%)" => p_app[i_app[1:round(Int, .66*M)]],
+            "APP-OQ (50\\%)" => p_app[i_app[1:round(Int, .5*M)]],
+            "APP-OQ (33\\%)" => p_app[i_app[1:round(Int, .33*M)]],
+            "APP-OQ (20\\%)" => p_app[i_app[1:round(Int, .2*M)]],
+            "APP-OQ (5\\%)" => p_app[i_app[1:round(Int, .05*M)]],
+            "NPP" => [ round_Np(Random.GLOBAL_RNG, N, p_trn) ./ N for _ in 1:1000 ]
+        ]
+        for (protocol_name, p_protocol) in protocols
+            df_protocol = DataFrame(
+                :ξ => ξ.(p_protocol),
+                :nmd => [ Util.nmd(p_trn, p) for p in p_protocol ]
+            )
+            df_protocol[!, :protocol] .= protocol_name
+            df_protocol[!, :dataset] .= dataset_name
+            df = vcat(df, df_protocol)
+        end
+    end
+    df = combine( # average jaggedness and NMD values
+        groupby(df, [:protocol, :dataset]),
+        :ξ => mean => :ξ,
+        :nmd => mean => :nmd,
+    )
+    jdf = innerjoin(
+        df[df[!, :dataset] .== "amazon", setdiff(propertynames(df), [:dataset])],
+        df[df[!, :dataset] .== "fact", setdiff(propertynames(df), [:dataset])];
+        on = :protocol,
+        renamecols = "_amazon" => "_fact"
+    )
+    open(output_path, "w") do io
+        println(io, "\\begin{tabular}{lcccc}")
+        println(io, "  \\toprule")
+        println(io,
+            "    \\multirow{2}{*}{protocol}",
+            " & \\multicolumn{2}{c}{\\textsc{Amazon-OQ-BK}}",
+            " & \\multicolumn{2}{c}{\\textsc{Fact-OQ}} \\\\"
+        )
+        println(io,
+            "    & \$\\xi(\\mathbf{p}_\\sigma)\$",
+            " & \$\\mathrm{NMD}(\\mathbf{p}_\\sigma, \\mathbf{p}_T)\$",
+            " & \$\\xi(\\mathbf{p}_\\sigma)\$",
+            " & \$\\mathrm{NMD}(\\mathbf{p}_\\sigma, \\mathbf{p}_T)\$ \\\\",
+        )
+        println(io, "  \\midrule")
+        for r in eachrow(jdf)
+            println(io, "    ", join([
+                r[:protocol],
+                "\${" * @sprintf("%.4f", r[:ξ_amazon])[2:end] * "}\$", # "\${.nnnn}\$",
+                "\${" * @sprintf("%.4f", r[:nmd_amazon])[2:end] * "}\$",
+                "\${" * @sprintf("%.4f", r[:ξ_fact])[2:end] * "}\$",
+                "\${" * @sprintf("%.4f", r[:nmd_fact])[2:end] * "}\$",
+            ], " & "), " \\\\")
+        end
+        println(io, "  \\bottomrule")
+        println(io, "\\end{tabular}")
+    end
+    @info "Exported a table to $(output_path)"
+    return jdf
 end
 
 """
