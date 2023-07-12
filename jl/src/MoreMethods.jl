@@ -58,6 +58,10 @@ function __init__()
                     "self._predict(x if len(np.shape(x)) == 2 else [x], self._fitted_estimator)"
                 )
                 line = replace(line, "return y_pred" => "return np.array(y_pred)")
+                line = replace(line,
+                    "[label in left_labels for label in y]" =>
+                    "np.array([label in left_labels for label in y])"
+                )
                 println(io, line)
                 if line == "        self._fitted_estimator = self._fit(X, y)"
                     println(io, "        self.classes_ = np.unique(y)")
