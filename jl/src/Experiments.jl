@@ -620,7 +620,7 @@ function _filter_best_methods!(c::Dict{Symbol,Any}, val_df::DataFrame, app_oq_fr
             best_app[!, :protocol] .= protocol
             best_app # "return value" of the outer map operation
         end,
-        [ "real", "app-oq", "app" ] # apply the outer map to each protocol
+        unique(val_df[!, :protocol]) # apply the outer map to each protocol
     )...)
 
     # remove all methods that are not among the best ones
