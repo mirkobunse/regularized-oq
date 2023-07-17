@@ -107,13 +107,26 @@ function main(outfile="res/tex/main.tex"; metricsfiles=METRICSFILES_MAIN)
         @info "Writing to $(_outfile)" selection_metric tab
         columns = vcat(
             [ "validation_group" ],
-            vcat(map(dataset -> [ "$(dataset) (APP)", "$(dataset) (APP-OQ)", "$(dataset) (real)" ], first.(metricsfiles))...)
+            vcat(map(dataset -> begin
+                if "real" ∈ sdf[!,:val_protocol]
+                    [ "$(dataset) (APP)", "$(dataset) (APP-OQ)", "$(dataset) (real)" ]
+                else
+                    [ "$(dataset) (APP)", "$(dataset) (APP-OQ)" ]
+                end
+            end, first.(metricsfiles))...)
         )
         open(_outfile, "w") do io
-            println(io, "\\begin{tabular}{l$(repeat("ccc", length(metricsfiles)))}")
-            println(io, "  \\toprule") # table header
-            println(io, "  \\multirow{2}{*}{method} & $(join(map(d -> "\\multicolumn{3}{c}{$(d)}", first.(metricsfiles)), " & ")) \\\\")
-            println(io, "  & $(join(map(d -> "APP & APP-OQ & real", first.(metricsfiles)), " & ")) \\\\")
+            if "real" ∈ sdf[!,:val_protocol]
+                println(io, "\\begin{tabular}{l$(repeat("ccc", length(metricsfiles)))}")
+                println(io, "  \\toprule") # table header
+                println(io, "  \\multirow{2}{*}{method} & $(join(map(d -> "\\multicolumn{3}{c}{$(d)}", first.(metricsfiles)), " & ")) \\\\")
+                println(io, "  & $(join(map(d -> "APP & APP-OQ & real", first.(metricsfiles)), " & ")) \\\\")
+            else
+                println(io, "\\begin{tabular}{l$(repeat("cc", length(metricsfiles)))}")
+                println(io, "  \\toprule") # table header
+                println(io, "  \\multirow{2}{*}{method} & $(join(map(d -> "\\multicolumn{2}{c}{$(d)}", first.(metricsfiles)), " & ")) \\\\")
+                println(io, "  & $(join(map(d -> "APP & APP-OQ", first.(metricsfiles)), " & ")) \\\\")
+            end
             print(io, "  \\midrule")
             last_group = tab[1, :group]
             for r in eachrow(tab) # write the table body row by row
