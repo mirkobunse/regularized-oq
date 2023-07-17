@@ -1,9 +1,9 @@
-app_oq_frac: 0.05
-M_val: 2000
+app_oq_frac: 0.2
+M_val: 1000
 outfile: "res/csv/dirichlet_blog-feedback.csv"
 valfile: "res/csv/dirichlet_val_blog-feedback.csv"
 N_tst: 1000
-M_tst: 5000
+M_tst: 2000
 configfile: "conf/gen/dirichlet_blog-feedback.yml"
 dataset: "blog-feedback"
 method:

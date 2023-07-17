@@ -1,5 +1,5 @@
 #
-# conf/meta/dirichlet.yml
+# conf/meta/dirichlet_fact.yml
 #
 # Meta-configuration for comparing methods on telescope data
 # with the sampling protocols APP and APP-OQ, which are
@@ -19,17 +19,9 @@ configfile: conf/gen/dirichlet_$(dataset).yml
 outfile: res/csv/dirichlet_$(dataset).csv
 valfile: res/csv/dirichlet_val_$(dataset).csv
 
-# all data sets to be used
+# the data sets to be used (for all others, see conf/meta/dirichlet_others.yml)
 dataset:
   - fact # FACT telescope data
-
-  # UCI data sets
-  - blog-feedback
-  - online-news-popularity
-
-  # OpenML data sets
-  - Yolanda
-  - fried
 
 # all classifiers over which the quantification methods are optimized
 classifier:

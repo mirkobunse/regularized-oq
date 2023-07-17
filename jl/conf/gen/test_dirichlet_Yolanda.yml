@@ -1,4 +1,4 @@
-app_oq_frac: 0.05
+app_oq_frac: 0.2
 M_val: 5
 outfile: "res/csv/test_dirichlet_Yolanda.csv"
 valfile: "res/csv/test_dirichlet_val_Yolanda.csv"

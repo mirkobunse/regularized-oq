@@ -232,11 +232,13 @@ IsotonicRegression(args...; kwargs...) = Util.SkObject("sklearn.isotonic.Isotoni
 CountVectorizer(args...; kwargs...) = Util.SkObject("sklearn.feature_extraction.text.CountVectorizer", args...; kwargs...)
 
 """
-    dirichlet([metaconfig = "conf/meta/dirichlet.yml"])
+    dirichlet(metaconfigs=["conf/meta/dirichlet_fact.yml", "conf/meta/dirichlet_others.yml"])
 
 Generate a set of job configurations from the given meta-configuration file.
 """
-function dirichlet(metaconfig::String="conf/meta/dirichlet.yml")
+dirichlet(metaconfigs::Vararg{String,N}=("conf/meta/dirichlet_fact.yml", "conf/meta/dirichlet_others.yml")...) where {N} = for m in metaconfigs _dirichlet(m) end
+
+function _dirichlet(metaconfig::String)
     meta = parsefile(metaconfig; dicttype=Dict{Symbol,Any})
 
     # expand configuration
