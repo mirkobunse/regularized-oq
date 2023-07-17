@@ -1,4 +1,4 @@
-# Supplementary material for "Ordinal Quantification Through Regularization"
+# Supplementary material for "Regularization-Based Methods for Ordinal Quantification"
 
 The `supplement.pdf` contains additional material, e.g., extended experimental results.
 
