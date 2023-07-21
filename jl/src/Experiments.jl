@@ -678,44 +678,65 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
 
     # implement APP through a Dirichlet distribution
     dirichlet_distribution = Dirichlet(ones(n_classes))
+    df_acceptance = load_acceptance()
 
     # generate indices
     @info "Generating indices for $(c[:M_val]) validation samples."
-    val_indices = zeros(Int, (c[:M_val], c[:N_val]))
-    val_curvatures = zeros(c[:M_val])
+    app_val_indices = zeros(Int, (c[:M_val], c[:N_val]))
+    app_val_curvatures = zeros(c[:M_val])
+    real_val_indices = zeros(Int, (c[:M_val], c[:N_val]))
     for (sample_index, sample_seed) in enumerate(c[:val_seed])
         rng_sample = MersenneTwister(sample_seed)
+
+        # APP (and APP-OQ through later filtering)
         p_sample = rand(rng_sample, dirichlet_distribution)
         i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
         f_true = DeconvUtil.fit_pdf(y_val[i_sample], Data.bins(discr))
-        val_indices[sample_index, :] = i_sample
-        val_curvatures[sample_index] = sum((C_curv*f_true).^2)
+        app_val_indices[sample_index, :] = i_sample
+        app_val_curvatures[sample_index] = sum((C_curv*f_true).^2)
+
+        # real samples
+        p_sample = sample_poisson(rng_sample, c[:N_val], df_acceptance)
+        i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
+        real_val_indices[sample_index, :] = i_sample
     end
-    CSV.write("app_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
+    CSV.write("app_val_indices.csv", DataFrame(app_val_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app_val_indices.csv"
+    CSV.write("real_val_indices.csv", DataFrame(real_val_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to real_val_indices.csv"
 
     # filter the smoothest app_oq_frac % of the samples for APP-OQ
-    val_indices = val_indices[_protocol(DataFrame(sample_curvature=val_curvatures), c[:app_oq_frac]) .== "app-oq", :]
-    CSV.write("app-oq_val_indices.csv", DataFrame(val_indices, :auto); writeheader=false)
+    oq_val_indices = app_val_indices[_protocol(DataFrame(sample_curvature=app_val_curvatures, is_real_sample=fill(false, length(app_val_curvatures))), c[:app_oq_frac]) .== "app-oq", :]
+    CSV.write("app-oq_val_indices.csv", DataFrame(oq_val_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app-oq_val_indices.csv"
 
     @info "Generating indices for $(c[:M_tst]) testing samples."
-    tst_indices = zeros(Int, (c[:M_tst], c[:N_tst]))
-    tst_curvatures = zeros(c[:M_tst])
+    app_tst_indices = zeros(Int, (c[:M_tst], c[:N_tst]))
+    app_tst_curvatures = zeros(c[:M_tst])
+    real_tst_indices = zeros(Int, (c[:M_tst], c[:N_tst]))
     for (sample_index, sample_seed) in enumerate(c[:tst_seed])
         rng_sample = MersenneTwister(sample_seed)
+
+        # APP (and APP-OQ through later filtering)
         p_sample = rand(rng_sample, dirichlet_distribution)
         i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
         f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
-        tst_indices[sample_index, :] = i_sample
-        tst_curvatures[sample_index] = sum((C_curv*f_true).^2)
+        app_tst_indices[sample_index, :] = i_sample
+        app_tst_curvatures[sample_index] = sum((C_curv*f_true).^2)
+
+        # real samples
+        p_sample = sample_poisson(rng_sample, c[:N_tst], df_acceptance)
+        i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
+        real_tst_indices[sample_index, :] = i_sample
     end
-    CSV.write("app_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
+    CSV.write("app_tst_indices.csv", DataFrame(app_tst_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app_tst_indices.csv"
+    CSV.write("real_tst_indices.csv", DataFrame(real_tst_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to real_tst_indices.csv"
 
     # filter the smoothest app_oq_frac % of the samples for APP-OQ
-    tst_indices = tst_indices[_protocol(DataFrame(sample_curvature=tst_curvatures), c[:app_oq_frac]) .== "app-oq", :]
-    CSV.write("app-oq_tst_indices.csv", DataFrame(tst_indices, :auto); writeheader=false)
+    oq_tst_indices = app_tst_indices[_protocol(DataFrame(sample_curvature=app_tst_curvatures, is_real_sample=fill(false, length(app_tst_curvatures))), c[:app_oq_frac]) .== "app-oq", :]
+    CSV.write("app-oq_tst_indices.csv", DataFrame(oq_tst_indices, :auto); writeheader=false)
     @info "Validation samples have been written to app-oq_tst_indices.csv"
 
     return nothing
