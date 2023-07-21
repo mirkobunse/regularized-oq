@@ -408,6 +408,7 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
 
     # select the best methods for each protocol
     _filter_best_methods!(c, val_df, c[:app_oq_frac])
+    c[:method] = filter(m -> m[:method_id] == "acc", c[:method])[[1]]
 
     # parallel execution
     tst_trials = expand(c, :method)
@@ -556,6 +557,7 @@ function _dirichlet_evaluate!(
         is_real_sample :: Bool,
         ) where {T <: Real, TN<:Number, TL<:Number}
     i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, trial[:N_tst])
+    @info "i_sample" i_sample
     f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
 
     # deconvolve, evaluate, and store the results
