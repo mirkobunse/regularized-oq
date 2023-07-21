@@ -378,6 +378,9 @@ function dirichlet(configfile::String="conf/gen/dirichlet_fact.yml"; validate::B
 
     # configure the validation step: pretend we were testing
     val_c = deepcopy(c) # keep the original configuration intact
+    if validate
+        val_c[:method] = filter(m -> m[:method_id] == "acc", val_c[:method])[[1]]
+    end
     val_c[:tst_seed] = val_c[:val_seed]
     val_c[:N_tst] = val_c[:N_val]
     for m in val_c[:method] # fake reason for "testing" each model
