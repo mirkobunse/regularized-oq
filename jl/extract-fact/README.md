@@ -1,12 +1,12 @@
 # Cherenkov Telescope Data for Ordinal Quantification
 
-This labeled data set is targeted at ordinal quantification. It appears in our research paper "Ordinal Quantification Through Regularization", which we have published at ECML-PKDD 2022. The goal of quantification is not to predict the label of each individual instance, but the distribution of labels in unlabeled sets of data.
+This labeled data set is targeted at ordinal quantification. The goal of quantification is not to predict the class label of each individual instance, but the distribution of labels in unlabeled sets of data.
 
 With the scripts provided, you can extract the relevant features and labels from the public data set of the FACT Cherenkov telescope. These features are precisely the ones that domain experts from astro-particle physics employ in their analyses. The labels stem from a binning of a continuous energy label, which is common practice in these analyses.
 
-We complement this data set with the indices of data items that appear in each sample of our evaluation. Hence, you can precisely replicate our samples by drawing the specified data items. The indices stem from two evaluation protocols that are well suited for ordinal quantification. To this end, each row in the files `app_val_indices.csv`, `app_tst_indices.csv`, `app-oq_val_indices.csv`, and `app-oq_tst_indices.csv` represents one sample.
+We complement this data set with the indices of data items that appear in each sample of our evaluation. Hence, you can precisely replicate our samples by drawing the specified data items. The indices stem from two evaluation protocols that are well suited for ordinal quantification. To this end, each row in the files `app_val_indices.csv`, `app_tst_indices.csv`, `app-oq_val_indices.csv`, `app-oq_tst_indices.csv`, `real_val_indices.csv`, and `real_tst_indices.csv` represents one sample.
 
-Our first protocol is the artificial prevalence protocol (APP), where all possible distributions of labels are drawn with an equal probability. The second protocol, APP-OQ, is a variant thereof, where only the smoothest 20% of all APP samples are considered. This variant is targeted at ordinal quantification tasks, where classes are ordered and a similarity of neighboring classes can be assumed. The labels of the FACT data lie on an ordinal scale and, hence, pose such an ordinal quantification task.
+Our first protocol is the artificial prevalence protocol (APP), where all possible distributions of labels are drawn with an equal probability. The second protocol, APP-OQ(5%), is a variant thereof, where only the smoothest 5% of all APP samples are considered. This variant is targeted at ordinal quantification tasks, where classes are ordered and a similarity of neighboring classes can be assumed. The labels of the FACT data lie on an ordinal scale and, hence, pose such an ordinal quantification task. The third protocol considers "real" distributions of labels. These distributions would be expected by observing the Crab Nebula through the FACT telescope.
 
 
 ## Usage
@@ -34,7 +34,7 @@ julia --project="." extract-fact.jl
 
 ## Further Reading
 
-Implementation of our experiments: https://github.com/mirkobunse/ecml22
+Implementation of our experiments: https://github.com/mirkobunse/regularized-oq
 
 Original data repository: https://factdata.app.tu-dortmund.de/
 

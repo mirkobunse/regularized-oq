@@ -640,8 +640,20 @@ end
     dirichlet_indices(configfile="conf/gen/dirichlet_fact.yml")
 
 Extract the indices of our evaluation.
+
+To extract the indices of all other data sets, call:
+
+    for d in ["blog-feedback", "fried", "online-news-popularity", "Yolanda"]
+        Experiments.dirichlet_indices(
+            "conf/gen/dirichlet_\$(d).yml";
+            path_prefix = "extract-others/\$(d)_"
+        )
+    end
 """
-function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
+function dirichlet_indices(
+        configfile::String="conf/gen/dirichlet_fact.yml";
+        path_prefix::String="extract-fact/"
+        )
     c = parsefile(configfile; dicttype=Dict{Symbol,Any}) # read the configuration
 
     # read and split the data
@@ -698,19 +710,23 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
         app_val_curvatures[sample_index] = sum((C_curv*f_true).^2)
 
         # real samples
-        p_sample = sample_poisson(rng_sample, c[:N_val], df_acceptance)
-        i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
-        real_val_indices[sample_index, :] = i_sample
+        if c[:dataset] == "fact"
+            p_sample = sample_poisson(rng_sample, c[:N_val], df_acceptance)
+            i_sample = Data.subsample_indices(rng_sample, y_val, p_sample, c[:N_val])
+            real_val_indices[sample_index, :] = i_sample
+        end
     end
-    CSV.write("app_val_indices.csv", DataFrame(app_val_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to app_val_indices.csv"
-    CSV.write("real_val_indices.csv", DataFrame(real_val_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to real_val_indices.csv"
+    CSV.write(path_prefix * "app_val_indices.csv", DataFrame(app_val_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to $(path_prefix)app_val_indices.csv"
+    if c[:dataset] == "fact"
+        CSV.write(path_prefix * "real_val_indices.csv", DataFrame(real_val_indices, :auto); writeheader=false)
+        @info "Validation samples have been written to $(path_prefix)real_val_indices.csv"
+    end
 
     # filter the smoothest app_oq_frac % of the samples for APP-OQ
     oq_val_indices = app_val_indices[_protocol(DataFrame(sample_curvature=app_val_curvatures, is_real_sample=fill(false, length(app_val_curvatures))), c[:app_oq_frac]) .== "app-oq", :]
-    CSV.write("app-oq_val_indices.csv", DataFrame(oq_val_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to app-oq_val_indices.csv"
+    CSV.write(path_prefix * "app-oq_val_indices.csv", DataFrame(oq_val_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to $(path_prefix)app-oq_val_indices.csv"
 
     @info "Generating indices for $(c[:M_tst]) testing samples."
     app_tst_indices = zeros(Int, (c[:M_tst], c[:N_tst]))
@@ -727,19 +743,23 @@ function dirichlet_indices(configfile::String="conf/gen/dirichlet_fact.yml")
         app_tst_curvatures[sample_index] = sum((C_curv*f_true).^2)
 
         # real samples
-        p_sample = sample_poisson(rng_sample, c[:N_tst], df_acceptance)
-        i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
-        real_tst_indices[sample_index, :] = i_sample
+        if c[:dataset] == "fact"
+            p_sample = sample_poisson(rng_sample, c[:N_tst], df_acceptance)
+            i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, c[:N_tst])
+            real_tst_indices[sample_index, :] = i_sample
+        end
     end
-    CSV.write("app_tst_indices.csv", DataFrame(app_tst_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to app_tst_indices.csv"
-    CSV.write("real_tst_indices.csv", DataFrame(real_tst_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to real_tst_indices.csv"
+    CSV.write(path_prefix * "app_tst_indices.csv", DataFrame(app_tst_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to $(path_prefix)app_tst_indices.csv"
+    if c[:dataset] == "fact"
+        CSV.write(path_prefix * "real_tst_indices.csv", DataFrame(real_tst_indices, :auto); writeheader=false)
+        @info "Validation samples have been written to $(path_prefix)real_tst_indices.csv"
+    end
 
     # filter the smoothest app_oq_frac % of the samples for APP-OQ
     oq_tst_indices = app_tst_indices[_protocol(DataFrame(sample_curvature=app_tst_curvatures, is_real_sample=fill(false, length(app_tst_curvatures))), c[:app_oq_frac]) .== "app-oq", :]
-    CSV.write("app-oq_tst_indices.csv", DataFrame(oq_tst_indices, :auto); writeheader=false)
-    @info "Validation samples have been written to app-oq_tst_indices.csv"
+    CSV.write(path_prefix * "app-oq_tst_indices.csv", DataFrame(oq_tst_indices, :auto); writeheader=false)
+    @info "Validation samples have been written to $(path_prefix)app-oq_tst_indices.csv"
 
     return nothing
 end
