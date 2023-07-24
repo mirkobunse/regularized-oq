@@ -43,10 +43,7 @@ function OpenmlDataSet(
             c -> Symbol(c) => bunch["data"][c].to_numpy(),
             bunch["data"].columns
         )...)
-        min = isnan(min) ? config[DISCRETIZATION_Y]["min"] : min
-        max = isnan(max) ? config[DISCRETIZATION_Y]["max"] : max
         y_c = [ bunch["target"].values... ] # continuous values
-        i = (y_c .>= min) .& (y_c .<= max) # selection
         rename!(df, names(df) .=> map(1:length(names(df))) do j
             j in get(config, "categorical_columns", String[]) ? "C_$j" : "N_$j"
         end) # column names C_n and N_n define the column type, just like in the UciDataSet
@@ -79,11 +76,8 @@ function UciDataSet(
     if readdata
         df = UCIData.dataset(name)
         dropmissing!(df, disallowmissing=true)
-        min = isnan(min) ? config[DISCRETIZATION_Y]["min"] : min
-        max = isnan(max) ? config[DISCRETIZATION_Y]["max"] : max
-        i = (df[!, :target] .>= min) .& (df[!, :target] .<= max) # selection
-        X = _extract_features(df[i, :])
-        y = _extract_labels(df[i, :target], config)
+        X = _extract_features(df)
+        y = _extract_labels(df[!, :target], config)
     else
         X = zeros(Float32, 0, 0)
         y = zeros(Float32, 0)
