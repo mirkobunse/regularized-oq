@@ -38,17 +38,17 @@ classifier:
 # all methods to be compared
 method:
 
-  # early OQ methods
-  - method_id: oqt
-    name: "OQT ($v=$(val_split)$) on $(classifier)"
-    parameters:
-      epsilon: 1e-6
-      val_split: [ 0.334 ] # 1/3
+  # # early OQ methods
+  # - method_id: oqt
+  #   name: "OQT ($v=$(val_split)$) on $(classifier)"
+  #   parameters:
+  #     epsilon: 1e-6
+  #     val_split: [ 0.334 ] # 1/3
 
-  - method_id: arc
-    name: "ARC ($v=$(val_split)$) on $(classifier)"
-    parameters:
-      val_split: [ 0.334 ]
+  # - method_id: arc
+  #   name: "ARC ($v=$(val_split)$) on $(classifier)"
+  #   parameters:
+  #     val_split: [ 0.334 ]
 
   # original implementations of OQ methods by Castaño et al. (2022)
   - method_id: castano-edy
@@ -93,11 +93,11 @@ method:
     parameters:
       τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
 
-  - method_id: svd
-    name: "SVD ($\\tau=$(τ)$) on $(classifier)"
-    transformer: classifier
-    parameters:
-      τ: [ 1e-1, 1e-3, 1e-5 ]
+  # - method_id: svd
+  #   name: "SVD ($\\tau=$(τ)$) on $(classifier)"
+  #   transformer: classifier
+  #   parameters:
+  #     τ: [ 1e-1, 1e-3, 1e-5 ]
 
   # quantification methods from QUnfold.jl
   - method_id: cc
