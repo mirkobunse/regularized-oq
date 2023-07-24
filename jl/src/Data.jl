@@ -64,6 +64,7 @@ abstract type DataSet end   # abstract supertype
 include("data/fact.jl")     # FACT telescope data
 include("data/ordinal.jl")  # ordinal data from UCI and OpenML
 include("data/castano.jl")  # data from Castano et al. (2022)
+include("data/amazon.jl")   # the amazon data for the dirichlet experiment
 
 """
     X_data(d)
@@ -110,6 +111,8 @@ Return the DataSet object with the given `id`.
 dataset(id::AbstractString, args...; kwargs...) =
     if id == "fact"
         return Fact(args...; kwargs...)
+    elseif id == "amazon"
+        return AmazonRoberta(; kwargs...)
     elseif id ∈ CASTANO_DATASET_NAMES
         return CastanoDataSet(id)
     elseif id ∈ keys(parsefile("conf/data/uci.yml")) 
