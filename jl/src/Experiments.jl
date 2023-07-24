@@ -258,9 +258,6 @@ function _amazon_prefitted_trials(batch::Dict{Symbol, Any})
             rethrow()
         end
         Random.seed!(trial[:seed])
-        if haskey(trial[:method], :classifier) && haskey(trial[:method][:classifier], :bagging)
-            trial[:method][:classifier][:bagging][:n_estimators] = 3
-        end
         @info "Batch $(batch[:batch]) training $(i_trial)/$(n_trials): $(trial[:method][:name])"
         trial[:prefitted_method] = prefit(Configuration.configure_method(trial[:method]), X_trn, y_trn)
     end
@@ -318,18 +315,6 @@ end
 # split each line by spaces, parse into Float64s, and reshape into a matrix
 parse_dense_vector(X_txt::Vector{String}) =
     vcat(map(x -> parse.(Float64, split(x, r"\s+"))', X_txt)...)
-
-# read amazon prevalences
-function load_amazon_prevalences(
-        prevalence_path::String = "data/prevalence_votes1_reviews100.csv";
-        shuffle::Bool = true
-        )
-    p = Matrix{Float64}(CSV.read(prevalence_path, DataFrame; header=false))
-    if !shuffle
-        return p
-    end
-    return hcat(shuffle(collect(eachrow(p)))...)' # shuffle rows
-end
 
 """
     dirichlet(configfile="conf/gen/dirichlet_fact.yml"; validate=true)
