@@ -31,11 +31,8 @@ function _read_UCI(name::String)
     config = parsefile("uci.yml")[name]
     df = UCIData.dataset(name)
     dropmissing!(df, disallowmissing=true)
-    min = config["discretization_y"]["min"]
-    max = config["discretization_y"]["max"]
-    i = (df[!, :target] .>= min) .& (df[!, :target] .<= max) # selection
-    X = _extract_features(df[i, :])
-    y = _extract_labels(df[i, :target])
+    X = _extract_features(df)
+    y = _extract_labels(df[!, :target])
     d = _configure_discretizer(config)
     return _prepare_DataFrame(X, y, d)
 end
