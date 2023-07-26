@@ -36,13 +36,13 @@ method:
         random_state: 539010050
         C: 0.1
   - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.001$, 4 bins per feature)"
-    random_state: 2079480891
+    name: "o-HDx ($\\tau=0.001$, 2 bins per feature)"
+    random_state: 832709507
     parameters:
       τ: 0.001
-      n_bins: 4
+      n_bins: 2
   - method_id: "ibu"
-    name: "IBU ($o=1, i=0.01$) on LR ($w=n, C=1.0$)"
+    name: "IBU ($o=1, i=0.1$) on LR ($w=n, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -57,7 +57,7 @@ method:
     transformer: "classifier"
     parameters:
       o: 1
-      λ: 0.01
+      λ: 0.1
   - method_id: "acc"
     name: "ACC on LR ($w=n, C=0.001$)"
     classifier:
@@ -121,7 +121,7 @@ method:
       τ: 1.0e-5
       n_bins: 4
   - method_id: "svd"
-    name: "SVD ($\\tau=0.001$) on LR ($w=u, C=10.0$)"
+    name: "SVD ($\\tau=0.1$) on LR ($w=u, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -135,7 +135,7 @@ method:
         C: 10.0
     transformer: "classifier"
     parameters:
-      τ: 0.001
+      τ: 0.1
   - method_id: "sld"
     name: "SLD on LR ($w=n, C=0.1$)"
     classifier:
@@ -194,7 +194,7 @@ method:
       val_split: 0.334
       epsilon: 1.0e-6
   - method_id: "osld"
-    name: "o-SLD ($o=4, i=0.1$) on LR ($w=n, C=0.01$)"
+    name: "o-SLD ($o=1, i=0.01$) on LR ($w=n, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -207,10 +207,10 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      o: 4
-      λ: 0.1
+      o: 1
+      λ: 0.01
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=0.01$)"
+    name: "o-PACC ($\\tau=0.1$) on LR ($w=u, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -223,7 +223,7 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      τ: 0.001
+      τ: 0.1
   - method_id: "castano-pdf"
     name: "Casta{\\~{n}}o PDF (J=5, d=EMD) on LR ($w=n, C=10.0$)"
     classifier:
@@ -290,7 +290,7 @@ method:
     parameters:
       n_bins: 4
   - method_id: "edy"
-    name: "o-EDy ($\\tau=1.0e-5$, d=EMD) on LR ($w=u, C=0.1$)"
+    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -303,7 +303,7 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      τ: 1.0e-5
+      τ: 0.001
       distance: "EarthMovers"
 N_trn: 2000
 job: "amazon"
