@@ -6,7 +6,7 @@ M_tst: 5
 configfile: "conf/gen/test_amazon_roberta.yml"
 method:
   - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=u, C=1.0$)"
+    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -20,11 +20,11 @@ method:
         C: 1.0
     parameters:
       order: 3
-      τ: 0.001
+      τ: 0.0001
       n_bins: 20
       distance: "EarthMoversSurrogate"
   - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.1$, 2 bins per class) on LR ($w=u, C=0.1$)"
+    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -38,10 +38,10 @@ method:
         C: 0.1
     parameters:
       order: 3
-      τ: 0.1
+      τ: 0.001
       n_bins: 2
   - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=1.0$)"
+    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -56,9 +56,9 @@ method:
     transformer: "classifier"
     parameters:
       order: 3
-      τ: 0.1
+      τ: 0.01
   - method_id: "ibu"
-    name: "IBU ($o=2, i=0.1$) on LR ($w=n, C=1.0$)"
+    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -73,9 +73,9 @@ method:
     transformer: "classifier"
     parameters:
       o: 2
-      λ: 0.1
+      λ: 0.01
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1$) on LR ($w=n, C=0.001$)"
+    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -89,16 +89,16 @@ method:
         C: 0.001
     parameters:
       order: 3
-      τ: 0.1
+      τ: 0.001
   - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.1$, 3 bins per feature)"
+    name: "o-HDx ($\\tau=0.001$, 3 bins per feature)"
     random_state: 2918134088
     parameters:
       order: 3
-      τ: 0.1
+      τ: 0.001
       n_bins: 3
   - method_id: "edy"
-    name: "o-EDy ($\\tau=10.0$, d=EMD) on LR ($w=u, C=0.001$)"
+    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -112,10 +112,10 @@ method:
         C: 0.001
     parameters:
       order: 3
-      τ: 10.0
+      τ: 0.01
       distance: "EarthMovers"
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.1$) on LR ($w=n, C=0.1$)"
+    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -129,9 +129,9 @@ method:
         C: 0.1
     parameters:
       o: 2
-      λ: 0.1
+      λ: 0.01
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=0.1$)"
+    name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -145,7 +145,7 @@ method:
         C: 0.1
     parameters:
       order: 3
-      τ: 0.001
+      τ: 0.0001
 N_trn: 2000
 job: "amazon"
 data:

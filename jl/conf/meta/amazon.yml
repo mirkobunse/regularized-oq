@@ -45,14 +45,14 @@ method:
   - method_id: edy
     name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
     parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       order: 3 # regularize wrt the 3rd derivative
       distance: EarthMovers
 
   - method_id: pdf
     name: "o-PDF ($\\tau=$(τ), J=$(n_bins)$, d=s-EMD) on $(classifier)"
     parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       order: 3
       n_bins: [ 20, 40 ]
       distance: EarthMoversSurrogate
@@ -63,43 +63,43 @@ method:
     transformer: classifier
     parameters:
       o: [ 2 ]
-      λ: [ 5e-1, 1e-1, 1e-2 ]
+      λ: [ 3e-2, 1e-2, 3e-3 ]
 
   - method_id: run
     name: "RUN ($\\tau=$(τ)$) on $(classifier)"
     transformer: classifier
     parameters:
-      τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
+      τ: [ 1e0, 1e-1, 1e-2 ] # count-based loss of RUN requires larger τ values
       order: 3
 
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
     parameters:
       o: [ 2 ]
-      λ: [ 5e-1, 1e-1, 1e-2 ]
+      λ: [ 3e-2, 1e-2, 3e-3 ]
 
   - method_id: oacc # ordinal ACC
     name: "o-ACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       order: 3
 
   - method_id: opacc # ordinal PACC
     name: "o-PACC ($\\tau=$(τ)$) on $(classifier)"
     parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       order: 3
 
   - method_id: ohdx # ordinal HDx
     name: "o-HDx ($\\tau=$(τ)$, $(n_bins) bins per feature)"
     parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       order: 3
       n_bins: [2, 3, 4]
 
   - method_id: ohdy # ordinal HDy
     name: "o-HDy ($\\tau=$(τ)$, $(n_bins) bins per class) on $(classifier)"
     parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
+      τ: [ 1e-2, 1e-3, 1e-4 ]
       order: 3
       n_bins: [2, 4]
