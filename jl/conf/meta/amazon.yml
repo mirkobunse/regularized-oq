@@ -6,8 +6,8 @@
 #
 job: amazon # this file configures the function Job.<job>
 seed: 876 # random number generator seed
-M_val: 1000 # number of validation samples
-M_tst: 5000 # number of testing samples
+M_val: 200 # number of validation samples
+M_tst: 500 # number of testing samples
 app_oq_frac: 0.5 # the fraction of samples to keep in APP-OQ
 
 # output of configuration expansion and of experiments
@@ -41,33 +41,6 @@ classifier:
 # all methods to be compared
 method:
 
-  # # early OQ methods
-  - method_id: oqt
-    name: "OQT ($v=$(val_split)$) on $(classifier)"
-    parameters:
-      epsilon: 1e-6
-      val_split: [ 0.334 ] # 1/3
-
-  - method_id: arc
-    name: "ARC ($v=$(val_split)$) on $(classifier)"
-    parameters:
-      val_split: [ 0.334 ]
-
-  # original implementations of OQ methods by Castaño et al. (2022)
-  - method_id: castano-edy
-    name: "Casta{\\~{n}}o EDy (d=EMD) on $(classifier)"
-    parameters:
-      distances: emd_distances
-      decomposer: none
-      option: bagging_decomp
-
-  - method_id: castano-pdf
-    name: "Casta{\\~{n}}o PDF (J=$(n_bins), d=EMD) on $(classifier)"
-    parameters:
-      n_bins: [ 5, 10 ] # bins per class, equivalent to [ 20, 40 ] in QUnfold
-      decomposer: none
-      option: bagging_decomp
-
   # regularized implementations of OQ methods by Castaño et al. (2022)
   - method_id: edy
     name: "o-EDy ($\\tau=$(τ)$, d=EMD) on $(classifier)"
@@ -98,39 +71,6 @@ method:
     parameters:
       τ: [ 1e3, 1e1, 1e-1 ] # count-based loss of RUN requires larger τ values
       order: 3
-
-  - method_id: svd
-    name: "SVD ($\\tau=$(τ)$) on $(classifier)"
-    transformer: classifier
-    parameters:
-      τ: [ 1e1, 1e-1, 1e-3 ]
-      order: 3
-
-  # quantification methods from QUnfold.jl
-  - method_id: cc
-    name: "CC on $(classifier)"
-
-  - method_id: pcc
-    name: "PCC on $(classifier)"
-
-  - method_id: acc # softmax ACC
-    name: "ACC on $(classifier)"
-
-  - method_id: pacc # softmax PACC
-    name: "PACC on $(classifier)"
-
-  - method_id: sld # a.k.a. EMQ
-    name: "SLD on $(classifier)"
-
-  - method_id: hdx
-    name: "HDx ($(n_bins) bins per feature)"
-    parameters:
-      n_bins: [2, 3, 4]
-
-  - method_id: hdy
-    name: "HDy ($(n_bins) bins per class) on $(classifier)"
-    parameters:
-      n_bins: [2, 4]
 
   - method_id: osld # ordinal SLD
     name: "o-SLD ($o=$(o), i=$(λ)$) on $(classifier)"
