@@ -1,12 +1,12 @@
 app_oq_frac: 0.5
 M_val: 200
-outfile: "res/csv/amazon_tfidf.csv"
-valfile: "res/csv/amazon_tfidf_val.csv"
+outfile: "res/csv/amazon_tfidf4.csv"
+valfile: "res/csv/amazon_tfidf_val4.csv"
 M_tst: 500
 configfile: "conf/gen/amazon_tfidf.yml"
 method:
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=0.001$)"
+  - method_id: "pacc"
+    name: "PACC on LR ($w=u, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -18,12 +18,125 @@ method:
         class_weight: "balanced"
         random_state: 3193573456
         C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=0.001$)"
+  - method_id: "pacc"
+    name: "PACC on LR ($w=u, C=0.01$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 1466828405
+        C: 0.01
+  - method_id: "pacc"
+    name: "PACC on LR ($w=u, C=0.1$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=u, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 539010050
+        C: 0.1
+  - method_id: "pacc"
+    name: "PACC on LR ($w=u, C=1.0$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=u, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 3249917414
+        C: 1.0
+  - method_id: "pacc"
+    name: "PACC on LR ($w=u, C=10.0$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=u, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: "balanced"
+        random_state: 674079454
+        C: 10.0
+  - method_id: "pacc"
+    name: "PACC on LR ($w=n, C=0.001$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.001$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1207595197
+        C: 0.001
+  - method_id: "pacc"
+    name: "PACC on LR ($w=n, C=0.01$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.01$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 3645983298
+        C: 0.01
+  - method_id: "pacc"
+    name: "PACC on LR ($w=n, C=0.1$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=n, C=0.1$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 1669086789
+        C: 0.1
+  - method_id: "pacc"
+    name: "PACC on LR ($w=n, C=1.0$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=n, C=1.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 910122224
+        C: 1.0
+  - method_id: "pacc"
+    name: "PACC on LR ($w=n, C=10.0$)"
+    classifier:
+      cv:
+        random_state: 876
+        n_estimators: 10
+      method_id: "logReg"
+      name: "LR ($w=n, C=10.0$)"
+      classifier: "LogisticRegression"
+      parameters:
+        class_weight: ~
+        random_state: 931584667
+        C: 10.0
+  - method_id: "sld"
+    name: "SLD on LR ($w=u, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -35,29 +148,8 @@ method:
         class_weight: "balanced"
         random_state: 3193573456
         C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=0.01$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=u, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -69,46 +161,8 @@ method:
         class_weight: "balanced"
         random_state: 1466828405
         C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=0.1$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -120,46 +174,8 @@ method:
         class_weight: "balanced"
         random_state: 539010050
         C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=1.0$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -171,46 +187,8 @@ method:
         class_weight: "balanced"
         random_state: 3249917414
         C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=10.0$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=u, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -222,46 +200,8 @@ method:
         class_weight: "balanced"
         random_state: 674079454
         C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=n, C=0.001$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=n, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -273,46 +213,8 @@ method:
         class_weight: ~
         random_state: 1207595197
         C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=n, C=0.01$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=n, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -324,46 +226,8 @@ method:
         class_weight: ~
         random_state: 3645983298
         C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=n, C=0.1$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=n, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -375,46 +239,8 @@ method:
         class_weight: ~
         random_state: 1669086789
         C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=n, C=1.0$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=n, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -426,46 +252,8 @@ method:
         class_weight: ~
         random_state: 910122224
         C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=n, C=10.0$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=n, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -477,2146 +265,8 @@ method:
         class_weight: ~
         random_state: 931584667
         C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.001$, d=EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      distance: "EarthMovers"
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.0001$, d=EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      distance: "EarthMovers"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=20$, d=s-EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.01, J=40$, d=s-EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=20$, d=s-EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=40$, d=s-EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=40$, d=s-EMD) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 40
-      distance: "EarthMoversSurrogate"
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.03$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.03
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.003$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.003
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "run"
-    name: "RUN ($\\tau=1.0$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 1.0
-  - method_id: "run"
-    name: "RUN ($\\tau=0.1$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.1
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=u, C=0.001$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=u, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -2629,10 +279,10 @@ method:
         random_state: 3193573456
         C: 0.001
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=0.001$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=u, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -2645,10 +295,10 @@ method:
         random_state: 3193573456
         C: 0.001
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=u, C=0.001$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=u, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -2661,10 +311,10 @@ method:
         random_state: 3193573456
         C: 0.001
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=u, C=0.01$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=u, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -2677,10 +327,10 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=0.01$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=u, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -2693,10 +343,10 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=u, C=0.01$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=u, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -2709,10 +359,10 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=u, C=0.1$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -2725,10 +375,10 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=0.1$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -2741,10 +391,10 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=u, C=0.1$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -2757,10 +407,10 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=u, C=1.0$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -2773,10 +423,10 @@ method:
         random_state: 3249917414
         C: 1.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=1.0$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -2789,10 +439,10 @@ method:
         random_state: 3249917414
         C: 1.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=u, C=1.0$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -2805,10 +455,10 @@ method:
         random_state: 3249917414
         C: 1.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=u, C=10.0$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=u, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -2821,10 +471,10 @@ method:
         random_state: 674079454
         C: 10.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=u, C=10.0$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=u, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -2837,10 +487,10 @@ method:
         random_state: 674079454
         C: 10.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=u, C=10.0$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=u, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -2853,10 +503,10 @@ method:
         random_state: 674079454
         C: 10.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=n, C=0.001$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=n, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -2869,10 +519,10 @@ method:
         random_state: 1207595197
         C: 0.001
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.001$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=n, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -2885,10 +535,10 @@ method:
         random_state: 1207595197
         C: 0.001
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=n, C=0.001$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=n, C=0.001$)"
     classifier:
       cv:
         random_state: 876
@@ -2901,10 +551,10 @@ method:
         random_state: 1207595197
         C: 0.001
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=n, C=0.01$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=n, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -2917,10 +567,10 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.01$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=n, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -2933,10 +583,10 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=n, C=0.01$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=n, C=0.01$)"
     classifier:
       cv:
         random_state: 876
@@ -2949,10 +599,10 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=n, C=0.1$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=n, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -2965,10 +615,10 @@ method:
         random_state: 1669086789
         C: 0.1
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=n, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -2981,10 +631,10 @@ method:
         random_state: 1669086789
         C: 0.1
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=n, C=0.1$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=n, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -2997,10 +647,10 @@ method:
         random_state: 1669086789
         C: 0.1
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=n, C=1.0$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=n, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -3013,10 +663,10 @@ method:
         random_state: 910122224
         C: 1.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=n, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -3029,10 +679,10 @@ method:
         random_state: 910122224
         C: 1.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=n, C=1.0$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=n, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -3045,10 +695,10 @@ method:
         random_state: 910122224
         C: 1.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.03$) on LR ($w=n, C=10.0$)"
+    name: "o-SLD ($o=3, i=0.03$) on LR ($w=n, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -3061,10 +711,10 @@ method:
         random_state: 931584667
         C: 10.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.03
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=10.0$)"
+    name: "o-SLD ($o=3, i=0.01$) on LR ($w=n, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -3077,10 +727,10 @@ method:
         random_state: 931584667
         C: 10.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.01
   - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.003$) on LR ($w=n, C=10.0$)"
+    name: "o-SLD ($o=3, i=0.003$) on LR ($w=n, C=10.0$)"
     classifier:
       cv:
         random_state: 876
@@ -3093,488 +743,8 @@ method:
         random_state: 931584667
         C: 10.0
     parameters:
-      o: 2
+      o: 3
       λ: 0.003
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.01$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.0001$) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=u, C=0.001$)"
     classifier:
@@ -3589,7 +759,7 @@ method:
         random_state: 3193573456
         C: 0.001
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=0.001$)"
@@ -3605,7 +775,7 @@ method:
         random_state: 3193573456
         C: 0.001
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=0.001$)"
@@ -3621,7 +791,7 @@ method:
         random_state: 3193573456
         C: 0.001
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=u, C=0.01$)"
@@ -3637,7 +807,7 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=0.01$)"
@@ -3653,7 +823,7 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=0.01$)"
@@ -3669,7 +839,7 @@ method:
         random_state: 1466828405
         C: 0.01
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=u, C=0.1$)"
@@ -3685,7 +855,7 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=0.1$)"
@@ -3701,7 +871,7 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=0.1$)"
@@ -3717,7 +887,7 @@ method:
         random_state: 539010050
         C: 0.1
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=u, C=1.0$)"
@@ -3733,7 +903,7 @@ method:
         random_state: 3249917414
         C: 1.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=1.0$)"
@@ -3749,7 +919,7 @@ method:
         random_state: 3249917414
         C: 1.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=1.0$)"
@@ -3765,7 +935,7 @@ method:
         random_state: 3249917414
         C: 1.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=u, C=10.0$)"
@@ -3781,7 +951,7 @@ method:
         random_state: 674079454
         C: 10.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=u, C=10.0$)"
@@ -3797,7 +967,7 @@ method:
         random_state: 674079454
         C: 10.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=10.0$)"
@@ -3813,7 +983,7 @@ method:
         random_state: 674079454
         C: 10.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=n, C=0.001$)"
@@ -3829,7 +999,7 @@ method:
         random_state: 1207595197
         C: 0.001
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=n, C=0.001$)"
@@ -3845,7 +1015,7 @@ method:
         random_state: 1207595197
         C: 0.001
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=n, C=0.001$)"
@@ -3861,7 +1031,7 @@ method:
         random_state: 1207595197
         C: 0.001
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=n, C=0.01$)"
@@ -3877,7 +1047,7 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=n, C=0.01$)"
@@ -3893,7 +1063,7 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=n, C=0.01$)"
@@ -3909,7 +1079,7 @@ method:
         random_state: 3645983298
         C: 0.01
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=n, C=0.1$)"
@@ -3925,7 +1095,7 @@ method:
         random_state: 1669086789
         C: 0.1
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=n, C=0.1$)"
@@ -3941,7 +1111,7 @@ method:
         random_state: 1669086789
         C: 0.1
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=n, C=0.1$)"
@@ -3957,7 +1127,7 @@ method:
         random_state: 1669086789
         C: 0.1
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=n, C=1.0$)"
@@ -3973,7 +1143,7 @@ method:
         random_state: 910122224
         C: 1.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=n, C=1.0$)"
@@ -3989,7 +1159,7 @@ method:
         random_state: 910122224
         C: 1.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=n, C=1.0$)"
@@ -4005,7 +1175,7 @@ method:
         random_state: 910122224
         C: 1.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.01$) on LR ($w=n, C=10.0$)"
@@ -4021,7 +1191,7 @@ method:
         random_state: 931584667
         C: 10.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.01
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.001$) on LR ($w=n, C=10.0$)"
@@ -4037,7 +1207,7 @@ method:
         random_state: 931584667
         C: 10.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.001
   - method_id: "opacc"
     name: "o-PACC ($\\tau=0.0001$) on LR ($w=n, C=10.0$)"
@@ -4053,1091 +1223,8 @@ method:
         random_state: 931584667
         C: 10.0
     parameters:
-      order: 3
+      order: 4
       τ: 0.0001
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.01$, 2 bins per feature)"
-    random_state: 1078380895
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.01$, 3 bins per feature)"
-    random_state: 2918134088
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 3
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.01$, 4 bins per feature)"
-    random_state: 832709507
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.001$, 2 bins per feature)"
-    random_state: 1078380895
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.001$, 3 bins per feature)"
-    random_state: 2918134088
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 3
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.001$, 4 bins per feature)"
-    random_state: 832709507
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.0001$, 2 bins per feature)"
-    random_state: 1078380895
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.0001$, 3 bins per feature)"
-    random_state: 2918134088
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 3
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.0001$, 4 bins per feature)"
-    random_state: 832709507
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=u, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 1466828405
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=u, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 674079454
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=n, C=0.01$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.01$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 3645983298
-        C: 0.01
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 2 bins per class) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.01$, 4 bins per class) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.01
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 4 bins per class) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 4
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 2 bins per class) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 2
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.0001$, 4 bins per class) on LR ($w=n, C=10.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=10.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 931584667
-        C: 10.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 4
 job: "amazon"
 data:
   id: "tfidf"
