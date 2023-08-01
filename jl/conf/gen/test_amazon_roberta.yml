@@ -1,12 +1,12 @@
 app_oq_frac: 0.5
 M_val: 5
-outfile: "res/csv/test_amazon_roberta.csv"
-valfile: "res/csv/test_amazon_roberta_val.csv"
+outfile: "res/csv/test_amazon_roberta3.csv"
+valfile: "res/csv/test_amazon_roberta_val3.csv"
 M_tst: 5
 configfile: "conf/gen/test_amazon_roberta.yml"
 method:
-  - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.0001, J=20$, d=s-EMD) on LR ($w=u, C=1.0$)"
+  - method_id: "sld"
+    name: "SLD on LR ($w=u, C=1.0$)"
     classifier:
       cv:
         random_state: 876
@@ -18,13 +18,8 @@ method:
         class_weight: "balanced"
         random_state: 3249917414
         C: 1.0
-    parameters:
-      order: 3
-      τ: 0.0001
-      n_bins: 20
-      distance: "EarthMoversSurrogate"
-  - method_id: "ohdy"
-    name: "o-HDy ($\\tau=0.001$, 2 bins per class) on LR ($w=u, C=0.1$)"
+  - method_id: "pacc"
+    name: "PACC on LR ($w=u, C=0.1$)"
     classifier:
       cv:
         random_state: 876
@@ -36,116 +31,6 @@ method:
         class_weight: "balanced"
         random_state: 539010050
         C: 0.1
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 2
-  - method_id: "run"
-    name: "RUN ($\\tau=0.01$) on LR ($w=u, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3249917414
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      order: 3
-      τ: 0.01
-  - method_id: "ibu"
-    name: "IBU ($o=2, i=0.01$) on LR ($w=n, C=1.0$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=1.0$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 910122224
-        C: 1.0
-    transformer: "classifier"
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.001$) on LR ($w=n, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1207595197
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.001
-  - method_id: "ohdx"
-    name: "o-HDx ($\\tau=0.001$, 3 bins per feature)"
-    random_state: 2918134088
-    parameters:
-      order: 3
-      τ: 0.001
-      n_bins: 3
-  - method_id: "edy"
-    name: "o-EDy ($\\tau=0.01$, d=EMD) on LR ($w=u, C=0.001$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.001$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 3193573456
-        C: 0.001
-    parameters:
-      order: 3
-      τ: 0.01
-      distance: "EarthMovers"
-  - method_id: "osld"
-    name: "o-SLD ($o=2, i=0.01$) on LR ($w=n, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=n, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: ~
-        random_state: 1669086789
-        C: 0.1
-    parameters:
-      o: 2
-      λ: 0.01
-  - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.0001$) on LR ($w=u, C=0.1$)"
-    classifier:
-      cv:
-        random_state: 876
-        n_estimators: 10
-      method_id: "logReg"
-      name: "LR ($w=u, C=0.1$)"
-      classifier: "LogisticRegression"
-      parameters:
-        class_weight: "balanced"
-        random_state: 539010050
-        C: 0.1
-    parameters:
-      order: 3
-      τ: 0.0001
 N_trn: 2000
 job: "amazon"
 data:
