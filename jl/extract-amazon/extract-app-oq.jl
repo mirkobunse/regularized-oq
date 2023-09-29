@@ -34,10 +34,12 @@ for (input_dir, output_dir) ∈ [
     # compute the smoothness of each sample
     df[!, :f_true] = map(f_true, df[!, :input_path])
     df[!, :sample_curvature] = map(sample_curvature, df[!, :f_true])
+    @info "Loaded $(nrow(df)) samples from $(input_dir)"
 
-    # select the smoothest 20% of all samples
-    df[!, :curvature_level] = Experiments._curvature_level(df, 5) # 5 splits ≡ 20% per split
-    df = df[df[!, :curvature_level] .== 1, :] # filter
+    # select the smoothest 50% of all samples
+    df[!, :is_real_sample] .= false # column expected by Experiments._protocol
+    df = df[Experiments._protocol(df, .5) .== "app-oq", :] # filter
+    @info "Selected the smoothest $(nrow(df)) samples for APP-OQ"
 
     # replace IDs in prevalences lines
     df[!, :prevalences] = [ join(vcat(x, split(y, ",")[2:end]), ",") for (x, y) ∈ enumerate(df[!, :prevalences]) ]
