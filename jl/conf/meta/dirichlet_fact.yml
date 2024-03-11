@@ -26,13 +26,14 @@ dataset:
 # all classifiers over which the quantification methods are optimized
 classifier:
 
-  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth)$)"
+  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth), m=$(min_samples_leaf)$)"
     classifier: RandomForestClassifier
     package: ensemble
     parameters:
       criterion: [ "entropy", "gini" ]
       max_depth: [ 4, 8, 12 ]
       class_weight: [ "balanced", ~ ]
+      min_samples_leaf: [ 1, 4, 16 ]
       max_features: sqrt
       n_estimators: 100
       random_state: 876

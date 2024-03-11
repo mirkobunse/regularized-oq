@@ -33,14 +33,20 @@ The `run.sh` script will mount two directories: your home folder `/home/<user>/`
 
 ## Setup inside the container / local setup without Docker
 
-Navigate to the place where you have stored our supplementary material. Start `julia` from the `jl/` directory. You get an interactive session with which you can generate the FACT-OQ data set.
+Navigate to the place where you have stored our supplementary material. Start `julia` from the `jl/` directory. You get an interactive session with which you can finalize the installation. **Note:** This step might not be necessary if you have just recently built your Docker image.
+
+```
+julia> using Conda; Conda.runconda(`install -yc anaconda scipy==1.9.1`)
+```
+
+Also, you can generate the FACT-OQ data set from an interactive session.
 
 ```
 julia> using Revise, OrdinalQuantification
 julia> Data.get_fact()
 ```
 
-From this interactive session, you can also update the configuration files in `conf/gen/` after having changed the meta-configurations in `conf/meta/`.
+You can also update the configuration files in `conf/gen/` after having changed the meta-configurations in `conf/meta/`.
 
 ```
 julia> Configuration.amazon()

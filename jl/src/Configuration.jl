@@ -255,7 +255,7 @@ function _dirichlet(metaconfig::String)
             on = if clf[:classifier] == "LogisticRegression"
                 [[:parameters, :class_weight], [:parameters, :C]]
             elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
-                [[:parameters, :class_weight], [:parameters, :max_depth], [:parameters, :criterion]]
+                [[:parameters, :class_weight], [:parameters, :max_depth], [:parameters, :criterion], [:parameters, :min_samples_leaf]]
             end
             expand(clf, on...)
         end, pop!(job, :classifier))...))
@@ -274,6 +274,7 @@ function _dirichlet(metaconfig::String)
                 end
             elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
                 clf[:name] = replace(clf[:name], "\$(max_depth)" => clf[:parameters][:max_depth])
+                clf[:name] = replace(clf[:name], "\$(min_samples_leaf)" => clf[:parameters][:min_samples_leaf])
                 if clf[:parameters][:criterion] == "entropy"
                     clf[:name] = replace(clf[:name], "\$(criterion)" => "E")
                 else # if it's not entropy, it's gini
@@ -461,7 +462,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             on = if clf[:classifier] == "LogisticRegression"
                 [[:parameters, :class_weight], [:parameters, :C]]
             elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
-                [[:parameters, :class_weight], [:parameters, :max_depth], [:parameters, :criterion]]
+                [[:parameters, :class_weight], [:parameters, :max_depth], [:parameters, :criterion], [:parameters, :min_samples_leaf]]
             end
             expand(clf, on...)
         end, pop!(job, :classifier))...)
@@ -480,6 +481,7 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
                 end
             elseif clf[:classifier] in ["RandomForestClassifier", "DecisionTreeClassifier"]
                 clf[:name] = replace(clf[:name], "\$(max_depth)" => clf[:parameters][:max_depth])
+                clf[:name] = replace(clf[:name], "\$(min_samples_leaf)" => clf[:parameters][:min_samples_leaf])
                 if clf[:parameters][:criterion] == "entropy"
                     clf[:name] = replace(clf[:name], "\$(criterion)" => "E")
                 else # if it's not entropy, it's gini
