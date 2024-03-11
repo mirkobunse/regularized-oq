@@ -161,7 +161,8 @@ function _amazon_batch(batch::Dict{Symbol, Any})
         sample_curvature = Float64[], # actual curvature of the respective sample
         is_real_sample = Bool[], # whether this sample is a real sample
         nmd = Float64[],
-        rnod = Float64[]
+        rnod = Float64[],
+        pred_curvature = Float64[], # curvature of the prediction
     ) # store all results in this DataFrame
     Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
     Random.seed!(batch[:seed])
@@ -211,6 +212,7 @@ function _amazon_evaluate!(
         f_est = DeconvUtil.normalizepdf(deconvolve(trial[:prefitted_method], X_tst))
         nmd = Util.nmd(f_est, f_true)
         rnod = Util.rnod(f_est, f_true)
+        pred_curvature = sum((C_curv*f_est).^2)
         sample_curvature = sum((C_curv*f_true).^2)
 
         # a model can be evaluated for multiple reasons; store the results for each
@@ -223,7 +225,7 @@ function _amazon_evaluate!(
                 :validation_group,
                 trial[:method][:method_id]
             )
-            push!(df, [ trial[:method][:name], validation_group, protocol, sm, i, sample_curvature, is_real_sample, nmd, rnod ])
+            push!(df, [ trial[:method][:name], validation_group, protocol, sm, i, sample_curvature, is_real_sample, nmd, rnod, pred_curvature ])
         end
     end
 end
@@ -434,7 +436,8 @@ function _dirichlet_trial(
         sample_curvature = Float64[], # actual curvature of the respective sample
         is_real_sample = Bool[],
         nmd = Float64[],
-        rnod = Float64[]
+        rnod = Float64[],
+        pred_curvature = Float64[], # curvature of the prediction
     ) # store all results in this DataFrame
     Util.numpy_seterr(invalid="ignore") # do not warn when an OOB score divides by NaN
     C = LinearAlgebra.diagm(
@@ -547,12 +550,13 @@ function _dirichlet_evaluate!(
     f_est = DeconvUtil.normalizepdf(deconvolve(method, X_tst[i_sample, :]))
     nmd = Util.nmd(f_est, f_true)
     rnod = Util.rnod(f_est, f_true)
+    pred_curvature = sum((C_curv*f_est).^2)
     sample_curvature = sum((C_curv*f_true).^2)
 
     # this model might be evaluated for multiple reasons; store the results for each reason
     for (protocol, sm) in zip(trial[:method][:protocol], trial[:method][:selection_metric])
         validation_group = get(trial[:method], :validation_group, trial[:method][:method_id])
-        push!(df, [ trial[:method][:name], validation_group, protocol, sm, sample_seed, sample_curvature, is_real_sample, nmd, rnod ])
+        push!(df, [ trial[:method][:name], validation_group, protocol, sm, sample_seed, sample_curvature, is_real_sample, nmd, rnod, pred_curvature ])
     end
 end
 
