@@ -61,7 +61,15 @@ function __init__()
             end
         end
     )
+
+    py"""
+    import pickle
+    def read_pickle(path):
+        with open(path, "rb") as f:
+            return pickle.load(f)
+    """
 end
+read_pickle(path::String) = py"read_pickle"(path)
 
 """
     run(configfile; kwargs...)
@@ -309,7 +317,7 @@ function load_amazon_data(
         ) # the suggested TF-IDF representation; only used for raw_text data
     end
     if type == "tfidf" # load from .pkl data
-        throw(ArgumentError("Data type PICKLE is not yet implemented"))
+        X, y = read_pickle("/$(basename).pkl").Xy # read_pickle returns a LabelledCollection
     else # otherwise, load from .txt data
         X_txt, y = load_amazon_text("/$(basename).txt")
         if n_samples > 0
@@ -327,11 +335,11 @@ function load_amazon_data(
         else
             throw(ArgumentError("Data type $(type) is not known"))
         end
-        if return_vectorizer
-            return X, y, vectorizer
-        else
-            return X, y
-        end
+    end
+    if return_vectorizer
+        return X, y, vectorizer
+    else
+        return X, y
     end
 end
 
