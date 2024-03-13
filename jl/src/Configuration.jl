@@ -578,6 +578,13 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             exp[:name] = name # replace with interpolation
         end
 
+        if job[:data][:type] in [ "raw_text", "tfidf" ]
+            job[:method] = filter( # omit HDx, ARC, and OQT (sparse matrices cannot be split)
+                exp -> exp[:method_id] ∉ [ "hdx", "ohdx", "arc", "oqt" ],
+                job[:method]
+            )
+        end
+
         # collect experiments per validation_group
         group_exp = Dict{String,Vector{Dict{Symbol,Any}}}()
         for exp in job[:method]

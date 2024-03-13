@@ -196,14 +196,7 @@ function _amazon_evaluate!(
         trials::Vector{Dict{Symbol, Any}},
         vectorizer::Any,
         ) where {T <: Real}
-    X_txt, y_tst = load_amazon_data(tst_path * "/$(i-1).txt")
-    X_tst = if batch[:data][:type] == "raw_text"
-        vectorizer.transform(X_txt)
-    elseif batch[:data][:type] == "dense_vector"
-        parse_dense_vector(X_txt)
-    else
-        throw(ArgumentError("Data type $(batch[:data][:type]) is not known"))
-    end # might be X_val during validation
+    X_tst, y_tst = load_amazon_data(tst_path * "/$(i-1)", batch[:data][:type], vectorizer)
     f_true = DeconvUtil.fit_pdf(y_tst, 0:4)
 
     # deconvolve, evaluate, and store the results of all trials in this batch
@@ -231,25 +224,12 @@ function _amazon_evaluate!(
 end
 
 function _amazon_prefitted_trials(batch::Dict{Symbol, Any})
-    X_txt, y_trn = load_amazon_data(batch[:data][:path] * "/training_data.txt")
-    if haskey(batch, :N_trn) # only used in testing configurations
-        X_txt = X_txt[1:batch[:N_trn]]
-        y_trn = y_trn[1:batch[:N_trn]]
-    end
-    vectorizer = Util.SkObject(
-        "sklearn.feature_extraction.text.TfidfVectorizer";
-        min_df = 5,
-        sublinear_tf = true,
-        ngram_range = (1,2)
-    ) # the suggested TF-IDF representation; only used for raw_text data
-    X_trn = if batch[:data][:type] == "raw_text"
-        vectorizer.fit_transform(X_txt)
-    elseif batch[:data][:type] == "dense_vector"
-        parse_dense_vector(X_txt)
-    else
-        throw(ArgumentError("Data type $(batch[:data][:type]) is not known"))
-    end
-
+    X_trn, y_trn, vectorizer = load_amazon_data(
+        batch[:data][:path] * "/training_data",
+        batch[:data][:type],
+        nothing, # if no vectorizer is provided, a new one is fitted and returned
+        get(batch, :N_trn, -1), # use N_trn samples if provided; otherwise, use all samples
+    )
     trials = expand(batch, :method)
     n_trials = length(trials)
     for (i_trial, trial) in enumerate(trials)
@@ -302,7 +282,49 @@ function _amazon_trial_batches(c::Dict{Symbol, Any})
 end
 
 # To-Do: move to Data module?
-function load_amazon_data(data_path::String)
+function load_amazon_data(
+        basename::String,
+        type::String,
+        vectorizer::Union{PyObject,Nothing} = nothing,
+        n_samples::Integer = -1,
+        )
+    return_vectorizer = isnothing(vectorizer) # return a new one if none is provided
+    if return_vectorizer
+        vectorizer = Util.SkObject(
+            "sklearn.feature_extraction.text.TfidfVectorizer";
+            min_df = 5,
+            sublinear_tf = true,
+            ngram_range = (1,2)
+        ) # the suggested TF-IDF representation; only used for raw_text data
+    end
+    if type == "pickle" # load from .pkl data
+        throw(ArgumentError("Data type PICKLE is not yet implemented"))
+    else # otherwise, load from .txt data
+        X_txt, y = load_amazon_text("/$(basename).txt")
+        if n_samples > 0
+            X_txt = X_txt[1:n_samples]
+            y = y[1:n_samples]
+        end
+        X = if type == "raw_text" # legacy data type: extract our own TF-IDF from raw text
+            if return_vectorizer
+                vectorizer.fit_transform(X_txt)
+            else
+                vectorizer.transform(X_txt)
+            end
+        elseif type == "dense_vector"
+            parse_dense_vector(X_txt)
+        else
+            throw(ArgumentError("Data type $(type) is not known"))
+        end
+        if return_vectorizer
+            return X, y, vectorizer
+        else
+            return X, y
+        end
+    end
+end
+
+function load_amazon_text(data_path::String)
     X = String[] # raw text samples
     y = Int[] # labels on an ordinal scale
     open(data_path) do textfile
@@ -762,7 +784,7 @@ function inspect_protocols(;
         M::Integer = 100000, # number of samples in full APP
         )
     Random.seed!(876)
-    y_amazon = load_amazon_data("/mnt/data/amazon-oq-bk/roberta/training_data.txt")[2]
+    y_amazon = load_amazon_text("/mnt/data/amazon-oq-bk/roberta/training_data.txt")[2]
     y_fact = begin
         dataset = Data.dataset("fact")
         y_full = encode(Data.discretizer(dataset), Data.y_data(dataset))
@@ -782,7 +804,7 @@ function inspect_protocols(;
             DeconvUtil.fit_pdf(y_amazon, 0:4),
             [
                 DeconvUtil.fit_pdf(
-                    load_amazon_data(
+                    load_amazon_text(
                         "/mnt/data/amazon-oq-bk/roberta/real/dev_samples/$(i-1).txt"
                     )[2],
                     0:4
@@ -798,7 +820,7 @@ function inspect_protocols(;
     ]
     # p_app = [
     #     "amazon" => [ DeconvUtil.fit_pdf(
-    #             load_amazon_data(
+    #             load_amazon_text(
     #                 "/mnt/data/amazon-oq-bk/roberta/app/dev_samples/$(i-1).txt"
     #             )[2],
     #             0:4
