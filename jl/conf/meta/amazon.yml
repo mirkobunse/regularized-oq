@@ -18,8 +18,8 @@ valfile: res/csv/amazon_$(id)_val.csv
 data:
   - id: tfidf
     path: /mnt/data/amazon-oq-bk/tfidf
-    type: raw_text # specify how to read this data
-    evaluate_real_data: false
+    type: tfidf # specify how to read this data
+    evaluate_real_data: true
   - id: roberta
     path: /mnt/data/amazon-oq-bk/roberta
     type: dense_vector
