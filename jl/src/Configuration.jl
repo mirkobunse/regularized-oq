@@ -86,7 +86,7 @@ function __init__() # copy the CVClassifier from qunfold.sklearn
         def predict_proba(self, X):
             if not hasattr(self, "classes_"):
                 raise NotFittedError()
-            y_pred = np.zeros((len(self.estimators_), len(X), len(self.classes_)))
+            y_pred = np.zeros((len(self.estimators_), X.shape[0], len(self.classes_)))
             for i, (estimator, i_classes) in enumerate(zip(self.estimators_, self.i_classes_)):
                 y_pred[i, :, i_classes] = estimator.predict_proba(X).T
             return np.mean(y_pred, axis=0) # shape (n_samples, n_classes)
@@ -578,8 +578,9 @@ function amazon(metaconfig::String="conf/meta/amazon.yml")
             exp[:name] = name # replace with interpolation
         end
 
+        # omit HDx, OQT, and ARC on sparse data
         if job[:data][:type] in [ "raw_text", "tfidf" ]
-            job[:method] = filter( # omit HDx, ARC, and OQT (sparse matrices cannot be split)
+            job[:method] = filter(
                 exp -> exp[:method_id] ∉ [ "hdx", "ohdx", "arc", "oqt" ],
                 job[:method]
             )

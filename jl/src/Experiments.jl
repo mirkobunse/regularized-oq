@@ -308,7 +308,7 @@ function load_amazon_data(
             ngram_range = (1,2)
         ) # the suggested TF-IDF representation; only used for raw_text data
     end
-    if type == "pickle" # load from .pkl data
+    if type == "tfidf" # load from .pkl data
         throw(ArgumentError("Data type PICKLE is not yet implemented"))
     else # otherwise, load from .txt data
         X_txt, y = load_amazon_text("/$(basename).txt")
