@@ -198,15 +198,26 @@ function _amazon_evaluate!(
         ) where {T <: Real}
     X_tst, y_tst = load_amazon_data(tst_path * "/$(i-1)", batch[:data][:type], vectorizer)
     f_true = DeconvUtil.fit_pdf(y_tst, 0:4)
+    sample_curvature = sum((C_curv*f_true).^2)
 
     # deconvolve, evaluate, and store the results of all trials in this batch
     for trial in trials
         Random.seed!(trial[:seed])
-        f_est = DeconvUtil.normalizepdf(deconvolve(trial[:prefitted_method], X_tst))
-        nmd = Util.nmd(f_est, f_true)
-        rnod = Util.rnod(f_est, f_true)
-        pred_curvature = sum((C_curv*f_est).^2)
-        sample_curvature = sum((C_curv*f_true).^2)
+        local nmd, rnod, pred_curvature
+        try # a NonOptimalStatusError is represented by infinite errors
+            f_est = DeconvUtil.normalizepdf(deconvolve(trial[:prefitted_method], X_tst))
+            nmd = Util.nmd(f_est, f_true)
+            rnod = Util.rnod(f_est, f_true)
+            pred_curvature = sum((C_curv*f_est).^2)
+        catch any_error
+            if isa(any_error, QUnfold.NonOptimalStatusError)
+                nmd = Inf
+                rnod = Inf
+                pred_curvature = Inf
+            else
+                rethrow()
+            end
+        end
 
         # a model can be evaluated for multiple reasons; store the results for each
         for (protocol, sm) in zip(
@@ -567,13 +578,24 @@ function _dirichlet_evaluate!(
         ) where {T <: Real, TN<:Number, TL<:Number}
     i_sample = Data.subsample_indices(rng_sample, y_tst, p_sample, trial[:N_tst])
     f_true = DeconvUtil.fit_pdf(y_tst[i_sample], Data.bins(discr))
+    sample_curvature = sum((C_curv*f_true).^2)
 
     # deconvolve, evaluate, and store the results
-    f_est = DeconvUtil.normalizepdf(deconvolve(method, X_tst[i_sample, :]))
-    nmd = Util.nmd(f_est, f_true)
-    rnod = Util.rnod(f_est, f_true)
-    pred_curvature = sum((C_curv*f_est).^2)
-    sample_curvature = sum((C_curv*f_true).^2)
+    local nmd, rnod, pred_curvature
+    try # a NonOptimalStatusError is represented by infinite errors
+        f_est = DeconvUtil.normalizepdf(deconvolve(method, X_tst[i_sample, :]))
+        nmd = Util.nmd(f_est, f_true)
+        rnod = Util.rnod(f_est, f_true)
+        pred_curvature = sum((C_curv*f_est).^2)
+    catch any_error
+        if isa(any_error, QUnfold.NonOptimalStatusError)
+            nmd = Inf
+            rnod = Inf
+            pred_curvature = Inf
+        else
+            rethrow()
+        end
+    end
 
     # this model might be evaluated for multiple reasons; store the results for each reason
     for (protocol, sm) in zip(trial[:method][:protocol], trial[:method][:selection_metric])
