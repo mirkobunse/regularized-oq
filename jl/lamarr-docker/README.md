@@ -38,17 +38,18 @@ Navigate to the `jl/` directory and instantiate the Julia project from the `Proj
 ```julia
 using Pkg
 pkg"activate ."
-pkg"instantiate"
-pkg"build"
-pkg"precompile"
+pkg"instantiate" # this is expected to error due to Conda
 
 # fix the scikit-learn version
 import Conda
+Conda.runconda(`install -y scikit-learn==1.0.2`)
+Conda.runconda(`install -yc anaconda numpy==1.24`)
 Conda.runconda(`install -yc anaconda scipy==1.9.1`)
-Conda.runconda(`install -y scikit-learn=1.0.2`)
 
 # install the other Python dependencies
 Conda.runconda(`install -y pandas`)
 Conda.pip_interop(true)
 Conda.pip("install", "git+https://github.com/HLT-ISTI/QuaPy")
+
+Pkg.precompile() # complete the previously failed pkg"instantiate"
 ```
