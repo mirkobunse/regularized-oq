@@ -55,7 +55,7 @@ function __init__()
             for line in readlines(download(url))
                 line = replace(line,
                     "self._predict(x, self._fitted_estimator)" =>
-                    "self._predict(x if len(np.shape(x)) == 2 else [x], self._fitted_estimator)"
+                    "self._predict(x if len(np.shape(x)) == 2 else np.array([x]).reshape((1,-1)), self._fitted_estimator)"
                 )
                 line = replace(line, "return y_pred" => "return np.array(y_pred)")
                 line = replace(line,
