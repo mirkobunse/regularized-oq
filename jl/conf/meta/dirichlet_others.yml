@@ -39,6 +39,7 @@ classifier:
       criterion: [ "entropy", "gini" ]
       max_depth: [ 4, 8, 12 ]
       class_weight: [ "balanced", ~ ]
+      min_samples_leaf: [ 1, 4, 16 ]
       max_features: sqrt
       n_estimators: 100
       random_state: 876

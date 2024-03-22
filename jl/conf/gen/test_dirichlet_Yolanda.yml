@@ -8,7 +8,7 @@ configfile: "conf/gen/test_dirichlet_Yolanda.yml"
 dataset: "Yolanda"
 method:
   - method_id: "pdf"
-    name: "o-PDF ($\\tau=0.001, J=55$, d=s-EMD) on RF ($w=u, c=E, d=12$)"
+    name: "o-PDF ($\\tau=0.1, J=110$, d=s-EMD) on RF ($w=u, c=E, d=12$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=E, d=12$)"
@@ -17,13 +17,14 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 674079454
+        random_state: 2918134088
+        min_samples_leaf: 4
         n_estimators: 100
         criterion: "entropy"
         max_depth: 12
     parameters:
-      τ: 0.001
-      n_bins: 55
+      τ: 0.1
+      n_bins: 110
       distance: "EarthMoversSurrogate"
   - method_id: "pcc"
     name: "PCC on RF ($w=u, c=E, d=8$)"
@@ -35,13 +36,14 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 539010050
+        random_state: 910122224
+        min_samples_leaf: 16
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
   - method_id: "ohdx"
     name: "o-HDx ($\\tau=0.001$, 2 bins per feature)"
-    random_state: 2079480891
+    random_state: 2110300085
     parameters:
       τ: 0.001
       n_bins: 2
@@ -55,7 +57,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 1207595197
+        random_state: 2079480891
+        min_samples_leaf: 4
         n_estimators: 100
         criterion: "gini"
         max_depth: 12
@@ -73,13 +76,14 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 3645983298
+        random_state: 3246234475
+        min_samples_leaf: 4
         n_estimators: 100
         criterion: "entropy"
         max_depth: 4
   - method_id: "hdx"
     name: "HDx (3 bins per feature)"
-    random_state: 538310209
+    random_state: 1758507759
     parameters:
       n_bins: 3
   - method_id: "pacc"
@@ -93,6 +97,7 @@ method:
         max_features: "sqrt"
         class_weight: "balanced"
         random_state: 3193573456
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "entropy"
         max_depth: 4
@@ -106,7 +111,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 910122224
+        random_state: 3379360669
+        min_samples_leaf: 16
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
@@ -122,7 +128,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 3249917414
+        random_state: 2104093590
+        min_samples_leaf: 4
         n_estimators: 100
         criterion: "gini"
         max_depth: 8
@@ -139,7 +146,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 539010050
+        random_state: 910122224
+        min_samples_leaf: 16
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
@@ -156,12 +164,13 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 931584667
+        random_state: 1392457825
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "gini"
         max_depth: 8
   - method_id: "oacc"
-    name: "o-ACC ($\\tau=0.1$) on RF ($w=n, c=E, d=8$)"
+    name: "o-ACC ($\\tau=1.0e-5$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -170,12 +179,13 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 910122224
+        random_state: 2655940816
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
     parameters:
-      τ: 0.1
+      τ: 1.0e-5
   - method_id: "cc"
     name: "CC on RF ($w=n, c=E, d=4$)"
     classifier:
@@ -186,7 +196,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 3645983298
+        random_state: 3246234475
+        min_samples_leaf: 4
         n_estimators: 100
         criterion: "entropy"
         max_depth: 4
@@ -200,7 +211,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 1207595197
+        random_state: 4076317281
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "gini"
         max_depth: 12
@@ -208,7 +220,7 @@ method:
       val_split: 0.334
       epsilon: 1.0e-6
   - method_id: "osld"
-    name: "o-SLD ($o=0, i=0.1$) on RF ($w=n, c=E, d=8$)"
+    name: "o-SLD ($o=1, i=0.1$) on RF ($w=n, c=E, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=n, c=E, d=8$)"
@@ -217,15 +229,16 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 910122224
+        random_state: 2655940816
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
     parameters:
-      o: 0
+      o: 1
       λ: 0.1
   - method_id: "opacc"
-    name: "o-PACC ($\\tau=0.1$) on RF ($w=u, c=G, d=4$)"
+    name: "o-PACC ($\\tau=1.0e-5$) on RF ($w=u, c=G, d=4$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=4$)"
@@ -234,12 +247,13 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 1466828405
+        random_state: 3249917414
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "gini"
         max_depth: 4
     parameters:
-      τ: 0.1
+      τ: 1.0e-5
   - method_id: "castano-pdf"
     name: "Casta{\\~{n}}o PDF (J=10, d=EMD) on RF ($w=n, c=E, d=12$)"
     classifier:
@@ -250,7 +264,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 2104093590
+        random_state: 1254024297
+        min_samples_leaf: 16
         n_estimators: 100
         criterion: "entropy"
         max_depth: 12
@@ -268,7 +283,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 539010050
+        random_state: 910122224
+        min_samples_leaf: 16
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
@@ -286,7 +302,8 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 539010050
+        random_state: 1669086789
+        min_samples_leaf: 4
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
@@ -303,14 +320,15 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: ~
-        random_state: 910122224
+        random_state: 2655940816
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "entropy"
         max_depth: 8
     parameters:
       n_bins: 2
   - method_id: "edy"
-    name: "o-EDy ($\\tau=0.1$, d=EMD) on RF ($w=u, c=G, d=8$)"
+    name: "o-EDy ($\\tau=0.001$, d=EMD) on RF ($w=u, c=G, d=8$)"
     classifier:
       package: "ensemble"
       name: "RF ($w=u, c=G, d=8$)"
@@ -319,12 +337,13 @@ method:
         oob_score: true
         max_features: "sqrt"
         class_weight: "balanced"
-        random_state: 3249917414
+        random_state: 931584667
+        min_samples_leaf: 1
         n_estimators: 100
         criterion: "gini"
         max_depth: 8
     parameters:
-      τ: 0.1
+      τ: 0.001
       distance: "EarthMovers"
 N_trn: 2000
 N_val: 100
