@@ -210,10 +210,11 @@ function ranking(metricsfile::String)
 end
 
 function plot_smoothnesses(; kwargs...)
-    plot_smoothness("res/csv/amazon_roberta_val.csv", "res/tex/smoothness_amazon_roberta_pacc.tex"; kwargs...);
-    plot_smoothness("res/csv/amazon_roberta_val.csv", "res/tex/smoothness_amazon_roberta_edy.tex"; validation_group="edy", kwargs...);
-    plot_smoothness("res/csv/amazon_tfidf_val.csv", "res/tex/smoothness_amazon_tfidf_pacc.tex"; kwargs...);
-    plot_smoothness("res/csv/dirichlet_val_fact.csv", "res/tex/smoothness_dirichlet_fact_pacc.tex"; kwargs...);
+    plot_smoothness("res/csv/amazon_roberta_val.csv", "res/tex/smoothness_amazon_roberta_pacc.tex"; kwargs...)
+    plot_smoothness("res/csv/amazon_roberta_val.csv", "res/tex/smoothness_amazon_roberta_sld.tex"; validation_group="osld", kwargs...)
+    plot_smoothness("res/csv/amazon_tfidf_val.csv", "res/tex/smoothness_amazon_tfidf_pacc.tex"; kwargs...)
+    plot_smoothness("res/csv/dirichlet_val_fact.csv", "res/tex/smoothness_dirichlet_fact_pacc.tex"; kwargs...)
+    return nothing
 end
 
 """
@@ -241,17 +242,52 @@ function plot_smoothness(
     else
         error("Unknown protocol=$(protocol)")
     end
-    df1 = df[df[!, :validation_group] .== validation_group, :]
-    df1[!, :tau] = [ parse(Float64, match(r"\$\\tau=([^\$,]*)", n)[1]) for n in df1[!,:name] ]
-    df2 = vcat(
-        df[df[!, :validation_group] .== validation_group[2:end], :], # same group without "o"
-        df[df[!, :validation_group] .== "castano-$(validation_group)", :], # for edy and pdf, prepend "catano-"
-    )
-    df2[!, :tau] .= 0
-    df = sort(vcat(df1, df2), :tau, rev=true)
+    define_color("skyblue", [89, 189, 247])
+    define_color("fuchsia", [232, 46, 130])
+    define_color("freshviolet", [152, 48, 130])
+    define_color("softgray", [112, 111, 111])
+    axis_style = """cycle list={
+        {skyblue,mark=diamond*},
+        {freshviolet,mark=square*,mark options={scale=.75}},
+        {fuchsia,mark=triangle*},
+        {black,mark=star,mark options={semithick}},
+      },
+      legend style={anchor=west,at={(1.05,.5)}}"""
+    if validation_group == "osld"
+        df1 = df[df[!, :validation_group] .== validation_group, :]
+        df1[!, :config] = [ match(r"\$([^\$]*)", n)[1] for n in df1[!,:name] ]
+        df2 = df[df[!, :validation_group] .== validation_group[2:end], :] # same group without "o"
+        df2[!, :config] .= "no reg."
+        df = vcat(df1, df2)
+        axis_style = """cycle list={
+            {skyblue,mark=diamond*},
+            {freshviolet,mark=square*,mark options={scale=.75}},
+            {fuchsia,mark=triangle*},
+            {softgray,mark=pentagon*},
+            {black,mark=star,mark options={semithick}},
+          },
+          legend style={anchor=west,at={(1.05,.5)}}"""
+    else
+        df1 = df[df[!, :validation_group] .== validation_group, :]
+        df1[!, :tau] = [ parse(Float64, match(r"\$\\tau=([^\$,]*)", n)[1]) for n in df1[!,:name] ]
+        df2 = vcat(
+            df[df[!, :validation_group] .== validation_group[2:end], :], # same group without "o"
+            df[df[!, :validation_group] .== "castano-$(validation_group)", :], # for edy and pdf, prepend "catano-"
+        )
+        df2[!, :tau] .= 0
+        df = sort(vcat(df1, df2), :tau, rev=true)
+        df[!, :config] = [
+            if tau == 0
+                "\$\\tau = 0\$"
+            else
+                "\$\\tau = 10^{$(Int(log10(tau)))}\$"
+            end
+            for tau in df[!,:tau]
+        ]
+    end
     df[!, :smoothingratio] = df[!, :pred_curvature] ./ df[!, :sample_curvature]
     df = combine(
-        groupby(df, [ :name, :tau ]),
+        groupby(df, [ :name, :config ]),
         metric => mean => :error_avg,
         metric => minimum => :error_min,
         metric => maximum => :error_max,
@@ -259,10 +295,6 @@ function plot_smoothness(
         :smoothingratio => minimum => :smoothingratio_min,
         :smoothingratio => maximum => :smoothingratio_max,
     )
-    define_color("skyblue", [89, 189, 247])
-    define_color("fuchsia", [232, 46, 130])
-    define_color("freshviolet", [152, 48, 130])
-    define_color("softgray", [112, 111, 111])
     axis = Axis(
         [
             Plots.Linear(
@@ -275,24 +307,15 @@ function plot_smoothness(
                 #     yplus = gdf[!, :error_max] - gdf[!, :error_avg],
                 # ),
                 onlyMarks = true,
-                legendentry = if gdf[1,:tau] == 0
-                    "\$\\tau = 0\$"
-                else
-                    "\$\\tau = 10^{$(Int(log10(gdf[1,:tau])))}\$"
-                end
+                legendentry = gdf[1,:config],
             )
-            for gdf in groupby(df, :tau)
+            for gdf in groupby(df, :config)
         ],
         xlabel = "\$\\hat{\\xi_1} \\cdot \\xi_1^{-1}\$",
         ylabel = uppercase(metric),
         xmode = "log",
         ymode = "log",
-        style = """cycle list={
-            {softgray,mark=diamond*},
-            {freshviolet,mark=square*,mark options={scale=.75}},
-            {fuchsia,mark=triangle*},
-            {skyblue,mark=star,mark options={semithick}},
-          }""",
+        style = axis_style,
     )
     save(outputfile, axis, include_preamble=!endswith(outputfile, ".tex"))
     @info "Plot written to $(outputfile)"
