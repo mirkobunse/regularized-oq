@@ -6,6 +6,7 @@ using
     DataFrames,
     HypothesisTests,
     OrderedCollections,
+    PGFPlots,
     Printf,
     Statistics
 
@@ -208,14 +209,104 @@ function ranking(metricsfile::String)
     end
 end
 
+function plot_smoothnesses(; kwargs...)
+    plot_smoothness("res/csv/amazon_roberta_val.csv", "res/tex/smoothness_amazon_roberta_pacc.tex"; kwargs...);
+    plot_smoothness("res/csv/amazon_roberta_val.csv", "res/tex/smoothness_amazon_roberta_edy.tex"; validation_group="edy", kwargs...);
+    plot_smoothness("res/csv/amazon_tfidf_val.csv", "res/tex/smoothness_amazon_tfidf_pacc.tex"; kwargs...);
+    plot_smoothness("res/csv/dirichlet_val_fact.csv", "res/tex/smoothness_dirichlet_fact_pacc.tex"; kwargs...);
+end
+
 """
-    inspect_parameters(metricsfile; selection_metric="nmd")
+    plot_smoothness(metricsfile, outputfile; protocol="app-oq", metric="nmd", validation_group="opacc")
+
+Plot the error over smoothness ratio for all validated hyper-parameters.
+"""
+function plot_smoothness(
+        metricsfile::String,
+        outputfile::String;
+        protocol::String = "app-oq",
+        metric::String = "nmd",
+        validation_group::String = "opacc",
+        )
+    df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
+    if :val_protocol ∈ propertynames(df)
+        error("Unexpected column :val_protocol; are these testing results?")
+    end
+    if protocol == "app-oq"
+        df = df[df[!, :protocol] .== "app-oq", :]
+    elseif protocol == "app"
+        df = df[df[!, :protocol] .!= "real", :]
+    elseif protocol == "real"
+        df = df[df[!, :protocol] .== "real", :]
+    else
+        error("Unknown protocol=$(protocol)")
+    end
+    df1 = df[df[!, :validation_group] .== validation_group, :]
+    df1[!, :tau] = [ parse(Float64, match(r"\$\\tau=([^\$,]*)", n)[1]) for n in df1[!,:name] ]
+    df2 = vcat(
+        df[df[!, :validation_group] .== validation_group[2:end], :], # same group without "o"
+        df[df[!, :validation_group] .== "castano-$(validation_group)", :], # for edy and pdf, prepend "catano-"
+    )
+    df2[!, :tau] .= 0
+    df = sort(vcat(df1, df2), :tau, rev=true)
+    df[!, :smoothingratio] = df[!, :pred_curvature] ./ df[!, :sample_curvature]
+    df = combine(
+        groupby(df, [ :name, :tau ]),
+        metric => mean => :error_avg,
+        metric => minimum => :error_min,
+        metric => maximum => :error_max,
+        :smoothingratio => mean => :smoothingratio_avg,
+        :smoothingratio => minimum => :smoothingratio_min,
+        :smoothingratio => maximum => :smoothingratio_max,
+    )
+    define_color("skyblue", [89, 189, 247])
+    define_color("fuchsia", [232, 46, 130])
+    define_color("freshviolet", [152, 48, 130])
+    define_color("softgray", [112, 111, 111])
+    axis = Axis(
+        [
+            Plots.Linear(
+                gdf[!, :smoothingratio_avg],
+                gdf[!, :error_avg],
+                # errorBars = ErrorBars(
+                #     xminus = gdf[!, :smoothingratio_avg] - gdf[!, :smoothingratio_min],
+                #     xplus = gdf[!, :smoothingratio_max] - gdf[!, :smoothingratio_avg],
+                #     yminus = gdf[!, :error_avg] - gdf[!, :error_min],
+                #     yplus = gdf[!, :error_max] - gdf[!, :error_avg],
+                # ),
+                onlyMarks = true,
+                legendentry = if gdf[1,:tau] == 0
+                    "\$\\tau = 0\$"
+                else
+                    "\$\\tau = 10^{$(Int(log10(gdf[1,:tau])))}\$"
+                end
+            )
+            for gdf in groupby(df, :tau)
+        ],
+        xlabel = "\$\\hat{\\xi_1} \\cdot \\xi_1^{-1}\$",
+        ylabel = uppercase(metric),
+        xmode = "log",
+        ymode = "log",
+        style = """cycle list={
+            {softgray,mark=diamond*},
+            {freshviolet,mark=square*,mark options={scale=.75}},
+            {fuchsia,mark=triangle*},
+            {skyblue,mark=star,mark options={semithick}},
+          }""",
+    )
+    save(outputfile, axis, include_preamble=!endswith(outputfile, ".tex"))
+    @info "Plot written to $(outputfile)"
+    return df
+end
+
+"""
+    inspect_parameters(metricsfile; protocol="real", metric="nmd")
 
 Inspect the performances of hyper-parameters in validation results.
 """
 function inspect_parameters(
         metricsfile::String;
-        protocol::String = "app-oq",
+        protocol::String = "real",
         metric::String = "nmd"
         )
     df = coalesce.(CSV.read(metricsfile, DataFrame), "") # read the metricsfile
