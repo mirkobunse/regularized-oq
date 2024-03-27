@@ -32,7 +32,7 @@ dataset:
 # all classifiers over which the quantification methods are optimized
 classifier:
 
-  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth)$)"
+  - name: "RF ($w=$(class_weight), c=$(criterion), d=$(max_depth), m=$(min_samples_leaf)$)"
     classifier: RandomForestClassifier
     package: ensemble
     parameters:
